@@ -1,0 +1,41 @@
+{
+	
+		"dados": [
+			{
+				"sacas": "11747320",
+				"sacas": "47320",
+				"peso": "2875245",
+				"media": "60.5",
+				"servico": "47320",
+				"saida": "52459",
+				"transferida": "31586",
+				"total": "58586"
+			}
+		],
+		"total": {
+			"qtd": "1",
+			"sacas": "47320",
+			"peso": "2875245",
+			"media": "60.5",
+			"servico": "47320",
+			"saida": "52459",
+			"transferida": "31586",
+			"total": "58586"
+		},
+		"empresa": {
+			"nome": "Funchal Armazens Gerais Ltda",
+			"endereco": "Rodovia MG 235 Km 01",
+			"cidade": "Sao Gotardo",
+			"estado": "MG",
+			"fone": "3436716116",
+			"email": "funchalarmazens@terra.com.br",
+			"cnpj": "66398298000490",
+			"ie": "621.774339.0390"
+		},
+		"titulo": {
+			"texto": "Saldo de Cafe",
+			"produtor": "Adalton Junior do Prado e outro",
+			"fazenda": "Fazenda Lote 32 Padap"
+		}
+	
+}

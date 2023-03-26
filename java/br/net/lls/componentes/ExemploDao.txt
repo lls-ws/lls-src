@@ -1,0 +1,16 @@
+package br.net.lls.pacote.dao;
+
+import br.net.lls.cafe.Exemplo;
+import br.net.lls.componentes.LancamentoDao;
+
+public interface ExemploDao extends LancamentoDao {
+	
+	void adiciona(Exemplo exemplo);
+	
+	void altera(Exemplo exemplo);
+	
+	Exemplo buscaPorId(int id);
+	
+	Exemplo urlDecoder(Exemplo exemplo);
+	
+}

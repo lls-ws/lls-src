@@ -1,0 +1,37 @@
+{
+	
+		"dados": [
+			{
+				"produtor": "Adalton Junior do Prado e outro",
+				"fazenda": "Fazenda Lote 32 Padap",
+				"data": "2018-10-23",
+				"servico": "Armazenagem de cafe",
+				"total": "1600.00",
+				"pago": "1600.00",
+				"valor": "0.00"
+			}
+		],
+		"total": {
+			"qtd": 1,
+			"total": "10841.33",
+			"pago": "3500.00",
+			"valor": "5200.00"
+		},
+		"empresa": {
+			"nome": "Funchal Armazens Gerais Ltda",
+			"endereco": "Rodovia MG 235 Km 01",
+			"cidade": "Sao Gotardo",
+			"estado": "MG",
+			"fone": "3436716116",
+			"email": "funchalarmazens@terra.com.br",
+			"cnpj": "66398298000490",
+			"ie": "621.774339.0390"
+		},
+		"titulo": {
+			"texto": "Relacao de Cobrancas de Cafe",
+			"dataInicial": "01/11/2016",
+			"dataFinal": "30/11/2016",
+			"tipo": "Abertos"
+		}
+	
+}

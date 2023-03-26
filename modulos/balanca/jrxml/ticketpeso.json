@@ -1,0 +1,37 @@
+{
+	
+	"empresa": {
+		"nome": "Funchal Armazens Gerais Ltda",
+		"endereco": "Rodovia MG 235 Km 01",
+		"cidade": "Sao Gotardo",
+		"estado": "MG",
+		"fone": "3436716116",
+		"email": "armazens@grupofunchal.com.br",
+		"cnpj": "66398298000490",
+		"ie": "621.774339.0390"
+	},
+	"titulo": {
+		"texto": "Ticket de Peso",
+		"produtor": "Adalton Junior do Prado e outro",
+		"fazenda": "Fazenda Lote 32 Padap",
+		"placa": "CUE4903",
+		"ticket": "55364",
+		"descricao": "Cafe Beneficiado",
+		"destino": "Stockler Ltda",
+		"motorista": "",
+		"observacao": "",
+		"tara": "21540.00",
+		"bruto": "45120.00",
+		"liquido": "23580.00",
+		"data": "2018-10-03",
+		"hora": "15:04",
+		"dataFinalizado": "2018-10-04",
+		"horaFinalizado": "17:28",
+		"tipoPeso": "Saida",
+		"qtd": "50",
+		"sacas": "",
+		"lote": "GR006389",
+		"idProdutor": "10"
+	}
+	
+}

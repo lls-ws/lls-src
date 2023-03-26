@@ -1,0 +1,177 @@
+package br.net.lls.pacote.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.SmartValidator;
+import java.io.IOException;
+import javax.validation.Valid;
+import javax.json.JsonObject;
+import java.util.List;
+import java.util.Iterator;
+import java.lang.Object;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.core.JsonGenerationException;
+
+import br.net.lls.componentes.Id;
+import br.net.lls.componentes.Data;
+import br.net.lls.componentes.Relatorio;
+import br.net.lls.componentes.Consulta;
+import br.net.lls.componentes.ControllerUtil;
+import br.net.lls.cadastro.FazendaProdutor;
+import br.net.lls.cadastro.dao.FazendaProdutorDao;
+import br.net.lls.pacote.Exemplo;
+import br.net.lls.pacote.dao.ExemploDao;
+
+@Transactional
+@Controller
+public class ExemploController {
+ 
+	@Autowired
+	ExemploDao exemploDao;
+	
+	@Autowired
+	FazendaProdutorDao fazendaProdutorDao;
+	
+	@Autowired
+	SmartValidator validator;
+	
+	@RequestMapping("salvaExemplo")
+	public @ResponseBody String adiciona(@RequestBody String json,
+										 BindingResult result) {
+		
+		String status = "";
+		String mensagem = "";
+		
+		try {
+			
+			ObjectMapper mapper = new ObjectMapper();
+			
+			JsonNode node = mapper.readTree(json);
+			
+			Exemplo exemplo = mapper.convertValue(node.get("exemplo"), Exemplo.class);
+			
+			validator.validate(exemplo, result, Exemplo.ExemploValida.class);
+			
+			Id idFazendaProdutor = mapper.convertValue(node.get("fazendaProdutor"), Id.class);
+				
+			validator.validate(idFazendaProdutor, result, Id.IdValida.class);
+			
+			if(result.hasFieldErrors()) {
+				return ControllerUtil.getMessageError(result.getFieldError());
+			}
+			else {
+			
+				FazendaProdutor fazendaProdutor = fazendaProdutorDao.buscaPorId(idFazendaProdutor.getId());
+			
+				exemplo.setFazendaProdutor(fazendaProdutor);
+				
+				if (exemplo.getId() == 0) {
+					
+					exemploDao.adiciona(exemplo);
+					
+					return ControllerUtil.getMessageSuccess("0");
+					
+				}
+			
+			}
+				
+			return ControllerUtil.getMessageError("Erro ao salvar!");
+			
+		} catch (JsonGenerationException e) {
+			return ControllerUtil.getMessageError(e.toString());
+			
+		} catch (IOException e) {
+			return ControllerUtil.getMessageError(e.toString());
+		}
+		
+	}
+	
+	@RequestMapping("listaExemplo")
+	public @ResponseBody String lista(@RequestBody @Valid Relatorio relatorio,
+									  BindingResult result) {
+		
+		if(result.hasFieldErrors()) {
+			return ControllerUtil.getMessageError(result.getFieldError());
+		}
+		else {
+			
+			return Consulta.getJson(exemploDao.getListaJSONArray(relatorio),
+									exemploDao.getTotalJSONObject(relatorio));
+			
+		}
+		
+	}
+	
+	@RequestMapping("achaExemplo")
+	public @ResponseBody String acha(@RequestBody @Valid Id id,
+									 BindingResult result) {
+		
+		if(result.hasFieldErrors()) {
+			return ControllerUtil.getMessageError(result.getFieldError());
+		}
+		
+		List exemploList = exemploDao.getListById(id.getId());
+		
+		JSONObject exemploJSON = new JSONObject();
+		
+		for (Iterator iterator = exemploList.iterator(); iterator.hasNext();) {
+			
+			Object[] list = (Object[]) iterator.next();
+			
+			exemploJSON.put("status", "200");
+			exemploJSON.put("id", list[0]);
+			exemploJSON.put("data", list[1]);
+			exemploJSON.put("produtor", list[2]);
+			exemploJSON.put("fazenda", list[3]);
+			exemploJSON.put("obs", list[4]);
+			
+		}
+		
+		return exemploJSON.toString();
+		
+	}
+	
+	@RequestMapping("removeExemplo")
+	public @ResponseBody String remove(@RequestBody @Valid Id id,
+									   BindingResult result) {
+		
+		if(result.hasFieldErrors()) {
+			return ControllerUtil.getMessageError(result.getFieldError());
+		}
+		
+		String status = "";
+		String mensagem = "";
+		
+		Exemplo exemplo = exemploDao.buscaPorId(id.getId());
+		
+		int dias = Data.getDaysDiff(exemplo.getData().getTime(), Data.StringToDate(Data.DataAtual()));
+		
+		if (dias == 0) {
+			
+			exemploDao.remove(id.getId());
+			
+			status = "200";
+			mensagem = "Removido com sucesso!";
+			
+		}
+		else {
+			
+			status = "400";
+			mensagem = "Proibido remover!";
+			
+		}
+		
+		return ControllerUtil.getMessage(status, mensagem);
+		
+	}
+	
+}

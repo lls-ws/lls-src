@@ -1,0 +1,82 @@
+{
+	
+		"dados": [
+			{
+				"produtor": "Adalton Junior do Prado e outro",
+				"fazenda": "Fazenda Lote 32 Padap",
+				"lotes": [
+					{
+						"data": "2018-10-22",
+						"lote": "GR005010/A",
+						"peneira": "Bc",
+						"pilha": "106",
+						"observacao": "Teste de impressao",
+						"sacas": "100",
+						"peso": "6050.00"
+					},
+					{
+						"data": "2018-10-22",
+						"lote": "GR005010/A",
+						"peneira": "Bc",
+						"pilha": "106",
+						"observacao": "Teste de impressao",
+						"sacas": "100",
+						"peso": "6050.00"
+					}
+				]
+			},
+			{
+				"produtor": "Funchal",
+				"fazenda": "Rodovia MG 236 km 01",
+				"lotes": [
+					{
+						"data": "2018-11-02",
+						"lote": "GR005020/B",
+						"peneira": "Bc",
+						"pilha": "230",
+						"observacao": "Teste de impressao",
+						"sacas": "200",
+						"peso": "12100.00"
+					}
+				]
+			}
+		],
+		"total": {
+			"qtd":0,
+			"qtdLotes":2,
+			"sacas":17837,
+			"peso":1079138.50,
+			"media":60.5,
+			"servico":0,
+			"saida":0,
+			"transferida":0,
+			"total":300,
+			"peneiras": [
+				{
+					"nome": "Bc",
+					"sacas":17837,
+					"peso":1079138.50
+				},
+				{
+					"nome": "Escolha",
+					"sacas":17837,
+					"peso":1079138.50
+				}
+			]
+		},
+		"empresa": {
+			"nome": "Funchal Armazens Gerais Ltda",
+			"endereco": "Rodovia MG 235 Km 01",
+			"cidade": "Sao Gotardo",
+			"estado": "MG",
+			"fone": "3436716116",
+			"email": "armazens@grupofunchal.com.br",
+			"cnpj": "66398298000490",
+			"ie": "621.774339.0390"
+		},
+		"titulo": {
+			"texto": "Relacao de Lotes de Cafe",
+			"tipo": "Abertos"
+		}
+	
+}

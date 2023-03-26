@@ -1,0 +1,53 @@
+{
+	
+		"dados": [
+			{
+				"data": "2017-08-04",
+				"lote": "GE005010",
+				"ticket": "55489",
+				"destino": "Devolucao",
+				"sacas": "100",
+				"peso": "6050.00"
+			},
+			{
+				"data": "2017-08-04",
+				"lote": "GE005010",
+				"ticket": "55489",
+				"destino": "Devolucao",
+				"sacas": "100",
+				"peso": "6050.00"
+			},
+			{
+				"data": "2017-08-04",
+				"lote": "GE005010",
+				"ticket": "55489",
+				"destino": "Devolucao",
+				"sacas": "100",
+				"peso": "6050.00"
+			}
+		],
+		"total": {
+			"qtd":3,
+			"sacas":17837,
+			"peso":1079138.50
+		},
+		"empresa": {
+			"nome": "Funchal Armazens Gerais Ltda",
+			"endereco": "Rodovia MG 235 Km 01",
+			"cidade": "Sao Gotardo",
+			"estado": "MG",
+			"fone": "3436716116",
+			"email": "armazens@grupofunchal.com.br",
+			"cnpj": "66398298000490",
+			"ie": "621.774339.0390"
+		},
+		"titulo": {
+			"texto": "Relacao de Saidas de Cafe",
+			"dataInicial": "01/10/2018",
+			"dataFinal": "31/10/2018",
+			"produtor": "Adalton Junior do Prado e outro",
+			"fazenda": "Fazenda Lote 32 Padap",
+			"tipo": "Abertos"
+		}
+	
+}

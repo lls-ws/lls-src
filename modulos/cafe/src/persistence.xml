@@ -1,0 +1,66 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+	http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+
+	<persistence-unit name="lls-cafe">
+		
+		<!-- provedor/implementacao do JPA -->
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		
+		<!-- entidades mapeadas lls -->
+		<class>br.net.lls.cadastro.Usuario</class>
+		<class>br.net.lls.cadastro.Empresa</class>
+		<class>br.net.lls.cadastro.Preco</class>
+		<class>br.net.lls.cadastro.Produtor</class>
+		<class>br.net.lls.cadastro.FazendaProdutor</class>
+		<class>br.net.lls.cadastro.TelefoneProdutor</class>
+		
+		<!-- entidades mapeadas milho -->
+		<class>br.net.lls.cadastro.Umidade</class>
+		<class>br.net.lls.cadastro.Laudo</class>
+		<class>br.net.lls.milho.Milho</class>
+		<class>br.net.lls.milho.Entmilho</class>
+		<class>br.net.lls.milho.Saimilho</class>
+		<class>br.net.lls.milho.Tramilho</class>
+		<class>br.net.lls.fatmilho.Fatmilho</class>
+		<class>br.net.lls.fatmilho.Servmilho</class>
+		<class>br.net.lls.fatmilho.Baixamilho</class>
+		
+		<!-- entidades mapeadas cafe -->
+		<class>br.net.lls.cadastro.Peneira</class>
+		<class>br.net.lls.cafe.Guia</class>
+		<class>br.net.lls.cafe.Lote</class>
+		<class>br.net.lls.cafe.Entcafe</class>
+		<class>br.net.lls.cafe.Oscafe</class>
+		<class>br.net.lls.cafe.OscafeDespejo</class>
+		<class>br.net.lls.cafe.Saicafe</class>
+		<class>br.net.lls.cafe.SaicafeDespejo</class>
+		<class>br.net.lls.cafe.Tracafe</class>
+		<class>br.net.lls.cafe.TracafeDespejo</class>
+		<class>br.net.lls.fatcafe.Cafe</class>
+		<class>br.net.lls.fatcafe.Fatcafe</class>
+		<class>br.net.lls.fatcafe.Servcafe</class>
+		<class>br.net.lls.fatcafe.Baixacafe</class>
+		
+		<!-- entidades mapeadas balanca -->
+		<class>br.net.lls.balanca.Ticket</class>
+		<class>br.net.lls.balanca.TipoPeso</class>
+		<class>br.net.lls.balanca.Peso</class>
+		
+		<properties>
+		
+			<!-- propriedades do hibernate -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+			
+			<!-- atualiza o banco, gera as tabelas se for preciso -->
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			
+		</properties>
+		
+	</persistence-unit>
+
+</persistence>

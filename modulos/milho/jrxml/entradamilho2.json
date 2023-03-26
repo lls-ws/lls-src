@@ -1,0 +1,81 @@
+{
+	
+		"dados": [
+			{
+				"data": "2017-03-02",
+				"laudo": "24924",
+				"placa": "",
+				"bruto": "10540.00",
+				"impureza": "2.8",
+				"valorImpureza": "1098.00",
+				"umidade": "29.70",
+				"descontoUmidade": "20.04",
+				"valorUmidade": "2112.00",
+				"quirela": "0.20",
+				"valorQuirela": "21.00",
+				"chocho": "12.20",
+				"valorChocho": "1286.00",
+				"liquido": "691200.00",
+				"recepcao": "475.41",
+				"limpeza": "22.56",
+				"secagem": "217.13",
+				"carga": "50.08",
+				"total": "602.12"
+			},
+			{
+				"data": "2017-03-05",
+				"laudo": "24924",
+				"placa": "ABC2494",
+				"bruto": "10540.00",
+				"impureza": "5.80",
+				"valorImpureza": "611.00",
+				"umidade": "29.70",
+				"descontoUmidade": "20.04",
+				"valorUmidade": "2112.00",
+				"quirela": "0.20",
+				"valorQuirela": "21.00",
+				"chocho": "12.20",
+				"valorChocho": "1286.00",
+				"liquido": "691200.00",
+				"recepcao": "475.41",
+				"limpeza": "22.56",
+				"secagem": "217.13",
+				"carga": "50.08",
+				"total": "602.12"
+			}
+		],
+		"total": {
+			"bruto": "17907420.00",
+			"impureza": "394896.00",
+			"umidade": "1864387.00",
+			"quirela": "98467.00",
+			"chocho": "39008.00",
+			"liquido": "21372923.00",
+			"recepcao": "53132.10",
+			"limpeza": "55100.37",
+			"secagem": "456459.92",
+			"carga": "53132.10",
+			"total": "617824.49",
+			"entradas": "2458808.00",
+			"saidas": "2458808.00",
+			"saldo": "887800.00"
+		},
+		"empresa": {
+			"nome": "Funchal Armazens Gerais Ltda",
+			"endereco": "Rodovia MG 235 Km 01",
+			"cidade": "Sao Gotardo",
+			"estado": "MG",
+			"fone": "3436716116",
+			"email": "funchalarmazens@terra.com.br",
+			"cnpj": "66398298000490",
+			"ie": "621.774339.0390"
+		},
+		"titulo": {
+			"texto": "Relacao de Entradas de Milho",
+			"dataInicial": "01/12/2016",
+			"dataFinal": "31/12/2016",
+			"produtor": "Adalton Junior do Prado e outro",
+			"fazenda": "Fazenda Lote 32 Padap"
+		}
+	
+}

@@ -1,0 +1,33 @@
+#!/bin/bash
+# Biblioteca para manipular arquivos e diretórios
+#
+# Autor: Leandro Luiz
+# email: lls.homeoffice@gmail.com
+
+cria_arq_menu_exemplo()
+{
+	
+	ARQ="jquery-lls-menu-exemplo.js"
+	
+	COMPONENTES=(
+		"menu/menuExemplo.js"
+	)
+
+	cria_arq $ARQ $COMPONENTES
+	
+}
+
+cria_arq_componente_sqlProcuraExemplo()
+{
+	
+	ARQ="jquery-lls-componente-sqlProcuraExemplo.js"
+	
+	COMPONENTES=(
+		#"cadastro/exemplo/campoSqlProcuraExemplo.js"
+		#"cadastro/exemplo/pegaDadosCampoSqlProcuraExemplo.js"
+		#"cadastro/exemplo/pegaDadosSqlProcuraExemplo.js"
+	)
+
+	cria_arq $ARQ $COMPONENTES
+	
+}

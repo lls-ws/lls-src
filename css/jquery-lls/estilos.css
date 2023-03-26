@@ -1,0 +1,74 @@
+/*
+ * Classe com todas as configuracoes para o css do html
+ * 
+ * Autor: Leandro Luiz
+ * email: lls.homeoffice@gmail.com
+*/
+
+.ui-datepicker-trigger{
+	cursor:pointer;
+}
+
+.form-inline .form-group{
+    margin-left: 0;
+    margin-right: 15;
+}
+
+.logo-operadoras {
+	border: 0 none;
+	display: inline-block;
+	height: auto;
+	max-width: 100%;
+	vertical-align: middle;
+}
+
+.form-horizontal
+{
+	padding-top: 5px;
+	padding-bottom: 1px;
+	margin-top: 5px;
+	-moz-border-radius: 2%;
+	-webkit-border-radius: 2%;
+	border-radius: 2%;
+}
+
+#divDialog {
+	display:none;
+}
+
+.texto_cor_verde {
+  font-size: large;
+}
+
+.texto_cor_vermelho {
+  font-size: large;
+}
+
+.texto_grande {
+  font-size: large;
+}
+
+.input-group-addon
+{
+	cursor: pointer;
+}
+
+.input-group-addon:hover
+{
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0044cc', GradientType=0);
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.form-check-label
+{
+	cursor: pointer;
+}
+
+.form-check-input
+{
+	cursor: pointer;
+}

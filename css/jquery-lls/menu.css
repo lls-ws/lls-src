@@ -1,0 +1,35 @@
+/*
+ * Classe com todas as configuracoes em css para o menu
+ * 
+ * Autor: Leandro Luiz
+ * email: lls.homeoffice@gmail.com
+*/
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.imagem-menu {
+	padding-right: 5px;
+}
+
+.container_menu {
+
+	z-index: -1;
+
+}
+
+.imagem-painel {
+	margin-top: 40%;
+	
+	-moz-border-radius: 5%;
+	-webkit-border-radius: 5%;
+	border-radius: 5%;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 100%;
+  }
+}

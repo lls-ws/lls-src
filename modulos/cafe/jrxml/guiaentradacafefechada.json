@@ -1,0 +1,70 @@
+{
+	"desdobras":
+		[
+			{
+				"observacao":"Teste de impressao",
+				"sacas":155,
+				"peso":9377,
+				"lote":"GR006538/A",
+				"pilha":"CD/GB",
+				"peneira":"Bc"
+			}
+		],
+	"totalDesdobras":
+		{
+			"totalQtd":1,
+			"totalSacas":155,
+			"totalPeso":9377
+		},
+	"cobranca":
+		[
+			{
+				"data":"2018-10-19",
+				"servico":"Rebeneficio de cafe",
+				"sacas":155,
+				"valor":2500
+			}
+		],
+	"totalCobranca":
+		{
+			"qtd":1,
+			"total":2500
+		},
+	"titulo":
+		{
+			"idFazenda":989,
+			"observacao":"Gerado automaticamente",
+			"data":"2018-10-19",
+			"ticket":55697,
+			"sacas":155,
+			"peso":9377,
+			"lote":"GR006538",
+			"sacasDesdobras":155,
+			"valor":0,
+			"pesoNota":9377.5,
+			"sacasNota":155,
+			"fazenda":"FAZENDA SAPÉ",
+			"fechado":true,
+			"texto":"Guia de Recebimento de CafÃ©",
+			"sacasRestantes":0,
+			"desdobras":1,
+			"idProdutor":34,
+			"produtor":"Jose Mozart Mesquita Londe e outro",
+			"cobrar":true,
+			"usuario":"gustavo.bicalho@grupofunchal.com.br",
+			"id":4617,
+			"nota":"",
+			"placa":"GMK5434"
+		},
+	"empresa":
+		{
+			"nome": "Funchal Armazens Gerais Ltda",
+			"endereco": "Rodovia MG 235 Km 01",
+			"cidade": "Sao Gotardo",
+			"estado": "MG",
+			"fone": "3436716116",
+			"email": "armazens@grupofunchal.com.br",
+			"cnpj": "66398298000490",
+			"ie": "621.774339.0390"
+		}
+}

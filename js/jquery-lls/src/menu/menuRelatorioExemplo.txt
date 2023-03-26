@@ -1,0 +1,21 @@
+/* ================ menuRelatorioExemplo.js ==================
+ * http://lls.net.br/
+ * ========================================================= */
+
+function menuRelatorioExemplo(nomesItensMenu, opcoesMenu) {
+	
+	var $item1 = 'novoFormulario("Exemplo", "find", "' + opcoesMenu.posicaoMenu + '", "click")';
+	
+	opcoesMenu.qtdItensMenu++;
+	
+	nomesItensMenu[opcoesMenu.qtdItensMenu] = {
+		separator: true,
+		titulo: "Exemplo",
+		icone: "align-left",
+		texto: "Relação de Exemplo",
+		url: $item1
+	}
+	
+	return opcoesMenu;
+	
+}

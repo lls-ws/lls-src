@@ -1,0 +1,34 @@
+{
+	
+		"dados": [
+			{
+				"data": "2018-10-23",
+				"armazenagem": "20231.11",
+				"servicos": "20231.11",
+				"total": "1600.00"
+			}
+		],
+		"total": {
+			"qtd": 1,
+			"armazenagem": "20231.11",
+			"servicos": "20231.11",
+			"total": "1600.00"
+		},
+		"empresa": {
+			"nome": "Funchal Armazens Gerais Ltda",
+			"endereco": "Rodovia MG 235 Km 01",
+			"cidade": "Sao Gotardo",
+			"estado": "MG",
+			"fone": "3436716116",
+			"email": "funchalarmazens@terra.com.br",
+			"cnpj": "66398298000490",
+			"ie": "621.774339.0390"
+		},
+		"titulo": {
+			"texto": "Relacao Sintetizada de Servico de Cafe",
+			"tipo": "Faturados",
+			"produtor": "Adalton Junior do Prado e outro",
+			"fazenda": "Fazenda Lote 32 Padap"
+		}
+	
+}

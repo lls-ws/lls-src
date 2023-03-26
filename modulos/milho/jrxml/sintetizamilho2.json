@@ -1,0 +1,200 @@
+{
+	
+		"dados": [
+			{
+				"limpeza": "0.00",
+				"secagem": "0.00",
+				"carga": "0.00",
+				"recepcao": "0.00",
+				"armazenagem": "5339.80",
+				"total": "5339.80"
+			},
+			{
+				"limpeza": "0.00",
+				"secagem": "0.00",
+				"carga": "0.00",
+				"recepcao": "0.00",
+				"armazenagem": "323.41",
+				"total": "323.41"
+			},
+			{
+				"limpeza": "4.60",
+				"secagem": "6.40",
+				"carga": "2.30",
+				"recepcao": "3.20",
+				"armazenagem": "12.50",
+				"total": "34.70"
+			},
+			{
+				"limpeza": "1.60",
+				"secagem": "2.40",
+				"carga": "3.30",
+				"recepcao": "4.20",
+				"armazenagem": "5.50",
+				"total": "6.70"
+			},
+			{
+				"limpeza": "4.60",
+				"secagem": "6.40",
+				"carga": "2.30",
+				"recepcao": "3.20",
+				"armazenagem": "12.50",
+				"total": "34.70"
+			},
+			{
+				"produtor": "Produtor 2",
+				"fazenda": "Fazenda 2",
+				"limpeza": "1.60",
+				"secagem": "2.40",
+				"carga": "3.30",
+				"recepcao": "4.20",
+				"armazenagem": "5.50",
+				"total": "6.70"
+			},
+			{
+				"limpeza": "4.60",
+				"secagem": "6.40",
+				"carga": "2.30",
+				"recepcao": "3.20",
+				"armazenagem": "12.50",
+				"total": "34.70"
+			},
+			{
+				"limpeza": "4.60",
+				"secagem": "6.40",
+				"carga": "2.30",
+				"recepcao": "3.20",
+				"armazenagem": "12.50",
+				"total": "34.70"
+			},
+			{
+				"limpeza": "1.60",
+				"secagem": "2.40",
+				"carga": "3.30",
+				"recepcao": "4.20",
+				"armazenagem": "5.50",
+				"total": "6.70"
+			},
+			{
+				"limpeza": "4.60",
+				"secagem": "6.40",
+				"carga": "2.30",
+				"recepcao": "3.20",
+				"armazenagem": "12.50",
+				"total": "34.70"
+			},
+			{
+				"limpeza": "1.60",
+				"secagem": "2.40",
+				"carga": "3.30",
+				"recepcao": "4.20",
+				"armazenagem": "5.50",
+				"total": "6.70"
+			},
+			{
+				"limpeza": "4.60",
+				"secagem": "6.40",
+				"carga": "2.30",
+				"recepcao": "3.20",
+				"armazenagem": "12.50",
+				"total": "34.70"
+			},
+			{
+				"limpeza": "1.60",
+				"secagem": "2.40",
+				"carga": "3.30",
+				"recepcao": "4.20",
+				"armazenagem": "5.50",
+				"total": "6.70"
+			},
+			{
+				"limpeza": "4.60",
+				"secagem": "6.40",
+				"carga": "2.30",
+				"recepcao": "3.20",
+				"armazenagem": "12.50",
+				"total": "34.70"
+			},
+			{
+				"limpeza": "1.60",
+				"secagem": "2.40",
+				"carga": "3.30",
+				"recepcao": "4.20",
+				"armazenagem": "5.50",
+				"total": "6.70"
+			},
+			{
+				"limpeza": "4.60",
+				"secagem": "6.40",
+				"carga": "2.30",
+				"recepcao": "3.20",
+				"armazenagem": "12.50",
+				"total": "34.70"
+			},
+			{
+				"limpeza": "1.60",
+				"secagem": "2.40",
+				"carga": "3.30",
+				"recepcao": "4.20",
+				"armazenagem": "5.50",
+				"total": "6.70"
+			},
+			{
+				"limpeza": "4.60",
+				"secagem": "6.40",
+				"carga": "2.30",
+				"recepcao": "3.20",
+				"armazenagem": "12.50",
+				"total": "34.70"
+			},
+			{
+				"limpeza": "1.60",
+				"secagem": "2.40",
+				"carga": "3.30",
+				"recepcao": "4.20",
+				"armazenagem": "5.50",
+				"total": "6.70"
+			},
+			{
+				"limpeza": "4.60",
+				"secagem": "6.40",
+				"carga": "2.30",
+				"recepcao": "3.20",
+				"armazenagem": "12.50",
+				"total": "34.70"
+			},
+			{
+				"limpeza": "752.81",
+				"secagem": "1289.41",
+				"carga": "746.19",
+				"recepcao": " 746.19",
+				"armazenagem": "104.76",
+				"total": "3639.36"
+			}
+		],
+		"total": {
+			"limpeza": "11423.92",
+			"secagem": "124253.54",
+			"carga": "10940.52",
+			"recepcao": "10940.52",
+			"armazenagem": "20231.11",
+			"total": "135023.90"
+		},
+		"empresa": {
+			"nome": "Funchal Armazens Gerais Ltda",
+			"endereco": "Rodovia MG 235 Km 01",
+			"cidade": "Sao Gotardo",
+			"estado": "MG",
+			"fone": "3436716116",
+			"email": "funchalarmazens@terra.com.br",
+			"cnpj": "66398298000490",
+			"ie": "621.774339.0390"
+		},
+		"titulo": {
+			"texto": "Relacao Sintetizada de Servico de Milho",
+			"tipo": "Faturados",
+			"produtor": "Adalton Junior do Prado e outro",
+			"fazenda": "Fazenda Lote 32 Padap"
+		}
+	
+}

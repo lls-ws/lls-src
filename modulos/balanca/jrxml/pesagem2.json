@@ -1,0 +1,40 @@
+{
+	
+		"dados": [
+			{
+				"data": "2018-08-04",
+				"ticket": "55974",
+				"placa": "ABC2494",
+				"produto": "Cafe Beneficiado",
+				"tipoPeso": "Entrada",
+				"tara": "13250.50",
+				"bruto": "47659.50",
+				"liquido": "23050.00"
+			}
+		],
+		"total": {
+			"qtd":3,
+			"tara": "13250.50",
+			"bruto": "47659.50",
+			"liquido": "23050.00"
+		},
+		"empresa": {
+			"nome": "Funchal Armazens Gerais Ltda",
+			"endereco": "Rodovia MG 235 Km 01",
+			"cidade": "Sao Gotardo",
+			"estado": "MG",
+			"fone": "3436716116",
+			"email": "armazens@grupofunchal.com.br",
+			"cnpj": "66398298000490",
+			"ie": "621.774339.0390"
+		},
+		"titulo": {
+			"texto": "Relacao de Pesagens da Balanca",
+			"dataInicial": "01/10/2018",
+			"dataFinal": "31/10/2018",
+			"tipo": "Abertos",
+			"produtor": "Adalton Junior do Prado e outro",
+			"fazenda": "Fazenda Lote 32 Padap"
+		}
+	
+}

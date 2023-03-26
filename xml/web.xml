@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+    id="WebApp_ID" version="3.0">
+    
+    <display-name>Controle de Armazem</display-name>
+    
+    <context-param>
+		<param-name>log4jConfigLocation</param-name>
+		<param-value>/WEB-INF/resources/log4j.properties</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+	</listener>
+    
+    <welcome-file-list>
+        <welcome-file>/</welcome-file>
+    </welcome-file-list>
+
+    <servlet>
+        <servlet-name>springDispatcher</servlet-name>
+        <servlet-class>
+            org.springframework.web.servlet.DispatcherServlet
+        </servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>/WEB-INF/config/spring-context.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>springDispatcher</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+	  <servlet-name>default</servlet-name>
+	  <url-pattern>*.css</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+	  <servlet-name>default</servlet-name>
+	  <url-pattern>*.js</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+	  <servlet-name>default</servlet-name>
+	  <url-pattern>*.jpg</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+	  <servlet-name>default</servlet-name>
+	  <url-pattern>*.png</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+	  <servlet-name>default</servlet-name>
+	  <url-pattern>*.ico</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+	  <servlet-name>default</servlet-name>
+	  <url-pattern>*.eot</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+	  <servlet-name>default</servlet-name>
+	  <url-pattern>*.svg</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+	  <servlet-name>default</servlet-name>
+	  <url-pattern>*.ttf</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+	  <servlet-name>default</servlet-name>
+	  <url-pattern>*.woff</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+	  <servlet-name>default</servlet-name>
+	  <url-pattern>*.woff2</url-pattern>
+	</servlet-mapping>
+	
+	<error-page>
+		<error-code>404</error-code>
+		<location>/WEB-INF/jsp/menu.jsp</location>
+	</error-page>
+	
+	<jsp-config>
+		<jsp-property-group>
+			<display-name>todos os jsps</display-name>
+			<description>configuracoes de todos os jsps</description>
+			<url-pattern>*.jsp</url-pattern>
+			<page-encoding>UTF-8</page-encoding>
+			<scripting-invalid>true</scripting-invalid>
+			<el-ignored>false</el-ignored>
+		</jsp-property-group>
+	</jsp-config>
+	
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Secured</web-resource-name>
+			<url-pattern>/*</url-pattern>
+		</web-resource-collection>
+		
+		<user-data-constraint>
+			<transport-guarantee>CONFIDENTIAL</transport-guarantee>
+		</user-data-constraint>
+	</security-constraint>
+	
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>HTTPSorHTTP</web-resource-name>
+			<url-pattern>/css/*</url-pattern>
+			<url-pattern>/style/*</url-pattern>
+			<url-pattern>/fonts/*</url-pattern>
+			<url-pattern>/imagens/*</url-pattern>
+			<url-pattern>/js/*</url-pattern>
+		</web-resource-collection>
+		
+		<user-data-constraint>
+			<transport-guarantee>NONE</transport-guarantee>
+		</user-data-constraint>
+	</security-constraint>
+	
+</web-app>

@@ -1,0 +1,51 @@
+{
+	
+		"dados": [
+			{
+				"data": "2018-10-02",
+				"anterior": "20000",
+				"entradas": "12000",
+				"saidas": "13610",
+				"quebras": "100",
+				"acrescimos": "200",
+				"recebidas": "13610",
+				"emitidas": "13610",
+				"saldo": "36360",
+				"armazenagem": "2184.68",
+				"servicos": "4160.30",
+				"total": "65339.80"
+			}
+		],
+		"total": {
+			"qtd": "1",
+			"anterior": "200000",
+			"entradas": "120000",
+			"saidas": "136100",
+			"quebras": "1000",
+			"acrescimos": "2000",
+			"recebidas": "136100",
+			"emitidas": "136100",
+			"saldo": "363600",
+			"armazenagem": "32184.68",
+			"servicos": "54160.30",
+			"total": "765339.80"
+		},
+		"empresa": {
+			"nome": "Funchal Armazens Gerais Ltda",
+			"endereco": "Rodovia MG 235 Km 01",
+			"cidade": "Sao Gotardo",
+			"estado": "MG",
+			"fone": "3436716116",
+			"email": "funchalarmazens@terra.com.br",
+			"cnpj": "66398298000490",
+			"ie": "621.774339.0390"
+		},
+		"titulo": {
+			"texto": "Relacao de Faturamento de Cafe",
+			"dataInicial": "01/12/2018",
+			"dataFinal": "31/12/2018",
+			"produtor": "Adalton Junior do Prado e outro",
+			"fazenda": "Fazenda Lote 32 Padap"
+		}
+	
+}
