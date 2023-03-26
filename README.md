@@ -11,7 +11,17 @@
 ### From Command Line
 
 ```bash
-sudo bash bin/java_conf.sh install_jdk
+sudo bash bin/maven_conf.sh jdk
+
+sudo bash bin/maven_conf.sh install
+
+sudo bash bin/maven_conf.sh create
+
+sudo bash bin/maven_conf.sh build
+
+sudo bash bin/maven_conf.sh run
+
+sudo bash bin/maven_conf.sh site
 
 ```
 
