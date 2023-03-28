@@ -18,6 +18,41 @@
 # NOTICE.txt	Notices and attributions required by libraries that the project depends on
 # README.txt	Project's readme
 #
+# SNAPSHOT version
+# version 1.0-SNAPSHOT is released as version 1.0
+# new development version is version 1.1-SNAPSHOT
+#
+# Add Resources to JAR
+#|-- pom.xml
+#`-- src
+#    |-- main
+#    |   |-- java
+#    |   |   `-- com
+#    |   |       `-- mycompany
+#    |   |           `-- app
+#    |   |           	 `-- App.java
+#    |   `-- resources
+#    |       |-- META-INF
+#	 |		 |   |-- MANIFEST.MF
+#    |       |    `-- application.properties
+#	 |		 |    `-- maven
+#	 |		 |       `-- com.mycompany.app
+#	 |		 |           `-- my-app
+#	 |		 |               |-- pom.properties
+#	 |		 |               `-- pom.xml
+#	 |		 `-- com
+#    |			 `-- mycompany
+#    |    			 `-- app
+#    |        			 `-- App.class
+#    `-- test
+#        |`-- java
+#        |    `-- com
+#        |        `-- mycompany
+#        |            `-- app
+#        |            	 `-- AppTest.java
+#		 `-- resources
+#            `-- test.properties
+#
 # Autor: Leandro Luiz
 # email: lls.homeoffice@gmail.com
 
@@ -34,7 +69,7 @@ jdk_install()
 maven_install()
 {
 	
-	echo "Install Apache Maven..."
+	echo "Install Maven..."
 	sudo apt -y install maven
 	
 	mvn -version
@@ -57,17 +92,69 @@ maven_create()
 	
 }
 
-maven_build()
+maven_compile()
+{
+	
+	clear
+	
+	echo "Compile the Project"
+	echo "Maven compile app project:"
+	
+	cd ${ARTIFACT_ID}
+	
+	mvn compile
+	
+	cd ~
+	
+}
+
+maven_test()
+{
+	
+	clear
+	
+	echo "Test the Project"
+	echo "Maven compile test sources and run unit tests:"
+	
+	cd ${ARTIFACT_ID}
+	
+	mvn test
+	
+	#echo "Maven compile test sources:"
+	#mvn test-compile
+	
+	cd ~
+	
+}
+
+maven_package()
 {
 	
 	clear
 	
 	echo "Build the Project"
-	echo "Maven compile app project:"
+	echo "Maven create JAR:"
 	
 	cd ${ARTIFACT_ID}
 	
 	mvn package
+	
+	cd ~
+	
+}
+
+maven_install_jar()
+{
+	
+	clear
+	
+	echo "Install the Project"
+	echo "Maven install JAR in local repository:"
+	echo "${USER}/.m2/repository"
+	
+	cd ${ARTIFACT_ID}
+	
+	mvn install
 	
 	cd ~
 	
@@ -78,7 +165,7 @@ maven_run()
 	
 	clear
 	
-	echo -e "Run the Project\n"
+	echo "Run the Project"
 	
 	cd ${ARTIFACT_ID}
 	
@@ -102,11 +189,28 @@ maven_site()
 	
 	cd ${ARTIFACT_ID}
 	
-	echo "Maven create a site:"
+	echo "Create a Site"
 	
 	mvn site
 	
 	google-chrome target/site/index.html
+	
+	cd ~
+	
+}
+
+maven_clean()
+{
+	
+	clear
+	
+	cd ${ARTIFACT_ID}
+	
+	echo "Clean the Project"
+	
+	mvn clean
+	
+	cd ~
 	
 }
 
@@ -123,17 +227,29 @@ case "$1" in
 	create)
 		maven_create
 		;;
-	build)
-		maven_build
+	compile)
+		maven_compile
 		;;
+	"test")
+		maven_test
+		;;
+	package)
+		maven_package
+		;;
+	install_jar)
+		maven_install_jar
+		;;	
 	run)
 		maven_run
 		;;
 	site)
 		maven_site
 		;;
+	clean)
+		maven_clean
+		;;
 	*)
-		echo "Use: `basename $0` {jdk|install|create|build|run|site}"
+		echo "Use: `basename $0` {jdk|install|create|compile|test|package|install_jar|run|site|clean}"
 		exit 1
 		;;
 esac
