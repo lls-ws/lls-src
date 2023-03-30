@@ -88,7 +88,7 @@ maven_create()
 		-DarchetypeArtifactId=maven-archetype-quickstart \
 		-DarchetypeVersion=1.4 -DinteractiveMode=false
 		
-	ls
+	ls -al ${ARTIFACT_ID}
 	
 }
 
@@ -137,9 +137,13 @@ maven_package()
 	
 	cd ${ARTIFACT_ID}
 	
+	set_file_jar
+	
 	mvn package
 	
 	cd ~
+	
+	ls -al ${FILE_JAR}
 	
 }
 
@@ -150,13 +154,17 @@ maven_install_jar()
 	
 	echo "Install the Project"
 	echo "Maven install JAR in local repository:"
-	echo "${USER}/.m2/repository"
 	
 	cd ${ARTIFACT_ID}
+	
+	set_file_repo
 	
 	mvn install
 	
 	cd ~
+	
+	ls -al ${FILE_JAR}
+	ls -al ${FILE_REPO}
 	
 }
 
@@ -169,14 +177,11 @@ maven_run()
 	
 	cd ${ARTIFACT_ID}
 	
-	VERSION=`cat pom.xml | grep '<version>' | head -1 | cut -f 2 -d '>' | cut -f 1 -d '<'`
-	
 	echo "Name: ${ARTIFACT_ID}"
 	echo "Group: ${GROUP_ID}"
 	echo -e "Version: ${VERSION}\n"
 	
-	
-	java -cp target/${ARTIFACT_ID}-${VERSION}.jar ${GROUP_ID}.App
+	java -cp ${FILE_JAR} ${GROUP_ID}.App
 	
 	cd ~
 	
@@ -191,9 +196,11 @@ maven_site()
 	
 	echo "Create a Site"
 	
+	set_file_html
+	
 	mvn site
 	
-	google-chrome target/site/index.html
+	google-chrome ${FILE_HTML}
 	
 	cd ~
 	
@@ -207,6 +214,7 @@ maven_clean()
 	cd ${ARTIFACT_ID}
 	
 	echo "Clean the Project"
+	echo "Removing the target directory..."
 	
 	mvn clean
 	
@@ -214,8 +222,176 @@ maven_clean()
 	
 }
 
+maven_resources()
+{
+	set_dir_resources "resources"
+}
+
+maven_properties()
+{
+	
+	maven_resources
+	
+	cd ${ARTIFACT_ID}
+	
+	set_file_properties
+	
+	echo "application.name=\${project.name}" >> ${FILE_PROP}
+	echo "application.version=\${project.version}" >> ${FILE_PROP}
+	
+	cat ${FILE_PROP}
+	
+	echo "Copying and filtering ${DIR_NAME}:"
+	
+	mvn process-resources
+	
+	cat "target/classes/${PROP_NAME}"
+	
+	cd ~
+	
+}
+
+maven_filter()
+{
+	
+	set_dir_resources "filters"
+	
+	cd ${ARTIFACT_ID}
+	
+	set_file_properties
+	
+	echo "my.filter.value=hello!" >> ${FILE_PROP}
+	
+	cat ${FILE_PROP}
+	
+	PROP_NAME="application.properties"
+	
+	DIR_MAIN_SRC="src/main/resources"
+	
+	FILE_PROP=${DIR_MAIN_SRC}/${PROP_NAME}
+	
+	echo "message=\${my.filter.value}" >> ${FILE_PROP}
+	echo "java.version=\${java.version}" >> ${FILE_PROP}
+	echo "command.line.prop=\${command.line.prop}" >> ${FILE_PROP}
+	
+	cat ${FILE_PROP}
+	
+	echo "Copying and filtering resources:"
+	
+	mvn process-resources "-Dcommand.line.prop=hello again"
+	
+	cat "target/classes/${PROP_NAME}"
+	
+	cd ~
+	
+}
+
+set_file_jar()
+{
+	
+	VERSION=`cat pom.xml | grep '<version>' | head -1 | cut -f 2 -d '>' | cut -f 1 -d '<'`
+	
+	JAR_NAME="${ARTIFACT_ID}-${VERSION}.jar"
+	
+	FILE_JAR="${ARTIFACT_ID}/target/${JAR_NAME}"
+	
+	echo "${FILE_JAR}"
+	
+}
+
+set_file_repo()
+{
+	
+	set_file_jar
+	
+	DIR_REPO=".m2/repository"
+	
+	FILE_REPO=${DIR_REPO}/`echo ${GROUP_ID} | sed 's#\.#/#g'`/${ARTIFACT_ID}/${VERSION}/${JAR_NAME}
+	
+	echo "${FILE_REPO}"
+	
+}
+
+set_file_html()
+{
+	
+	DIR_SITE="target/site"
+	
+	FILE_HTML="${DIR_SITE}/index.html"
+	
+	echo "${FILE_HTML}"
+	
+}
+
+set_file_properties()
+{
+	
+	echo "Add ${DIR_NAME^}"
+	echo "Adding properties into ${DIR_NAME} directory..."
+	
+	if [ ${DIR_NAME} = "filters" ]; then
+	
+		PROP_NAME="filter.properties"
+	
+	else
+	
+		PROP_NAME="application.properties"
+	
+	fi
+	
+	FILE_PROP=${DIR_MAIN_SRC}/${PROP_NAME}
+	
+	if [ ! -f ${FILE_PROP} ]; then
+	
+		echo "Create file: ${FILE_PROP}"
+		touch ${FILE_PROP}
+	
+	fi
+	
+	echo "# ${PROP_NAME}" > ${FILE_PROP}
+	
+}
+
+set_dir_resources()
+{	
+	clear
+	
+	cd ${ARTIFACT_ID}
+	
+	DIR_NAME="$1"
+	
+	echo "Add ${DIR_NAME^}"
+	echo "Adding the ${DIR_NAME} directory..."
+	
+	DIR_MAIN_SRC="src/main/${DIR_NAME}"
+	DIR_TEXT_SRC="src/test/${DIR_NAME}"
+	
+	if [ ! -d ${DIR_MAIN_SRC} ]; then
+	
+		echo "Create main ${DIR_NAME}: ${DIR_MAIN_SRC}"
+		mkdir -v ${DIR_MAIN_SRC}
+		ls -al ${DIR_MAIN_SRC}
+	
+	fi
+	
+	if [ "${DIR_NAME}" = "resources" ]; then
+	
+		if [ ! -d ${DIR_TEXT_SRC} ]; then
+	
+			echo "Create test ${DIR_NAME}: ${DIR_TEXT_SRC}"
+			mkdir -v ${DIR_TEXT_SRC}
+			ls -al ${DIR_TEXT_SRC}
+		
+		fi
+	
+	fi
+	
+	cd ~
+	
+}
+
 GROUP_ID="com.mycompany.app"
-ARTIFACT_ID="myapp"
+ARTIFACT_ID="my-app"
 
 case "$1" in
 	jdk)
@@ -248,8 +424,29 @@ case "$1" in
 	clean)
 		maven_clean
 		;;
+	resources)
+		maven_resources
+		;;
+	properties)
+		maven_properties
+		;;
+	filter)
+		maven_filter
+		;;
+	all)
+		maven_create
+		maven_compile
+		maven_clean
+		maven_test
+		maven_package
+		maven_install_jar
+		maven_site
+		maven_resources
+		maven_properties
+		maven_filter
+		;;
 	*)
-		echo "Use: `basename $0` {jdk|install|create|compile|test|package|install_jar|run|site|clean}"
+		echo "Use: `basename $0` {all|jdk|install|create|compile|test|package|install_jar|run|site|clean|resources|properties|filter}"
 		exit 1
 		;;
 esac

@@ -17,13 +17,25 @@ sudo bash bin/maven_conf.sh install
 
 sudo bash bin/maven_conf.sh create
 
-sudo bash bin/maven_conf.sh build
+sudo bash bin/maven_conf.sh compile
 
-sudo bash bin/maven_conf.sh run
+sudo bash bin/maven_conf.sh test
+
+sudo bash bin/maven_conf.sh package
+
+sudo bash bin/maven_conf.sh install_jar
 
 sudo bash bin/maven_conf.sh site
 
+sudo bash bin/maven_conf.sh resources
+
+sudo bash bin/maven_conf.sh properties
+
+sudo bash bin/maven_conf.sh filter
+
 ```
+
+# How do I use external dependencies?
 
 
 ## License
