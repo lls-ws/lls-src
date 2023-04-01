@@ -84,7 +84,8 @@ maven_create()
 	echo "Creating a Project"
 	echo "Maven create app project:"
 	
-	mvn archetype:generate -DgroupId=${GROUP_ID} -DartifactId=${ARTIFACT_ID} \
+	mvn archetype:generate -DgroupId=${GROUP_ID} \
+		-DartifactId=${ARTIFACT_ID} \
 		-DarchetypeArtifactId=maven-archetype-quickstart \
 		-DarchetypeVersion=1.4 -DinteractiveMode=false
 		
@@ -159,7 +160,8 @@ maven_install_jar()
 	
 	set_file_repo
 	
-	mvn install
+	#mvn install
+	mvn source:jar install
 	
 	cd ~
 	
@@ -286,6 +288,69 @@ maven_filter()
 	
 }
 
+maven_deploy()
+{
+	
+	clear
+	
+	echo "Deploy the Project"
+	echo "Maven deploy JAR in remote repository:"
+	
+	cd ${ARTIFACT_ID}
+	
+	set_file_jar
+	set_file_source
+	
+	#mvn deploy
+	mvn source:jar deploy
+	
+	cd ~
+	
+}
+
+maven_settings()
+{
+	
+	echo "Settings the Project"
+	
+	FILE_XML="settings.xml"
+	
+	echo "Maven copying the ${FILE_XML} to ${DIR_MAVEN}:"
+	
+	if [ ! -f xml/${FILE_XML} ]; then
+	
+		echo "File ${FILE_XML} not found!"
+		exit 1;
+	
+	fi
+	
+	rm -fv ~/${DIR_MAVEN}/${FILE_XML}
+	cp -fv xml/${FILE_XML} ~/${DIR_MAVEN}
+	
+	cat ~/${DIR_MAVEN}/${FILE_XML}
+	
+}
+
+maven_source()
+{
+	
+	clear
+	
+	echo "Source the Project"
+	echo "Maven create JAR source:"
+	
+	cd ${ARTIFACT_ID}
+	
+	set_file_source
+	
+	mvn source:jar
+	
+	cd ~
+	
+	ls -al ${FILE_SOURCE}
+	
+}
+
 set_file_jar()
 {
 	
@@ -304,7 +369,7 @@ set_file_repo()
 	
 	set_file_jar
 	
-	DIR_REPO=".m2/repository"
+	DIR_REPO="${DIR_MAVEN}/repository"
 	
 	FILE_REPO=${DIR_REPO}/`echo ${GROUP_ID} | sed 's#\.#/#g'`/${ARTIFACT_ID}/${VERSION}/${JAR_NAME}
 	
@@ -390,8 +455,23 @@ set_dir_resources()
 	
 }
 
+set_file_source()
+{
+	
+	set_file_jar
+	
+	SOURCE_NAME="${ARTIFACT_ID}-${VERSION}-sources.jar"
+	
+	FILE_SOURCE="${ARTIFACT_ID}/target/${SOURCE_NAME}"
+	
+	echo "${FILE_SOURCE}"
+	
+}
+
 GROUP_ID="com.mycompany.app"
 ARTIFACT_ID="my-app"
+
+DIR_MAVEN=".m2"
 
 case "$1" in
 	jdk)
@@ -433,6 +513,15 @@ case "$1" in
 	filter)
 		maven_filter
 		;;
+	deploy)
+		maven_deploy
+		;;
+	settings)
+		maven_settings
+		;;
+	source)
+		maven_source
+		;;
 	all)
 		maven_create
 		maven_compile
@@ -444,9 +533,11 @@ case "$1" in
 		maven_resources
 		maven_properties
 		maven_filter
+		maven_deploy
+		maven_settings
 		;;
 	*)
-		echo "Use: `basename $0` {all|jdk|install|create|compile|test|package|install_jar|run|site|clean|resources|properties|filter}"
+		echo "Use: `basename $0` {all|jdk|install|create|compile|test|package|install_jar|run|site|clean|resources|properties|filter|deploy|settings|source}"
 		exit 1
 		;;
 esac

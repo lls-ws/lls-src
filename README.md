@@ -33,10 +33,15 @@ sudo bash bin/maven_conf.sh properties
 
 sudo bash bin/maven_conf.sh filter
 
+sudo bash bin/maven_conf.sh deploy
+
+sudo bash bin/maven_conf.sh settings
+
+sudo bash bin/maven_conf.sh source
+
 ```
 
-# How do I use external dependencies?
-
+# How do I create documentation?
 
 ## License
 
