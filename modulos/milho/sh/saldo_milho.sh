@@ -1,17 +1,45 @@
 #!/bin/bash
-# Script para gerar o relatorio de saldo de milho
+# Script para conferir o relatorio de Saldo das Fichas de Milho
 #
 # email: lls.homeoffice@gmail.com
 
-#comando_sql "SELECT COUNT(milho.id)
+if [ "$EUID" -ne 0 ]; then
+	echo "Run script as root!"
+	exit 1
+  
+fi
 
+USER=`git config user.name`
+
+if [ -z "${USER}" ]; then
+		
+	echo "Not found a user name!"
+	echo "Use: git_conf.sh name {NAME}"
+	exit 1
+	
+fi
+
+PASSWORD=`git config user.password`
+
+if [ -z "${PASSWORD}" ]; then
+	
+	echo "Not found a user password!"
+	echo "Use: git_conf.sh password {PASSWORD}"
+	exit 1
+	
+fi
+
+CMD_BASE="mysql -u root --password=${PASSWORD} -D bd_${USER}"
+
+#${CMD_BASE} -e "SHOW TABLES"
+#${CMD_BASE} -e "SELECT COUNT(id) FROM Milho"
 
 #comando_sql "SELECT COUNT(milho.id), \
 #					SUM(IFNULL(entmilho.bruto,0)) AS BRUTO, \
 #					SUM(IFNULL(entmilho.liquido,0)) AS ENTRADA, \
 #					SUM((IFNULL(entmilho.liquido,0)-IFNULL(saimilho.liquido,0))) AS saldo \
 
-comando_sql "SELECT milho.id AS ID, \
+${CMD_BASE} -e "SELECT milho.id AS ID, \
 					produtor.nome AS PRODUTOR, \
 					fazendaProdutor.nome AS FAZENDA, \
 					IFNULL(milho.bruto,0) AS BRUTO, \
