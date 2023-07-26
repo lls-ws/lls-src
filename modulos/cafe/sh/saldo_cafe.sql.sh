@@ -74,7 +74,8 @@ getConsulta()
 	
 	setCondicaoProdutor
 	
-	QUERY="SELECT fazendaProdutor.id AS id, 
+	QUERY="SELECT produtor.nome AS produtor,
+				  fazendaProdutor.nome AS fazenda,
 				  IFNULL(entcafe.id,0) + IFNULL(oscafe.id,0) + IFNULL(tracafe.id,0) AS qtdLotes, 
 				  IFNULL(entcafe.sacas,0) + IFNULL(oscafe.sacas,0) + IFNULL(tracafe.sacas,0) AS sacas, 
 				  IFNULL(entcafe.peso,0) + IFNULL(oscafe.peso,0) + IFNULL(tracafe.peso,0) AS peso, 
@@ -86,10 +87,7 @@ getConsulta()
 				  IFNULL(saida.sacas,0) AS saida, 
 				  IFNULL(transferida.sacas,0) AS transferida, 
 				  IFNULL(entcafe.sacas,0) + IFNULL(oscafe.sacas,0) + IFNULL(tracafe.sacas,0) +
-				  IFNULL(servico.sacas,0) + IFNULL(saida.sacas,0) + IFNULL(transferida.sacas,0) AS total, 
-				  fazendaProdutor.nome AS fazenda, 
-				  produtor.nome AS produtor 
-				  
+				  IFNULL(servico.sacas,0) + IFNULL(saida.sacas,0) + IFNULL(transferida.sacas,0) AS total
 				 
 				FROM FazendaProdutor fazendaProdutor 
 				
@@ -112,7 +110,9 @@ getConsulta_total()
 	
 	setCondicaoProdutor
 	
-	QUERY="SELECT COUNT(fazendaProdutor.id) AS qtdFazendas, 
+	QUERY="SELECT 'Resumo Movimento de cafe "${MES_SET}"_"${ANO_SET}"' AS RESUMO, 
+				  'De: ${DATA_INICIAL} ate ${DATA_FINAL}' AS PERIODO, 
+				  COUNT(fazendaProdutor.id) AS qtdFazendas, 
 				  IFNULL(SUM(entcafe.lotes),0) + IFNULL(SUM(oscafe.lotes),0) + IFNULL(SUM(tracafe.lotes),0) AS qtdLotes, 
 				  IFNULL(SUM(entcafe.sacas),0) + IFNULL(SUM(oscafe.sacas),0) + IFNULL(SUM(tracafe.sacas),0) AS sacas, 
 				  IFNULL(SUM(entcafe.peso),0) + IFNULL(SUM(oscafe.peso),0) + IFNULL(SUM(tracafe.peso),0) AS peso, 
@@ -193,9 +193,51 @@ criar_consulta()
 		
 	fi
 	
-	comando_sql "${QUERY}"
+	${CMD_BASE} -e "${QUERY}" >> ${FILE_NAME}
+	
+	chown -v lls.lls ${FILE_NAME}
+					
+	su lls -c "geany ${FILE_NAME}"
 	
 }
+
+if [ "$EUID" -ne 0 ]; then
+	echo "Run script as root!"
+	exit 1
+  
+fi
+
+USER=`git config user.name`
+
+if [ -z "${USER}" ]; then
+		
+	echo "Not found a user name!"
+	echo "Use: git_conf.sh name {NAME}"
+	exit 1
+	
+fi
+
+PASSWORD=`git config user.password`
+
+if [ -z "${PASSWORD}" ]; then
+	
+	echo "Not found a user password!"
+	echo "Use: git_conf.sh password {PASSWORD}"
+	exit 1
+	
+fi
+
+CMD_BASE="mysql -u root --password=${PASSWORD} -D bd_${USER} --table"
+
+PROJECT_NAME="lls-txt"
+
+rm -rf /home/${USER}/${PROJECT_NAME}
+mkdir -v /home/${USER}/${PROJECT_NAME}
+
+MES_SET="2023"
+ANO_SET="2023"
+
+FILE_NAME="/home/${USER}/${PROJECT_NAME}/${MES_SET}_${ANO_SET}.txt"
 
 case "$2" in
 	1)

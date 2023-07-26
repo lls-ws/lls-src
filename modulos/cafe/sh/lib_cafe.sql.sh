@@ -99,14 +99,6 @@ NOME_PROJETO="cafe"
 PRODUTOR_ID=0
 FAZENDA_ID=0
 
-# Funchal
-FAZENDA_ID=864
-
-# Elena Mieco Fukuda 2 fazendas
-#PRODUTOR_ID="366"
-#FAZENDA_ID="430" # Fazenda Lote 65-padap-
-#FAZENDA_ID="963" # Fazenda Vitoria
-
 # 0 = Abertos | 1 = Fechados | 2 = Todos
 TIPO_LOTE="$1"
 
