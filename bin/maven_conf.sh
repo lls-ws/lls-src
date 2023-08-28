@@ -535,6 +535,7 @@ case "$1" in
 		maven_filter
 		maven_deploy
 		maven_settings
+		maven_source
 		;;
 	*)
 		echo "Use: `basename $0` {all|jdk|install|create|compile|test|package|install_jar|run|site|clean|resources|properties|filter|deploy|settings|source}"
