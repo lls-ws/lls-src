@@ -81,6 +81,15 @@ jquery_all()
 	
 }
 
+jquery_clear()
+{
+	
+	rm -fv ${DIR_TOMCAT_CSS}/${NOME_CSS_MIN}
+	
+	rm -rfv ${DIR_LLS_TEMP} ${DIR_TOMCAT_JS}
+	
+}
+
 TIPO="$2"
 
 case "${OPCAO}" in
@@ -96,6 +105,9 @@ case "${OPCAO}" in
 	min)
 		jquery_min
 		;;
+	clear)
+		jquery_clear
+		;;
 	start)
 		jquery_install
 		criar_arquivos_js
@@ -103,7 +115,7 @@ case "${OPCAO}" in
 		jquery_all ${OPCAO}
 		;;
 	*)
-		echo "Use: bash $0 {install|update|min|start} [all]"
+		echo "Use: bash $0 {install|update|min|start|clear} [all]"
 		exit 1
 		;;
 esac

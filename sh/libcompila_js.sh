@@ -57,7 +57,7 @@ criar_arquivos_js()
 		
 	done
 	
-	chown -R tomcat.tomcat ${DIR_LLS}
+	chown -R lls.lls ${DIR_LLS}
 	
 	rm -rfv ${DIR_LLS_TEMP}
 	
@@ -184,13 +184,19 @@ jquery_update()
 {
 	echo "Updating..."
 	
+	if [ ! -d ${DIR_TOMCAT_JS} ]; then
+
+		mkdir -v ${DIR_TOMCAT_JS}
+		
+	fi
+	
 	mv -v ${DIR_LLS}/${NOME_CSS} ${DIR_TOMCAT_CSS}/${NOME_CSS_MIN} 2> /dev/null
 	mv -v ${DIR_LLS}/*.js ${DIR_TOMCAT_JS}
 
 	rm -rfv ${DIR_LLS_TEMP}
 
 	chown -Rv tomcat.tomcat ${DIR_TOMCAT_CSS}/${NOME_CSS_MIN}
-	chown -Rv tomcat.tomcat ${DIR_TOMCAT_JS}/*.js
+	chown -Rv tomcat.tomcat ${DIR_TOMCAT_JS}
 	
 	du -hsc ${DIR_TOMCAT_CSS}/${NOME_CSS_MIN} ${DIR_TOMCAT_JS}/*.js
 }
@@ -203,15 +209,7 @@ if [ -z "$NOME_PROJETO" ]; then
 	
 fi
 
-if [ `hostname -a | awk '{print $1}'` = "dell" ]; then
-
-	DIR_HOME="/home/lls/Projetos/lls-src"
-	
-else
-
-	DIR_HOME="/home/lls"
-	
-fi
+DIR_HOME="/home/lls/lls-src"
 
 DIR_PROJETO="${DIR_HOME}/modulos/${NOME_PROJETO}"
 
@@ -223,7 +221,7 @@ fi
 
 DIR_CORE="${DIR_HOME}"
 
-DIR_TOMCAT="/usr/share/tomcat/webapps/lls"
+DIR_TOMCAT="/var/lib/tomcat9/webapps/lls"
 
 DIR_TOMCAT_JS="${DIR_TOMCAT}/js/jquery-lls"
 
