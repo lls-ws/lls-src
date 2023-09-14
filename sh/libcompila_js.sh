@@ -203,6 +203,28 @@ jquery_update()
 	
 	du -hsc ${DIR_TOMCAT_CSS}/${NOME_CSS_MIN} ${DIR_TOMCAT_JS}/*.js
 	
+	jsp_update
+	
+}
+
+jsp_update()
+{
+	echo "Updating JSP..."
+	
+	DIR_HOME_JSP="${DIR_HOME}/jsp"
+	DIR_TOMCAT_JSP="${DIR_TOMCAT}/WEB-INF/jsp"
+	
+	echo "Removing JSP directory: ${DIR_TOMCAT_JSP}"
+	rm -rf ${DIR_TOMCAT_JSP}
+	
+	echo "Moving JSP directory: ${DIR_HOME_JSP}"
+	cp -rfv ${DIR_HOME_JSP} ${DIR_TOMCAT_JSP}
+
+	echo "Changing directory ownner to tomcat.tomcat..."
+	chown -Rv tomcat.tomcat ${DIR_TOMCAT_JSP}
+	
+	du -hsc ${DIR_TOMCAT_JSP}/*.jsp
+	
 }
 
 if [ -z "$NOME_PROJETO" ]; then

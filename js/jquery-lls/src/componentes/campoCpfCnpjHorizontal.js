@@ -5,8 +5,6 @@
 
 function campoCpfCnpjHorizontal(id, textoLabel, tamanhoCampo, tamanhoLabel, required) {
 						      
-	carregaCssJs("js/jquery.maskedinput.min.js", "js");
-	
 	var $campoHorizontal = campoHorizontal(id, textoLabel, tamanhoLabel);
 	
 	var $inputGroup = $('<div />').addClass('input-group');

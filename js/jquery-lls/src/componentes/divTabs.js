@@ -5,8 +5,6 @@
 
 function divTabs(id, nomesTabs) {
 	
-	carregaCssJs("js/bootstrap-tabcollapse.min.js", "js");
-	
 	var $idTabs = 'tab' + id;
 	
 	var $divTabs = $("<div/>").attr({id: $idTabs});

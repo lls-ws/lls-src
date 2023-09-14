@@ -5,8 +5,6 @@
 
 function pegaCpfCnpjMascara(numeros) {
 	
-	carregaCssJs("js/jquery.maskedinput.min.js", "js");
-	
 	if (numeros.length == 11) {
 	
 		var $campoMascara = $("<input>").val(numeros).mask("999.999.999-99");

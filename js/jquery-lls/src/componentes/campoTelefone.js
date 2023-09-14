@@ -7,8 +7,6 @@ function campoTelefone(id, required, icon, textoLabel) {
 	
 	var maxlength = 15;
 	
-	carregaCssJs("js/jquery.maskedinput.min.js", "js");
-	
 	if (icon == null) icon = 'whatsapp';
 	if (textoLabel == null) textoLabel = '';
 	

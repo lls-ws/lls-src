@@ -5,12 +5,10 @@
 
 function campoCep(id, required) {
 	
-	carregaCssJs("js/jquery.maskedinput.min.js", "js");
+	var $inputCep = input(id, 'text', 'form-control', '__.___-___', required, 10);
 	
-	var $input = input(id, 'text', 'form-control', '__.___-___', required, 10);
+	$inputCep.mask("99.999-999");
 	
-	$input.mask("99.999-999");
-	
-	return $input;
+	return $inputCep;
 	
 }
