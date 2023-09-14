@@ -190,15 +190,19 @@ jquery_update()
 		
 	fi
 	
+	echo "Moving files to ${DIR_TOMCAT_JS}"
 	mv -v ${DIR_LLS}/${NOME_CSS} ${DIR_TOMCAT_CSS}/${NOME_CSS_MIN} 2> /dev/null
 	mv -v ${DIR_LLS}/*.js ${DIR_TOMCAT_JS}
 
-	rm -rfv ${DIR_LLS_TEMP}
+	echo "Removing files to ${DIR_LLS_TEMP}"
+	rm -rf ${DIR_LLS_TEMP}
 
-	chown -Rv tomcat.tomcat ${DIR_TOMCAT_CSS}/${NOME_CSS_MIN}
-	chown -Rv tomcat.tomcat ${DIR_TOMCAT_JS}
+	echo "Changing files ownner to tomcat.tomcat..."
+	chown -R tomcat.tomcat ${DIR_TOMCAT_CSS}/${NOME_CSS_MIN}
+	chown -R tomcat.tomcat ${DIR_TOMCAT_JS}
 	
 	du -hsc ${DIR_TOMCAT_CSS}/${NOME_CSS_MIN} ${DIR_TOMCAT_JS}/*.js
+	
 }
 
 if [ -z "$NOME_PROJETO" ]; then
