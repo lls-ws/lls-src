@@ -191,8 +191,8 @@ jquery_update()
 	fi
 	
 	echo "Moving files to ${DIR_TOMCAT_JS}"
-	mv -v ${DIR_LLS}/${NOME_CSS} ${DIR_TOMCAT_CSS}/${NOME_CSS_MIN} 2> /dev/null
-	mv -v ${DIR_LLS}/*.js ${DIR_TOMCAT_JS}
+	mv ${DIR_LLS}/${NOME_CSS} ${DIR_TOMCAT_CSS}/${NOME_CSS_MIN} 2> /dev/null
+	mv ${DIR_LLS}/*.js ${DIR_TOMCAT_JS}
 
 	echo "Removing files to ${DIR_LLS_TEMP}"
 	rm -rf ${DIR_LLS_TEMP}
