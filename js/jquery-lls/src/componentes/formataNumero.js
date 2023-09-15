@@ -5,8 +5,6 @@
 
 function formataNumero(numero, scale, allowNegative, allowZero, prefix, suffix) {
 	
-	carregaCssJs("js/jquery.maskMoney.min.js", "js");
-	
 	var $input = input('formataNumero', 'text', 'form-control', '', false, null);
 	
 	$input.maskMoney({

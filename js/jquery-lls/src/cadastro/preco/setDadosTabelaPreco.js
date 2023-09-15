@@ -12,7 +12,7 @@ function setDadosTabelaPreco(preco) {
 	var $urlBotao = 'mostraCadastro("' + preco.id + '" , "Preco")';
 	
 	var $botaoVisualizar = botao(
-		"botaoVisualizar", "", "eye-open", "0", "btn btn-primary btn-xs", "button", $urlBotao
+		"botaoVisualizar", "", "eye", "0", "btn btn-primary btn-xs", "button", $urlBotao
 	);
 	
 	var $tbody = $("#listaPrecoForm #tableListaPreco #tbodyListaPreco");

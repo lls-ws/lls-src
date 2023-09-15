@@ -5,6 +5,8 @@
 
 function eventoSalvarProdutor(tipoOperacao, nomeTabela) {
 	
+	var number = animacao("botao" + nomeTabela, "check", true);
+	
 	var produtor = pegaDadosFormularioProdutor(nomeTabela);
 	
 	var fazendasArray = pegaDadosTabelaCadastro('Fazenda');
@@ -56,6 +58,8 @@ function eventoSalvarProdutor(tipoOperacao, nomeTabela) {
 			}
 			else {
 				
+				animacao("botao" + nomeTabela, "check", false, number);
+				
 				$cor_texto = 'texto_cor_vermelho';
 				
 			}
@@ -69,6 +73,8 @@ function eventoSalvarProdutor(tipoOperacao, nomeTabela) {
 			
 		},
 		error: function(jqXHR, exception) {
+			
+			animacao("botao" + nomeTabela, "check", false, number);
 			
 			mostraAjaxErro(
 				exception + ': ' + jqXHR.status + ' - ' + jqXHR.responseText,

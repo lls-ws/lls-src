@@ -71,6 +71,45 @@ SETEMBRO(2023){
 
 (15/09/2023){
 
+(OK) Alterar links direcionamentos JS {
+	(ok) Arquivo: componentes/novoFormulario.js
+	(ok) Arquivo: componentes/tabela.js
+	(ok) Arquivo: componentes/formataNumero.js
+	(ok) Arquivo: componentes/campoNumero.js
+	(ok) Arquivo: componentes/formataNumeroSql.js
+}
+
+(OK) Corrigir Icones dos Botoes Font Awesome {
+
+	(OK) Corrigir Botao Tabelas de Produtores e Precos {
+		(ok) Arquivo: cadastro/produtor/setDadosTabelaProdutor.js
+		(ok) Arquivo: cadastro/preco/setDadosTabelaPreco.js
+	}
+	(OK) Corrigir Botao Salvar Cadastros {
+		(ok) Arquivo: componentes/formularioCadastro.js
+	}
+	
+}
+
+(OK) Colocar Icones Animados no Botao Salvar {
+
+	(ok) Arquivo: cadastro/empresa/eventoSalvarEmpresa.js
+	(ok) Arquivo: cadastro/produtor/eventoSalvarProdutor.js
+	(ok) Arquivo: cadastro/preco/eventoSalvarPreco.js
+	(ok) Arquivo: cadastro/usuario/eventoSalvarUsuario.js
+	(ok) Arquivo: componentes/eventoInserirTabela.js
+	(ok) Arquivo: componentes/eventoSalvarCadastroTabela.js
+	
+}
+
+}
+
+(16/09/2023){
+
+// Erro no Botao Visualizar das Listagem de Produtore e Preços
+// O erro ocorre na abertura da Janela de Alteração de Senha
+// Após a listagem de Produtores ou Preços
+
 () Criar campo de Inscrição Municipal {
 	
  () Alterar tela: Visualização de Produtor {

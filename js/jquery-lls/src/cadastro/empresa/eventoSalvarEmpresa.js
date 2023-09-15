@@ -5,6 +5,8 @@
 
 function eventoSalvarEmpresa(tipoOperacao, nomeTabela) {
 	
+	var number = animacao("botao" + nomeTabela, "check", true);
+	
 	var empresa = pegaDadosFormularioEmpresa(nomeTabela);
 	
 	$.ajax({
@@ -35,6 +37,8 @@ function eventoSalvarEmpresa(tipoOperacao, nomeTabela) {
 			}
 			else {
 				
+				animacao("botao" + nomeTabela, "check", false, number);
+				
 				$cor_texto = "texto_cor_vermelho";
 				
 			}
@@ -48,6 +52,8 @@ function eventoSalvarEmpresa(tipoOperacao, nomeTabela) {
 			
 		},
 		error: function(jqXHR, exception) {
+			
+			animacao("botao" + nomeTabela, "check", false, number);
 			
 			mostraAjaxErro(
 				exception + ": " + jqXHR.status + " - " + jqXHR.responseText,

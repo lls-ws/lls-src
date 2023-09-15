@@ -21,9 +21,9 @@ function formularioCadastro(idCadastro, nomeTabela, tipoTextoBotao, tamanhoBotao
 	var $campoOculto = campoOculto('id' + nomeTabela, idCadastro);
 	
 	var $botao = botaoHorizontal(
-		'botao',
+		'botao' + nomeTabela,
 		textoBotao(tipoTextoBotao),
-		'ok',
+		'check',
 		tamanhoBotao,
 		tamanhoOffSet,
 		'btn btn-block btn-success',

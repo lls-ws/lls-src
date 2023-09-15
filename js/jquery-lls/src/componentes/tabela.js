@@ -5,8 +5,6 @@
 
 function tabela(idTabela, nomesColunas) {
 	
-	carregaCssJs("js/jquery.bootpag.min.js", "js");
-	
 	var $tabela = table('table table-hover table-striped table-bordered table-curved table-condensed');
 	
 	$tabela.attr('id', idTabela);

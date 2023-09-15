@@ -5,6 +5,8 @@
 
 function eventoSalvarPreco(tipoOperacao, nomeTabela) {
 	
+	var number = animacao("botao" + nomeTabela, "check", true);
+	
 	var preco = pegaDadosFormularioPreco(nomeTabela);
 	
 	$.ajax({
@@ -50,6 +52,8 @@ function eventoSalvarPreco(tipoOperacao, nomeTabela) {
 			}
 			else {
 				
+				animacao("botao" + nomeTabela, "check", false, number);
+				
 				$cor_texto = "texto_cor_vermelho";
 				
 			}
@@ -63,6 +67,8 @@ function eventoSalvarPreco(tipoOperacao, nomeTabela) {
 			
 		},
 		error: function(jqXHR, exception) {
+			
+			animacao("botao" + nomeTabela, "check", false, number);
 			
 			mostraAjaxErro(
 				exception + ": " + jqXHR.status + " - " + jqXHR.responseText,

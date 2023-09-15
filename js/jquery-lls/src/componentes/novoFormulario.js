@@ -8,7 +8,6 @@ function novoFormulario(nomeTabela, textoLabel, posicaoItemMenu, click, nomeTabe
 	carregaCssJs("js/jquery-lls/jquery-lls-" + nomeTabela.toLowerCase() + ".js", "js");
 	carregaCssJs("js/jquery-lls/jquery-lls-componente-formulario.js", "js");
 	carregaCssJs("js/jquery-lls/jquery-lls-componente-cadastro.js", "js");
-	carregaCssJs("js/jquery.validate.min.js", "js");
 	
 	if (posicaoItemMenu == 1) {
 		

@@ -5,8 +5,6 @@
 
 function campoNumero(id, scale, precision, allowNegative, allowZero, prefix, suffix) {
 	
-	carregaCssJs("js/jquery.maskMoney.min.js", "js");
-	
 	var placeholder = prefix + "0,00" + suffix;
 	
 	var totalPontos = 0;
