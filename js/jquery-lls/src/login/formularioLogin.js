@@ -44,6 +44,6 @@ function formularioLogin(dados) {
 		
 	}
 	
-	formulario.find('#email').focus();
+	formulario.find('#email').attr('autocomplete', 'on').focus();
 	
 }

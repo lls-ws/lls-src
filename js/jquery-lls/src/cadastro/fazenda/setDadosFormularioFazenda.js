@@ -19,13 +19,4 @@ function setDadosFormularioFazenda(idFazenda, nomeTabela, tr, formulario) {
 	formulario.find('#ie' + nomeTabela).val(fazenda.ie);
 	formulario.find('#cpfcnpj' + nomeTabela).val(fazenda.cpfcnpj);
 	
-	if (fazenda.cpfcnpj.length == 18) {
-		
-		formulario.find('#cpfcnpj' + nomeTabela + 'RadioCnpj').attr('checked', 'true');
-		formulario.find('#cpfcnpj' + nomeTabela).mask("99.999.999/9999-99");
-		formulario.find('#cpfcnpj' + nomeTabela).attr('placeholder', '__.___.___/____-__');
-		formulario.find('#cpfcnpj' + nomeTabela + 'Label').text('CNPJ');
-		
-	}
-	
 }

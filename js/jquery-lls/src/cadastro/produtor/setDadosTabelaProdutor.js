@@ -11,7 +11,7 @@ function setDadosTabelaProdutor(produtor) {
 	
 	var $urlBotao = 'mostraCadastro("' + produtor.id + '" , "Produtor")';
 	
-	var $botaoVisualizar = botao('botaoVisualizar', '', 'eye', '0', 'btn btn-primary btn-xs', 'button', $urlBotao);
+	var $botaoVisualizar = botao('botaoVisualizar' + produtor.id, '', 'eye', '0', 'btn btn-primary btn-xs', 'button', $urlBotao);
 	
 	var $tbody = $('#listaProdutorForm #tableListaProdutor #tbodyListaProdutor');
 	

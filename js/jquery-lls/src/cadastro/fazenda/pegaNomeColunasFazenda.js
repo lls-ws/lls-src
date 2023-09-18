@@ -9,7 +9,7 @@ function pegaNomeColunasFazenda(tipo) {
 		acao: "Ações",
 		nome: "Nome",
 		ie: "Insc. Est.",
-		cpfcnpj: "CPF|CNPJ",
+		cpfcnpj: "Insc. Mun.",
 		endereco: "Endereço",
 		bairro: "Bairro",
 		cidade: "Cidade",

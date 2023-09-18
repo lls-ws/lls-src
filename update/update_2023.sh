@@ -1,5 +1,6 @@
 SETEMBRO(2023){
 
+###### Semana 1 ######
 (13/09/2023){
 
 (OK) Conferir Compilação do JS {
@@ -104,35 +105,56 @@ SETEMBRO(2023){
 
 }
 
-(16/09/2023){
+###### Semana 2 ######
+(18/09/2023){
 
-// Erro no Botao Visualizar das Listagem de Produtore e Preços
-// O erro ocorre na abertura da Janela de Alteração de Senha
-// Após a listagem de Produtores ou Preços
+(OK) Corrigir ID Botao Visualizar das Listagem de Produtores e Preços {
 
-() Criar campo de Inscrição Municipal {
+	(ok) Arquivo: cadastro/produtor/setDadosTabelaProdutor.js
+	(ok) Arquivo: cadastro/preco/setDadosTabelaPreco.js
 	
- () Alterar tela: Visualização de Produtor {
-   () Arquivo: 
- }
- () Alterar tela: Alteração de Produtor, aba Fazendas {
-   () Arquivo: 
- }
- () Alterar tela: Cadastro e Alteração de Fazenda {
-   () Arquivo: 
- }
- () Alterar Salvamento dos dados da Fazenda {
-   () Arquivo: 
- }
- () Alterar Seleção dos dados da Fazenda {
-   () Arquivo: 
- }
- 
- }
+}
 
-() Salvar Alterações no GitHub { 
- () git_upload_lls-src
- }
+(OK) Criar campo de Inscrição Municipal {
+	
+	(OK) Alterar tela: Visualização de Produtor {
+		(ok) Arquivo: cadastro/fazenda/pegaNomeColunasFazenda.js
+		(ok) Arquivo: cadastro/fazenda/formataDadosFazenda.js
+	}
+ 
+	(OK) Alterar tela: Cadastro e Alteração de Fazenda {
+		(ok) Arquivo: cadastro/fazenda/setDadosFormularioFazenda.js
+		(ok) Arquivo: cadastro/fazenda/pegaTabelaFazenda.js
+		(ok) Arquivo: cadastro/fazenda/formularioFazenda.js
+		(ok) Arquivo: cadastro/fazenda/telaEnderecoFazenda.js
+	}
+ 
+	(OK) Alterar Salvamento dos dados da Fazenda {
+		(ok) Arquivo: cadastro/fazenda/pegaDadosFormularioFazenda.js
+	}
+	
+}
+
+(OK) Corrigir Quirks Mode e Include nas JSP {
+
+	(ok) Arquivo: jsp/header.jsp
+	(ok) Arquivo: jsp/login.jsp
+	(ok) Arquivo: jsp/menu.jsp
+	(ok) Arquivo: jsp/senha.jsp
+	(ok) Arquivo: jsp/usuario.jsp
+	
+}
+
+}
+
+(19/09/2023){
+ 
+// Não está salvando a senha do usuario
+() Corrigir Autocomplete do Formulario de Login {
+
+	() Arquivo: login/formularioLogin.js
+	
+}
 
 }
 

@@ -14,6 +14,4 @@ function formataDadosFazenda(fazenda) {
 	
 	fazenda.cep = pegaCepMascara(fazenda.cep);
 	
-	fazenda.cpfcnpj = pegaCpfCnpjMascara(fazenda.cpfcnpj);
-	
 }

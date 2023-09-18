@@ -16,7 +16,7 @@ function pegaDadosFormularioFazenda(nomeTabela) {
 		estado: pegaValorCaixaCombinacao($formulario.find('#estado' + nomeTabela).val()),
 		cep: pegaCepNumeros($formulario.find('#cep' + nomeTabela).val()),
 		ie: $formulario.find('#ie' + nomeTabela).val(),
-		cpfcnpj: pegaCpfCnpjNumeros($formulario.find('#cpfcnpj' + nomeTabela).val())
+		cpfcnpj: $formulario.find('#cpfcnpj' + nomeTabela).val()
 	};
 	
 	return fazenda;

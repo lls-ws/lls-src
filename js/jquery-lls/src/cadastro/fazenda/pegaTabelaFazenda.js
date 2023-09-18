@@ -14,7 +14,7 @@ function pegaTabelaFazenda(tr, idFazenda) {
 		estado: pegaValorCaixaCombinacao(tr.find("#tdEstado").find('p').text()),
 		cep: pegaCepNumeros(tr.find("#tdCep").find('p').text()),
 		ie: tr.find("#tdIe").find('p').text(),
-		cpfcnpj: pegaCpfCnpjNumeros(tr.find("#tdCpfCnpj").find('p').text())
+		cpfcnpj: tr.find("#tdCpfCnpj").find('p').text()
 	}
 	
 	return fazenda;

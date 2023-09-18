@@ -10,14 +10,12 @@ function telaEnderecoFazenda(nomeTabela) {
 	var $campoIE = campoTextoHorizontal(
 		'ieFazenda', 'text', 'I.E.', 9, 2, '', false, 20);
 	
-	var $campoCpfCnpj = campoCpfCnpjHorizontal(
-		'cpfcnpjFazenda', 'CPF',
-		'col-xs-9 col-md-7', 'col-xs-2', false
-	);
+	var $campoIM = campoTextoHorizontal(
+		'cpfcnpjFazenda', 'text', 'I.M.', 9, 2, '', false, 20);
 	
 	$telaEndereco.append($campoIE);
 	
-	$telaEndereco.append($campoCpfCnpj);
+	$telaEndereco.append($campoIM);
 	
 	return $telaEndereco;
 	
