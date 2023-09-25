@@ -5,8 +5,6 @@
 
 function setDadosDialogCadastroCore(dados, nomesColunasCadastro, trDados) {
 	
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-cadastro-tabela.js", "js");
-	
 	var tbodyCadastro = tbody('tbodyDialog' + dados.nomeTabela).append(trDados);
 	
 	var tabelaCadastro = tabela(

@@ -5,8 +5,6 @@
 
 function formularioPreco(idPreco, nomeTabela) {
 	
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-campos.js", "js");
-	
 	var $idTela = "div" + nomeTabela;
 	
 	var $formTela = $("<div/>").attr({id: $idTela});

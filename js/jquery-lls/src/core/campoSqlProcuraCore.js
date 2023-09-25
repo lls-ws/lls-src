@@ -5,8 +5,6 @@
 
 function campoSqlProcuraCore(dados, input, id) {
 	
-	carregaCssJs("js/jquery.autocomplete.min.js", "js");
-	
 	var nomeTabelas = dados.nomeTabela + dados.campoProcura;
 	
 	var $campoHorizontal = campoHorizontal(id, dados.textoLabel, dados.tamanhoLabel);

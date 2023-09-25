@@ -186,7 +186,13 @@ jquery_update()
 	
 	if [ ! -d ${DIR_TOMCAT_JS} ]; then
 
-		mkdir -v ${DIR_TOMCAT_JS}
+		mkdir -pv ${DIR_TOMCAT_JS}
+		
+	fi
+	
+	if [ ! -d ${DIR_TOMCAT_CSS} ]; then
+
+		mkdir -pv ${DIR_TOMCAT_CSS}
 		
 	fi
 	
@@ -218,12 +224,14 @@ jsp_update()
 	rm -rf ${DIR_TOMCAT_JSP}
 	
 	echo "Moving JSP directory: ${DIR_HOME_JSP}"
-	cp -rfv ${DIR_HOME_JSP} ${DIR_TOMCAT_JSP}
+	cp -rf ${DIR_HOME_JSP} ${DIR_TOMCAT_JSP}
 
 	echo "Changing directory ownner to tomcat.tomcat..."
-	chown -Rv tomcat.tomcat ${DIR_TOMCAT_JSP}
+	chown -R tomcat.tomcat ${DIR_TOMCAT_JSP}
 	
 	du -hsc ${DIR_TOMCAT_JSP}/*.jsp
+	
+	echo "JS Files Compiled SucessFull: $(date '+%d/%m/%Y %H:%M:%S')"
 	
 }
 
@@ -251,7 +259,7 @@ DIR_TOMCAT="/var/lib/tomcat9/webapps/lls"
 
 DIR_TOMCAT_JS="${DIR_TOMCAT}/js/jquery-lls"
 
-DIR_TOMCAT_CSS="${DIR_TOMCAT}/css"
+DIR_TOMCAT_CSS="${DIR_TOMCAT}/css/jquery-lls"
 
 DIR_JS="$DIR_PROJETO/js"
 		

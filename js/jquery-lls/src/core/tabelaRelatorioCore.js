@@ -5,12 +5,6 @@
 
 function tabelaRelatorioCore(dados) {
 	
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-titulo.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-procura.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-botao.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-tabela.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-campos.js", "js");
-	
 	var formularioTabelaRelatorio = formularioTabela(dados.nomeTabela);
 	
 	dados.pagina = 0;

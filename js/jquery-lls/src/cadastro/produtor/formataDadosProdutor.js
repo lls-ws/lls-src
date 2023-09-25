@@ -5,10 +5,6 @@
 
 function formataDadosProdutor(produtor) {
 	
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-campos.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-cep.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-cpf.js", "js");
-	
 	produtor.nome = decodeURIComponent(produtor.nome);
 	produtor.endereco = decodeURIComponent(produtor.endereco);
 	produtor.bairro = decodeURIComponent(produtor.bairro);

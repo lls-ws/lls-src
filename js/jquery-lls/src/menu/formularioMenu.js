@@ -11,7 +11,7 @@ function formularioMenu() {
 	
 	var $paragrafo = paragrafo('text-center', '');
 	
-	var $imagem = imagem('imagens/painel.png', 'imagem-painel', 100, 100);
+	var $imagem = imagem('//lls-ws.github.io/imagens/logo.png', 'imagem-painel', 100, 100);
 	
 	$paragrafo.append($imagem);
 	

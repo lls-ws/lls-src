@@ -5,10 +5,6 @@
 
 function setDadosDialogProdutor(produtor) {
 	
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-telefone.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-fazenda.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-telefone.js", "js");
-	
 	formataDadosProdutor(produtor);
 	
 	var $textoNome = juntaTituloTexto('Nome', produtor.nome);

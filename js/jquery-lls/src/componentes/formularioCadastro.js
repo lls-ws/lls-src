@@ -6,8 +6,6 @@
 function formularioCadastro(idCadastro, nomeTabela, tipoTextoBotao, tamanhoBotao,
 							objeto, tamanhoOffSet, nomeTabelaCadastro) {
 	
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-cadastro-tabela.js", "js");
-	
 	var $tipoOperacao = 0;
 	
 	if (idCadastro > 0) {

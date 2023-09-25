@@ -5,15 +5,6 @@
 
 function novoCadastroCore(dados) {
 	
-	carregaCssJs("js/jquery-lls/jquery-lls-" + dados.nomeTabela.toLowerCase() + ".js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-botao.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-tabela.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-formulario.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-formularioCore.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-cadastro.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-cadastroCore.js", "js");
-	carregaCssJs("js/jquery.validate.min.js", "js");
-	
 	marcarMenu(dados.posicaoItemMenu);
 	
 	if (dados.click == 'click') {

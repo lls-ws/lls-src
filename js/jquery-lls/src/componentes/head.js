@@ -8,7 +8,7 @@ function head() {
 	var $link = $('<link />');
 	 
 	$link.attr('rel', 'icon');
-	$link.attr('href', 'imagens/favicon.ico');
+	$link.attr('href', '//lls-ws.github.io/imagens/favicon.ico');
 	
 	var $meta1 = '<meta name="author" content="Leandro Luiz">';
 	var $meta2 = '<meta charset="ISO-8859-1">';

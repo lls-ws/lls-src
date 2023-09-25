@@ -1,6 +1,7 @@
 SETEMBRO(2023){
 
-###### Semana 1 ######
+(Semana 1) {
+	
 (13/09/2023){
 
 (OK) Conferir Compilação do JS {
@@ -105,7 +106,10 @@ SETEMBRO(2023){
 
 }
 
-###### Semana 2 ######
+}
+
+(Semana 2) {
+
 (18/09/2023){
 
 (OK) Corrigir ID Botao Visualizar das Listagem de Produtores e Preços {
@@ -147,13 +151,85 @@ SETEMBRO(2023){
 
 }
 
-(19/09/2023){
+(22/09/2023){
  
-// Não está salvando a senha do usuario
-() Corrigir Autocomplete do Formulario de Login {
+(OK) Corrigir Autocomplete do Formulario de Login {
+	(ok) Arquivo: login/formularioLogin.js
+}
 
-	() Arquivo: login/formularioLogin.js
+}
+
+(24/09/2023){
+ 
+(OK) Corrigir links direcionamentos das Imagens no Login {
+	(ok) Arquivo: login/formularioLoginCore.js
+	(ok) Arquivo: componentes/head.js
+	(ok) Arquivo: menu/imagemMenu.js
+	(ok) Arquivo: menu/formularioMenu.js
+}
+
+(OK) Corrigir Salvamento de Senha do Usuario {
+	(ok) Arquivo: login/formularioLogin.js
+}
+
+(OK) Atualizar Biblioteca jQuery {
+	(ok) Arquivo: jsp/header.jsp
+	(ok) Arquivo: login/loginInicio.js
+}
+
+(OK) Corrigir Label For da Tela de Cadastro de Empresa {
+	(ok) Arquivo: componentes/campoCpfCnpjHorizontal.js
+}
+
+(OK) Corrigir Label For da Lista de Produtores {
+	(ok) Arquivo: componentes/tabelaCadastro.js
+	(ok) Arquivo: componentes/tabelaRelatorio.js
+}
+
+(OK) Corrigir Inssues do Ajax  {
+	(ok) Arquivo: menu/menu.js
+	(ok) Arquivo: componentes/novoFormulario.js
+	(ok) Arquivo: componentes/tabelaCadastro.js
+	(ok) Arquivo: componentes/formularioCadastro.js
+	(ok) Arquivo: componentes/formularioRelatorioNome.js
+	(ok) Arquivo: componentes/novoCadastro.js
+	(ok) Arquivo: componentes/pegaPlacaMascara.js
+	(ok) Arquivo: componentes/setDadosDialogCadastro.js
+	(ok) Arquivo: componentes/tabelaRelatorio.js
+	(ok) Arquivo: componentes/campoNumeroInteiro.js
+	(ok) Arquivo: componentes/campoPlaca.js
+	(ok) Arquivo: componentes/campoSqlProcura.js
+	(ok) Arquivo: componentes/formataDadosProdutor.js
+	(ok) Arquivo: componentes/formularioProdutor.js
+	(ok) Arquivo: componentes/setDadosDialogProdutor.js
+	(ok) Arquivo: componentes/formataDadosEmpresa.js
+	(ok) Arquivo: componentes/formularioEmpresa.js
+	(ok) Arquivo: componentes/formataDadosPreco.js
+	(ok) Arquivo: componentes/formularioPreco.js
+	(ok) Arquivo: componentes/formularioUsuario.js
+	(ok) Arquivo: componentes/campoSqlProcuraCore.js
+	(ok) Arquivo: componentes/formularioCadastroCore.js
+	(ok) Arquivo: componentes/formularioRelatorioNomeCore.js
+	(ok) Arquivo: componentes/novoCadastroCore.js
+	(ok) Arquivo: componentes/novoFormularioCore.js
+	(ok) Arquivo: componentes/setDadosDialogCadastroCore.js
+	(ok) Arquivo: componentes/setDadosTabelaLancamentoCore.js
+	(ok) Arquivo: componentes/tabelaRelatorioCore.js
 	
+}
+
+}
+
+(25/09/2023){
+
+() Retirar Metodo de Carregar Script  {
+	() Arquivo: componentes/.js
+}
+
+() Corrigir ID do Elemento da Tela de Empresa {
+	() Arquivo: componentes/campoDataHorizontal.js
+}
+
 }
 
 }

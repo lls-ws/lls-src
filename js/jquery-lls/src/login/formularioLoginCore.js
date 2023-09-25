@@ -7,7 +7,7 @@ function formularioLoginCore(dados) {
 	
 	var titulo = tituloLogin(dados.titulo);
 	
-	var logo = imagem('imagens/logo.png', '', 100, 100);
+	var logo = imagem('//lls-ws.github.io/imagens/logo.png', '', 100, 100);
 	
 	var imagemPainel = paragrafo('text-center', '').append(logo);
 	

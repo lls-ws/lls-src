@@ -5,10 +5,6 @@
 
 function formularioUsuario(idUsuario, nomeTabela) {
 	
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-campos.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-botao.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-tabela.js", "js");
-	
 	var $idTela = "div" + nomeTabela;
 	
 	var $formTela = $("<div/>").attr({id: $idTela}).addClass("form-horizontal");

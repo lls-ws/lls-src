@@ -5,10 +5,6 @@
 
 function novoFormulario(nomeTabela, textoLabel, posicaoItemMenu, click, nomeTabelaLancamento) {
 	
-	carregaCssJs("js/jquery-lls/jquery-lls-" + nomeTabela.toLowerCase() + ".js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-formulario.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-cadastro.js", "js");
-	
 	if (posicaoItemMenu == 1) {
 		
 		tabelaCadastro(posicaoItemMenu, nomeTabela, textoLabel);

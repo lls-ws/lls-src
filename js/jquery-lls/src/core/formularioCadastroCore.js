@@ -5,8 +5,6 @@
 
 function formularioCadastroCore(dados, tabs) {
 	
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-cadastro-tabela.js", "js");
-	
 	dados["tipoTextoBotao"] = 2;
 	dados["tamanhoBotao"] = 4;
 	dados["tamanhoOffSet"] = 3;

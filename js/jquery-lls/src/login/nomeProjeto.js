@@ -5,6 +5,6 @@
 
 function nomeProjeto() {
 	
-	return 'LLS Tecnologia';
+	return 'Controle de Armazém';
 	
 }

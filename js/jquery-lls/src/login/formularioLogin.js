@@ -19,7 +19,7 @@ function formularioLogin(dados) {
 	dados["tipoBotao"] = 'btn-primary';
 	dados["urlBotao"] = 'eventoFormularioLogin';
 	
-	var campoEmail = campoTexto('email', 'email', '', 'Email', 'true', '-1', 50, 'envelope');
+	var campoEmail = campoTexto('email', 'text', '', 'Email', 'true', '-1', 50, 'envelope');
 	var campoSenha = campoTexto('senha', 'password', '', 'Senha', 'true', '-1', 10, 'key');
 	
 	var formulario = formularioLoginCore(dados);

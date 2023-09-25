@@ -5,14 +5,6 @@
 
 function formularioEmpresa(idEmpresa, nomeTabela) {
 	
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-campos.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-botao.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-tabela.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-endereco.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-cep.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-cpf.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-telefone.js", "js");
-	
 	var empresa = getJson("achaEmpresa");
 	
 	var $idTela = "div" + nomeTabela;

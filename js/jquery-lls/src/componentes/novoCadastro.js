@@ -5,12 +5,6 @@
 
 function novoCadastro(nomeTabela, click, posicaoItemMenu, id) {
 	
-	carregaCssJs("js/jquery-lls/jquery-lls-" + nomeTabela.toLowerCase() + ".js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-formulario.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-cadastro.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-botao.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-tabela.js", "js");
-	
 	marcarMenu(posicaoItemMenu);
 	
 	if (click == 'click') {

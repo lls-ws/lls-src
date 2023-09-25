@@ -5,8 +5,6 @@
 
 function setDadosDialogCadastro(cadastro, nomesColunasCadastro, trCadastro) {
 	
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-cadastro-tabela.js", "js");
-	
 	if (nomesColunasCadastro == null) {
 		
 		nomesColunasCadastro = eval ('pegaNomeColunas' + cadastro.nomeTabela + '(1)');

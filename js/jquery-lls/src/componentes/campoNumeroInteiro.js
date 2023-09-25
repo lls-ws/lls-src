@@ -5,8 +5,6 @@
 
 function campoNumeroInteiro(id, maxlength) {
 	
-	carregaCssJs("js/jquery.decimalMask.min.js", "js");
-	
 	if (maxlength == null) maxlength = 10;
 	
 	var $input = input(id, 'text', 'form-control', '0', false, maxlength);

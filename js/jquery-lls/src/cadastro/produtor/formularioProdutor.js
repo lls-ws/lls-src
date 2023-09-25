@@ -5,14 +5,6 @@
 
 function formularioProdutor(idProdutor, nomeTabela) {
 	
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-campos.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-cep.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-cpf.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-endereco.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-cadastro-tabela.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-fazenda.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-telefone.js", "js");
-	
 	var $tabs = divTabs(nomeTabela, eval ('nomeTabs' + nomeTabela + '()'));
 	
 	$tabs.find('#tab' + nomeTabela + '1').addClass('in active');

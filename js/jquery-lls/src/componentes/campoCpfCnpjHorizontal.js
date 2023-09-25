@@ -21,9 +21,9 @@ function campoCpfCnpjHorizontal(id, textoLabel, tamanhoCampo, tamanhoLabel, requ
 	
 	var $inputCpfCnpj = input(id, 'text', 'form-control', '', required, 20);
 	
-	var $labelCpf = label(id + 'LabelCpf', ' CPF ', '');
+	var $labelCpf = label(id + 'RadioCpf', ' CPF ', '');
 	
-	var $labelCnpj = label(id + 'LabelCnpj', ' CNPJ ', '');
+	var $labelCnpj = label(id + 'RadioCnpj', ' CNPJ ', '');
 	
 	var $separador = span('label');
 	
