@@ -19,8 +19,6 @@ function eventoFormularioLogin(dados) {
 			
 			if (resposta.status == "200") {
 				
-				carregaCssJs("js/jquery-lls/jquery-lls-menu.js", "js");
-				
 				menu(resposta.status);
 				
 			}

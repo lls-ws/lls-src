@@ -1,20 +1,30 @@
-<!doctype html>
-<html>
-	
-	<head>
-	
-		<%@include file="header.jsp"%>
-	
-	</head>
-	
-	<body>
+<%@ taglib uri="http://htmlcompressor.googlecode.com/taglib/compressor" prefix="compress" %>
+
+<compress:html removeIntertagSpaces="true">
+
+	<!doctype html>
 		
-		<script>
+		<head>
+		
+			<%@include file="header.jsp"%>
+			<%@include file="header/loginHeader.jsp"%>
+		
+		</head>
+		
+		<body>
 			
-			login('1');
+			<script>
+				
+				$(document).ready(function(){
+    
+					login('1');
 					
-		</script>
+				});
+						
+			</script>
+			
+		</body>
 		
-	</body>
-	
-</html>
+	</html>
+
+</compress:html>

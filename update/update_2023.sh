@@ -220,14 +220,52 @@ SETEMBRO(2023){
 
 }
 
+}
+
+(Semana 3) {
+
 (25/09/2023){
 
-() Retirar Metodo de Carregar Script  {
-	() Arquivo: componentes/.js
+(OK) Corrigir Autocomplete da Tela de Usuario e Senha {
+	(ok) Arquivo: login/formularioSenha.js
+	(ok) Arquivo: login/formularioCadastroLogin.js
+}
+
+(OK) Corrigir Carregamento de Scripts no Login  {
+	
+	(ok) Arquivo: jsp/core/jquery.jsp
+	(ok) Arquivo: jsp/login.jsp
+	(ok) Arquivo: jsp/header/loginHeader.jsp
+	(ok) Arquivo: login/loginInicio.js
+	(ok) Arquivo: login/formularioCadastroLogin.js
+	(ok) Arquivo: login/eventoFormularioLogin.js
+	(ok) Arquivo: componentes/carregaCssJs.js
+	
+}
+
+(OK) Corrigir Carregamento de Scripts no Menu  {
+	
+	(ok) Arquivo: jsp/header.jsp
+	(ok) Arquivo: jsp/menu.jsp
+	(ok) Arquivo: js/menu/menu.js
+	
 }
 
 () Corrigir ID do Elemento da Tela de Empresa {
 	() Arquivo: componentes/campoDataHorizontal.js
+	() Arquivo: componentes/formularioEmpresa.js
+	() Arquivo: componentes/getJson.js
+	$('.ui-datepicker').remove();
+}
+
+() Juntar Arquivos JS no Login {
+	() Arquivo: jsp/header/loginHeader.jsp
+	// Criar um unico arquivo jquery-lls-login.js com os scripts do arquivo acima.
+}
+
+() Juntar Arquivos JS no Menu {
+	() Arquivo: () Arquivo: js/menu/menu.js
+	// Criar um unico arquivo jquery-lls-core.js com os scripts do arquivo acima.
 }
 
 }

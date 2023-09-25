@@ -1,21 +1,30 @@
-<!doctype html>
-<html>
-	
-	<head>
-	
-		<%@include file="header.jsp"%>
-		<script src="js/jquery-lls/jquery-lls-menu.js" type="text/javascript"></script>
-	
-	</head>
-	
-	<body>
+<%@ taglib uri="http://htmlcompressor.googlecode.com/taglib/compressor" prefix="compress" %>
+
+<compress:html removeIntertagSpaces="true">
+
+	<!doctype html>
 		
-		<script>
-			
-			menu('1');
-			
-		</script>
+		<head>
 		
-	</body>
-	
-</html>
+			<%@include file="header.jsp"%>
+			<%@include file="header/loginHeader.jsp"%>
+		
+		</head>
+		
+		<body>
+			
+			<script>
+				
+				$(document).ready(function(){
+    
+					menu('1');
+					
+				});
+				
+			</script>
+			
+		</body>
+		
+	</html>
+
+</compress:html>

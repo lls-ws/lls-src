@@ -11,6 +11,6 @@ function formularioSenha(dados) {
 	
 	formulario.find('#' + dados.idBotao).before(campoEmail);
 	
-	formulario.find('#email').focus();
+	formulario.find('#email').attr('autocomplete', 'on').focus();
 	
 }
