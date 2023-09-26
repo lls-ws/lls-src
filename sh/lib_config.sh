@@ -161,11 +161,11 @@ defini_arqs()
 comando_sql()
 {
 	
-	USER="root"
+	USER="admin"
 	
 	BD="bd_lls"
 	
-	PASSWORD=`cat ${DIR_PROJETO}/xml/spring-context.xml | grep 'password' | head -1 | cut -f4 -d '"'`
+	PASSWORD=`git config user.password`
 	
 	# Definindo o comando
 	CMD="mysql -u ${USER} --password=${PASSWORD} "

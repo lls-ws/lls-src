@@ -284,8 +284,6 @@ inserir_ticket()
 mostra_tabela()
 {
 	
-	TABELA="$1"
-	
 	#if [ "${TABELA}" = "Usuario" ]; then
 	
 	#	echo "Atualizado empresa dos usuarios..."
@@ -297,11 +295,32 @@ mostra_tabela()
 	
 }
 
+inserir_usuario()
+{
+	
+	TABELA="Usuario"
+	
+	limpa_tabela
+	
+	EMAILS=("lls.homeoffice@gmail.com")
+	
+	for EMAIL in "${EMAILS[@]}"
+	do
+		
+		${CMD_BASE} -e "insert into $TABELA \
+			(email, senha, data) value ('${EMAIL}', '111111', '$(date "+%Y-%m-%d")');"
+		
+	done
+	
+	mostra_tabela
+	
+}
+
 OPCAO="$1"
 
 case "$OPCAO" in
 	all)
-		#sh sh/txt2sql.sh "usuario"
+		inserir_usuario
 		#sh sh/txt2sql.sh "empresa"
 		inserir_produtores
 		inserir_peneiras
@@ -312,8 +331,7 @@ case "$OPCAO" in
 		inserir_ticket
 		;; 
 	usuario)
-		#sh sh/txt2sql.sh "${OPCAO}"
-		mostra_tabela "Usuario"
+		inserir_usuario
 		;;
 	empresa)
 		#sh sh/txt2sql.sh "${OPCAO}"
@@ -341,7 +359,7 @@ case "$OPCAO" in
 		inserir_ticket
 		;;
 	*)
-		echo "Use: $(basename $0) [all||usuario|empresa|preco|produtor|peneira|preco|umidade|guia|laudo|ticket]"
+		echo "Use: $(basename $0) [all|usuario|empresa|preco|produtor|peneira|preco|umidade|guia|laudo|ticket]"
 		exit 1
 		;;
 esac

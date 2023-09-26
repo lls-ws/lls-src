@@ -251,12 +251,31 @@ SETEMBRO(2023){
 	
 }
 
-() Corrigir ID do Elemento da Tela de Empresa {
-	() Arquivo: componentes/campoDataHorizontal.js
-	() Arquivo: componentes/formularioEmpresa.js
-	() Arquivo: componentes/getJson.js
-	$('.ui-datepicker').remove();
 }
+
+(26/09/2023){
+
+(OK) Corrigir ID do Elemento da Tela de Empresa {
+	(ok) Arquivo: componentes/formularioEmpresa.js
+}
+
+(OK) Alterar Senha do Usuario {
+	(ok) Arquivo: sh/cria_dados.sh
+	(ok) Arquivo: sh/lib_config.sh
+	(ok) sudo bash sh/cria_dados.sh usuario
+}
+
+(OK) Corrigir Inssues do Ajax {
+	(ok) Arquivo: componentes/formularioEmpresa.js
+	(ok) Arquivo: componentes/eventoAcharEmpresa.js
+	(ok) Arquivo: componentes/setDadosFormularioEmpresa.js
+	(ok) Arquivo: sh/jquery-lls-empresa.sh
+	
+}
+
+}
+
+(27/09/2023){
 
 () Juntar Arquivos JS no Login {
 	() Arquivo: jsp/header/loginHeader.jsp
@@ -267,6 +286,9 @@ SETEMBRO(2023){
 	() Arquivo: () Arquivo: js/menu/menu.js
 	// Criar um unico arquivo jquery-lls-core.js com os scripts do arquivo acima.
 }
+
+// Verificar exclusão
+() Arquivo: componentes/getJson.js 
 
 }
 

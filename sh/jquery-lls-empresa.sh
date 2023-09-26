@@ -23,7 +23,9 @@ cria_arq_empresa()
 	defini_arqs
 	
 	COMPONENTES=(
+		"$NOME_MIN/eventoAchar$NOME.js"
 		"$NOME_MIN/formataDados$NOME.js"
+		"$NOME_MIN/setDadosFormulario$NOME.js"
 	)
 	
 	cria_arq_relatorio_cadastro $NOME

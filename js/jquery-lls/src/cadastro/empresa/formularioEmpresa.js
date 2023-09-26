@@ -5,8 +5,6 @@
 
 function formularioEmpresa(idEmpresa, nomeTabela) {
 	
-	var empresa = getJson("achaEmpresa");
-	
 	var $idTela = "div" + nomeTabela;
 	
 	var $telaEndereco = telaEndereco(nomeTabela);
@@ -35,14 +33,14 @@ function formularioEmpresa(idEmpresa, nomeTabela) {
 	var $campoDataMilho = campoDataHorizontal(
 		"dataMilho" + nomeTabela, "Fat. Milho",
 		'col-xs-9 col-md-7', 'col-xs-2',
-		true, empresa.dataMilho, empresa.dataMilho, empresa.dataMilho,
+		true, null, null, null,
 		'disabled'
 	).removeClass("has-feedback");
 	
 	var $campoDataCafe = campoDataHorizontal(
 		"dataCafe" + nomeTabela, "Fat. Café",
 		'col-xs-9 col-md-7', 'col-xs-2',
-		true, empresa.dataCafe, empresa.dataCafe, empresa.dataCafe,
+		true, null, null, null,
 		'disabled'
 	).removeClass("has-feedback");
 	
@@ -75,29 +73,10 @@ function formularioEmpresa(idEmpresa, nomeTabela) {
 	
 	var $formulario = formularioCadastro(idEmpresa, nomeTabela, 2, 4, $tabs);
 	
-	formataDadosEmpresa(empresa);
+	eventoAcharEmpresa($formulario);
 	
-	$formulario.find('#idEmpresa').val(empresa.id);
-	$formulario.find('#nome' + nomeTabela).val(empresa.nome);
-	$formulario.find('#endereco' + nomeTabela).val(empresa.endereco);
-	$formulario.find('#bairro' + nomeTabela).val(empresa.bairro);
-	$formulario.find('#cidade' + nomeTabela).val(empresa.cidade);
-	$formulario.find('#estado' + nomeTabela).val(empresa.estado);
-	$formulario.find('#cep' + nomeTabela).val(empresa.cep);
-	$formulario.find('#cpfcnpj' + nomeTabela).val(empresa.cpfcnpj);
-	$formulario.find('#ie' + nomeTabela).val(empresa.ie);
-	$formulario.find('#email' + nomeTabela).val(empresa.email);
-	$formulario.find('#site' + nomeTabela).val(empresa.site);
-	$formulario.find('#telefone' + nomeTabela).val(empresa.telefone);
-	
-	if (empresa.cpfcnpj.length == 18) {
-		
-		$formulario.find('#cpfcnpj' + nomeTabela + 'RadioCnpj').attr('checked', 'true');
-		$formulario.find('#cpfcnpj' + nomeTabela).mask("99.999.999/9999-99");
-		$formulario.find('#cpfcnpj' + nomeTabela).attr('placeholder', '__.___.___/____-__');
-		$formulario.find('#cpfcnpj' + nomeTabela + 'Label').text('CNPJ');
-		
-	}
+	$('#ui-datepicker-div').find('.ui-datepicker-month').attr('name', 'datepicker-month');
+	$('#ui-datepicker-div').find('.ui-datepicker-year').attr('name', 'datepicker-year');
 	
 	return $formulario;
 	
