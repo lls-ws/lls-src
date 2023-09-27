@@ -76,19 +76,7 @@ testes()
 	
 	#$CMD_BASE -e "SELECT id, nome FROM Empresa"
 	
-	#$CMD_BASE -e "SELECT id, nome FROM Produtor where id = 669"
-	#mysql -u root --password=lls739200 -D bd_lls -e "SELECT id, nome FROM Produtor where id = 669"
-	
-	#$CMD_BASE -e "SELECT id, nome, endereco FROM FazendaProdutor where id = 746"
-	#mysql -u root --password=lls739200 -D bd_lls -e "SELECT id, nome, endereco FROM FazendaProdutor where id = 746"
-	
-	#mysql -u root --password=lls739200 -D bd_lls -e "ALTER TABLE Servmilho DROP COLUMN valorPago"
-	#mysql -u root --password=lls739200 -D bd_lls -e "DESCRIBE Servmilho"
-	
 	#iconv -t utf-8 -c dataflex/TXT/FAZENDA.TXT | grep -A8 -i 746[[:space:]] | head -8
-	
-	#echo "Apagando o BD..."
-	#mysql -u root --password=${PASSWORD} -e "drop database bd_lls;"
 	
 	#echo "Show lls database..."		   
 	#${CMD_BASE} -e "SELECT @@character_set_database; \
@@ -98,10 +86,6 @@ testes()
 	
 	#echo "Mostrando as colunas da tabela..."
 	#${CMD_BASE} -e "SHOW FULL COLUMNS FROM FazendaProdutor;"
-	
-	echo "Alterando password root..."
-	${CMD_BASE} -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('Aws#739200'); \
-					FLUSH PRIVILEGES;"
 	
 }
 
