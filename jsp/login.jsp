@@ -7,7 +7,6 @@
 		<head>
 		
 			<%@include file="header.jsp"%>
-			<%@include file="header/loginHeader.jsp"%>
 		
 		</head>
 		

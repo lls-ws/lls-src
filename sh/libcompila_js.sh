@@ -48,30 +48,32 @@ criar_arquivos_mim()
 criar_arquivos_js()
 {
 	
-	find ${DIR_LLS_TEMP}/* -maxdepth 0 -iname '*.js' |
+	find ${DIR_LLS_TEMP}/* -maxdepth 0 -iname '*.js' -o -iname '*.css' |
 	
 	while read file
 	do
 		
-		cp -fv $file ${DIR_LLS}
+		cp -fv ${file} ${DIR_LLS}
 		
 	done
 	
-	chown -R lls.lls ${DIR_LLS}
+	chown -v lls.lls ${DIR_LLS}/*.js ${DIR_LLS}/*.css
 	
 	rm -rfv ${DIR_LLS_TEMP}
 	
-	echo "Arquivos criados com sucesso! Tamanho Total: `du -hsc ${DIR_LLS}/*.js | tail -1 | awk '{print $1}'`"
+	echo "Arquivos criados com sucesso! Tamanho Total: `du -hsc ${DIR_LLS}/*.js ${DIR_LLS}/*.css | tail -1 | awk '{print $1}'`"
 	
 }
 
 criar_arquivos_jquery()
 {
 	
-	echo "Componentes: $NOME_PROJETO"
+	echo "Componentes: ${NOME_PROJETO}"
 	
 	for ARQ in "${COMPONENTES[@]}"
 	do
+		
+		echo "Componente: ${ARQ}"
 		
 		cria_arq_$ARQ
 		
@@ -182,34 +184,48 @@ atualiza_menu_core()
 
 jquery_update()
 {
-	echo "Updating..."
 	
-	if [ ! -d ${DIR_TOMCAT_JS} ]; then
+	rm -rfv ${DIR_LLS_TEMP}
+	
+	if [ ! -f ${DIR_LLS}/${NOME_CSS} ]; then
+	
+		echo "File not found: ${DIR_LLS}/${NOME_CSS}"
+		echo "Run command: bash sh compila_js.sh install"
+		exit 1;
 
-		mkdir -pv ${DIR_TOMCAT_JS}
-		
 	fi
-	
-	if [ ! -d ${DIR_TOMCAT_CSS} ]; then
-
-		mkdir -pv ${DIR_TOMCAT_CSS}
-		
-	fi
-	
-	echo "Moving files to ${DIR_TOMCAT_JS}"
-	mv ${DIR_LLS}/${NOME_CSS} ${DIR_TOMCAT_CSS}/${NOME_CSS_MIN} 2> /dev/null
-	mv ${DIR_LLS}/*.js ${DIR_TOMCAT_JS}
-
-	echo "Removing files to ${DIR_LLS_TEMP}"
-	rm -rf ${DIR_LLS_TEMP}
-
-	echo "Changing files ownner to tomcat.tomcat..."
-	chown -R tomcat.tomcat ${DIR_TOMCAT_CSS}/${NOME_CSS_MIN}
-	chown -R tomcat.tomcat ${DIR_TOMCAT_JS}
-	
-	du -hsc ${DIR_TOMCAT_CSS}/${NOME_CSS_MIN} ${DIR_TOMCAT_JS}/*.js
 	
 	jsp_update
+	
+	echo "Updating JS..."
+	
+	if [ -d ${DIR_TOMCAT_JS} ]; then
+
+		rm -rf ${DIR_TOMCAT_JS}
+		
+	fi
+	
+	if [ -d ${DIR_TOMCAT_CSS} ]; then
+
+		rm -rf ${DIR_TOMCAT_CSS}
+		
+	fi
+	
+	echo "Creating directories on ${DIR_TOMCAT}"
+	mkdir -v ${DIR_TOMCAT_JS}
+	mkdir -v ${DIR_TOMCAT_CSS}
+	
+	echo "Moving files to ${DIR_TOMCAT}"
+	mv -v ${DIR_LLS}/*.css ${DIR_TOMCAT_CSS}
+	mv -v ${DIR_LLS}/*.js ${DIR_TOMCAT_JS}
+
+	echo "Changing directory ownner to tomcat.tomcat..."
+	chown -R tomcat.tomcat ${DIR_TOMCAT_CSS}
+	chown -R tomcat.tomcat ${DIR_TOMCAT_JS}
+	
+	du -hsc ${DIR_TOMCAT_CSS}/*.css ${DIR_TOMCAT_JS}/*.js
+	
+	echo "JS Files Compiled SucessFull: $(date '+%d/%m/%Y %H:%M:%S')"
 	
 }
 
@@ -223,15 +239,13 @@ jsp_update()
 	echo "Removing JSP directory: ${DIR_TOMCAT_JSP}"
 	rm -rf ${DIR_TOMCAT_JSP}
 	
-	echo "Moving JSP directory: ${DIR_HOME_JSP}"
+	echo "Coping JSP directory: ${DIR_HOME_JSP}"
 	cp -rf ${DIR_HOME_JSP} ${DIR_TOMCAT_JSP}
 
 	echo "Changing directory ownner to tomcat.tomcat..."
 	chown -R tomcat.tomcat ${DIR_TOMCAT_JSP}
 	
 	du -hsc ${DIR_TOMCAT_JSP}/*.jsp
-	
-	echo "JS Files Compiled SucessFull: $(date '+%d/%m/%Y %H:%M:%S')"
 	
 }
 
@@ -257,9 +271,9 @@ DIR_CORE="${DIR_HOME}"
 
 DIR_TOMCAT="/var/lib/tomcat9/webapps/lls"
 
-DIR_TOMCAT_JS="${DIR_TOMCAT}/js/jquery-lls"
+DIR_TOMCAT_JS="${DIR_TOMCAT}/js"
 
-DIR_TOMCAT_CSS="${DIR_TOMCAT}/css/jquery-lls"
+DIR_TOMCAT_CSS="${DIR_TOMCAT}/css"
 
 DIR_JS="$DIR_PROJETO/js"
 		

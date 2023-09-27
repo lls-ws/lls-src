@@ -20,24 +20,18 @@ cria_arq()
 	
 	COMPONENTES="$2"
 	
-	if [ -f $DIR_JS/$ARQUIVO ]; then
-		
-		rm -f $DIR_LLS/$ARQUIVO DIR_LLS_TEMP/$ARQUIVO
-		
-	fi
-
 	for ARQ in "${COMPONENTES[@]}"
 	do
 		
-		if [ -n "$ARQ" ]; then
+		if [ -n "${ARQ}" ]; then
 		
-			if [ -z $MODULO ]; then
+			if [ -z ${MODULO} ]; then
 			
-				cat "$DIR_LLS_SRC/$ARQ" >> $DIR_LLS_TEMP/$ARQUIVO
+				cat "${DIR_LLS_SRC}/${ARQ}" >> ${DIR_LLS_TEMP}/${ARQUIVO}
 			
 			else
 			
-				cat "$DIR_LLS_SRC/$MODULO/$ARQ" >> $DIR_LLS_TEMP/$ARQUIVO
+				cat "${DIR_LLS_SRC}/${MODULO}/${ARQ}" >> ${DIR_LLS_TEMP}/${ARQUIVO}
 			
 			fi
 			
@@ -71,8 +65,6 @@ cria_arq_login()
 		"componentes/botao.js"
 		"componentes/divDialog.js"
 		"componentes/span.js"
-		"componentes/title.js"
-		"componentes/head.js"
 		"componentes/painel.js"
 		"componentes/container.js"
 		"componentes/tituloPainelCadastro.js"
@@ -100,18 +92,6 @@ cria_arq_login()
 		"login/eventoFormularioCadastroSenha.js"
 		"login/validarFormularioSenha.js"
 		"login/validarFormularioCadastroSenha.js"
-	)
-
-	cria_arq $ARQ $COMPONENTES
-	
-}
-
-defini_arq_menu()
-{
-	
-	ARQ="jquery-lls-menu.js"
-	
-	COMPONENTES=(
 		"componentes/ul.js"
 		"componentes/li.js"
 		"componentes/b.js"
@@ -136,16 +116,13 @@ defini_arq_menu()
 		"menu/eventoMenuUsuario.js"
 		"menu/criarMenu.js"
 		"menu/criarTelaMenu.js"
+		"componentes/campoTelefone.js"
+		"componentes/campoTelefoneHorizontal.js"
+		"componentes/pegaTelefoneNumeros.js"
+		"componentes/pegaTelefoneMascara.js"
 	)
 
-}
-
-cria_arq_menu()
-{
-	
-	defini_arq_menu
-
-	cria_arq $ARQ $COMPONENTES
+	cria_arq ${ARQ} ${COMPONENTES}
 	
 }
 
@@ -250,22 +227,6 @@ cria_arq_componente_cpf()
 		"componentes/validarCpfCnpj.js"
 		"componentes/pegaCpfCnpjNumeros.js"
 		"componentes/pegaCpfCnpjMascara.js"
-	)
-
-	cria_arq $ARQ $COMPONENTES
-	
-}
-
-cria_arq_componente_telefone()
-{
-	
-	ARQ="jquery-lls-componente-telefone.js"
-	
-	COMPONENTES=(
-		"componentes/campoTelefone.js"
-		"componentes/campoTelefoneHorizontal.js"
-		"componentes/pegaTelefoneNumeros.js"
-		"componentes/pegaTelefoneMascara.js"
 	)
 
 	cria_arq $ARQ $COMPONENTES
@@ -467,7 +428,7 @@ cria_arq_componente_cadastro_tabela()
 cria_arq_css()
 {
 	
-	ARQ_CSS="jquery-lls.css"
+	ARQ_CSS="${DIR_LLS_TEMP}/${NOME_CSS}"
 	
 	COMPONENTES=(
 		"jquery-lls/cores.css"
@@ -479,16 +440,10 @@ cria_arq_css()
 		"jquery-lls/autocomplete.css"
 	)
 	
-	if [ -f $DIR_JS/$ARQ ]; then
-
-		rm -f $DIR_LLS/$ARQ_CSS
-
-	fi
-	
 	for ARQ in "${COMPONENTES[@]}"
 	do
 		
-		cat "$DIR_CSS/$ARQ" >> $DIR_LLS/$ARQ_CSS
+		cat "${DIR_CSS}/${ARQ}" >> ${ARQ_CSS}
 		
 	done
 	

@@ -277,19 +277,51 @@ SETEMBRO(2023){
 
 (27/09/2023){
 
-() Juntar Arquivos JS no Login {
-	() Arquivo: jsp/header/loginHeader.jsp
-	// Criar um unico arquivo jquery-lls-login.js com os scripts do arquivo acima.
+(OK) Juntar Arquivos JS no Login {
+	(ok) Arquivo: jsp/login.jsp
+	(ok) Arquivo: jsp/header.jsp
+	(ok) Arquivo: js/menu/menu.js
+	(ok) Arquivo: js/login/loginInicio.js
+	
+	(ok) Arquivo: sh/compila_js.sh
+	(ok) Arquivo: sh/libcompila_js.sh
+	(ok) Arquivo: sh/jquery-lls-componentes.sh
 }
 
+}
+
+(28/09/2023){
+	
+	Refazer toda a estrutura dos shell scripts separando por tipo:
+	Login, Componentes, Menu, etc
+	
+	Criar um diretorio para cada componente:
+	Telefone, CPF, etc...
+	
+	Para facilitar na manutenção futura
+	
+	Verificar o carregamento dos JS no servidor do Github:
+	lls-ws.github.io/jquery-lls
+	
+	Continuar as alterações no sarquivos do dia anterior
+	
 () Juntar Arquivos JS no Menu {
-	() Arquivo: () Arquivo: js/menu/menu.js
+	(ok) Arquivo: jsp/menu.jsp
+	(ok) Arquivo: jsp/header.jsp
+	(ok) Arquivo: js/login/nomeProjeto.js
+	(ok) Arquivo: js/login/loginInicio.js
+	
+	() Arquivo: sh/compila_js.sh
+	() Arquivo: sh/libcompila_js.sh
+	() Arquivo: sh/jquery-lls-componentes.sh
+	
+	() Arquivo: js/menu/menu.js
 	// Criar um unico arquivo jquery-lls-core.js com os scripts do arquivo acima.
 }
-
-// Verificar exclusão
-() Arquivo: componentes/getJson.js 
-
+	
+	// Verificar exclusão
+	() Arquivo: componentes/getJson.js 
+	
 }
 
 }

@@ -15,60 +15,13 @@ PATH=.:$(dirname $0):$PATH
 . jquery-lls-cadastro.sh		|| exit 1
 . libcompila_js.sh				|| exit 1
 
-# Create for Tests
-jquery_start()
-{
-	
-	DIR_JS_TOMCAT="${DIR_TOMCAT}/js"
-	DIR_CSS_TOMCAT="${DIR_TOMCAT}/css"
-	
-	echo "Updating ${DIR_JS_TOMCAT} ${DIR_CSS_TOMCAT}"
-	
-	rmdir -v ${DIR_LLS_TEMP}
-	
-	if [ ! -d ${DIR_JS_TOMCAT} ]; then
-
-		mkdir -v ${DIR_JS_TOMCAT}
-		
-	fi
-	
-	if [ ! -d ${DIR_CSS_TOMCAT} ]; then
-
-		mkdir -v ${DIR_CSS_TOMCAT}
-		
-	fi
-	
-	echo "Removing Old files on ${DIR_JS_TOMCAT}"
-	rm -f ${DIR_JS_TOMCAT}/*.js
-	rm -f ${DIR_CSS_TOMCAT}/*.css
-	
-	echo "Coping files to ${DIR_JS_TOMCAT}"
-	cp -f ${DIR_JS}/core/*.js ${DIR_JS_TOMCAT}
-	cp -f ${DIR_JS}/login/*.js ${DIR_JS_TOMCAT}
-	
-	echo "Coping files to ${DIR_CSS_TOMCAT}"
-	cp -f ${DIR_CSS}/*.css ${DIR_CSS_TOMCAT}
-
-	echo "Changing files ownner to tomcat.tomcat..."
-	chown -R tomcat.tomcat ${DIR_CSS_TOMCAT}
-	chown -R tomcat.tomcat ${DIR_JS_TOMCAT}
-	
-	du -hsc ${DIR_CSS_TOMCAT}/*.css ${DIR_JS_TOMCAT}/*.js
-	
-	jsp_update
-	
-	echo "Files Compiled SucessFull: $(date '+%d/%m/%Y %H:%M:%S')"
-	
-}
-
 jquery_install()
 {
-	rm -f ${DIR_LLS}/*.js ${DIR_LLS}/*.css ${DIR_LLS_TEMP}/*.js ${ARQ_CSS_MIN}
+	rm -fv ${DIR_LLS}/*.js ${DIR_LLS}/*.css
 	
 	COMPONENTES=(
 		"css"
 		"login"
-		"menu"
 		"componente_titulo"
 		"componente_textoProcura"
 		"componente_sqlProcura"
@@ -77,7 +30,6 @@ jquery_install()
 		"componente_cep"
 		"componente_placa"
 		"componente_cpf"
-		"componente_telefone"
 		"componente_campos"
 		"componente_endereco"
 		"componente_formulario"
@@ -133,6 +85,52 @@ jquery_clear()
 	rm -fv ${DIR_TOMCAT_CSS}/${NOME_CSS_MIN}
 	
 	rm -rfv ${DIR_LLS_TEMP} ${DIR_TOMCAT_JS}
+	
+}
+
+# Create for Tests 2024
+jquery_start()
+{
+	
+	DIR_JS_TOMCAT="${DIR_TOMCAT}/js"
+	DIR_CSS_TOMCAT="${DIR_TOMCAT}/css"
+	
+	echo "Updating ${DIR_JS_TOMCAT} ${DIR_CSS_TOMCAT}"
+	
+	rmdir -v ${DIR_LLS_TEMP}
+	
+	if [ ! -d ${DIR_JS_TOMCAT} ]; then
+
+		mkdir -v ${DIR_JS_TOMCAT}
+		
+	fi
+	
+	if [ ! -d ${DIR_CSS_TOMCAT} ]; then
+
+		mkdir -v ${DIR_CSS_TOMCAT}
+		
+	fi
+	
+	echo "Removing Old files on ${DIR_JS_TOMCAT}"
+	rm -f ${DIR_JS_TOMCAT}/*.js
+	rm -f ${DIR_CSS_TOMCAT}/*.css
+	
+	echo "Coping files to ${DIR_JS_TOMCAT}"
+	cp -f ${DIR_JS}/core/*.js ${DIR_JS_TOMCAT}
+	cp -f ${DIR_JS}/login/*.js ${DIR_JS_TOMCAT}
+	
+	echo "Coping files to ${DIR_CSS_TOMCAT}"
+	cp -f ${DIR_CSS}/*.css ${DIR_CSS_TOMCAT}
+
+	echo "Changing files ownner to tomcat.tomcat..."
+	chown -R tomcat.tomcat ${DIR_CSS_TOMCAT}
+	chown -R tomcat.tomcat ${DIR_JS_TOMCAT}
+	
+	du -hsc ${DIR_CSS_TOMCAT}/*.css ${DIR_JS_TOMCAT}/*.js
+	
+	jsp_update
+	
+	echo "Files Compiled SucessFull: $(date '+%d/%m/%Y %H:%M:%S')"
 	
 }
 

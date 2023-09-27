@@ -5,6 +5,6 @@
 
 function nomeProjeto() {
 	
-	return 'Controle de Armazém';
+	return $('#nomeProjeto').text();
 	
 }

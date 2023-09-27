@@ -9,7 +9,7 @@ cria_arq_menuCore()
 	
 	defini_arq_menuCore
 
-	cria_arq $ARQ $COMPONENTES
+	cria_arq ${ARQ} ${COMPONENTES}
 	
 }
 
