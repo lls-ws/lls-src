@@ -10,41 +10,42 @@ OPCAO="$1"
 
 # Caminho da biblioteca
 PATH=.:$(dirname $0):$PATH
-. jquery-lls-componentes.sh		|| exit 1
-. jquery-lls-core.sh			|| exit 1
-. jquery-lls-cadastro.sh		|| exit 1
 . libcompila_js.sh				|| exit 1
+. jquery-lls-login.sh			|| exit 1
+. jquery-lls-menu.sh			|| exit 1
+#. jquery-lls-componentes.sh	|| exit 1
+#. jquery-lls-core.sh			|| exit 1
+#. jquery-lls-cadastro.sh		|| exit 1
+
 
 jquery_install()
 {
 	rm -fv ${DIR_LLS}/*.js ${DIR_LLS}/*.css
 	
 	COMPONENTES=(
-		"css"
 		"login"
-		"componente_titulo"
-		"componente_textoProcura"
-		"componente_sqlProcura"
-		"componente_botao"
-		"componente_tabela"
-		"componente_cep"
-		"componente_placa"
-		"componente_cpf"
-		"componente_campos"
-		"componente_endereco"
-		"componente_formulario"
-		"componente_cadastro"
-		"componente_cadastro_tabela"
-		"componente_sqlProcuraFazendaProdutor"
-		"componente_sqlProcuraPreco"
-		"menuCore"
-		"componente_cadastroCore"
-		"componente_formularioCore"
+		#"menu"
+		#"componente_campos"
+		#"componente_textoProcura"
+		#"componente_sqlProcura"
+		#"componente_botao"
+		#"componente_tabela"
+		#"componente_placa"
+		#"componente_cpf"
+		#"componente_endereco"
+		#"componente_formulario"
+		#"componente_cadastro"
+		#"componente_cadastro_tabela"
+		#"componente_sqlProcuraFazendaProdutor"
+		#"componente_sqlProcuraPreco"
+		#"menuCore"
+		#"componente_cadastroCore"
+		#"componente_formularioCore"
 	)
 
-	limpa_menu "menuCadastrosOpcoes"
-	limpa_menu "menuRelatorioOpcoes"
-	limpa_menu "telaMenuOpcoes"
+	#limpa_menu "menuCadastrosOpcoes"
+	#limpa_menu "menuRelatorioOpcoes"
+	#limpa_menu "telaMenuOpcoes"
 
 	criar_arquivos_jquery
 	
@@ -140,7 +141,7 @@ case "${OPCAO}" in
 	install)
 		jquery_install
 		criar_arquivos_js
-		jquery_all ${OPCAO}
+		#jquery_all ${OPCAO}
 		;;
 	update)
 		jquery_update

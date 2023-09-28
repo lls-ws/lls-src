@@ -292,13 +292,30 @@ SETEMBRO(2023){
 
 (28/09/2023){
 	
+(OK) Criar um diretorio para cada componente do Login {
+	
+	(ok) Diretório: js/jquery-lls/login
+	(ok) Diretório: js/jquery-lls/componentes/login
+	(ok) Diretório: js/jquery-lls/componentes/telefone
+
+}
+
+}
+
+(29/09/2023){
+	
 	Refazer toda a estrutura dos shell scripts separando por tipo:
 	Login, Componentes, Menu, etc
+	() Arquivo: sh/jquery-lls-login.sh
 	
+
 	Criar um diretorio para cada componente:
-	Telefone, CPF, etc...
+	CEP, CPF, etc...
+	(Para facilitar na manutenção futura)
 	
-	Para facilitar na manutenção futura
+	(ok) Diretório: js/jquery-lls/login
+	(ok) Diretório: js/jquery-lls/componentes/login
+	(ok) Diretório: js/jquery-lls/componentes/telefone
 	
 	Verificar o carregamento dos JS no servidor do Github:
 	lls-ws.github.io/jquery-lls

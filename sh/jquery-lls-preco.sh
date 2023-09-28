@@ -11,7 +11,6 @@ PATH=.:$(dirname $0):$PATH
 . jquery-lls-componentes.sh		|| exit 1
 . jquery-lls-cadastro.sh		|| exit 1
 . libcompila_js.sh				|| exit 1
-#. lib/jquery-lls.lib			|| exit 1
 
 cria_arq_preco()
 {

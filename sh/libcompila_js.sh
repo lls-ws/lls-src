@@ -75,18 +75,18 @@ criar_arquivos_jquery()
 		
 		echo "Componente: ${ARQ}"
 		
-		cria_arq_$ARQ
+		cria_arq_${ARQ}
 		
 	done
 	
-	while read linha
-	do
+	#while read linha
+	#do
 		
-		echo $linha
+		#echo $linha
 		
-		bash $DIR_SH/jquery-lls-$linha.sh
+		#bash $DIR_SH/jquery-lls-$linha.sh
 		
-	done < $ARQ_MODULOS
+	#done < $ARQ_MODULOS
 	
 }
 
@@ -187,9 +187,9 @@ jquery_update()
 	
 	rm -rfv ${DIR_LLS_TEMP}
 	
-	if [ ! -f ${DIR_LLS}/${NOME_CSS} ]; then
+	if [ `find ${DIR_LLS} -iname jquery-lls-*.js | wc -l` == 0 ]; then
 	
-		echo "File not found: ${DIR_LLS}/${NOME_CSS}"
+		echo "File JS not found: ${DIR_LLS}"
 		echo "Run command: bash sh compila_js.sh install"
 		exit 1;
 
@@ -283,13 +283,11 @@ DIR_LLS_TEMP="$DIR_LLS/temp"
 
 DIR_LLS_SRC="$DIR_LLS/src"
 
-DIR_CSS="$DIR_PROJETO/css"
+DIR_CSS="$DIR_PROJETO/css/jquery-lls"
 
 DIR_SH="$DIR_PROJETO/sh"
 
 ARQ_MODULOS="$DIR_SH/jquery-lls-modulos.txt"
-
-NOME_CSS="jquery-lls.css"
 
 NOME_CSS_MIN="jquery-lls.min.css"
 
