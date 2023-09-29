@@ -1,5 +1,5 @@
 /* =========================================================
- * setDadosTabelaLancamentoCore.is
+ * setDadosTabelaLancamentoCore.js
  * http://lls.net.br/
  * ========================================================= */
 
@@ -36,8 +36,6 @@ function setDadosTabelaLancamentoCore(dados) {
 			.show();
 		
 		for(var j = 0; j < dados.array.lancamentos.length; j++) {
-		
-			carregaCssJs("js/jquery-lls/jquery-lls-" + dados.nomeTabelaLancamento[j].toLowerCase() + ".js", "js");
 		
 			var tbodyTabela = tbody('tbody' + dados.nomeTabelaLancamento[j]);
 			

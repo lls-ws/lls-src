@@ -17,13 +17,3 @@ function carregaCssJs(filename, filetype) {
     }
         
 }
-
-function carregaCss(file) {
-	
-	$('<link/>', {
-	   rel: 'stylesheet',
-	   type: 'text/css',
-	   href: file
-	}).appendTo('head');
-        
-}

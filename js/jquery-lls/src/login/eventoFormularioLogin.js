@@ -19,7 +19,7 @@ function eventoFormularioLogin(dados) {
 			
 			if (resposta.status == "200") {
 				
-				menu(resposta.status);
+				window.location.href = 'login';
 				
 			}
 			else {

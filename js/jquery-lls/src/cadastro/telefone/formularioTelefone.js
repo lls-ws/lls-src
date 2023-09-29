@@ -5,8 +5,6 @@
 
 function formularioTelefone(tipoOperacao, nomeTabela) {
 	
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-telefone.js", "js");
-	
 	var $idTela = 'divCampos' + nomeTabela;
 	
 	var $telaTelefone = $('<div />').attr({id: $idTela}).addClass('form-horizontal');

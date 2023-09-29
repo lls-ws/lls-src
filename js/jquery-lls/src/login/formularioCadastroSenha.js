@@ -5,8 +5,6 @@
 
 function formularioCadastroSenha(dados) {
 	
-	carregaCssJs("js/jquery.validate.min.js", "js");
-	
 	var campoEmail = campoTextoHorizontal('email', 'email', '', 0 , 0, 'Email', true, 50, 'enabled', 'envelope');
 	var campoSenhaNova = campoTextoHorizontal('senhaNova', 'password', '', 0 , 0, 'Digite a nova senha', true, 10, 'enabled', 'key');
 	var campoSenhaConfirma = campoTextoHorizontal('senhaConfirma', 'password', '', 0 , 0, 'Confirme a nova senha', true, 10, 'enabled', 'key');

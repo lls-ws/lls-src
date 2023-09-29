@@ -215,7 +215,6 @@ SETEMBRO(2023){
 	(ok) Arquivo: componentes/setDadosDialogCadastroCore.js
 	(ok) Arquivo: componentes/setDadosTabelaLancamentoCore.js
 	(ok) Arquivo: componentes/tabelaRelatorioCore.js
-	
 }
 
 }
@@ -293,52 +292,84 @@ SETEMBRO(2023){
 (28/09/2023){
 	
 (OK) Criar um diretorio para cada componente do Login {
-	
 	(ok) Diretório: js/jquery-lls/login
+	(ok) Diretório: js/jquery-lls/menu
 	(ok) Diretório: js/jquery-lls/componentes/login
 	(ok) Diretório: js/jquery-lls/componentes/telefone
-
 }
 
 }
 
 (29/09/2023){
 	
-	Refazer toda a estrutura dos shell scripts separando por tipo:
-	Login, Componentes, Menu, etc
-	() Arquivo: sh/jquery-lls-login.sh
-	
+(OK) Criar um diretorio para cada componente do Menu {
+	(ok) Diretório: js/jquery-lls/componentes/cep
+	(ok) Diretório: js/jquery-lls/componentes/titulo
+	(ok) Diretório: js/jquery-lls/componentes/cpf
+	(ok) Diretório: js/jquery-lls/componentes/botao
+	(ok) Diretório: js/jquery-lls/componentes/endereco
+	(ok) Diretório: js/jquery-lls/componentes/tabela
+	(ok) Diretório: js/jquery-lls/componentes/procura
+	(ok) Diretório: js/jquery-lls/componentes/sqlProcura
+	(ok) Diretório: js/jquery-lls/componentes/formulario
+	(ok) Diretório: js/jquery-lls/componentes/campos
+	(ok) Diretório: js/jquery-lls/componentes/cadastro
+	(ok) Diretório: js/jquery-lls/componentes/cadastroTabela
+	(ok) Diretório: js/jquery-lls/componentes/placa
+}
 
-	Criar um diretorio para cada componente:
-	CEP, CPF, etc...
-	(Para facilitar na manutenção futura)
-	
-	(ok) Diretório: js/jquery-lls/login
-	(ok) Diretório: js/jquery-lls/componentes/login
-	(ok) Diretório: js/jquery-lls/componentes/telefone
-	
-	Verificar o carregamento dos JS no servidor do Github:
-	lls-ws.github.io/jquery-lls
-	
-	Continuar as alterações no sarquivos do dia anterior
-	
-() Juntar Arquivos JS no Menu {
-	(ok) Arquivo: jsp/menu.jsp
-	(ok) Arquivo: jsp/header.jsp
-	(ok) Arquivo: js/login/nomeProjeto.js
-	(ok) Arquivo: js/login/loginInicio.js
-	
-	() Arquivo: sh/compila_js.sh
-	() Arquivo: sh/libcompila_js.sh
-	() Arquivo: sh/jquery-lls-componentes.sh
-	
-	() Arquivo: js/menu/menu.js
-	// Criar um unico arquivo jquery-lls-core.js com os scripts do arquivo acima.
+(OK) Refazer toda a estrutura dos shell scripts separando por tipo {
+	(ok) Arquivo: sh/jquery-lls-login.sh
+	(ok) Arquivo: sh/jquery-lls-menu.sh
+}
+
+(OK) Excluir Arquivos {
+	(ok) Arquivo: sh/jquery-lls-usuario.sh
+	(ok) Arquivo: sh/jquery-lls-empresa.sh
+	(ok) Arquivo: sh/jquery-lls-modulos.txt
+	(ok) Arquivo: sh/jquery-lls-preco.sh
+	(ok) Arquivo: sh/jquery-lls-componentes.sh
+	(ok) Arquivo: sh/jquery-lls-produtor.sh
+	(ok) Arquivo: js/componentes/telefone/pegaNomeTipoTelefone.js
+	(ok) Arquivo: js/componentes/telefone/pegaDadosFormularioTabelaTelefone.js
 }
 	
-	// Verificar exclusão
-	() Arquivo: componentes/getJson.js 
+(OK) Verificar o carregamento dos JS no servidor do Github {
+	(ok) https://lls-ws.github.io/jquery-lls/jquery-lls.js
+	(ok) https://lls-ws.github.io/jquery-lls/jquery-lls.css
+	(ok) https://lls-ws.github.io/jquery-lls/jquery-menu.js
+	(ok) https://lls-ws.github.io/jquery-lls/jquery-menu.css
+	(ok) Arquivo: jsp/header.jsp
+	(ok) Arquivo: jsp/menu.jsp
+	(ok) Arquivo: js/menu/menu.js
+	(ok) Arquivo: js/login/eventoFormularioLogin.js
+}
 	
+(OK) Corrigir Inssues do Ajax  {
+	(ok) Arquivo: login/formularioCadastroSenha.js
+	(ok) Arquivo: login/eventoFormularioCadastroSenha.js
+	(ok) Arquivo: login/setDadosTabelaLancamentoCore.js
+}
+
+}
+
+(30/09/2023){
+
+() Juntar Arquivos JS dos Modulos {
+	
+	Milho, Café e Balança
+	
+	Criar um unico arquivo: jquery-lls-modulos.js
+	
+}
+
+() Verificar exclusão {
+	() Arquivo: js/componentes/cadastro/getJson.js
+	() Arquivo: js/componentes/login/carregaCss.js
+	() Arquivo: js/componentes/login/carregaCssJs.js
+	() Arquivo: sh/jquery-lls-cadastro.sh
+}
+
 }
 
 }

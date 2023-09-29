@@ -13,10 +13,8 @@ PATH=.:$(dirname $0):$PATH
 . libcompila_js.sh				|| exit 1
 . jquery-lls-login.sh			|| exit 1
 . jquery-lls-menu.sh			|| exit 1
-#. jquery-lls-componentes.sh	|| exit 1
 #. jquery-lls-core.sh			|| exit 1
 #. jquery-lls-cadastro.sh		|| exit 1
-
 
 jquery_install()
 {
@@ -24,23 +22,7 @@ jquery_install()
 	
 	COMPONENTES=(
 		"login"
-		#"menu"
-		#"componente_campos"
-		#"componente_textoProcura"
-		#"componente_sqlProcura"
-		#"componente_botao"
-		#"componente_tabela"
-		#"componente_placa"
-		#"componente_cpf"
-		#"componente_endereco"
-		#"componente_formulario"
-		#"componente_cadastro"
-		#"componente_cadastro_tabela"
-		#"componente_sqlProcuraFazendaProdutor"
-		#"componente_sqlProcuraPreco"
-		#"menuCore"
-		#"componente_cadastroCore"
-		#"componente_formularioCore"
+		"menu"
 	)
 
 	#limpa_menu "menuCadastrosOpcoes"

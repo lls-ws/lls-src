@@ -64,11 +64,8 @@ cria_arq_login()
 	FILE_NAME="jquery-lls-login"
 	
 	file_create "${DIR_LLS_SRC}/login"
-	
 	file_create "${DIR_LLS_SRC}/menu"
-	
 	file_create "${DIR_LLS_SRC}/componentes/login"
-	
 	file_create "${DIR_LLS_SRC}/componentes/telefone"
 	
 	file_show

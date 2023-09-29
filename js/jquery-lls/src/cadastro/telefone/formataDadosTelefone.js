@@ -9,6 +9,4 @@ function formataDadosTelefone(telefone) {
 	
 	telefone.numero = pegaTelefoneMascara(telefone.numero);
 	
-	//telefone.tipo = pegaNomeTipoTelefone(telefone.tipo);
-	
 }
