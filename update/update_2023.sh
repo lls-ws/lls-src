@@ -353,7 +353,13 @@ SETEMBRO(2023){
 
 }
 
-(30/09/2023){
+}
+
+}
+
+OUTUBRO(2023){
+
+(01/10/2023){
 
 () Juntar Arquivos JS dos Modulos {
 	
@@ -368,8 +374,6 @@ SETEMBRO(2023){
 	() Arquivo: js/componentes/login/carregaCss.js
 	() Arquivo: js/componentes/login/carregaCssJs.js
 	() Arquivo: sh/jquery-lls-cadastro.sh
-}
-
 }
 
 }
