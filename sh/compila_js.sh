@@ -24,11 +24,11 @@ jquery_install()
 		"login"
 		"menu"
 	)
-
-	#limpa_menu "menuCadastrosOpcoes"
-	#limpa_menu "menuRelatorioOpcoes"
-	#limpa_menu "telaMenuOpcoes"
-
+	
+	limpa_menu "menuCadastrosOpcoes"
+	limpa_menu "menuRelatorioOpcoes"
+	limpa_menu "telaMenuOpcoes"
+	
 	criar_arquivos_jquery
 	
 }
@@ -55,8 +55,8 @@ jquery_all()
 	if [ "${TIPO}" = "all" ]; then
 	
 		bash ${DIR_HOME}/modulos/milho/sh/compila_milho_js.sh "${OP}"
-		bash ${DIR_HOME}/modulos/cafe/sh/compila_cafe_js.sh "${OP}"
-		bash ${DIR_HOME}/modulos/balanca/sh/compila_balanca_js.sh "${OP}"
+		#bash ${DIR_HOME}/modulos/cafe/sh/compila_cafe_js.sh "${OP}"
+		#bash ${DIR_HOME}/modulos/balanca/sh/compila_balanca_js.sh "${OP}"
 		
 	fi
 	
@@ -65,9 +65,7 @@ jquery_all()
 jquery_clear()
 {
 	
-	rm -fv ${DIR_TOMCAT_CSS}/${NOME_CSS_MIN}
-	
-	rm -rfv ${DIR_LLS_TEMP} ${DIR_TOMCAT_JS}
+	rm -rfv ${DIR_LLS_TEMP} ${DIR_TOMCAT_JS} ${DIR_TOMCAT_CSS}
 	
 }
 
@@ -123,7 +121,7 @@ case "${OPCAO}" in
 	install)
 		jquery_install
 		criar_arquivos_js
-		#jquery_all ${OPCAO}
+		jquery_all ${OPCAO}
 		;;
 	update)
 		jquery_update

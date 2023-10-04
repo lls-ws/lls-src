@@ -4,7 +4,7 @@
 # Autor: Leandro Luiz
 # email: lls.homeoffice@gmail.com
 
-cria_arq_cadastro()
+cria_arq_cadastro(7)
 {
 	
 	NOME="$1"
@@ -25,7 +25,7 @@ cria_arq_cadastro()
 	
 }
 
-cria_arq_cadastro_formulario()
+cria_arq_cadastro_formulario(6)
 {
 	
 	NOME="$1"

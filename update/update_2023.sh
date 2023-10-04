@@ -359,7 +359,39 @@ SETEMBRO(2023){
 
 OUTUBRO(2023){
 
-(01/10/2023){
+(Semana 1) {
+
+(04/10/2023){
+
+(OK) Criar Arquivos JS do Menu {
+	
+	(ok) Arquivo: js/menu/marcarMenu.js
+	(ok) Arquivo: js/menu/pegaPosicaoItemMenu.js
+	(ok) Arquivo: js/menu/getTotalItensMenu.js
+	
+}
+
+}
+
+(05/10/2023){
+
+() Criar Script para JS do Menu Dinâmico {
+	
+	() Arquivo: sh/compila_js.sh
+	() Arquivo: sh/libcompila_js.sh
+	(ok) Arquivo: sh/jquery-lls-menu.sh
+	
+}
+
+() Juntar Arquivos JS do Modulo Milho {
+	
+	() Arquivo: sh/compila_js.sh
+	() Arquivo: sh/libcompila_js.sh
+	() Arquivo: sh/compila_milho_js.sh
+	
+	Criar um unico arquivo: jquery-lls-modulos.js
+	
+}
 
 () Juntar Arquivos JS dos Modulos {
 	
@@ -374,6 +406,8 @@ OUTUBRO(2023){
 	() Arquivo: js/componentes/login/carregaCss.js
 	() Arquivo: js/componentes/login/carregaCssJs.js
 	() Arquivo: sh/jquery-lls-cadastro.sh
+}
+
 }
 
 }

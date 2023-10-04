@@ -1,25 +1,24 @@
 /* =========================================================
- * marcarMenu.js
+ * pegaPosicaoItemMenu.js
  * http://lls.net.br/
  * ========================================================= */
 
-function marcarMenu(posicaoItemMenu) {
+function pegaPosicaoItemMenu() {
+	
+	var posicaoItemMenu = 0;
 	
 	for(var i=1; i<=getTotalItensMenu(); i++){
 		
-		if (posicaoItemMenu != i) {
+		if ($("#itemMenu" + i).hasClass("active")) {
 		
-			$("#itemMenu" + i).removeClass("active");
-			
-		}
-		else {
-			
-			$("#itemMenu" + i).addClass("active");
+			posicaoItemMenu = i;
 			
 			break;
 			
 		}
 		
 	}
+	
+	return posicaoItemMenu;
 	
 }
