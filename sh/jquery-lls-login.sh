@@ -4,19 +4,6 @@
 # Autor: Leandro Luiz
 # email: lls.homeoffice@gmail.com
 
-css_create()
-{
-	
-	FILE_EXT="css"
-	
-	DIR_NAME="$1"
-	
-	file_create "${DIR_CSS}/${DIR_NAME}"
-	
-	file_show
-	
-}
-
 cria_arq_login()
 {
 	

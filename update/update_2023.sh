@@ -363,7 +363,7 @@ OUTUBRO(2023){
 
 (04/10/2023){
 
-(OK) Criar Arquivos JS do Menu {
+(OK) Criar Arquivos Separados JS do Menu {
 	
 	(ok) Arquivo: js/menu/marcarMenu.js
 	(ok) Arquivo: js/menu/pegaPosicaoItemMenu.js
@@ -375,13 +375,21 @@ OUTUBRO(2023){
 
 (05/10/2023){
 
-() Criar Script para JS do Menu Dinâmico {
+(OK) Criar Script para JS do Menu Dinâmico {
 	
-	() Arquivo: sh/compila_js.sh
-	() Arquivo: sh/libcompila_js.sh
 	(ok) Arquivo: sh/jquery-lls-menu.sh
+	(ok) Arquivo: sh/compila_js.sh
+	(ok) Arquivo: sh/libcompila_js.sh
+	(ok) Arquivo: modulos/milho/sh/compila_milho_js.sh
+	
+	(ok) sudo bash sh/compila_js.sh install milho
+	(ok) sudo bash sh/compila_js.sh update milho
 	
 }
+
+}
+
+(06/10/2023){
 
 () Juntar Arquivos JS do Modulo Milho {
 	
@@ -389,7 +397,8 @@ OUTUBRO(2023){
 	() Arquivo: sh/libcompila_js.sh
 	() Arquivo: sh/compila_milho_js.sh
 	
-	Criar um unico arquivo: jquery-lls-modulos.js
+	Criar um unico arquivo: jquery-lls-menu.js
+	(Contendo o Menu e o Milho)
 	
 }
 

@@ -4,21 +4,24 @@
 # Autor: Leandro Luiz
 # email: lls.homeoffice@gmail.com
 
-NOME_PROJETO="milho"
-
 OPCAO="$1"
 
+NOME_PROJETO="$2"
+
+echo ${NOME_PROJETO}
+
 # Caminho das bibliotecas
-#PATH=.:$(pwd $0):
+PATH=.:$(dirname $0):$PATH
 #. jquery-lls-componentes.sh	|| exit 1
 #. jquery-lls-cadastro.sh		|| exit 1
-$(pwd $0)/sh/libcompila_js.sh			|| exit 1
-$(pwd $0)/sh/jquery-lls-menu.sh			|| exit 1
+. libcompila_js.sh				|| exit 1
+. jquery-lls-menu.sh			|| exit 1
 #. modulos/${NOME_PROJETO}/sh/jquery-lls-componentes-${NOME_PROJETO}.sh	|| exit 1
 
 jquery_install()
 {
 	
+	rm -rfv ${DIR_CORE_JS}/temp
 	rm -fv ${DIR_LLS}/*.js ${DIR_LLS}/*.css
 	
 	#COMPONENTES=(
@@ -30,8 +33,8 @@ jquery_install()
 	#criar_arquivos_jquery
 	
 	cria_menu_item "menuCadastros"
-	cria_menu_item "menuRelatorio"
-	cria_menu_item "telaMenu"
+	#cria_menu_item "menuRelatorio"
+	#cria_menu_item "telaMenu"
 	
 	cria_arq_menu
 	

@@ -4,6 +4,19 @@
 # Autor: Leandro Luiz
 # email: lls.homeoffice@gmail.com
 
+css_create()
+{
+	
+	FILE_EXT="css"
+	
+	DIR_NAME="$1"
+	
+	file_create "${DIR_CORE}/css/jquery-lls/${DIR_NAME}"
+	
+	file_show
+	
+}
+
 file_create()
 {
 	
@@ -118,15 +131,6 @@ criar_arquivos_jquery()
 		
 	done
 	
-	#while read linha
-	#do
-		
-		#echo $linha
-		
-		#bash $DIR_SH/jquery-lls-$linha.sh
-		
-	#done < $ARQ_MODULOS
-	
 }
 
 copia_arquivos_js_core()
@@ -179,9 +183,9 @@ cria_menu_item()
 	
 	NOME_ARQ="$1"
 	
-	NOME_MENU=`echo ${NOME_PROJETO} | awk '{ print toupper(substr(${NOME_PROJETO}, 1, 1)) substr(${NOME_PROJETO}, 2) }'`
+	NOME_MENU=`echo ${NOME_PROJETO} | awk '{ print toupper(substr($/{NOME_PROJETO}/, 1, 1)) substr($/{NOME_PROJETO}/, 2) }'`
 	
-	MENU_PROJETO="${NOME_ARQ$NOME_MENU}"
+	MENU_PROJETO="${NOME_ARQ}${NOME_MENU}"
 	
 	MENU_CORE=${NOME_ARQ}"Opcoes"
 	
@@ -195,7 +199,6 @@ cria_menu_item()
 	sed -i '/opcoesMenu = '${MENU_PROJETO}'/d' ${ARQ_MENU_CORE}
 	
 	sed -i '/function '${MENU_CORE}'/a \	opcoesMenu = '${MENU_PROJETO}'(nomesItensMenu, opcoesMenu);' ${ARQ_MENU_CORE}
-	#sed -i '/function '$MENU_CORE'/a \	carregaCssJs("js/jquery-lls/jquery-lls-menu-'$NOME_PROJETO'.js", "js");' $ARQ_MENU_CORE
 	
 	sed -i '/'${MENU_PROJETO}'.js/,+'${MENU_SIZE}'d' ${ARQ_MENU_CORE}
 	
@@ -203,28 +206,15 @@ cria_menu_item()
 	
 	cat ${ARQ_MENU_PROJETO} >> ${ARQ_MENU_CORE}
 	
-	#atualiza_menu_core
-	
-}
-
-atualiza_menu_core()
-{
-	
-	defini_arq_menu
-	
-	for ARQUIVO in "${COMPONENTES[@]}"
-	do
-		
-		cat $DIR_CORE_JS_SRC/$ARQUIVO >> $DIR_LLS_TEMP/$ARQ
-		
-	done
+	echo ${ARQ_MENU_PROJETO}
+	echo ${ARQ_MENU_CORE}
 	
 }
 
 jquery_update()
 {
 	
-	rm -rfv ${DIR_LLS_TEMP}
+	rm -rfv ${DIR_LLS_TEMP} ${DIR_CORE_JS}/temp
 	
 	if [ `find ${DIR_LLS} -iname jquery-lls-*.js | wc -l` == 0 ]; then
 	
@@ -237,22 +227,6 @@ jquery_update()
 	jsp_update
 	
 	echo "Updating JS..."
-	
-	#if [ -d ${DIR_TOMCAT_JS} ]; then
-
-		#rm -rf ${DIR_TOMCAT_JS}
-		
-	#fi
-	
-	#if [ -d ${DIR_TOMCAT_CSS} ]; then
-
-		#rm -rf ${DIR_TOMCAT_CSS}
-		
-	#fi
-	
-	#echo "Creating directories on ${DIR_TOMCAT}"
-	#mkdir -v ${DIR_TOMCAT_JS}
-	#mkdir -v ${DIR_TOMCAT_CSS}
 	
 	echo "Moving files to ${DIR_TOMCAT}"
 	mv -v ${DIR_LLS}/*.css ${DIR_TOMCAT_CSS}
@@ -288,7 +262,7 @@ jsp_update()
 	
 }
 
-if [ -z "$NOME_PROJETO" ]; then
+if [ -z "${NOME_PROJETO}" ]; then
 
 	echo "Informe o nome do projeto!"
 	

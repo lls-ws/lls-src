@@ -55,8 +55,14 @@ jquery_all()
 	if [ "${TIPO}" = "all" ]; then
 	
 		bash ${DIR_HOME}/modulos/milho/sh/compila_milho_js.sh "${OP}"
-		#bash ${DIR_HOME}/modulos/cafe/sh/compila_cafe_js.sh "${OP}"
-		#bash ${DIR_HOME}/modulos/balanca/sh/compila_balanca_js.sh "${OP}"
+		bash ${DIR_HOME}/modulos/cafe/sh/compila_cafe_js.sh "${OP}"
+		bash ${DIR_HOME}/modulos/balanca/sh/compila_balanca_js.sh "${OP}"
+		
+	else
+	
+		clear
+		
+		bash ${DIR_HOME}/modulos/${TIPO}/sh/compila_${TIPO}_js.sh "${OP}" "${TIPO}"
 		
 	fi
 	
@@ -119,13 +125,31 @@ TIPO="$2"
 
 case "${OPCAO}" in
 	install)
-		jquery_install
-		criar_arquivos_js
-		jquery_all ${OPCAO}
+		
+		if [ -z "${TIPO}" ]; then
+		
+			jquery_install
+			criar_arquivos_js
+		
+		else
+		
+			jquery_all ${OPCAO}
+		
+		fi
+		
 		;;
 	update)
-		jquery_update
-		jquery_all ${OPCAO}
+	
+		if [ -z "${TIPO}" ]; then
+		
+			jquery_update
+		
+		else
+		
+			jquery_all ${OPCAO}
+		
+		fi
+
 		;;
 	min)
 		jquery_min
@@ -134,10 +158,19 @@ case "${OPCAO}" in
 		jquery_clear
 		;;
 	start)
-		jquery_install
-		criar_arquivos_js
-		jquery_update
-		jquery_all ${OPCAO}
+	
+		if [ -z "${TIPO}" ]; then
+		
+			jquery_install
+			criar_arquivos_js
+			jquery_update
+		
+		else
+		
+			jquery_all ${OPCAO}
+		
+		fi
+	
 		;;
 	*)
 		echo "Use: bash $0 {install|update|min|start|clear} [all]"
