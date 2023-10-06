@@ -11,7 +11,7 @@ NOME_PROJETO="$2"
 echo ${NOME_PROJETO}
 
 # Caminho das bibliotecas
-PATH=.:$(dirname $0):$PATH
+#PATH=.:$(dirname $0):$PATH
 #. jquery-lls-componentes.sh	|| exit 1
 #. jquery-lls-cadastro.sh		|| exit 1
 . libcompila_js.sh				|| exit 1
@@ -38,12 +38,28 @@ jquery_install()
 	
 	cria_arq_menu
 	
+	add_menu_${NOME_PROJETO}
+	
+	criar_arquivos_js
+	
+}
+
+add_menu_milho()
+{
+	
+	#FILE_EXT="js"
+	
+	#FILE_NAME="jquery-lls-menu"
+	
+	file_create "${DIR_LLS_SRC}/menu"
+	
+	file_show
+	
 }
 
 case "${OPCAO}" in
 	install)
 		jquery_install
-		criar_arquivos_js
 		;;
 	update)
 		jquery_update
@@ -53,7 +69,6 @@ case "${OPCAO}" in
 		;;
 	start)
 		jquery_install
-		criar_arquivos_js
 		jquery_update
 		;;
 	*)

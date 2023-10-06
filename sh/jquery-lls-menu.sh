@@ -7,11 +7,11 @@
 cria_arq_menu()
 {
 	
-	MENU_OPT="$1"
+	FILE_NAME="jquery-lls-menu"
+	
+	css_create "menu"
 	
 	FILE_EXT="js"
-	
-	FILE_NAME="jquery-lls-menu"
 	
 	file_create "${DIR_CORE_JS_SRC}/menu"
 	file_create "${DIR_CORE_JS_SRC}/componentes/menu"
@@ -20,8 +20,6 @@ cria_arq_menu()
 	cria_arq_componentes
 	
 	file_show
-	
-	css_create "menu"
 	
 }
 

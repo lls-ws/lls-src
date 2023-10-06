@@ -117,22 +117,6 @@ criar_arquivos_js()
 	
 }
 
-criar_arquivos_jquery()
-{
-	
-	echo "Componentes: ${NOME_PROJETO}"
-	
-	for ARQ in "${COMPONENTES[@]}"
-	do
-		
-		echo "Componente: ${ARQ}"
-		
-		cria_arq_${ARQ}
-		
-	done
-	
-}
-
 copia_arquivos_js_core()
 {
 	
@@ -262,60 +246,57 @@ jsp_update()
 	
 }
 
-if [ -z "${NOME_PROJETO}" ]; then
+min_def()
+{
+	
+	NOME_CSS_MIN="jquery-lls.min.css"
 
-	echo "Informe o nome do projeto!"
+	ARQ_CSS_MIN="${DIR_CSS}/${NOME_CSS_MIN}"
+
+	ARQ_JAR="${DIR_TOMCAT}/WEB-INF/lib/yuicompressor-2.4.8.jar"
 	
-	exit 1;
+}
+
+modules_def()
+{
 	
-fi
+	MODULE_NAME="$1"
+	
+	DIR_MODULE="${DIR_HOME}/modulos/${MODULE_NAME}"
+	
+	if [ ! -d ${DIR_MODULE} ]; then
+
+		echo "Module not found: ${DIR_MODULE}"
+		exit 1;
+		
+	fi
+	
+	DIR_MODULE_JS="${DIR_MODULE}/js"
+		
+	DIR_LLS="${DIR_MODULE_JS}/jquery-lls"
+
+	DIR_LLS_TEMP="${DIR_LLS}/temp"
+
+	DIR_LLS_SRC="${DIR_LLS}/src"
+
+	DIR_CSS="${DIR_PROJETO}/css/jquery-lls"
+
+	DIR_SH="${DIR_PROJETO}/sh"
+	
+}
 
 DIR_HOME="/home/lls/lls-src"
 
-DIR_PROJETO="${DIR_HOME}/modulos/${NOME_PROJETO}"
-
-if [ ! -d ${DIR_PROJETO} ]; then
-
-	DIR_PROJETO="${DIR_HOME}"
-	
-fi
-
 DIR_CORE="${DIR_HOME}"
+
+DIR_CORE_JS="${DIR_CORE}/js"
+
+DIR_CORE_JS_SRC="${DIR_CORE_JS}/src"
+
+DIR_CORE_JS_MENU="${DIR_CORE_JS_SRC}/componentes/menu"
 
 DIR_TOMCAT="/var/lib/tomcat9/webapps/lls"
 
 DIR_TOMCAT_JS="${DIR_TOMCAT}/js"
 
 DIR_TOMCAT_CSS="${DIR_TOMCAT}/css"
-
-DIR_JS="${DIR_PROJETO}/js"
-		
-DIR_LLS="${DIR_JS}/jquery-lls"
-
-DIR_LLS_TEMP="${DIR_LLS}/temp"
-
-DIR_LLS_SRC="${DIR_LLS}/src"
-
-DIR_CSS="${DIR_PROJETO}/css/jquery-lls"
-
-DIR_SH="${DIR_PROJETO}/sh"
-
-ARQ_MODULOS="${DIR_SH}/jquery-lls-modulos.txt"
-
-NOME_CSS_MIN="jquery-lls.min.css"
-
-ARQ_CSS_MIN="${DIR_CSS}/${NOME_CSS_MIN}"
-
-ARQ_JAR="${DIR_TOMCAT}/WEB-INF/lib/yuicompressor-2.4.8.jar"
-
-DIR_CORE_JS="${DIR_CORE}/js/jquery-lls"
-
-DIR_CORE_JS_SRC="${DIR_CORE_JS}/src"
-
-DIR_CORE_JS_MENU="${DIR_CORE_JS_SRC}/componentes/menu"
-
-if [ ! -d ${DIR_LLS_TEMP} ]; then
-	
-	mkdir -v ${DIR_LLS_TEMP}
-
-fi

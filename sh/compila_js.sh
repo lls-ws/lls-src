@@ -1,12 +1,8 @@
 #!/bin/bash
-# Script para criar os arquivos jquery-lls
+# Script to create JS files for jquery-lls
 #
 # Autor: Leandro Luiz
 # email: lls.homeoffice@gmail.com
-
-NOME_PROJETO="lls"
-
-OPCAO="$1"
 
 # Caminho da biblioteca
 PATH=.:$(dirname $0):$PATH
@@ -20,16 +16,16 @@ jquery_install()
 {
 	rm -fv ${DIR_LLS}/*.js ${DIR_LLS}/*.css
 	
-	COMPONENTES=(
-		"login"
-		"menu"
-	)
+	cria_arq_login
+	cria_arq_menu
 	
 	limpa_menu "menuCadastrosOpcoes"
 	limpa_menu "menuRelatorioOpcoes"
 	limpa_menu "telaMenuOpcoes"
 	
 	criar_arquivos_jquery
+	
+	criar_arquivos_js
 	
 }
 
@@ -38,16 +34,16 @@ jquery_min()
 	jquery_install
 	criar_arquivos_js
 	
-	jquery_all "install"
+	jquery_modules "install"
 	
 	criar_arquivos_mim
 	criar_arquivos_css_mim
 	
-	jquery_all "min"
+	jquery_modules "min"
 	
 }
 
-jquery_all()
+jquery_modules()
 {
 	
 	OP="$1"
@@ -123,17 +119,16 @@ jquery_start()
 
 TIPO="$2"
 
-case "${OPCAO}" in
+case "$1" in
 	install)
 		
 		if [ -z "${TIPO}" ]; then
 		
 			jquery_install
-			criar_arquivos_js
 		
 		else
 		
-			jquery_all ${OPCAO}
+			jquery_modules ${OPCAO}
 		
 		fi
 		
@@ -146,7 +141,7 @@ case "${OPCAO}" in
 		
 		else
 		
-			jquery_all ${OPCAO}
+			jquery_modules ${OPCAO}
 		
 		fi
 
@@ -162,15 +157,14 @@ case "${OPCAO}" in
 		if [ -z "${TIPO}" ]; then
 		
 			jquery_install
-			criar_arquivos_js
 			jquery_update
 		
 		else
 		
-			jquery_all ${OPCAO}
+			jquery_modules ${OPCAO}
 		
 		fi
-	
+		
 		;;
 	*)
 		echo "Use: bash $0 {install|update|min|start|clear} [all]"

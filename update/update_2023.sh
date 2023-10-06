@@ -389,17 +389,25 @@ OUTUBRO(2023){
 
 }
 
-(06/10/2023){
+(07/10/2023){
 
-() Juntar Arquivos JS do Modulo Milho {
+() Refazer Scripts com Novo Modelo de Modulos {
 	
 	() Arquivo: sh/compila_js.sh
 	() Arquivo: sh/libcompila_js.sh
-	() Arquivo: sh/compila_milho_js.sh
 	
-	Criar um unico arquivo: jquery-lls-menu.js
-	(Contendo o Menu e o Milho)
+	Criar um metodo contendo as funcionalidade para criação dos JS do Módulo informado
 	
+	Criar um metodo para fazer todas as funcionalidades do arquivo:
+	() Arquivo: modulos/milho/sh/compila_milho_js.sh
+	
+	Excluir o arquivo:
+	() Arquivo: modulos/milho/sh/compila_milho_js.sh
+	
+}
+
+() Excluir Arquivos {
+	() Arquivo: modulos/milho/sh/jquery-lls-componentes-milho.js
 }
 
 () Juntar Arquivos JS dos Modulos {
