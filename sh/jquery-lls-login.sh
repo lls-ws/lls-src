@@ -1,19 +1,19 @@
 #!/bin/bash
-# Script para juntar os arquivos JS do Login
+# Script to join JS files for Login
 #
 # Autor: Leandro Luiz
 # email: lls.homeoffice@gmail.com
 
-cria_arq_login()
+login_create()
 {
 	
 	FILE_EXT="js"
 	
 	FILE_NAME="jquery-lls-login"
 	
-	file_create "${DIR_LLS_SRC}/login"
-	file_create "${DIR_LLS_SRC}/componentes/login"
-	file_create "${DIR_LLS_SRC}/componentes/telefone"
+	file_create "${DIR_CORE_JS}/login"
+	file_create "${DIR_CORE_JS}/componentes/login"
+	file_create "${DIR_CORE_JS}/componentes/telefone"
 	
 	file_show
 	

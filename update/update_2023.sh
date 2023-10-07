@@ -389,12 +389,14 @@ OUTUBRO(2023){
 
 }
 
-(07/10/2023){
+(08/10/2023){
 
 () Refazer Scripts com Novo Modelo de Modulos {
 	
-	() Arquivo: sh/compila_js.sh
-	() Arquivo: sh/libcompila_js.sh
+	() Arquivo: sh/jquery-lls.sh
+	() Arquivo: sh/lib_jquery-lls.sh
+	() Arquivo: sh/jquery-lls-login.sh
+	() Arquivo: sh/jquery-lls-menu.sh
 	
 	Criar um metodo contendo as funcionalidade para criação dos JS do Módulo informado
 	
