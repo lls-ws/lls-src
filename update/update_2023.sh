@@ -389,22 +389,52 @@ OUTUBRO(2023){
 
 }
 
-(08/10/2023){
+}
 
-() Refazer Scripts com Novo Modelo de Modulos {
+(Semana 2) {
+
+(10/10/2023){
+
+(OK) Refazer Scripts com Novo Modelo de Modulos {
 	
-	() Arquivo: sh/jquery-lls.sh
-	() Arquivo: sh/lib_jquery-lls.sh
-	() Arquivo: sh/jquery-lls-login.sh
-	() Arquivo: sh/jquery-lls-menu.sh
+	(ok) Arquivo: sh/jquery-lls.sh
+	(ok) Arquivo: sh/lib_jquery-lls.sh
+	(ok) Arquivo: sh/jquery-lls-login.sh
+	(ok) Arquivo: sh/jquery-lls-menu.sh
 	
-	Criar um metodo contendo as funcionalidade para criação dos JS do Módulo informado
+}
+
+}
+
+(11/10/2023){
 	
-	Criar um metodo para fazer todas as funcionalidades do arquivo:
-	() Arquivo: modulos/milho/sh/compila_milho_js.sh
+() Corrigir Script js-compila {
+
+	Git-Hub Desktop
+	
+}
+	
+()Criar metodos para fazer todas as funcionalidades JS do Milho {
+	
+	() Arquivo: modulos/milho/sh/jquery-lls-milho.sh
+	
+	Conferir arquivos existentes nos diretorios com os arquivos informados nos arquivos para excluir abaixo:
 	
 	Excluir o arquivo:
 	() Arquivo: modulos/milho/sh/compila_milho_js.sh
+	() Arquivo: modulos/milho/sh/jquery-lls-umidade.sh
+	() Arquivo: modulos/milho/sh/jquery-lls-componentes-milho.sh
+	() Arquivo: modulos/milho/sh/jquery-lls-baixamilho.sh
+	() Arquivo: modulos/milho/sh/jquery-lls-entmilho.sh
+	() Arquivo: modulos/milho/sh/jquery-lls-faturamilho.sh
+	() Arquivo: modulos/milho/sh/jquery-lls-laudomilho.sh
+	() Arquivo: modulos/milho/sh/jquery-lls-movimentomilho.sh
+	() Arquivo: modulos/milho/sh/jquery-lls-resumomilho.sh
+	() Arquivo: modulos/milho/sh/jquery-lls-saimilho.sh
+	() Arquivo: modulos/milho/sh/jquery-lls-servicomilho.sh
+	() Arquivo: modulos/milho/sh/jquery-lls-sintetizamilho.sh
+	() Arquivo: modulos/milho/sh/jquery-lls-tramilho.sh
+	() Arquivo: modulos/milho/sh/jquery-lls-modulos.txt
 	
 }
 
@@ -425,6 +455,7 @@ OUTUBRO(2023){
 	() Arquivo: js/componentes/login/carregaCss.js
 	() Arquivo: js/componentes/login/carregaCssJs.js
 	() Arquivo: sh/jquery-lls-cadastro.sh
+	() Arquivo: sh/jquery-lls-core.sh
 }
 
 }

@@ -1,78 +1,61 @@
 #!/bin/sh
-# Script para criar os arquivos jquery-lls-milho
+# Script to join JS files for Corn
 #
 # Autor: Leandro Luiz
 # email: lls.homeoffice@gmail.com
 
-OPCAO="$1"
-
-NOME_PROJETO="$2"
-
-echo ${NOME_PROJETO}
-
-# Caminho das bibliotecas
-#PATH=.:$(dirname $0):$PATH
-#. jquery-lls-componentes.sh	|| exit 1
-#. jquery-lls-cadastro.sh		|| exit 1
-. libcompila_js.sh				|| exit 1
-. jquery-lls-menu.sh			|| exit 1
-#. modulos/${NOME_PROJETO}/sh/jquery-lls-componentes-${NOME_PROJETO}.sh	|| exit 1
-
-jquery_install()
+milho_create()
 {
 	
-	rm -rfv ${DIR_CORE_JS}/temp
-	rm -fv ${DIR_LLS}/*.js ${DIR_LLS}/*.css
+	tmp_create
 	
-	#COMPONENTES=(
-		#"menu_milho"
-		#"componente_sqlProcuraUmidade"
-		#"componente_sqlProcuraMilho"
-	#)
-
-	#criar_arquivos_jquery
+	menu_create_opt "menuCadastros"
+	menu_create_opt "menuRelatorio"
+	menu_create_opt "telaMenu"
 	
-	cria_menu_item "menuCadastros"
-	#cria_menu_item "menuRelatorio"
-	#cria_menu_item "telaMenu"
+	menu_create
 	
-	cria_arq_menu
-	
-	add_menu_${NOME_PROJETO}
-	
-	criar_arquivos_js
-	
-}
-
-add_menu_milho()
-{
-	
-	#FILE_EXT="js"
-	
-	#FILE_NAME="jquery-lls-menu"
-	
-	file_create "${DIR_LLS_SRC}/menu"
+	milho_menu_create
+	milho_cadastro_create
+	milho_lancamento_create
+	milho_faturamento_create
 	
 	file_show
 	
 }
 
-case "${OPCAO}" in
-	install)
-		jquery_install
-		;;
-	update)
-		jquery_update
-		;;
-	min)
-		criar_arquivos_mim
-		;;
-	start)
-		jquery_install
-		jquery_update
-		;;
-	*)
-		echo "Use: $0 {install|update|min|start}"
-		exit 1
-		;;
-esac
+milho_menu_create()
+{
+	
+	file_create "${DIR_MODULE_JS}/menu"
+	
+}
+
+milho_cadastro_create()
+{
+	
+	file_create "${DIR_MODULE_JS}/cadastro/umidade"
+	
+}
+
+milho_lancamento_create()
+{
+	
+	file_create "${DIR_MODULE_JS}/lancamento/milho"
+	file_create "${DIR_MODULE_JS}/lancamento/laudo"
+	file_create "${DIR_MODULE_JS}/lancamento/entmilho"
+	file_create "${DIR_MODULE_JS}/lancamento/saimilho"
+	file_create "${DIR_MODULE_JS}/lancamento/tramilho"
+	
+}
+
+milho_faturamento_create()
+{
+	
+	file_create "${DIR_MODULE_JS}/faturamento/baixamilho"
+	file_create "${DIR_MODULE_JS}/faturamento/faturamilho"
+	file_create "${DIR_MODULE_JS}/faturamento/servicomilho"
+	file_create "${DIR_MODULE_JS}/faturamento/movimentomilho"
+	file_create "${DIR_MODULE_JS}/faturamento/sintetizamilho"
+	
+}

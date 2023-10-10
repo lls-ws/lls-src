@@ -13,37 +13,28 @@ PATH=.:$(dirname $0):$PATH
 jquery_create()
 {
 	
+	tmp_create
+	
 	login_create
+	
+	menu_clear "menuCadastros"
+	menu_clear "menuRelatorio"
+	menu_clear "telaMenu"
+	
 	menu_create
 	
-	menu_clear "menuCadastrosOpcoes"
-	menu_clear "menuRelatorioOpcoes"
-	menu_clear "telaMenuOpcoes"
-	
-	criar_arquivos_jquery
-	
-	criar_arquivos_js
+	msg_show "created" "${DIR_TEMP}/*"
 	
 }
 
 jquery_modules()
 {
 	
-	OP="$1"
-	
-	if [ "${TIPO}" = "all" ]; then
-	
-		bash ${DIR_HOME}/modulos/milho/sh/compila_milho_js.sh "${OP}"
-		bash ${DIR_HOME}/modulos/cafe/sh/compila_cafe_js.sh "${OP}"
-		bash ${DIR_HOME}/modulos/balanca/sh/compila_balanca_js.sh "${OP}"
+	modules_def "${MODULE}"
 		
-	else
+	. ${DIR_MODULE}/sh/compila_${MODULE}_js.sh	|| exit 1
 	
-		clear
-		
-		bash ${DIR_HOME}/modulos/${TIPO}/sh/compila_${TIPO}_js.sh "${OP}" "${TIPO}"
-		
-	fi
+	${MODULE}_create
 	
 }
 
@@ -51,30 +42,10 @@ MODULE="$2"
 
 case "$1" in
 	create)
-		
-		if [ -z "${MODULE}" ]; then
-		
-			jquery_create
-		
-		else
-		
-			jquery_modules "$1"
-		
-		fi
-		
+		module_check
 		;;
 	update)
-	
-		if [ -z "${TIPO}" ]; then
-		
-			jquery_update
-		
-		else
-		
-			jquery_modules ${OPCAO}
-		
-		fi
-
+		jquery_update
 		;;
 	min)
 		jquery_min
@@ -83,21 +54,11 @@ case "$1" in
 		jquery_clear
 		;;
 	start)
-	
-		if [ -z "${TIPO}" ]; then
-		
-			jquery_install
-			jquery_update
-		
-		else
-		
-			jquery_modules ${OPCAO}
-		
-		fi
-		
+		module_check
+		jquery_update
 		;;
 	*)
-		echo "Use: bash $0 {install|update|min|start|clear} [all]"
+		echo "Use: bash $0 {create|update|min|start|clear} [module]"
 		exit 1
 		;;
 esac

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Biblioteca para manipular a compilação dos arquivos js
+# Script to manipulate JS files for jquery-lls
 #
 # Autor: Leandro Luiz
 # email: lls.homeoffice@gmail.com
@@ -56,15 +56,15 @@ css_create()
 	
 }
 
-js_update()
+jquery_update()
 {
 	
 	if [ `find ${DIR_TEMP} -iname jquery-lls-*.js | wc -l` == 0 ]; then
-	
+		
 		echo "File JS not found: ${DIR_TEMP}"
-		echo "Run command: bash sh compila_js.sh install"
+		echo "Run command: sudo bash sh/jquery-lls.sh create [MODULE]"
 		exit 1;
-
+		
 	fi
 	
 	jsp_update
@@ -72,19 +72,21 @@ js_update()
 	echo "Updating JS..."
 	
 	echo "Moving files to ${DIR_TOMCAT}"
-	cp -v ${DIR_TEMP}/*.css ${DIR_TOMCAT_CSS}
-	cp -v ${DIR_TEMP}/*.js ${DIR_TOMCAT_JS}
+	mv -v ${DIR_TEMP}/*.css ${DIR_TOMCAT_CSS}
+	mv -v ${DIR_TEMP}/*.js ${DIR_TOMCAT_JS}
+
+	tmp_remove
 
 	echo "Changing directory ownner to tomcat.tomcat..."
 	chown -R tomcat.tomcat ${DIR_TOMCAT_CSS} ${DIR_TOMCAT_JS}
 	
 	du -hsc ${DIR_TOMCAT_CSS}/*.css ${DIR_TOMCAT_JS}/*.js
 	
-	echo "JS, CSS and JSP files join sucessfull: $(date '+%d/%m/%Y %H:%M:%S')"
+	msg_show "updated" "${DIR_TOMCAT_CSS} ${DIR_TOMCAT_JS}"
 	
 }
 
-js_clear()
+jquery_clear()
 {
 	
 	rm -rfv ${DIR_TEMP} ${DIR_TOMCAT_JS} ${DIR_TOMCAT_CSS}
@@ -94,10 +96,6 @@ js_clear()
 jsp_update()
 {
 	echo "Updating JSP..."
-	
-	DIR_CORE_JSP="${DIR_CORE}/jsp"
-	
-	DIR_TOMCAT_JSP="${DIR_TOMCAT}/WEB-INF/jsp"
 	
 	echo "Removing JSP directory: ${DIR_TOMCAT_JSP}"
 	rm -rf ${DIR_TOMCAT_JSP}
@@ -130,9 +128,62 @@ modules_def()
 	
 }
 
+tmp_create()
+{
+	
+	clear
+	
+	tmp_remove
+	
+	mkdir -v ${DIR_TEMP}
+	
+}
+
+tmp_remove()
+{
+	
+	if [ -d ${DIR_TEMP} ]; then
+	
+		echo "Removing temporary directory: ${DIR_TEMP}"
+		rm -rf ${DIR_TEMP}
+		
+	fi
+	
+}
+
+msg_show()
+{
+	
+	MSG="$1"
+	
+	DIR_MSG="$2"
+	
+	du -hsc ${DIR_MSG}
+	
+	echo "Files ${MSG} sucessfull: $(date '+%d/%m/%Y %H:%M:%S')"
+	
+}
+
+module_check()
+{
+	
+	if [ -z "${MODULE}" ]; then
+		
+		jquery_create
+	
+	else
+	
+		jquery_modules
+	
+	fi
+	
+}
+
 DIR_TEMP="/tmp/jquery-lls"
 
 DIR_CORE="/home/lls/lls-src"
+
+DIR_CORE_JSP="${DIR_CORE}/jsp"
 
 DIR_CORE_CSS="${DIR_CORE}/css"
 
@@ -142,6 +193,8 @@ DIR_CORE_MENU="${DIR_CORE_JS}/componentes/menu"
 
 DIR_TOMCAT="/var/lib/tomcat9/webapps/lls"
 
-DIR_TOMCAT_JS="${DIR_TOMCAT}/js"
+DIR_TOMCAT_JSP="${DIR_TOMCAT}/WEB-INF/jsp"
 
 DIR_TOMCAT_CSS="${DIR_TOMCAT}/css"
+
+DIR_TOMCAT_JS="${DIR_TOMCAT}/js"
