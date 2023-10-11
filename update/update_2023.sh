@@ -408,11 +408,18 @@ OUTUBRO(2023){
 
 (11/10/2023){
 	
-() Corrigir Script js-compila {
+(OK) Corrigir Script Git-Hub Desktop {
 
-	Git-Hub Desktop
+	(ok) /home/lls/.bash_aliases
+	(ok) desktop/bin/util_config.sh
+	(ok) desktop/scripts/jquery-lls.sh
+	(ok) desktop/etc/sudoers.d/lls_sudoers
 	
 }
+
+}
+
+(12/10/2023){
 	
 ()Criar metodos para fazer todas as funcionalidades JS do Milho {
 	
