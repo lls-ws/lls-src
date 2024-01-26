@@ -6,9 +6,15 @@
   Source files from project LLS-WS
 </h4>
 
-## Usage
-
 ### From Command Line
+
+## jQuery
+
+```bash
+sudo bash bin/jquery_lls.sh 
+```
+
+## Maven
 
 ```bash
 sudo bash bin/maven_conf.sh jdk
