@@ -5,7 +5,8 @@
 # email: lls.homeoffice@gmail.com
 
 PATH=.:$(dirname $0):$PATH
-. lib/tomcat.lib	|| exit 1
+. lib/lls.lib				|| exit 1
+. lib/tomcat.lib			|| exit 1
 
 spring_update()
 {	

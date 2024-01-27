@@ -1,0 +1,19 @@
+#!/bin/bash
+# Script to set directories path for LLS
+#
+# Autor: Leandro Luiz
+# email: lls.homeoffice@gmail.com
+
+DIR_TEMP="/tmp/jquery-lls"
+
+DIR_CORE="/home/lls/lls-src"
+
+DIR_CORE_XML="${DIR_CORE}/xml"
+
+DIR_CORE_JSP="${DIR_CORE}/jsp"
+
+DIR_CORE_CSS="${DIR_CORE}/css"
+
+DIR_CORE_JS="${DIR_CORE}/js"
+
+DIR_CORE_MENU="${DIR_CORE_JS}/componentes/menu"

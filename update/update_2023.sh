@@ -427,7 +427,7 @@ OUTUBRO(2023){
 	
 ()Criar metodos para fazer todas as funcionalidades JS do Milho {
 	
-	() Arquivo: modulos/milho/sh/jquery-lls-milho.sh
+	(ok) Arquivo: modulos/milho/sh/jquery-lls-milho.sh
 	
 	Conferir arquivos existentes nos diretorios com os arquivos informados nos arquivos para excluir abaixo:
 	
@@ -446,18 +446,6 @@ OUTUBRO(2023){
 	() Arquivo: modulos/milho/sh/jquery-lls-sintetizamilho.sh
 	() Arquivo: modulos/milho/sh/jquery-lls-tramilho.sh
 	() Arquivo: modulos/milho/sh/jquery-lls-modulos.txt
-	
-}
-
-() Excluir Arquivos {
-	() Arquivo: modulos/milho/sh/jquery-lls-componentes-milho.js
-}
-
-() Juntar Arquivos JS dos Modulos {
-	
-	Milho, Café e Balança
-	
-	Criar um unico arquivo: jquery-lls-modulos.js
 	
 }
 

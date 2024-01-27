@@ -14,6 +14,10 @@
 sudo bash bin/jquery_conf.sh start
 ```
 
+```bash
+sudo bash bin/jquery_conf.sh start milho
+```
+
 ## Update
 
 ```bash

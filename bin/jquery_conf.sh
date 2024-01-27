@@ -5,10 +5,11 @@
 # email: lls.homeoffice@gmail.com
 
 PATH=.:$(dirname $0):$PATH
-. lib/tomcat.lib				|| exit 1
-. lib/jquery.lib				|| exit 1
-. lib/jquery_login.lib			|| exit 1
-. lib/jquery_menu.lib			|| exit 1
+. lib/lls.lib				|| exit 1
+. lib/tomcat.lib			|| exit 1
+. lib/jquery.lib			|| exit 1
+. lib/jquery_login.lib		|| exit 1
+. lib/jquery_menu.lib		|| exit 1
 
 jquery_create()
 {
@@ -32,7 +33,7 @@ jquery_modules()
 	
 	modules_def "${MODULE}"
 		
-	. ${DIR_MODULE}/sh/compila_${MODULE}_js.sh	|| exit 1
+	. ${DIR_MODULE}/lib/jquery_${MODULE}.lib	|| exit 1
 	
 	${MODULE}_create
 	
