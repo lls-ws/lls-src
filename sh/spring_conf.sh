@@ -4,10 +4,8 @@
 # Autor: Leandro Luiz
 # email: lls.homeoffice@gmail.com
 
-DIR_XML="xml"
-DIR_WEB="/usr/share/tomcat/webapps/lls/WEB-INF"
-DIR_CLASS="${DIR_WEB}/classes"
-DIR_CONF="${DIR_WEB}/config"
+PATH=.:$(dirname $0):$PATH
+. lib/tomcat.lib	|| exit 1
 
 spring_update()
 {	
@@ -15,7 +13,7 @@ spring_update()
 	FILE_CONF="$1"
 	DIR_COPY="$2"
 	
-	cp -fv ${DIR_XML}/${FILE_CONF} ${DIR_COPY}
+	cp -fv ${DIR_CORE_XML}/${FILE_CONF} ${DIR_COPY}
 	
 	cat ${DIR_COPY}/${FILE_CONF}
 	
@@ -25,9 +23,9 @@ spring_server()
 {	
 	
 	FILE_CONF="server.xml"
-	DIR_CONF="/usr/share/tomcat/conf"
+	DIR_TOMCAT_CONF="/usr/share/tomcat/conf"
 	
-	spring_update ${FILE_CONF} ${DIR_CONF}
+	spring_update ${FILE_CONF} ${DIR_TOMCAT_CONF}
 	
 }
 
@@ -36,7 +34,7 @@ spring_persistence()
 	
 	FILE_CONF="persistence.xml"
 	
-	spring_update ${FILE_CONF} ${DIR_CLASS}
+	spring_update ${FILE_CONF} ${DIR_TOMCAT_CLASS}
 	
 }
 
@@ -45,7 +43,7 @@ spring_web()
 	
 	FILE_CONF="web.xml"
 	
-	spring_update ${FILE_CONF} ${DIR_WEB}
+	spring_update ${FILE_CONF} ${DIR_TOMCAT_WEB}
 	
 }
 
@@ -54,7 +52,7 @@ spring_context()
 	
 	FILE_CONF="spring-context.xml"
 	
-	spring_update ${FILE_CONF} ${DIR_CONF}
+	spring_update ${FILE_CONF} ${DIR_TOMCAT_CONF}
 	
 }
 
@@ -63,7 +61,7 @@ spring_message()
 	
 	FILE_CONF="ValidationMessages.properties"
 	
-	spring_update ${FILE_CONF} ${DIR_CLASS}
+	spring_update ${FILE_CONF} ${DIR_TOMCAT_CLASS}
 	
 }
 

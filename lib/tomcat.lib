@@ -1,0 +1,37 @@
+#!/bin/bash
+# Script to set directories path for Tomcat
+#
+# Autor: Leandro Luiz
+# email: lls.homeoffice@gmail.com
+
+DIR_TEMP="/tmp/jquery-lls"
+
+DIR_CORE="/home/lls/lls-src"
+
+DIR_CORE_XML="${DIR_CORE}/xml"
+
+DIR_CORE_JSP="${DIR_CORE}/jsp"
+
+DIR_CORE_CSS="${DIR_CORE}/css"
+
+DIR_CORE_JS="${DIR_CORE}/js"
+
+DIR_CORE_MENU="${DIR_CORE_JS}/componentes/menu"
+
+## Tomcat
+
+DIR_TOMCAT="/var/lib/tomcat9/webapps/lls"
+
+DIR_TOMCAT_WEB="${DIR_TOMCAT}/WEB-INF"
+
+DIR_TOMCAT_CSS="${DIR_TOMCAT}/css"
+
+DIR_TOMCAT_JS="${DIR_TOMCAT}/js"
+
+DIR_TOMCAT_JSP="${DIR_TOMCAT_WEB}/jsp"
+
+DIR_TOMCAT_LIB="${DIR_TOMCAT_WEB}/lib"
+
+DIR_TOMCAT_CLASS="${DIR_TOMCAT_WEB}/classes"
+
+DIR_TOMCAT_CONF="${DIR_TOMCAT_WEB}/config"

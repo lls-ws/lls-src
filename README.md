@@ -11,7 +11,13 @@
 ## jQuery
 
 ```bash
-sudo bash bin/jquery_lls.sh 
+sudo bash bin/jquery_conf.sh start
+```
+
+## Update
+
+```bash
+sudo bash bin/update_2024.sh
 ```
 
 ## Maven

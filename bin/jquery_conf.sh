@@ -4,11 +4,11 @@
 # Autor: Leandro Luiz
 # email: lls.homeoffice@gmail.com
 
-# Caminho da biblioteca
 PATH=.:$(dirname $0):$PATH
-. lib_jquery-lls.sh				|| exit 1
-. jquery-lls-login.sh			|| exit 1
-. jquery-lls-menu.sh			|| exit 1
+. lib/tomcat.lib				|| exit 1
+. lib/jquery.lib				|| exit 1
+. lib/jquery_login.lib			|| exit 1
+. lib/jquery_menu.lib			|| exit 1
 
 jquery_create()
 {

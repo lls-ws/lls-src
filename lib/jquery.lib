@@ -71,6 +71,18 @@ jquery_update()
 	
 	echo "Updating JS..."
 	
+	if [ ! -d ${DIR_TOMCAT_CSS} ]; then
+	
+		mkdir -v ${DIR_TOMCAT_CSS}
+	
+	fi
+	
+	if [ ! -d ${DIR_TOMCAT_JS} ]; then
+	
+		mkdir -v ${DIR_TOMCAT_JS}
+	
+	fi
+	
 	echo "Moving files to ${DIR_TOMCAT}"
 	mv -v ${DIR_TEMP}/*.css ${DIR_TOMCAT_CSS}
 	mv -v ${DIR_TEMP}/*.js ${DIR_TOMCAT_JS}
@@ -90,6 +102,7 @@ jquery_clear()
 {
 	
 	rm -rfv ${DIR_TEMP} ${DIR_TOMCAT_JS} ${DIR_TOMCAT_CSS}
+	rm -rfv ${DIR_TOMCAT}/imagens ${DIR_TOMCAT}/fonts ${DIR_TOMCAT}/style
 	
 }
 
@@ -178,23 +191,3 @@ module_check()
 	fi
 	
 }
-
-DIR_TEMP="/tmp/jquery-lls"
-
-DIR_CORE="/home/lls/lls-src"
-
-DIR_CORE_JSP="${DIR_CORE}/jsp"
-
-DIR_CORE_CSS="${DIR_CORE}/css"
-
-DIR_CORE_JS="${DIR_CORE}/js"
-
-DIR_CORE_MENU="${DIR_CORE_JS}/componentes/menu"
-
-DIR_TOMCAT="/var/lib/tomcat9/webapps/lls"
-
-DIR_TOMCAT_JSP="${DIR_TOMCAT}/WEB-INF/jsp"
-
-DIR_TOMCAT_CSS="${DIR_TOMCAT}/css"
-
-DIR_TOMCAT_JS="${DIR_TOMCAT}/js"
