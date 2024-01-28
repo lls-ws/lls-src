@@ -8,6 +8,11 @@
 
 ### From Command Line
 
+```bash
+git clone https://github.com/lls-ws/lls-src.git && cd lls-src
+
+```
+
 ## jQuery
 
 ```bash
