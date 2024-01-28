@@ -1,0 +1,35 @@
+#!/bin/bash
+# Script to Set Command for Mysql
+#
+# Autor: Leandro Luiz
+# email: lls.homeoffice@gmail.com
+
+if [ "$EUID" -ne 0 ]; then
+	
+	echo "Run script with sudo command!"
+	echo "Use: sudo `basename $0`"
+	exit 1
+  
+fi
+
+USER=`git config user.name`
+
+if [ -z "${USER}" ]; then
+		
+	echo "Not found a user name!"
+	echo "Use: git_conf.sh name {NAME}"
+	exit 1
+	
+fi
+
+PASSWORD=`git config user.password`
+
+if [ -z "${PASSWORD}" ]; then
+	
+	echo "Not found a user password!"
+	echo "Use: git_conf.sh password {PASSWORD}"
+	exit 1
+	
+fi
+
+CMD_BASE="mysql -u root --password=${PASSWORD} -D bd_${USER}"
