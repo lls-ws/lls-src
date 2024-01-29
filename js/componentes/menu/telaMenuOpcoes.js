@@ -7,6 +7,9 @@ function telaMenuOpcoes(nomesItensMenu, opcoesMenu) {
 	return opcoesMenu;
 }
 
+
+
+
 /* ================ telaMenuMilho.js =======================
  * http://lls.net.br/
  * ========================================================= */

@@ -12,7 +12,7 @@ function setDadosTabelaUmidade(umidade) {
 	var $urlBotao = 'mostraCadastro("' + umidade.id + '" , "Umidade")';
 	
 	var $botaoVisualizar = botao(
-		'botaoVisualizar', '', 'eye-open', '0', 'btn btn-primary btn-xs', 'button', $urlBotao
+		'botaoVisualizar' + umidade.id, '', 'eye', '0', 'btn btn-primary btn-xs', 'button', $urlBotao
 	);
 	
 	var $tbody = $('#listaUmidadeForm #tableListaUmidade #tbodyListaUmidade');
