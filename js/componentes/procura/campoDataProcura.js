@@ -11,7 +11,7 @@ function campoDataProcura(textoLabel, nomeTabela, urlSearch, urlAdd, tamanhoLabe
 	
 	var dataAtual =  new Date();
 	
-	var $campoHorizontal = campoHorizontal(id, textoLabel, tamanhoLabel);
+	var $campoHorizontal = campoHorizontal('dataInicial' + nomeTabela, textoLabel, tamanhoLabel);
 	
 	var $divGroup = $('<div />').addClass('input-group');
 	
@@ -85,8 +85,9 @@ function campoDataProcura(textoLabel, nomeTabela, urlSearch, urlAdd, tamanhoLabe
 	$inputDataInicial.datepicker({
 		modal: true,
 		constrainInput: true,
-		changeMonth: true,
-        changeYear: true,
+		changeMonth: false,
+        changeYear: false,
+        showAnim: "slideDown",
         yearRange: "c-10:c+10",
         numberOfMonths: 1,
 		dateFormat: 'dd/mm/yy',
@@ -108,8 +109,9 @@ function campoDataProcura(textoLabel, nomeTabela, urlSearch, urlAdd, tamanhoLabe
 		modal: true,
 		constrainInput: true,
 		minDate: dataAtual,
-		changeMonth: true,
-        changeYear: true,
+		changeMonth: false,
+        changeYear: false,
+        showAnim: "slideDown",
         yearRange: "c-10:c+10",
         numberOfMonths: 1,
 		dateFormat: 'dd/mm/yy',

@@ -5,8 +5,6 @@
 
 function formularioBaixamilho(idServicomilho, nomeTabela) {
 	
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-campos.js", "js");
-	
 	var servicomilho = getJsonById("baixaServicomilho", idServicomilho);
 	
 	servicomilho.produtor = decodeURIComponent(servicomilho.produtor);

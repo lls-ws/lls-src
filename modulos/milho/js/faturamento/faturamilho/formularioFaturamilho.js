@@ -5,9 +5,6 @@
 
 function formularioFaturamilho(idFaturamilho, nomeTabela) {
 	
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-campos.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-botao.js", "js");
-	
 	var nomeTabelaProcura = "Milho";
 	
 	var nomeTabelas = nomeTabela + nomeTabelaProcura;

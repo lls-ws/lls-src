@@ -7,9 +7,6 @@ function menuCadastrosOpcoes(nomesItensMenu, opcoesMenu) {
 	return opcoesMenu;
 }
 
-
-
-
 /* ================ menuCadastrosMilho.js ==================
  * http://lls.net.br/
  * ========================================================= */

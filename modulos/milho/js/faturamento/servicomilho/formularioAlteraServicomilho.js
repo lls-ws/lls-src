@@ -5,8 +5,6 @@
 
 function formularioAlteraServicomilho(servicomilho) {
 	
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-campos.js", "js");
-	
 	var idFazenda = "idnomeProcuraCadastro" + servicomilho.nomeTabela + "FazendaProdutor";
 	var idServico = "idnomeProcuraCadastro" + servicomilho.nomeTabela + "Preco";
 	

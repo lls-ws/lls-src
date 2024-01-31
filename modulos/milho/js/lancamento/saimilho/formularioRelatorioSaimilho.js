@@ -5,8 +5,6 @@
 
 function formularioRelatorioSaimilho(nomeTabela, posicaoItemMenu) {
 	
-	carregaCssJs("js/jquery-lls/jquery-lls-milho.js", "js");
-	
 	var urlSearch = 'eventoListaCadastro(1, "' + nomeTabela + '")';
 	
 	var $formulario = formularioRelatorioNomeDataAdd(

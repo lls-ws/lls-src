@@ -5,9 +5,6 @@
 
 function formataDadosEntmilho(entmilho) {
 	
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-campos.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-placa.js", "js");
-	
 	entmilho.data = formataData(entmilho.data);
 	
 	entmilho.produtor = decodeURIComponent(entmilho.produtor);

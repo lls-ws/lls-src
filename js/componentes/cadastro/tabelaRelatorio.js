@@ -17,15 +17,12 @@ function tabelaRelatorio(posicaoItemMenu, nomeTabela, textoLabel) {
 		"('" + nomeTabela + "', '" + posicaoItemMenu + "')"
 	);
 	
-	var divTitulo = $('<div/>').addClass('input-group form-control formulario_cor');
+	var titulo = $("<div/>").addClass('titulo_tabela')
+		.text(tituloPainelCadastro(2, eval('pegaNomeColunas' + nomeTabela + '(3)')));
 	
-	var titulo = label(
-		'nomeProcura',
-		tituloPainelCadastro(2, eval('pegaNomeColunas' + nomeTabela + '(3)')),
-		'texto_label texto_grande'
-	).addClass('col-md-12 col-xs-12');
-	
-	divTitulo.append(titulo);
+	var tituloTabela = $('<div/>')
+		.addClass('input-group form-control formulario_cor')
+		.append(titulo);
 	
 	var divProcura1 = $('<div/>')
 		.addClass('col-md-12')
@@ -33,7 +30,7 @@ function tabelaRelatorio(posicaoItemMenu, nomeTabela, textoLabel) {
 		
 	var divProcura2 = $('<div/>')
 		.addClass('col-md-12')
-		.append(divTitulo);
+		.append(tituloTabela);
 		
 	var divProcura3 = $('<div/>')
 		.addClass('col-md-12')

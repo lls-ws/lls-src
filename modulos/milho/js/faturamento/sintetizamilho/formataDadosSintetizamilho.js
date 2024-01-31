@@ -5,8 +5,6 @@
 
 function formataDadosSintetizamilho(sintetizamilho) {
 	
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-campos.js", "js");
-	
 	sintetizamilho.produtor = decodeURIComponent(sintetizamilho.produtor);
 	sintetizamilho.fazenda = decodeURIComponent(sintetizamilho.fazenda);
 	

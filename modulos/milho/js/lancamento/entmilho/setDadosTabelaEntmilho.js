@@ -12,7 +12,7 @@ function setDadosTabelaEntmilho(entmilho) {
 	var $urlBotao = 'mostraCadastro("' + entmilho.id + '" , "Entmilho")';
 	
 	var $botaoVisualizar = botao(
-		"botaoVisualizar", "", "eye-open", "0", "btn btn-primary btn-xs", "button", $urlBotao
+		"botaoVisualizar" + entmilho.id, "", "eye", "0", "btn btn-primary btn-xs", "button", $urlBotao
 	);
 	
 	var $tbody = $("#listaEntmilhoForm #tableListaEntmilho #tbodyListaEntmilho");

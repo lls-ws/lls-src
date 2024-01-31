@@ -5,12 +5,6 @@
 
 function formularioServicomilho(idServicomilho, nomeTabela) {
 	
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-campos.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-sqlProcura.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-sqlProcuraFazendaProdutor.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-sqlProcuraPreco.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-laudo.js", "js");
-	
 	var servico = getJson("achaLaudo");
 	
 	var $campoProdutor = campoSqlProcuraTexto(

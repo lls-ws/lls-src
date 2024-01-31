@@ -12,7 +12,7 @@ function setDadosTabelaMilho(milho) {
 	var $urlBotao = 'mostraCadastro("' + milho.id + '" , "Milho")';
 	
 	var $botaoVisualizar = botao(
-		"botaoVisualizar", "", "eye-open", "0", "btn btn-primary btn-xs", "button", $urlBotao
+		"botaoVisualizar" + milho.id, "", "eye", "0", "btn btn-primary btn-xs", "button", $urlBotao
 	);
 	
 	var $tbody = $("#listaMilhoForm #tableListaMilho #tbodyListaMilho");

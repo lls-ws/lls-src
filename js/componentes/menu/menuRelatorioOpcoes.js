@@ -7,9 +7,6 @@ function menuRelatorioOpcoes(nomesItensMenu, opcoesMenu) {
 	return opcoesMenu;
 }
 
-
-
-
 /* ================ menuRelatorioMilho.js ==================
  * http://lls.net.br/
  * ========================================================= */

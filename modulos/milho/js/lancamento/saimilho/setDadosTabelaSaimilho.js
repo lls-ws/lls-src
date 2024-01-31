@@ -12,7 +12,7 @@ function setDadosTabelaSaimilho(saimilho) {
 	var $urlBotao = 'mostraCadastro("' + saimilho.id + '" , "Saimilho")';
 	
 	var $botaoVisualizar = botao(
-		"botaoVisualizar", "", "eye-open", "0", "btn btn-primary btn-xs", "button", $urlBotao
+		"botaoVisualizar"+ saimilho.id, "", "eye", "0", "btn btn-primary btn-xs", "button", $urlBotao
 	);
 	
 	var $tbody = $("#listaSaimilhoForm #tableListaSaimilho #tbodyListaSaimilho");

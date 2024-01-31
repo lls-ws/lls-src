@@ -40,19 +40,6 @@ body {
   color: #0000FF;
 }
 
-.texto_grande {
-  font-size: large;
-  text-shadow: black 0.1em 0.1em 0.2em;
-}
-
-.texto_enorme {
-  font-size:550%;
-  font-weight:'Bold';
-  font-family:'digital-clock-font';
-  text-shadow: black 0.1em 0.1em 0.2em;
-  
-}
-
 @font-face{
  font-family:'digital-clock-font';
  src: url('../fonts/digital-7.ttf');

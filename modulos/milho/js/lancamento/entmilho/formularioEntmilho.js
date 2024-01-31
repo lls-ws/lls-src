@@ -5,13 +5,6 @@
 
 function formularioEntmilho(idEntmilho, nomeTabela) {
 	
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-campos.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-placa.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-sqlProcura.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-sqlProcuraFazendaProdutor.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-sqlProcuraUmidade.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-laudo.js", "js");
-	
 	var laudo = getJson("achaLaudo");
 	
 	var precoEntmilho = pegaPrecoEntmilho();

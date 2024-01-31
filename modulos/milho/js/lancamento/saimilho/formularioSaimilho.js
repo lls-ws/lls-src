@@ -5,12 +5,6 @@
 
 function formularioSaimilho(idSaimilho, nomeTabela) {
 	
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-campos.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-placa.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-sqlProcura.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-sqlProcuraMilho.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-laudo.js", "js");
-	
 	var laudo = getJson("achaLaudo");
 	
 	var $campoProdutor = campoSqlProcuraTexto(

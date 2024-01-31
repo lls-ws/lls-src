@@ -5,10 +5,6 @@
 
 function formularioLaudo(idLaudo, nomeTabela) {
 	
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-campos.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-botao.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-tabela.js", "js");
-	
 	var laudo = getJson("achaLaudo");
 	
 	var $idTela = "div" + nomeTabela;

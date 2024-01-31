@@ -5,8 +5,6 @@
 
 function formataDadosServicomilho(servicomilho) {
 	
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-campos.js", "js");
-	
 	servicomilho.produtor = decodeURIComponent(servicomilho.produtor);
 	servicomilho.fazenda = decodeURIComponent(servicomilho.fazenda);
 	servicomilho.obs = decodeURIComponent(servicomilho.obs);

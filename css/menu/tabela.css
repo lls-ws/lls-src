@@ -69,3 +69,14 @@ tfoot th {
   text-overflow: ellipsis;
   
 }
+
+.titulo_tabela {
+	
+  text-align: center;
+  font-weight: bold;
+  font-size: x-large;
+  color: #FFFFFF;
+  
+  text-shadow: black 0.1em 0.1em 0.2em;
+  
+}

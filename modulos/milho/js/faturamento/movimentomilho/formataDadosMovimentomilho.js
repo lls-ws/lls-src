@@ -5,8 +5,6 @@
 
 function formataDadosMovimentomilho(movimentomilho) {
 	
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-campos.js", "js");
-	
 	movimentomilho.produtor = decodeURIComponent(movimentomilho.produtor);
 	movimentomilho.fazenda = decodeURIComponent(movimentomilho.fazenda);
 	

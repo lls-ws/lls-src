@@ -5,9 +5,6 @@
 
 function formataDadosSaimilho(saimilho) {
 	
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-campos.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-placa.js", "js");
-	
 	saimilho.data = formataData(saimilho.data);
 	saimilho.laudo = saimilho.laudo;
 	saimilho.produtor = decodeURIComponent(saimilho.produtor);

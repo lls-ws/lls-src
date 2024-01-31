@@ -5,15 +5,6 @@
 
 function formularioTramilho(idTramilho, nomeTabela) {
 	
-	carregaCssJs("js/jquery.maskedinput.min.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-campos.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-placa.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-botao.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-tabela.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-sqlProcura.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-sqlProcuraMilho.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-sqlProcuraFazendaProdutor.js", "js");
-	
 	var tramilho = getJson("achaLaudo");
 	
 	var $idTela = "div" + nomeTabela;

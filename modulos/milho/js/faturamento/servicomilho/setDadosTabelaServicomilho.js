@@ -5,8 +5,6 @@
 
 function setDadosTabelaServicomilho(servicomilho) {
 	
-	carregaCssJs("js/jquery-lls/jquery-lls-baixamilho.js", "js");
-	
 	var pago = servicomilho.pago;
 	var valor = servicomilho.valor;
 	
@@ -17,7 +15,7 @@ function setDadosTabelaServicomilho(servicomilho) {
 	var $urlBotaoVisualizar = 'mostraCadastro("' + servicomilho.id + '" , "Servicomilho")';
 	
 	var $botaoVisualizar = botao(
-		"botaoVisualizar", "", "eye-open", "0", "btn btn-primary btn-xs", "button", $urlBotaoVisualizar
+		"botaoVisualizar"+ servicomilho.id, "", "eye", "0", "btn btn-primary btn-xs", "button", $urlBotaoVisualizar
 	);
 	
 	var $tbody = $("#listaServicomilhoForm #tableListaServicomilho #tbodyListaServicomilho");

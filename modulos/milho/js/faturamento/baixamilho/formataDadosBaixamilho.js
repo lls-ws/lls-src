@@ -5,8 +5,6 @@
 
 function formataDadosBaixamilho(baixamilho) {
 	
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-campos.js", "js");
-	
 	baixamilho.obs = decodeURIComponent(baixamilho.obs);
 	
 	baixamilho.data = formataData(baixamilho.data);

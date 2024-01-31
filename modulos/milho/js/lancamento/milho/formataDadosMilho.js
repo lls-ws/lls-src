@@ -5,8 +5,6 @@
 
 function formataDadosMilho(milho) {
 	
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-campos.js", "js");
-	
 	milho.produtor = decodeURIComponent(milho.produtor);
 	milho.fazenda = decodeURIComponent(milho.fazenda);
 	milho.entrada = formataNumero(milho.entrada, 2, false, true, "", " kg");
