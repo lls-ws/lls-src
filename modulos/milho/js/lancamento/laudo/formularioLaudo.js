@@ -12,7 +12,7 @@ function formularioLaudo(idLaudo, nomeTabela) {
 	var $formTela = $("<div/>").attr({id: $idTela}).addClass("form-horizontal");
 	
 	var $campoLaudo = campoNumeroHorizontal("laudo" + nomeTabela, "Laudo",
-		9, 2, 0, 11, false, false, "", "");
+		9, 2, 0, 6, false, false, "", "");
 	
 	$formTela.append($campoLaudo);
 	

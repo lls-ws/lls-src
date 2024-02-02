@@ -14,7 +14,7 @@ function senha(tipo) {
 		dados["urlBotao"] = 'eventoFormularioCadastroSenha';
 		dados["formulario"] = 'CadastroSenha';
 		
-		dados.iconeBotao = 'check';
+		dados.iconeBotao = 'fa-check';
 		dados.textoBotao = 'Salvar';
 		
 	}

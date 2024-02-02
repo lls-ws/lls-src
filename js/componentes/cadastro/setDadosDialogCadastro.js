@@ -32,7 +32,8 @@ function setDadosDialogCadastro(cadastro, nomesColunasCadastro, trCadastro) {
 	
 	var botaoAlterar = botaoHorizontal(
 		idBotaoAlterar,
-		'Alterar', 'edit', 4, 0,
+		'Alterar',
+		'fa-edit', 4, 0,
 		'btn btn-warning',
 		'button',
 		$urlBotaoAlterar
@@ -40,7 +41,8 @@ function setDadosDialogCadastro(cadastro, nomesColunasCadastro, trCadastro) {
 	
 	var botaoRemover = botaoHorizontal(
 		idBotaoRemover,
-		'Excluir', 'remove', 4, 8,
+		'Excluir',
+		'fa-trash-alt', 4, 8,
 		'btn btn-danger',
 		'button',
 		$urlBotaoRemover

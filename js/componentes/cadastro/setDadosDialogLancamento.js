@@ -75,7 +75,7 @@ function setDadosDialogLancamento(lancamento, nomesColunasLancamento, trLancamen
 	var botaoBaixar = botaoHorizontal(
 		idBotaoBaixar,
 		nomeBotao,
-		'ok', 4, 4,
+		'fa-check', 4, 4,
 		'btn btn-success',
 		'button',
 		urlBotaoBaixar

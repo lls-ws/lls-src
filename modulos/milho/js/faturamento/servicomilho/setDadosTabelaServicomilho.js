@@ -15,7 +15,7 @@ function setDadosTabelaServicomilho(servicomilho) {
 	var $urlBotaoVisualizar = 'mostraCadastro("' + servicomilho.id + '" , "Servicomilho")';
 	
 	var $botaoVisualizar = botao(
-		"botaoVisualizar"+ servicomilho.id, "", "eye", "0", "btn btn-primary btn-xs", "button", $urlBotaoVisualizar
+		"botaoVisualizar"+ servicomilho.id, "", "fa-eye", "0", "btn btn-primary btn-xs", "button", $urlBotaoVisualizar
 	);
 	
 	var $tbody = $("#listaServicomilhoForm #tableListaServicomilho #tbodyListaServicomilho");

@@ -12,7 +12,7 @@ function campoTexto(id, type, textoLabel, placeholder, required,
 		
 	var iconImage = $("<i/>").attr('id', id + 'Image')
 		.attr('aria-hidden', true)
-		.addClass('fa fa-lg fa-' + icon);
+		.addClass('fa fa-lg ' + icon);
 	
 	var iconSpan = span('input-group-addon').append(iconImage);
 	

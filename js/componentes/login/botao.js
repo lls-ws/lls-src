@@ -7,7 +7,7 @@ function botao(id, label, icone, tamanhoBotao, tipoBotao, type, onClick) {
 	
 	var iconImage = $("<i/>").attr('id', 'image' + id)
 		.attr('aria-hidden', true)
-		.addClass('fa fa-fw fa-lg fa-' + icone);
+		.addClass('fa fa-fw fa-lg ' + icone);
 	
 	tamanhoBotao = 'col-md-' + tamanhoBotao;
 		

@@ -28,7 +28,7 @@ function animacao(idBotao, iconeBotao, enable, number) {
 		else {
 			
 			$('#image' + idBotao)
-				.removeClass('fa-' + iconeBotao)
+				.removeClass(iconeBotao)
 				.addClass('fa-' + animation[number].spinner + ' fa-' + animation[number].animated);
 			
 		}
@@ -37,7 +37,7 @@ function animacao(idBotao, iconeBotao, enable, number) {
 
 		$('#image' + idBotao)
 			.removeClass('fa-' + animation[number].spinner + ' fa-' + animation[number].animated)
-			.addClass('fa-' + iconeBotao);
+			.addClass(iconeBotao);
 			
 	}
 	

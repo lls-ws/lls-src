@@ -8,7 +8,7 @@ function telaTabela(nomeTabela, nomeTabelaCadastro) {
 	var idTabela = 'table' + nomeTabela;
 	
 	var botaoTabela = botao('botaoNovo' + nomeTabela,
-		'', 'plus', '0',
+		'', 'fa-plus', '0',
 		'btn btn-xs btn-primary',
 		'button',
 		'telaTabelaNovoItem("' + nomeTabela + '", "' + nomeTabelaCadastro + '")'

@@ -7,7 +7,7 @@ function campoTelefone(id, required, icon, textoLabel) {
 	
 	var maxlength = 15;
 	
-	if (icon == null) icon = 'whatsapp';
+	if (icon == null) icon = 'fab fa-whatsapp';
 	if (textoLabel == null) textoLabel = '';
 	
 	var campoTelefone = campoTexto(

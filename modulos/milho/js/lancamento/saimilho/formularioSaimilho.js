@@ -19,7 +19,7 @@ function formularioSaimilho(idSaimilho, nomeTabela) {
 	
 	var $campoLaudo = campoNumeroHorizontal(
 		"laudo" + nomeTabela, "N.E",
-		'col-xs-7 col-sm-6 col-lg-8', 'col-xs-5 col-sm-6 col-lg-4', 0, 11, false, false, "", "", "enabled");
+		'col-xs-7 col-sm-6 col-lg-8', 'col-xs-5 col-sm-6 col-lg-4', 0, 6, false, false, "", "", "enabled");
 	
 	var $campoData = campoDataHorizontal(
 		"data" + nomeTabela, "Data",
@@ -39,7 +39,7 @@ function formularioSaimilho(idSaimilho, nomeTabela) {
 	
 	var $campoTiket = campoNumeroHorizontal(
 		"tiket" + nomeTabela, "Ticket",
-		'col-xs-7 col-sm-6 col-lg-8', 'col-xs-5 col-sm-6 col-lg-4', 0, 11, false, true, "", ""
+		'col-xs-7 col-sm-6 col-lg-8', 'col-xs-5 col-sm-6 col-lg-4', 0, 6, false, true, "", ""
 	);
 	
 	var $campoPlaca = campoPlacaHorizontal(
@@ -75,7 +75,7 @@ function formularioSaimilho(idSaimilho, nomeTabela) {
 	
 	var $campoCilo = campoNumeroHorizontal(
 		"cilo" + nomeTabela, "Silo",
-		'col-xs-7 col-sm-6 col-lg-8', 'col-xs-5 col-sm-6 col-lg-4', 0, 11, false, true, "", ""
+		'col-xs-7 col-sm-6 col-lg-8', 'col-xs-5 col-sm-6 col-lg-4', 0, 1, false, true, "", ""
 	);
 	
 	var $campoDestino = campoTextoHorizontal(

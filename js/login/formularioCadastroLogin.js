@@ -5,8 +5,8 @@
 
 function formularioCadastroLogin(dados) {
 	
-	var campoNome = campoTexto('nome', 'text', '', 'Nome', true, '-1', 50, 'user');
-	var campoEmail = campoTexto('email', 'email', '', 'Email', true, '-1', 50, 'envelope');
+	var campoNome = campoTexto('nome', 'text', '', 'Nome', true, '-1', 50, 'fa-user');
+	var campoEmail = campoTexto('email', 'email', '', 'Email', true, '-1', 50, 'fa-envelope');
 	var campoFone = campoTelefone('telefone', true);
 	
 	var formulario = formularioLoginCore(dados);

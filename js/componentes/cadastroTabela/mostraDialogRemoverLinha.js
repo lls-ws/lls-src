@@ -16,8 +16,6 @@ function mostraDialogRemoverLinha(textoMensagem, corTexto, classe, titulo, id, u
 		autoOpen: false,
 		position: { my: 'center', at: 'center', of: $("#painel"), within: $(classe) },
 		width: 350,
-		//show: "clip",
-		//hide: "clip",
 		modal: true,
 		buttons: [
 			{

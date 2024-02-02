@@ -15,12 +15,12 @@ function formularioLogin(dados) {
 	
 	dados["idBotao"] = 'botaoLogin';
 	dados["textoBotao"] = 'Acessar';
-	dados["iconeBotao"] = 'sign-in';
+	dados["iconeBotao"] = 'fa-sign-in-alt';
 	dados["tipoBotao"] = 'btn-primary';
 	dados["urlBotao"] = 'eventoFormularioLogin';
 	
-	var campoEmail = campoTexto('email', 'text', '', 'Email', 'true', '-1', 50, 'envelope');
-	var campoSenha = campoTexto('senha', 'password', '', 'Senha', 'true', '-1', 10, 'key');
+	var campoEmail = campoTexto('email', 'text', '', 'Email', 'true', '-1', 50, 'fa-envelope');
+	var campoSenha = campoTexto('senha', 'password', '', 'Senha', 'true', '-1', 10, 'fa-key');
 	
 	var formulario = formularioLoginCore(dados);
 	

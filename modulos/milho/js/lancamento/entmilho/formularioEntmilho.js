@@ -21,7 +21,7 @@ function formularioEntmilho(idEntmilho, nomeTabela) {
 	
 	var $campoTiket = campoNumeroHorizontal(
 		"tiket" + nomeTabela, "Ticket",
-		'col-xs-7 col-sm-6 col-lg-8', 'col-xs-5 col-sm-6 col-lg-4', 0, 11, false, true, "", ""
+		'col-xs-7 col-sm-6 col-lg-8', 'col-xs-5 col-sm-6 col-lg-4', 0, 6, false, true, "", ""
 	);
 	
 	var $campoData = campoDataHorizontal(
@@ -47,7 +47,7 @@ function formularioEntmilho(idEntmilho, nomeTabela) {
 	
 	var $campoLaudo = campoNumeroHorizontal(
 		"laudo" + nomeTabela, "Laudo",
-		'col-xs-7 col-sm-6 col-lg-8', 'col-xs-5 col-sm-6 col-lg-4', 0, 11, false, false, "", "", "disabled"
+		'col-xs-7 col-sm-6 col-lg-8', 'col-xs-5 col-sm-6 col-lg-4', 0, 6, false, false, "", "", "disabled"
 	);
 	
 	var $divPlacaLaudo = $("<div/>").addClass("form-horizontal");
@@ -99,7 +99,7 @@ function formularioEntmilho(idEntmilho, nomeTabela) {
 	
 	var $campoCilo = campoNumeroHorizontal(
 		"cilo" + nomeTabela, "Silo",
-		'col-xs-7 col-sm-6 col-lg-8', 'col-xs-5 col-sm-6 col-lg-4', 0, 11, false, true, "", ""
+		'col-xs-7 col-sm-6 col-lg-8', 'col-xs-5 col-sm-6 col-lg-4', 0, 1, false, true, "", ""
 	);
 	
 	var $campoSecagem = campoNumeroHorizontal(

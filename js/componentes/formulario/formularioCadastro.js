@@ -21,7 +21,7 @@ function formularioCadastro(idCadastro, nomeTabela, tipoTextoBotao, tamanhoBotao
 	var $botao = botaoHorizontal(
 		'botao' + nomeTabela,
 		textoBotao(tipoTextoBotao),
-		'check',
+		'fa-check',
 		tamanhoBotao,
 		tamanhoOffSet,
 		'btn btn-block btn-success',

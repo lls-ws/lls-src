@@ -15,7 +15,13 @@ function campoNumeroInteiro(id, maxlength) {
 		mask += '9';
 	}
 	
-	$input.decimalMask(mask);
+	$input.inputmask({
+	  alias: 'numeric', 
+	  allowMinus: false,
+	  rightAlign: false,
+	  digits: 0,
+	  max: mask
+	});
 	
 	return $input;
 	

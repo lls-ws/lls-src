@@ -21,7 +21,7 @@ function tabelaBotoes(id, nome, arrayUrls) {
 			
 			if (urlBotao) urlBotao += '("' + id + '")';
 			
-			var botaoTabela = botao('botaoAlterar_' + id, '', 'edit', '0',
+			var botaoTabela = botao('botaoAlterar_' + id, '', 'fa-edit', '0',
 				'btn btn-xs btn-warning', 'button', urlBotao
 			);
 			
@@ -32,7 +32,7 @@ function tabelaBotoes(id, nome, arrayUrls) {
 			
 			if (urlBotao) urlBotao += "('" + id + "', '" + nome + "')";
 			
-			var botaoTabela = botao('botaoRemover_' + id, '', 'remove', '0',
+			var botaoTabela = botao('botaoRemover_' + id, '', 'fa-trash-alt', '0',
 				'btn btn-xs btn-danger', 'button', urlBotao
 			);
 			

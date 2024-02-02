@@ -11,7 +11,7 @@ function criaLink(tipo) {
 		url: 'login(0)',
 		texto: 'Cancelar',
 		idBotao: 'botaoEnviar',
-		iconeBotao: 'send',
+		iconeBotao: 'fa-paper-plane',
 		tipoBotao: 'btn-success',
 		textoBotao: 'Enviar'
 	}

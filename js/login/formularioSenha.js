@@ -5,7 +5,7 @@
 
 function formularioSenha(dados) {
 	
-	var campoEmail = campoTexto('email', 'email', '', 'Email', 'true', '-1', 50, 'envelope');
+	var campoEmail = campoTexto('email', 'email', '', 'Email', 'true', '-1', 50, 'fa-envelope');
 	
 	var formulario = formularioLoginCore(dados);
 	
