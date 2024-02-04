@@ -5,6 +5,8 @@
 
 function eventoSalvarBaixamilho(tipoOperacao, nomeTabela) {
 	
+	var number = animacao("botao" + nomeTabela, "fa-check", true);
+	
 	var baixamilho = pegaDadosFormularioBaixamilho(nomeTabela);
 	
 	var servico = {
@@ -41,6 +43,8 @@ function eventoSalvarBaixamilho(tipoOperacao, nomeTabela) {
 			}
 			else {
 				
+				animacao("botao" + nomeTabela, "fa-check", false, number);
+				
 				$cor_texto = "texto_cor_vermelho";
 				
 			}
@@ -54,6 +58,8 @@ function eventoSalvarBaixamilho(tipoOperacao, nomeTabela) {
 			
 		},
 		error: function(jqXHR, exception) {
+			
+			animacao("botao" + nomeTabela, "fa-check", false, number);
 			
 			mostraAjaxErro(
 				exception + ": " + jqXHR.status + " - " + jqXHR.responseText,

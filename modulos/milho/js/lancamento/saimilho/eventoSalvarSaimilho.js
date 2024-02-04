@@ -5,6 +5,8 @@
 
 function eventoSalvarSaimilho(tipoOperacao, nomeTabela) {
 	
+	var number = animacao("botao" + nomeTabela, "fa-check", true);
+	
 	var saimilho = pegaDadosFormularioSaimilho(nomeTabela);
 	
 	var fazendaProdutor = {
@@ -47,6 +49,8 @@ function eventoSalvarSaimilho(tipoOperacao, nomeTabela) {
 			}
 			else {
 				
+				animacao("botao" + nomeTabela, "fa-check", false, number);
+				
 				$cor_texto = "texto_cor_vermelho";
 				
 			}
@@ -60,6 +64,8 @@ function eventoSalvarSaimilho(tipoOperacao, nomeTabela) {
 			
 		},
 		error: function(jqXHR, exception) {
+			
+			animacao("botao" + nomeTabela, "fa-check", false, number);
 			
 			mostraAjaxErro(
 				exception + ": " + jqXHR.status + " - " + jqXHR.responseText,

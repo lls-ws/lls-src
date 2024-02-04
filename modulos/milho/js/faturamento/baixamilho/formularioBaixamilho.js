@@ -3,21 +3,9 @@
  * http://lls.net.br/
  * ========================================================= */
 
-function formularioBaixamilho(idServicomilho, nomeTabela) {
+function formularioBaixamilho(id, nomeTabela) {
 	
-	var servicomilho = getJsonById("baixaServicomilho", idServicomilho);
-	
-	servicomilho.produtor = decodeURIComponent(servicomilho.produtor);
-	servicomilho.fazenda = decodeURIComponent(servicomilho.fazenda);
-	servicomilho.servico = decodeURIComponent(servicomilho.servico);
-	
-	servicomilho.data = formataData(servicomilho.data);
-	servicomilho.liquido = formataNumero(servicomilho.liquido, 2, true, true, "", " kg");
-	servicomilho.total = formataNumero(servicomilho.total, 2, true, true, "R$ ", "");
-	servicomilho.pago = formataNumero(servicomilho.pago, 2, true, true, "R$ ", "");
-	servicomilho.valor = formataNumero(servicomilho.valor, 2, true, true, "R$ ", "");
-	
-	var $campoOculto = campoOculto("idServicomilho", idServicomilho);
+	var $campoOculto = campoOculto("idServicomilho", id);
 	
 	var $campoProdutor = campoTextoHorizontal(
 		"produtor" + nomeTabela,
@@ -65,7 +53,7 @@ function formularioBaixamilho(idServicomilho, nomeTabela) {
 		"data" + nomeTabela,
 		"Data",
 		'col-xs-9 col-md-6', 'col-xs-3',
-		true, "0", "0", servicomilho.data,
+		true, "0", "0", null,
 		'disabled'
 	).removeClass("has-feedback");
 	
@@ -73,25 +61,17 @@ function formularioBaixamilho(idServicomilho, nomeTabela) {
 	$campoFazenda.find('#fazenda' + nomeTabela).attr('disabled', 'disabled');
 	$campoServico.find('#servico' + nomeTabela).attr('disabled', 'disabled');
 	
-	$campoProdutor.find('#produtor' + nomeTabela).val(servicomilho.produtor);
-	$campoFazenda.find('#fazenda' + nomeTabela).val(servicomilho.fazenda);
-	$campoServico.find('#servico' + nomeTabela).val(servicomilho.servico);
-	$campoLiquido.find('#liquido' + nomeTabela).val(servicomilho.liquido);
-	$campoTotal.find('#total' + nomeTabela).val(servicomilho.total);
-	$campoPago.find('#pago' + nomeTabela).val(servicomilho.pago);
-	$campoValor.find('#valor' + nomeTabela).val(servicomilho.valor);
-	
 	var $formTela1 = $("<div/>").addClass("form-horizontal");
 	
-	$formTela1.append($campoOculto);
-	$formTela1.append($campoData);
-	$formTela1.append($campoProdutor);
-	$formTela1.append($campoFazenda);
-	$formTela1.append($campoServico);
-	$formTela1.append($campoLiquido);
-	$formTela1.append($campoTotal);
-	$formTela1.append($campoPago);
-	$formTela1.append($campoValor);
+	$formTela1.append($campoOculto)
+		.append($campoData)
+		.append($campoProdutor)
+		.append($campoFazenda)
+		.append($campoServico)
+		.append($campoLiquido)
+		.append($campoTotal)
+		.append($campoPago)
+		.append($campoValor);
 	
 	var $telaObservacao = telaObservacao(nomeTabela);
 	
@@ -114,6 +94,14 @@ function formularioBaixamilho(idServicomilho, nomeTabela) {
 	$('#divDialogVisualizaServicomilho').dialog( "close" );
 	
 	var $formulario = formularioCadastro(0, nomeTabela, 3, 3, $tabs, 4);
+
+	var servicoBaixamilho = {
+		id: id,
+		nomeTabela: nomeTabela,
+		formulario: $formulario
+	}
+
+	eventoAcharServicoBaixamilho(servicoBaixamilho);
 
 	return $formulario;
 	

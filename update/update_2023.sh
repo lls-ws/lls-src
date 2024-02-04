@@ -458,8 +458,9 @@ OUTUBRO(2023){
 
 (29/01/2024){
 
-() Verificar exclusão {
+() Excluir Arquivos {
 	() Arquivo: js/componentes/cadastro/getJson.js
+	() Arquivo: js/componentes/cadastro/getJsonById.js
 	() Arquivo: js/componentes/login/carregaCss.js
 	() Arquivo: js/componentes/login/carregaCssJs.js
 	() Arquivo: sh/jquery-lls-cadastro.sh

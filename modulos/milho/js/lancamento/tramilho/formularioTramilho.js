@@ -5,14 +5,12 @@
 
 function formularioTramilho(idTramilho, nomeTabela) {
 	
-	var tramilho = getJson("achaLaudo");
-	
 	var $idTela = "div" + nomeTabela;
 	
 	var $campoData = campoDataHorizontal(
 		"data" + nomeTabela, "Data Transferência",
 		'col-xs-9 col-md-6', 'col-xs-3',
-		true, "0", "0", formataData(tramilho.data),
+		true, "0", "0", null,
 		'disabled'
 	).removeClass("has-feedback");
 	
@@ -42,21 +40,23 @@ function formularioTramilho(idTramilho, nomeTabela) {
 		'col-xs-9 col-md-6', 'col-xs-3', 2, 9, true, true, "", " kg", "disabled"
 	);
 	
-	$campoSaldo.find('#saldo' + nomeTabela).css("font-weight", "Bold")
+	$campoSaldo.find('#saldo' + nomeTabela)
+		.css("font-weight", "Bold")
 		.css("font-style", "italic")
 		.css("font-size", "15px");
 	
-	$campoLiquido.find('#liquido' + nomeTabela).css("font-weight", "Bold")
+	$campoLiquido.find('#liquido' + nomeTabela)
+		.css("font-weight", "Bold")
 		.css("font-style", "italic")
 		.css("font-size", "15px");
 	
 	var $formTela1 = $("<div/>").attr({id: $idTela}).addClass("form-horizontal");
 	
-	$formTela1.append($campoProdutorSaida);
-	$formTela1.append($campoProdutorEntrada);
-	$formTela1.append($campoData);
-	$formTela1.append($campoLiquido);
-	$formTela1.append($campoSaldo);
+	$formTela1.append($campoProdutorSaida)
+		.append($campoProdutorEntrada)
+		.append($campoData)
+		.append($campoLiquido)
+		.append($campoSaldo);
 	
 	var $telaObservacao = telaObservacao(nomeTabela);
 	
@@ -97,6 +97,13 @@ function formularioTramilho(idTramilho, nomeTabela) {
 		calculaLiquidoSaimilho(nomeTabela);
 		
 	});
+	
+	var laudo = {
+		nomeTabela: nomeTabela,
+		formulario: $formulario
+	};
+	
+	eventoAcharLaudo(laudo);
 	
 	return $formulario;
 	

@@ -5,8 +5,6 @@
 
 function formularioServicomilho(idServicomilho, nomeTabela) {
 	
-	var servico = getJson("achaLaudo");
-	
 	var $campoProdutor = campoSqlProcuraTexto(
 		"Produtor",
 		nomeTabela,
@@ -36,17 +34,17 @@ function formularioServicomilho(idServicomilho, nomeTabela) {
 	var $campoData = campoDataHorizontal(
 		"data" + nomeTabela, "Data",
 		'col-xs-9 col-md-6', 'col-xs-3',
-		true, "0", "0", formataData(servico.data),
+		true, "0", "0", null,
 		'disabled'
 	).removeClass("has-feedback");
 	
 	var $formTela1 = $("<div/>").addClass("form-horizontal");
 	
-	$formTela1.append($campoProdutor);
-	$formTela1.append($campoServico);
-	$formTela1.append($campoLiquido);
-	$formTela1.append($campoValor);
-	$formTela1.append($campoData);
+	$formTela1.append($campoProdutor)
+		.append($campoServico)
+		.append($campoLiquido)
+		.append($campoValor)
+		.append($campoData);
 
 	var $telaObservacao = telaObservacao(nomeTabela);
 	
@@ -87,6 +85,13 @@ function formularioServicomilho(idServicomilho, nomeTabela) {
 		calculaValorServicomilho(nomeTabela);
 		
 	});
+	
+	var laudo = {
+		nomeTabela: nomeTabela,
+		formulario: $formulario
+	};
+	
+	eventoAcharLaudo(laudo);
 	
 	return $formulario;
 	

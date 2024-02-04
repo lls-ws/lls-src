@@ -5,6 +5,8 @@
 
 function eventoSalvarFaturamilho(tipoOperacao, nomeTabela) {
 	
+	var number = animacao("botao" + nomeTabela, "fa-check", true);
+	
 	var faturamilho = pegaDadosFormularioFaturamilho(nomeTabela, 2);
 	
 	$.ajax({
@@ -43,6 +45,8 @@ function eventoSalvarFaturamilho(tipoOperacao, nomeTabela) {
 			}
 			else {
 				
+				animacao("botao" + nomeTabela, "fa-check", false, number);
+				
 				$cor_texto = "texto_cor_vermelho";
 				
 			}
@@ -56,6 +60,8 @@ function eventoSalvarFaturamilho(tipoOperacao, nomeTabela) {
 			
 		},
 		error: function(jqXHR, exception) {
+			
+			animacao("botao" + nomeTabela, "fa-check", false, number);
 			
 			mostraAjaxErro(
 				exception + ": " + jqXHR.status + " - " + jqXHR.responseText,

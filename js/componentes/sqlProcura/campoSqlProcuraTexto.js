@@ -3,8 +3,15 @@
  * http://lls.net.br/
  * ========================================================= */
 
-function campoSqlProcuraTexto(textoLabel, nomeTabela, nomeTabelaProcura, placeholder,
-							  tamanhoCampo, tamanhoLabel, minChars, maxlength) {
+function campoSqlProcuraTexto(
+		textoLabel,
+		nomeTabela,
+		nomeTabelaProcura,
+		placeholder,
+		tamanhoCampo,
+		tamanhoLabel,
+		minChars,
+		maxlength) {
 	
 	var id = 'nomeProcuraCadastro' + nomeTabela + nomeTabelaProcura;
 	

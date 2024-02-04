@@ -5,7 +5,7 @@
 
 function eventoSalvarUsuario(tipoOperacao, nomeTabela) {
 	
-	var number = animacao("botao" + nomeTabela, "check", true);
+	var number = animacao("botao" + nomeTabela, "fa-check", true);
 	
 	var senhas = pegaDadosFormularioUsuario(nomeTabela);
 	
@@ -39,7 +39,7 @@ function eventoSalvarUsuario(tipoOperacao, nomeTabela) {
 			}
 			else {
 				
-				animacao("botao" + nomeTabela, "check", false, number);
+				animacao("botao" + nomeTabela, "fa-check", false, number);
 				
 				$cor_texto = "texto_cor_vermelho";
 				
@@ -55,7 +55,7 @@ function eventoSalvarUsuario(tipoOperacao, nomeTabela) {
 		},
 		error: function(jqXHR, exception) {
 			
-			animacao("botao" + nomeTabela, "check", false, number);
+			animacao("botao" + nomeTabela, "fa-check", false, number);
 			
 			mostraAjaxErro(
 				exception + ": " + jqXHR.status + " - " + jqXHR.responseText,

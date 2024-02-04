@@ -1,11 +1,9 @@
 /* =========================================================
- * pegaPrecoEntmilho.js
+ * eventoAcharPrecoEntmilho.js
  * http://lls.net.br/
  * ========================================================= */
 
-function pegaPrecoEntmilho() {
-	
-	var result= "";
+function eventoAcharPrecoEntmilho(precoEntmilho) {
 	
 	$.ajax({
 		type: "POST",
@@ -13,30 +11,16 @@ function pegaPrecoEntmilho() {
 		dataType: "json",
 		contentType: "application/json",
 		mimeType: "application/json",
-		async: false,
 		success: function(resposta) {
 			
 			if (resposta.status == "200") {
 				
-				var valorLimpeza = resposta.cadastros[0][2];
-				var valorRecepcao = resposta.cadastros[1][2];
-				var valorCarga = resposta.cadastros[2][2];
+				precoEntmilho.limpeza = resposta.cadastros[0][2];
+				precoEntmilho.recepcao = resposta.cadastros[1][2];
+				precoEntmilho.carga = resposta.cadastros[2][2];
 				
-				result = {
-					limpeza: valorLimpeza,
-					recepcao: valorRecepcao,
-					carga: valorCarga
-				}
+				setDadosFormularioPrecoEntmilho(precoEntmilho);
 								
-			}
-			else {
-				
-				result = {
-					limpeza: 0,
-					recepcao: 0,
-					carga: 0
-				}
-				
 			}
 			
 		},
@@ -50,7 +34,5 @@ function pegaPrecoEntmilho() {
 		}
 		
 	})
-	
-	return result;
 	
 }

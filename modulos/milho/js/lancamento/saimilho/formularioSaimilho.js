@@ -5,8 +5,6 @@
 
 function formularioSaimilho(idSaimilho, nomeTabela) {
 	
-	var laudo = getJson("achaLaudo");
-	
 	var $campoProdutor = campoSqlProcuraTexto(
 		"Produtor",
 		nomeTabela,
@@ -24,7 +22,7 @@ function formularioSaimilho(idSaimilho, nomeTabela) {
 	var $campoData = campoDataHorizontal(
 		"data" + nomeTabela, "Data",
 		'col-xs-7 col-sm-6 col-lg-8', 'col-xs-5 col-sm-6 col-lg-4',
-		true, "0", "0", formataData(laudo.data),
+		true, "0", "0", null,
 		'disabled'
 	).removeClass("has-feedback");
 	
@@ -138,6 +136,13 @@ function formularioSaimilho(idSaimilho, nomeTabela) {
 		calculaLiquidoSaimilho(nomeTabela);
 		
 	});
+	
+	var laudo = {
+		nomeTabela: nomeTabela,
+		formulario: $formulario
+	};
+	
+	eventoAcharLaudo(laudo);
 	
 	return $formulario;
 	

@@ -5,10 +5,6 @@
 
 function formularioEntmilho(idEntmilho, nomeTabela) {
 	
-	var laudo = getJson("achaLaudo");
-	
-	var precoEntmilho = pegaPrecoEntmilho();
-	
 	var $campoProdutor = campoSqlProcuraTexto(
 		"Produtor",
 		nomeTabela,
@@ -27,7 +23,7 @@ function formularioEntmilho(idEntmilho, nomeTabela) {
 	var $campoData = campoDataHorizontal(
 		"data" + nomeTabela, "Data",
 		'col-xs-7 col-sm-6 col-lg-8', 'col-xs-5 col-sm-6 col-lg-4',
-		true, "-3", "0", formataData(laudo.data),
+		true, "-3", "0", null,
 		'enabled'
 	).removeClass("has-feedback");
 	
@@ -57,7 +53,8 @@ function formularioEntmilho(idEntmilho, nomeTabela) {
 	$divPlaca.append($campoPlaca);
 	$divLaudo.append($campoLaudo);
 
-	$divPlacaLaudo.append($divPlaca).append($divLaudo);
+	$divPlacaLaudo.append($divPlaca)
+		.append($divLaudo);
 	
 	var $campoBruto = campoNumeroHorizontal(
 		"bruto" + nomeTabela, "Bruto",
@@ -90,12 +87,12 @@ function formularioEntmilho(idEntmilho, nomeTabela) {
 	var $divPeso = $("<div/>").addClass('col-xs-6');
 	var $divValores = $("<div/>").addClass('col-xs-6');
 	
-	$divPeso.append($campoBruto);
-	$divPeso.append($campoImpureza);
-	$divPeso.append($campoChocho);
-	$divPeso.append($campoQuirela);
-	$divPeso.append($campoUmidade);
-	$divPeso.append($campoLiquido);
+	$divPeso.append($campoBruto)
+		.append($campoImpureza)
+		.append($campoChocho)
+		.append($campoQuirela)
+		.append($campoUmidade)
+		.append($campoLiquido);
 	
 	var $campoCilo = campoNumeroHorizontal(
 		"cilo" + nomeTabela, "Silo",
@@ -124,21 +121,21 @@ function formularioEntmilho(idEntmilho, nomeTabela) {
 		"total" + nomeTabela, "Total",
 		'col-xs-7 col-sm-6 col-lg-8', 'col-xs-5 col-sm-6 col-lg-4', 2, 6, false, false, "R$ ", "", "disabled");
 	
-	$divValores.append($campoCilo);
-	$divValores.append($campoSecagem);
-	$divValores.append($campoLimpeza);
-	$divValores.append($campoCarga);
-	$divValores.append($campoRecepcao);
-	$divValores.append($campoTotal);
+	$divValores.append($campoCilo)
+		.append($campoSecagem)
+		.append($campoLimpeza)
+		.append($campoCarga)
+		.append($campoRecepcao)
+		.append($campoTotal);
 
-	$divDados.append($divPeso).append($divValores);
+	$divDados.append($divPeso)
+		.append($divValores);
 	
-	var $formTela1 = $("<div/>").addClass("form-horizontal");
-	
-	$formTela1.append($divProdutor);
-	$formTela1.append($divTiketData);
-	$formTela1.append($divPlacaLaudo);
-	$formTela1.append($divDados);
+	var $formTela1 = $("<div/>").addClass("form-horizontal")
+		.append($divProdutor)
+		.append($divTiketData)
+		.append($divPlacaLaudo)
+		.append($divDados);
 
 	var $telaObservacao = telaObservacao(nomeTabela);
 	
@@ -156,11 +153,6 @@ function formularioEntmilho(idEntmilho, nomeTabela) {
 	
 	var $formulario = formularioCadastro(idEntmilho, nomeTabela, 2, 3, $tabs, 4);
 	
-	$campoLaudo.find('#laudo' + nomeTabela)
-		.val(laudo.laudo)
-		.css("font-weight", "Bold")
-		.css("font-size", "15px");
-	
 	$campoLiquido.find('#liquido' + nomeTabela).css("font-weight", "Bold")
 		.css("font-style", "italic")
 		.css("font-size", "15px");
@@ -172,18 +164,6 @@ function formularioEntmilho(idEntmilho, nomeTabela) {
 	$campoTotal.find('#total' + nomeTabela).css("font-weight", "Bold")
 		.css("font-style", "italic")
 		.css("font-size", "15px");
-	
-	$campoBruto.find('#bruto' + nomeTabela).focusout(function() {
-		
-		verificaBruto($campoBruto, nomeTabela, precoEntmilho);
-		
-	});
-	
-	$campoBruto.find('#bruto' + nomeTabela).on('keyup', function() {
-		
-		verificaBruto($campoBruto, nomeTabela, precoEntmilho);
-		
-	});
 	
 	$campoLiquido.find('#liquido' + nomeTabela).focusout(function() {
 		
@@ -250,6 +230,20 @@ function formularioEntmilho(idEntmilho, nomeTabela) {
 		calculaTotalEntmilho(nomeTabela);
 		
 	});
+	
+	var laudo = {
+		nomeTabela: nomeTabela,
+		formulario: $formulario
+	};
+	
+	eventoAcharLaudo(laudo);
+	
+	var precoEntmilho = {
+		nomeTabela: nomeTabela,
+		campoBruto: $campoBruto
+	}
+	
+	eventoAcharPrecoEntmilho(precoEntmilho);
 	
 	return $formulario;
 	

@@ -5,6 +5,8 @@
 
 function eventoSalvarLaudo(tipoOperacao, nomeTabela) {
 	
+	var number = animacao("botao" + nomeTabela, "fa-check", true);
+	
 	var laudo = pegaDadosFormularioLaudo(nomeTabela);
 	
 	$.ajax({
@@ -35,6 +37,8 @@ function eventoSalvarLaudo(tipoOperacao, nomeTabela) {
 			}
 			else {
 				
+				animacao("botao" + nomeTabela, "fa-check", false, number);
+				
 				$cor_texto = "texto_cor_vermelho";
 				
 			}
@@ -48,6 +52,8 @@ function eventoSalvarLaudo(tipoOperacao, nomeTabela) {
 			
 		},
 		error: function(jqXHR, exception) {
+			
+			animacao("botao" + nomeTabela, "fa-check", false, number);
 			
 			mostraAjaxErro(
 				exception + ": " + jqXHR.status + " - " + jqXHR.responseText,

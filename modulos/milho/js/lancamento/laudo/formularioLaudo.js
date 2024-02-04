@@ -5,8 +5,6 @@
 
 function formularioLaudo(idLaudo, nomeTabela) {
 	
-	var laudo = getJson("achaLaudo");
-	
 	var $idTela = "div" + nomeTabela;
 	
 	var $formTela = $("<div/>").attr({id: $idTela}).addClass("form-horizontal");
@@ -18,16 +16,12 @@ function formularioLaudo(idLaudo, nomeTabela) {
 	
 	var $formulario = formularioCadastro(idLaudo, nomeTabela, 2, 2, $formTela, 4);
 	
-	$formulario.find('#idLaudo').val(laudo.id);
+	var laudo = {
+		nomeTabela: nomeTabela,
+		formulario: $formulario
+	};
 	
-	$formulario.find('#laudo' + nomeTabela).val(laudo.laudo);
-	
-	if (laudo.id == null) {
-		
-		$formulario.find('#laudo' + nomeTabela).attr('disabled', 'disabled');
-		$formulario.find('#botao').hide();
-		
-	}
+	eventoAcharLaudo(laudo);
 	
 	return $formulario;
 	

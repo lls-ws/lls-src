@@ -5,6 +5,8 @@
 
 function eventoSalvarServicomilho(tipoOperacao, nomeTabela) {
 	
+	var number = animacao("botao" + nomeTabela, "fa-check", true);
+	
 	var servicomilho = pegaDadosFormularioServicomilho(nomeTabela);
 	
 	var fazendaProdutor = {
@@ -53,6 +55,8 @@ function eventoSalvarServicomilho(tipoOperacao, nomeTabela) {
 			}
 			else {
 				
+				animacao("botao" + nomeTabela, "fa-check", false, number);
+				
 				$cor_texto = "texto_cor_vermelho";
 				
 			}
@@ -66,6 +70,8 @@ function eventoSalvarServicomilho(tipoOperacao, nomeTabela) {
 			
 		},
 		error: function(jqXHR, exception) {
+			
+			animacao("botao" + nomeTabela, "fa-check", false, number);
 			
 			mostraAjaxErro(
 				exception + ": " + jqXHR.status + " - " + jqXHR.responseText,

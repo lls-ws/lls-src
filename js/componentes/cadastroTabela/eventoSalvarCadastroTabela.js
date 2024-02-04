@@ -5,8 +5,6 @@
 
 function eventoSalvarCadastroTabela(cadastro, tbody, arrayColunaBotoes) {
 	
-	var number = animacao("botao" + nomeTabela, "spinner", true);
-	
 	var $nomeTabelaCadastro = $('#nomeTabela' + cadastro.nomeTabela).val();
 	
 	var $url = "adiciona" + cadastro.nomeTabela + $nomeTabelaCadastro;
@@ -49,8 +47,6 @@ function eventoSalvarCadastroTabela(cadastro, tbody, arrayColunaBotoes) {
 			}
 			else {
 				
-				animacao("botao" + nomeTabela, "check", false, number);
-				
 				mostraDialog(
 					resposta.mensagem,
 					'texto_cor_vermelho',
@@ -62,8 +58,6 @@ function eventoSalvarCadastroTabela(cadastro, tbody, arrayColunaBotoes) {
 			
 		},
 		error: function(jqXHR, exception) {
-			
-			animacao("botao" + nomeTabela, "check", false, number);
 			
 			mostraAjaxErro(
 				exception + ': ' + jqXHR.status + ' - ' + jqXHR.responseText,

@@ -5,8 +5,6 @@
 
 function eventoInserirTabela(tipoOperacao, nomeTabela) {
 	
-	var number = animacao("botao" + nomeTabela, "spinner", true);
-	
 	var cadastro = eval ('pegaDadosFormulario' + nomeTabela + '("' + nomeTabela + '")');
 	
 	cadastro["nomeTabela"] = nomeTabela;

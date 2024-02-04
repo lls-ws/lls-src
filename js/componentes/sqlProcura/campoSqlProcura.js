@@ -64,7 +64,7 @@ function campoSqlProcura(textoLabel, nomeTabela, nomeTabelaProcura, tamanhoCampo
 		
 	});
 	
-	input.autocomplete({
+	input.devbridgeAutocomplete({
 		autoFocus: true,
 		autoSelectFirst: true,
 		minChars: minChars,

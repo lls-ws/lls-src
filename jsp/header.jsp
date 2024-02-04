@@ -17,14 +17,14 @@
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap-theme.min.css"/>
 <script src="//cdn.jsdelivr.net/npm/bootstrap-tabcollapse@0.2.6/bootstrap-tabcollapse.min.js" type="text/javascript"></script>
 
+<!--Fontawesome CDN-->
+<script src="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js" type="text/javascript"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+
 <!--jQuery UI CDN-->
 <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" type="text/javascript"></script>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/black-tie/jquery-ui.min.css"/>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/black-tie/theme.min.css"/>
-
-<!--Fontawesome CDN-->
-<script src="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js" type="text/javascript"></script>
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
 
 <!--Components CDN-->
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootpag/1.0.7/jquery.bootpag.min.js" type="text/javascript"></script>
