@@ -1,0 +1,38 @@
+#!/bin/sh
+# Script to join JS files for Scales
+#
+# Autor: Leandro Luiz
+# email: lls.homeoffice@gmail.com
+
+balanca_create()
+{
+	
+	tmp_create
+	
+	menu_create_opt "menuCadastros"
+	menu_create_opt "menuRelatorio"
+	menu_create_opt "telaMenu"
+	
+	menu_create
+	
+	balanca_menu_create
+	balanca_lancamento_create
+	
+	file_show
+	
+}
+
+balanca_menu_create()
+{
+	
+	file_create "${DIR_MODULE_JS}/menu"
+	
+}
+
+balanca_lancamento_create()
+{
+	
+	file_create "${DIR_MODULE_JS}/lancamento/peso"
+	file_create "${DIR_MODULE_JS}/lancamento/baixapeso"
+	
+}

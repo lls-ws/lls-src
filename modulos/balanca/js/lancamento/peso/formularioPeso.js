@@ -5,10 +5,9 @@
 
 function formularioPeso(dados) {
 	
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-campos.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-placa.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-sqlProcura.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-sqlProcuraFazendaProdutor.js", "js");
+	return getBalancaPeso();
+	
+	//campoPeso.find("#peso" + dados.nomeTabela).val(pesoBalanca);
 	
 	var guia = getJson("getGuiaPeso");
 	
@@ -28,7 +27,7 @@ function formularioPeso(dados) {
 	var campoPeso = campoNumeroHorizontal(
 		"peso" + dados.nomeTabela, "Peso",
 		'col-xs-9 col-sm-6 col-lg-8', 'col-xs-3 col-sm-6 col-lg-4',
-		2, 7, false, false, "", " kg", "enabled"
+		2, 7, false, false, "", " kg", "disabled"
 	);
 	
 	var campoProdutor = campoSqlProcuraTexto(

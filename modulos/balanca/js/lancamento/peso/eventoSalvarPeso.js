@@ -5,7 +5,7 @@
 
 function eventoSalvarPeso(dados) {
 	
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-cafe.js", "js");
+	//carregaCssJs("js/jquery-lls/jquery-lls-componente-cafe.js", "js");
 	
 	var peso = eval ('pegaDadosFormulario' + dados.nomeTabela + '(dados.nomeTabela)');
 	

@@ -1,0 +1,21 @@
+/* ================ menuCadastrosExemplo.js ==================
+ * http://lls.net.br/
+ * ========================================================= */
+ 
+function menuCadastrosExemplo(nomesItensMenu, opcoesMenu) {
+	
+	var $item1 = 'novoFormulario("Exemplo", "Codigo", "' + opcoesMenu.posicaoMenu + '", "click")';
+	
+	opcoesMenu.qtdItensMenu++;
+	
+	nomesItensMenu[opcoesMenu.qtdItensMenu] = {
+		separator: true,
+		titulo: "Exemplo",
+		icone: "home",
+		texto: "Cadastro de Exemplo",
+		url: $item1
+	}
+	
+	return opcoesMenu;
+	
+}

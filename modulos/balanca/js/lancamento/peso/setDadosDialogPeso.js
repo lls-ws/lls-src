@@ -5,9 +5,8 @@
 
 function setDadosDialogPeso(dados) {
 	
-	carregaCssJs("js/jquery-lls/jquery-lls-baixapeso.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-cafe.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-formulario-cafe.js", "js");
+	//carregaCssJs("js/jquery-lls/jquery-lls-componente-cafe.js", "js");
+	//carregaCssJs("js/jquery-lls/jquery-lls-componente-formulario-cafe.js", "js");
 	
 	eval ("formataDados" + dados.nomeTabela + "(dados.array)");
 	

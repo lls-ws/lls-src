@@ -15,13 +15,10 @@ function tabelaRelatorioCore(dados) {
 	
 	var formularioRelatorio = eval('formularioRelatorio' + dados.nomeTabela + '(dados)');
 	
-	var titulo = label(
-		'tituloRelatorio' + dados.nomeTabela,
-		tituloPainelCadastro(2, eval('pegaNomeColunas' + dados.nomeTabela + '(3)')),
-		'texto_label texto_grande'
-	).addClass('col-md-12 col-xs-12');
-	
-	var divTitulo = $('<div/>')
+	var titulo = $("<div/>").addClass('titulo_tabela')
+		.text(tituloPainelCadastro(2, eval('pegaNomeColunas' + dados.nomeTabela + '(3)')));
+
+	var tituloTabela = $('<div/>')
 		.addClass('input-group form-control formulario_cor')
 		.append(titulo);
 	
@@ -31,7 +28,7 @@ function tabelaRelatorioCore(dados) {
 		
 	var divProcura2 = $('<div/>')
 		.addClass('col-md-12')
-		.append(divTitulo);
+		.append(tituloTabela);
 		
 	var divProcura3 = $('<div/>')
 		.addClass('col-md-12')

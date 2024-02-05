@@ -14,6 +14,7 @@ menu_create()
 	FILE_EXT="js"
 	
 	file_create "${DIR_CORE_JS}/menu"
+	file_create "${DIR_CORE_JS}/core"
 	file_create "${DIR_CORE_MENU}"
 	
 	cadastro_create

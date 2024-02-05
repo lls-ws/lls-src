@@ -1,0 +1,22 @@
+/* =========================================================
+ * menuExemplo.js
+ * http://lls.net.br/
+ * ========================================================= */
+
+function menuExemplo(posicaoMenu) {
+	
+	var $nomesItensMenu = {};
+	
+	var $item1 = 'novoCadastro("Exemplo", "click", "' + posicaoMenu + '")';
+	
+	$nomesItensMenu[0] = {
+		separator: true,
+		titulo: "Lançamentos",
+		icone: "import",
+		texto: "Entrada de Exemplo",
+		url: $item1
+	}
+	
+	return $nomesItensMenu;
+	
+}

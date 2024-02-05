@@ -29,7 +29,7 @@ function formularioCadastro(idCadastro, nomeTabela, tipoTextoBotao, tamanhoBotao
 		''
 	);
 	
-	$botao.find('div').addClass('col-xs-5 col-xs-offset-4');
+	$botao.find('div').addClass('col-xs-5 col-xs-offset-4 btn btn-block btn-success');
 	
 	var $formulario = formularioHorizontal(nomeTabela.toLowerCase(), 'form-horizontal')
 		.append(objeto)

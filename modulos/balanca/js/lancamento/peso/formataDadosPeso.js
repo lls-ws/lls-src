@@ -5,9 +5,6 @@
 
 function formataDadosPeso(dados) {
 	
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-campos.js", "js");
-	carregaCssJs("js/jquery-lls/jquery-lls-componente-placa.js", "js");
-	
 	dados.produtor = decodeURIComponent(dados.produtor);
 	dados.fazenda = decodeURIComponent(dados.fazenda);
 	dados.destino = decodeURIComponent(dados.destino);

@@ -23,6 +23,10 @@ sudo bash bin/jquery_conf.sh start
 sudo bash bin/jquery_conf.sh start milho
 ```
 
+```bash
+sudo bash bin/jquery_conf.sh start balanca
+```
+
 ## Update
 
 ```bash
