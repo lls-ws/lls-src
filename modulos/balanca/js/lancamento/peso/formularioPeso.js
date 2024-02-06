@@ -5,6 +5,8 @@
 
 function formularioPeso(dados) {
 	
+	//return mostraDialogBalanca();
+	
 	return getBalancaPeso();
 	
 	//campoPeso.find("#peso" + dados.nomeTabela).val(pesoBalanca);

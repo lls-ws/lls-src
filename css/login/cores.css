@@ -24,12 +24,14 @@ body {
 
 .texto_cor_verde {
   color: #00FF00;
-  font-size: large;
 }
 
 .texto_cor_vermelho {
   color: #FF0000;
-  font-size: large;
+}
+
+.texto_cor_amarelo {
+  color: #FFFF00;
 }
 
 .texto_cor_cinza {
@@ -38,12 +40,6 @@ body {
 
 .texto_cor_azul {
   color: #0000FF;
-}
-
-@media only screen and (max-width: 600px) {
-    .texto_enorme {
-		font-size: xx-large;
-	}
 }
 
 .texto_label {

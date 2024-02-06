@@ -5,6 +5,12 @@
  * email: lls.homeoffice@gmail.com
 */
 
+@media only screen and (max-width: 600px) {
+    .texto_enorme {
+		font-size: xx-large;
+	}
+}
+
 .ui-datepicker-trigger{
 	cursor:pointer;
 }
@@ -34,18 +40,6 @@
 
 #divDialog {
 	display:none;
-}
-
-.texto_cor_verde {
-  font-size: large;
-}
-
-.texto_cor_vermelho {
-  font-size: large;
-}
-
-.texto_grande {
-  font-size: large;
 }
 
 .input-group-addon
@@ -79,9 +73,10 @@
 }
 
 .texto_enorme {
-  font-size:550%;
+  font-size:1000%;
+  text-align: right;
   font-weight:'Bold';
-  font-family:'digital-clock-font';
+  font-family: "Times New Roman", Times, serif;
   text-shadow: black 0.1em 0.1em 0.2em;
   
 }

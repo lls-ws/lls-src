@@ -26,6 +26,7 @@ balanca_menu_create()
 {
 	
 	file_create "${DIR_MODULE_JS}/menu"
+	file_create "${DIR_MODULE_JS}/componentes/balanca"
 	
 }
 
