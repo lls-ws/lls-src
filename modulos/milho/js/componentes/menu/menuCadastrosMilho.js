@@ -11,7 +11,7 @@ function menuCadastrosMilho(nomesItensMenu, opcoesMenu) {
 	nomesItensMenu[opcoesMenu.qtdItensMenu] = {
 		separator: true,
 		titulo: "Milho",
-		icone: "scale",
+		icone: "dashboard",
 		texto: "Tabela de Umidades de Milho",
 		url: $item1
 	}

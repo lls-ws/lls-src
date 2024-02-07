@@ -36,6 +36,11 @@ function setEventosCamposPeso(dados, formulario) {
 	
 	formulario.find('#placa' + dados.nomeTabela).rules('add', rule);
 	
+	if (dados.nomeTabela == "Peso") rule = {checkBalancaPeso: true};
+	else rule = {checkBalancaBaixapeso: true};
+	
+	//formulario.find('#observacao' + dados.nomeTabela).rules('add', rule);
+	
 	formulario.find('#nomeProcuraCadastro' + dados.nomeTabela + 'FazendaProdutorDivInput span')
 		.on('change', function() {
 		

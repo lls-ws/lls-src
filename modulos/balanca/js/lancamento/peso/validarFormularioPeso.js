@@ -32,7 +32,7 @@ function validarFormularioPeso(dados, formulario) {
 				formulario.find('#tipo' + dados.nomeTabela + 'BrutoLabel')
 					.removeClass('text-danger')
 					.addClass('texto_label');
-				
+					
 				return true;
 				
 			}
@@ -49,6 +49,23 @@ function validarFormularioPeso(dados, formulario) {
 			if (value.length == 7) return true;
 			else return false;
 			
-	}, "É necessário informar a placa!");
+		}, "É necessário informar a placa!"
+	
+	);
+	
+	jQuery.validator.addMethod("checkBalanca" + dados.nomeTabela,
+		function(value, element) {
+		
+			var pesoBalanca = {
+				value: $('#texto' + dados.nomeTabela).text(),
+				check: $('#texto' + dados.nomeTabela).hasClass("texto_cor_verde")
+			}
+			
+			if (pesoBalanca.value <= 0) return false;
+			if (!pesoBalanca.check) return false;
+			
+		}, "Pesagem não permitida!"
+	
+	);
 	
 }

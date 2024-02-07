@@ -15,7 +15,11 @@ balanca_create()
 	
 	menu_create
 	
+	FILE_NAME="jquery-lls-balanca"
+	
 	balanca_menu_create
+	balanca_componentes_create
+	balanca_cadastro_create
 	balanca_lancamento_create
 	
 	file_show
@@ -26,7 +30,20 @@ balanca_menu_create()
 {
 	
 	file_create "${DIR_MODULE_JS}/menu"
+	
+}
+
+balanca_componentes_create()
+{
+	
 	file_create "${DIR_MODULE_JS}/componentes/balanca"
+	
+}
+
+balanca_cadastro_create()
+{
+	
+	file_create "${DIR_MODULE_JS}/cadastro/balanca"
 	
 }
 

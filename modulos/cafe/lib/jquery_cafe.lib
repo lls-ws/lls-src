@@ -1,0 +1,85 @@
+#!/bin/sh
+# Script to join JS files for Coffe
+#
+# Autor: Leandro Luiz
+# email: lls.homeoffice@gmail.com
+
+cafe_create()
+{
+	
+	tmp_create
+	
+	menu_create_opt "menuCadastros"
+	menu_create_opt "menuRelatorio"
+	menu_create_opt "telaMenu"
+	
+	menu_create
+	
+	FILE_NAME="jquery-lls-cafe"
+	
+	cafe_menu_create
+	cafe_componentes_create
+	cafe_cadastro_create
+	cafe_lancamento_create
+	cafe_faturamento_create
+	cafe_relatorio_create
+	
+	file_show
+	
+}
+
+cafe_menu_create()
+{
+	
+	file_create "${DIR_MODULE_JS}/menu"
+	
+}
+
+cafe_componentes_create()
+{
+	
+	file_create "${DIR_MODULE_JS}/componentes/cafe"
+	
+}
+
+cafe_cadastro_create()
+{
+	
+	file_create "${DIR_MODULE_JS}/cadastro/peneira"
+	
+}
+
+cafe_lancamento_create()
+{
+	
+	file_create "${DIR_MODULE_JS}/lancamento/despejo"
+	file_create "${DIR_MODULE_JS}/lancamento/entcafe"
+	file_create "${DIR_MODULE_JS}/lancamento/entlote"
+	file_create "${DIR_MODULE_JS}/lancamento/lote"
+	file_create "${DIR_MODULE_JS}/lancamento/oscafe"
+	file_create "${DIR_MODULE_JS}/lancamento/oslote"
+	file_create "${DIR_MODULE_JS}/lancamento/saicafe"
+	file_create "${DIR_MODULE_JS}/lancamento/sailote"
+	file_create "${DIR_MODULE_JS}/lancamento/tracafe"
+	file_create "${DIR_MODULE_JS}/lancamento/tralote"
+	
+}
+
+cafe_faturamento_create()
+{
+	
+	file_create "${DIR_MODULE_JS}/faturamento/baixacafe"
+	file_create "${DIR_MODULE_JS}/faturamento/faturacafe"
+	file_create "${DIR_MODULE_JS}/faturamento/servcafe"
+	file_create "${DIR_MODULE_JS}/faturamento/servicocafe"
+	file_create "${DIR_MODULE_JS}/faturamento/sintetizacafe"
+	
+}
+
+cafe_relatorio_create()
+{
+	
+	file_create "${DIR_MODULE_JS}/relatorio/extratocafe"
+	file_create "${DIR_MODULE_JS}/relatorio/saldocafe"
+	
+}

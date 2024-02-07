@@ -5,18 +5,16 @@
 
 function formularioPeso(dados) {
 	
-	//return mostraDialogBalanca();
+	var textoPeso = $("<div/>")
+		.addClass('texto_enorme')
+		.attr('id', 'textoPeso');
 	
-	return getBalancaPeso();
-	
-	//campoPeso.find("#peso" + dados.nomeTabela).val(pesoBalanca);
-	
-	var guia = getJson("getGuiaPeso");
+	checkStatusBalanca(textoPeso, dados.nomeTabela);
 	
 	var campoData = campoDataHorizontal(
 		"data" + dados.nomeTabela, "Data",
 		'col-xs-8 col-md-6', 'col-xs-4 col-md-6',
-		true, "0", "0", formataData(guia.data),
+		true, "0", "0", null,
 		'disabled'
 	).removeClass("has-feedback");
 	
@@ -30,7 +28,7 @@ function formularioPeso(dados) {
 		"peso" + dados.nomeTabela, "Peso",
 		'col-xs-9 col-sm-6 col-lg-8', 'col-xs-3 col-sm-6 col-lg-4',
 		2, 7, false, false, "", " kg", "disabled"
-	);
+	).hide();
 	
 	var campoProdutor = campoSqlProcuraTexto(
 		"Produtor",
@@ -82,12 +80,6 @@ function formularioPeso(dados) {
 		'col-xs-9 col-sm-6 col-lg-8', 'col-xs-3 col-sm-6 col-lg-4',
 		'', false, 50, "enabled"
 	).removeClass("has-feedback");
-	
-	var pesoLabel = label(
-		dados.nomeTabela.toLowerCase(),
-		"0,00 kg",
-		'texto_enorme texto_cor_azul col-xs-12 col-md-12'
-	);
 	
 	var caixaRadioTipos = caixaRadioHorizontal(
 		'tipo' + dados.nomeTabela,
@@ -146,7 +138,7 @@ function formularioPeso(dados) {
 	
 	var divLabel = $("<div/>")
 		.addClass("form-group")
-		.append(pesoLabel);
+		.append(textoPeso);
 	
 	var divColuna2 = $("<div/>")
 		.addClass('col-xs-12 col-md-6')
@@ -168,10 +160,14 @@ function formularioPeso(dados) {
 		.removeClass('col-sm-offset-3')
 		.addClass('col-sm-offset-4');
 	
-	campoTicket.find("#ticket" + dados.nomeTabela).val(guia.ticket);
-	campoLote.find("#lote" + dados.nomeTabela).val(guia.lote);
-	
 	eval ("setEventosCampos" + dados.nomeTabela + "(dados, formulario)");
+	
+	var guiaPeso = {
+		nomeTabela: dados.nomeTabela,
+		formulario: formulario
+	};
+	
+	eventoAcharGuiaPeso(guiaPeso);
 	
 	return formulario;
 	

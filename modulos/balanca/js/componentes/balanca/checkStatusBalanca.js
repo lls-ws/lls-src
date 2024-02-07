@@ -3,7 +3,7 @@
  * http://lls.net.br/
  * ========================================================= */
 
-async function checkStatusBalanca(textoPeso) {
+async function checkStatusBalanca(textoPeso, nomeTabela) {
 
 	textoPeso.removeClass('texto_cor_verde')
 		.removeClass('texto_cor_amarelo')
@@ -11,35 +11,53 @@ async function checkStatusBalanca(textoPeso) {
 	
 	if ("serial" in navigator) {
 	
-		const ports = await navigator.serial.getPorts();
+		try {
 		
-		const port = ports[0];
-		
-		if (port == null) {
+			const ports = await navigator.serial.getPorts();
 			
-			textoPeso.text("Desconectada!");
+			const port = ports[0];
 			
-			$('#botaoIniciarLeitura').hide();
-			$('#botaoPararLeitura').hide();
-			
-		}
-		else {
-			
-			textoPeso.text("Conectada!")
-				 .removeClass('texto_cor_vermelho')
-				 .removeClass('texto_cor_amarelo')
-				 .addClass('texto_cor_verde');
-			
-			getPeso(port, textoPeso);
-			
-			$('#botaoIniciarLeitura').hide();
-			$('#botaoPararLeitura').show();
-			
-		}
+			if (port == null) {
+				
+				textoPeso.text("Desconectada!");
+				
+				$('div#divDialogAltera' + nomeTabela).off('dialogclose');
+				
+				$('#botaoIniciarLeitura').hide();
+				$('#botaoPararLeitura').hide();
+				$('#botaoDesconectar').hide();
+				
+				$('#botaoConectar').show();
+				
+			}
+			else {
+				
+				textoPeso.text("Conectada!")
+					 .removeClass('texto_cor_vermelho')
+					 .removeClass('texto_cor_amarelo')
+					 .addClass('texto_cor_verde');
+				
+				$('#botaoPararLeitura').off('click');
+				$('div#divDialogAltera' + nomeTabela).off('dialogclose');
+				
+				readPesoBalanca(port, textoPeso, nomeTabela);
+				
+				$('#botaoConectar').hide();
+				$('#botaoIniciarLeitura').hide();
+				$('#botaoDesconectar').show();
+				$('#botaoPararLeitura').show();
+				
+			}
+		} catch (error) {}
 	}
 	else {
 		
 		textoPeso.text("API Web Serial API não é suportada!");
+		
+		$('#botaoIniciarLeitura').hide();
+		$('#botaoPararLeitura').hide();
+		$('#botaoConectar').hide();
+		$('#botaoDesconectar').hide();
 		
 	}
 	

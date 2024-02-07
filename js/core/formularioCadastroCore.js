@@ -17,9 +17,9 @@ function formularioCadastroCore(dados, tabs) {
 	var titulo = eval('pegaNomeColunas' + dados.nomeTabela + '(3)');
 	
 	var botao = botaoHorizontal(
-		'botao',
+		'botao' + dados.nomeTabela,
 		textoBotao(dados.tipoTextoBotao),
-		'ok',
+		'fa-check',
 		dados.tamanhoBotao,
 		dados.tamanhoOffSet,
 		'btn btn-block btn-success',

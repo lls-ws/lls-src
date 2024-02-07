@@ -7,11 +7,19 @@ function pegaDadosFormularioPeso(nomeTabela) {
 	
 	var tipo = $("input[name='tipo" + nomeTabela + "']:checked").val();
 	
+	var pesoBalanca = {
+		value: $('#texto' + nomeTabela).text(),
+		check: $('#texto' + nomeTabela).hasClass("texto_cor_verde")
+	}
+	
+	pesoBalanca.value = 10000;
+	
 	var peso = {};
 	
 	if (tipo == "TARA") {
 		
-		peso.tara = formataNumeroSql($("#peso" + nomeTabela).val());
+		//peso.tara = formataNumeroSql(pesoBalanca.value);
+		peso.tara = pesoBalanca.value;
 		peso.bruto = 0.00;
 		peso.liquido = 0.00;
 		peso.tipo = "SAIDA";
@@ -20,7 +28,8 @@ function pegaDadosFormularioPeso(nomeTabela) {
 	else {
 		
 		peso.tara = 0.00;
-		peso.bruto = formataNumeroSql($("#peso" + nomeTabela).val());
+		//peso.bruto = formataNumeroSql(pesoBalanca.value);
+		peso.bruto = pesoBalanca.value;
 		peso.liquido = 0.00;
 		peso.tipo = "ENTRADA";
 		
@@ -32,7 +41,7 @@ function pegaDadosFormularioPeso(nomeTabela) {
 	var cadastro = {
 		id: $("#id" + nomeTabela).val(),
 		fazendaProdutor_id: peso.fazendaProdutorId,
-		automatico: 0,
+		automatico: 1,
 		tara: peso.tara,
 		bruto: peso.bruto,
 		liquido: peso.liquido,

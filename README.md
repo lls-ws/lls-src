@@ -27,6 +27,10 @@ sudo bash bin/jquery_conf.sh start milho
 sudo bash bin/jquery_conf.sh start balanca
 ```
 
+```bash
+sudo bash bin/jquery_conf.sh start cafe
+```
+
 ## Update
 
 ```bash

@@ -14,6 +14,9 @@
 			-->
 			
 			<!--LLS MENU Local-->
+			<script src="/js/jquery-lls-milho.js" type="text/javascript"></script>
+			<script src="/js/jquery-lls-cafe.js" type="text/javascript"></script>
+			<script src="/js/jquery-lls-balanca.js" type="text/javascript"></script>
 			<script src="/js/jquery-lls-menu.js" type="text/javascript"></script>
 			<link rel="stylesheet" href="/css/jquery-lls-menu.css"/>
 			

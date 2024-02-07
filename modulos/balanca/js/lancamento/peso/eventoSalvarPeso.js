@@ -5,7 +5,7 @@
 
 function eventoSalvarPeso(dados) {
 	
-	//carregaCssJs("js/jquery-lls/jquery-lls-componente-cafe.js", "js");
+	var number = animacao("botao" + dados.nomeTabela, "fa-check", true);
 	
 	var peso = eval ('pegaDadosFormulario' + dados.nomeTabela + '(dados.nomeTabela)');
 	
@@ -46,6 +46,8 @@ function eventoSalvarPeso(dados) {
 				}
 				else {
 					
+					animacao("botao" + dados.nomeTabela, "fa-check", false, number);
+					
 					mostraDialog(
 						mensagem,
 						cor_texto,
@@ -58,6 +60,8 @@ function eventoSalvarPeso(dados) {
 			}
 			else {
 			
+				animacao("botao" + dados.nomeTabela, "fa-check", false, number);
+			
 				mostraDialog(
 					mensagem,
 					cor_texto,
@@ -69,6 +73,8 @@ function eventoSalvarPeso(dados) {
 			
 		},
 		error: function(jqXHR, exception) {
+			
+			animacao("botao" + dados.nomeTabela, "fa-check", false, number);
 			
 			mostraAjaxErro(
 				exception + ": " + jqXHR.status + " - " + jqXHR.responseText,
