@@ -9,6 +9,8 @@ PATH=.:$(dirname $0):$PATH
 
 clear
 
+service tomcat9 stop
+
 echo "Copy htmlcompressor.jar"
 
 FILE_JAR="htmlcompressor-1.5.3.jar"
@@ -24,3 +26,5 @@ sudo bash bin/jquery_conf.sh clear
 sudo bash bin/jquery_conf.sh jsp
 
 ls -al ${DIR_TOMCAT}
+
+service tomcat9 start
