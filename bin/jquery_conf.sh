@@ -54,12 +54,15 @@ case "$1" in
 	clear)
 		jquery_clear
 		;;
+	jsp)
+		jsp_update
+		;;
 	start)
 		module_check
 		jquery_update
 		;;
 	*)
-		echo "Use: bash $0 {create|update|min|start|clear} [module]"
+		echo "Use: bash $0 {create|update|min|start|clear|jsp} [module]"
 		exit 1
 		;;
 esac

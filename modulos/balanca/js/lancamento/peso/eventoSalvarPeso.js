@@ -9,6 +9,8 @@ function eventoSalvarPeso(dados) {
 	
 	var peso = eval ('pegaDadosFormulario' + dados.nomeTabela + '(dados.nomeTabela)');
 	
+	$("#divDialogAltera" + dados.nomeTabela).dialog( "close" );
+	
 	$.ajax({
 		type: "POST",
 		url: "salva" + dados.nomeTabela,
@@ -46,8 +48,6 @@ function eventoSalvarPeso(dados) {
 				}
 				else {
 					
-					animacao("botao" + dados.nomeTabela, "fa-check", false, number);
-					
 					mostraDialog(
 						mensagem,
 						cor_texto,
@@ -61,7 +61,7 @@ function eventoSalvarPeso(dados) {
 			else {
 			
 				animacao("botao" + dados.nomeTabela, "fa-check", false, number);
-			
+				
 				mostraDialog(
 					mensagem,
 					cor_texto,

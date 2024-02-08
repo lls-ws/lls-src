@@ -9,7 +9,11 @@ function formularioPeso(dados) {
 		.addClass('texto_enorme')
 		.attr('id', 'textoPeso');
 	
-	checkStatusBalanca(textoPeso, dados.nomeTabela);
+	if (dados.tipoOperacao == 0 || dados.nomeTabela == "Baixapeso") {
+	
+		checkStatusBalanca(textoPeso, dados.nomeTabela);
+		
+	}
 	
 	var campoData = campoDataHorizontal(
 		"data" + dados.nomeTabela, "Data",
@@ -28,7 +32,7 @@ function formularioPeso(dados) {
 		"peso" + dados.nomeTabela, "Peso",
 		'col-xs-9 col-sm-6 col-lg-8', 'col-xs-3 col-sm-6 col-lg-4',
 		2, 7, false, false, "", " kg", "disabled"
-	).hide();
+	);
 	
 	var campoProdutor = campoSqlProcuraTexto(
 		"Produtor",
@@ -167,7 +171,11 @@ function formularioPeso(dados) {
 		formulario: formulario
 	};
 	
-	eventoAcharGuiaPeso(guiaPeso);
+	if (dados.id == 0) {
+	
+		eventoAcharGuiaPeso(guiaPeso);
+		
+	}
 	
 	return formulario;
 	

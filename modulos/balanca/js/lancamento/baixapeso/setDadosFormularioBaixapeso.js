@@ -95,13 +95,13 @@ function setDadosFormularioBaixapeso(dados) {
 	
 	$('#tipo' + dados.nomeTabela + 'RadioFormGroup').hide();
 	
-	$('#peso' + dados.nomeTabela).attr('disabled', 'disabled');
+	$('#peso' + dados.nomeTabela).attr('disabled', 'enabled');
 	$('#produto' + dados.nomeTabela + 'FormGroup').hide();
 	$('#produto' + dados.nomeTabela).attr('disabled', 'disabled');
 	$('#descricao' + dados.nomeTabela).prop('disabled', false);
 	
-	$('#peso' + dados.nomeTabela)
-		.prop('disabled', false)
-		.focus();
+	$('#peso' + dados.nomeTabela).prop('disabled', true);
+	
+	$('#observacao' + dados.nomeTabela).focus();
 	
 }

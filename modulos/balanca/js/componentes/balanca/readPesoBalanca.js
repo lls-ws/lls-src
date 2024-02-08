@@ -48,8 +48,6 @@ async function readPesoBalanca(port, textoPeso, nomeTabela) {
 	
 	$('#botaoPararLeitura').click(async function() {
 			
-		console.log(keepReading);
-
 		keepReading = false;
 
 		reader.cancel();
@@ -66,22 +64,16 @@ async function readPesoBalanca(port, textoPeso, nomeTabela) {
 			   
 		$('div#divDialogAltera' + nomeTabela).off('dialogclose');
 			   
-		console.log('closed');
-			   
 	});
 	
 	$('div#divDialogAltera' + nomeTabela).on('dialogclose', async function(event) {
 		
-		console.log(keepReading);
-
 		keepReading = false;
 
 		reader.cancel();
 
 		await closedPromise;
 				
-		console.log('closed');
-		
 	});
 	
 }

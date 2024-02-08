@@ -18,4 +18,10 @@ function setEventosCamposBaixapeso(dados, formulario) {
 		
 	});
 	
+	formulario.find('#textoPeso').change(function(){
+		
+		calculaLiquidoBaixapeso(dados);
+		
+	});
+	
 }

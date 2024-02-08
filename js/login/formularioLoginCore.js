@@ -35,8 +35,8 @@ function formularioLoginCore(dados) {
 	
 	formulario.append(imagemPainel)
 		.append(titulo)
-		.append(botaoLogin)
-		.append(senhaPainel);
+		.append(botaoLogin);
+		//.append(senhaPainel);
 	
 	formulario.submit(function(event) {
 		

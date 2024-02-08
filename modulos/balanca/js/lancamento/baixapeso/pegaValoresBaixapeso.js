@@ -12,13 +12,19 @@ function pegaValoresBaixapeso(dados) {
 	if (tipoPeso == "TARA") {
 		
 		peso.tara = formataNumeroSql($("#peso2" + dados.nomeTabela).val());
-		peso.bruto = formataNumeroSql($("#peso" + dados.nomeTabela).val());
+		peso.bruto = parseInt($('#textoPeso').text());
+		
+		$('#peso' + dados.nomeTabela)
+			.val(formataNumero(peso.bruto, 2, false, false, "", " kg"));
 		
 	}
 	else {
 		
-		peso.tara = formataNumeroSql($("#peso" + dados.nomeTabela).val());
+		peso.tara = parseInt($('#textoPeso').text());
 		peso.bruto = formataNumeroSql($("#peso2" + dados.nomeTabela).val());
+		
+		$('#peso' + dados.nomeTabela)
+			.val(formataNumero(peso.tara, 2, false, false, "", " kg"));
 		
 	}
 	

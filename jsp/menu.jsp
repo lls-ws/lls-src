@@ -8,17 +8,20 @@
 		
 			<%@include file="header.jsp"%>
 			
-			<!--LLS MENU CDN
-			<script src="//lls-ws.github.io/jquery-lls/2.0.0/js/jquery-lls-menu.js" type="text/javascript"></script>
-			<link rel="stylesheet" href="//lls-ws.github.io/jquery-lls/2.0.0/css/jquery-lls-menu.css"/>
-			-->
+			<!--LLS MENU CDN-->
+			<script src="//lls-ws.github.io/jquery-lls/2.1.0/js/jquery-lls-milho.js" type="text/javascript"></script>
+			<script src="//lls-ws.github.io/jquery-lls/2.1.0/js/jquery-lls-cafe.js" type="text/javascript"></script>
+			<script src="//lls-ws.github.io/jquery-lls/2.1.0/js/jquery-lls-balanca.js" type="text/javascript"></script>
+			<script src="//lls-ws.github.io/jquery-lls/2.1.0/js/jquery-lls-menu.js" type="text/javascript"></script>
+			<link rel="stylesheet" href="//lls-ws.github.io/jquery-lls/2.1.0/css/jquery-lls-menu.css"/>
 			
-			<!--LLS MENU Local-->
+			<!--LLS MENU Local
 			<script src="/js/jquery-lls-milho.js" type="text/javascript"></script>
 			<script src="/js/jquery-lls-cafe.js" type="text/javascript"></script>
 			<script src="/js/jquery-lls-balanca.js" type="text/javascript"></script>
 			<script src="/js/jquery-lls-menu.js" type="text/javascript"></script>
 			<link rel="stylesheet" href="/css/jquery-lls-menu.css"/>
+			-->
 			
 		</head>
 		

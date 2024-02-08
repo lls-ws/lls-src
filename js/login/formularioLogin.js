@@ -30,7 +30,7 @@ function formularioLogin(dados) {
 	
 	var url = window.location.hostname;
 	
-	if (url != "lls.net.br") {
+	if (url != "funchal.lls.net.br") {
 		
 		var layout = paragrafo('text-center', '');
 	
@@ -44,6 +44,7 @@ function formularioLogin(dados) {
 		
 	}
 	
+	formulario.find('#senha').attr('autocomplete', 'on');
 	formulario.find('#email').attr('autocomplete', 'on').focus();
 	
 }

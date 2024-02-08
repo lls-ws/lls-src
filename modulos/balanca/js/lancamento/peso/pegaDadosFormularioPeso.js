@@ -7,19 +7,11 @@ function pegaDadosFormularioPeso(nomeTabela) {
 	
 	var tipo = $("input[name='tipo" + nomeTabela + "']:checked").val();
 	
-	var pesoBalanca = {
-		value: $('#texto' + nomeTabela).text(),
-		check: $('#texto' + nomeTabela).hasClass("texto_cor_verde")
-	}
-	
-	pesoBalanca.value = 10000;
-	
 	var peso = {};
 	
 	if (tipo == "TARA") {
 		
-		//peso.tara = formataNumeroSql(pesoBalanca.value);
-		peso.tara = pesoBalanca.value;
+		peso.tara = formataNumeroSql($("#peso" + nomeTabela).val());
 		peso.bruto = 0.00;
 		peso.liquido = 0.00;
 		peso.tipo = "SAIDA";
@@ -28,8 +20,7 @@ function pegaDadosFormularioPeso(nomeTabela) {
 	else {
 		
 		peso.tara = 0.00;
-		//peso.bruto = formataNumeroSql(pesoBalanca.value);
-		peso.bruto = pesoBalanca.value;
+		peso.bruto = formataNumeroSql($("#peso" + nomeTabela).val());
 		peso.liquido = 0.00;
 		peso.tipo = "ENTRADA";
 		
@@ -51,7 +42,7 @@ function pegaDadosFormularioPeso(nomeTabela) {
 		placa: pegaPlacaTexto($("#placa" + nomeTabela).val().toUpperCase()),
 		tipoProduto: peso.tipoProduto,
 		produto: encodeURIComponent( unescape($("#descricao" + nomeTabela).val())),
-		produtor: encodeURIComponent( unescape($("#nomeProcuraCadastro" + nomeTabela + "FazendaProdutor").val())),
+		produtor: encodeURIComponent( unescape($("#nomeProcuraCadastro" + nomeTabela + "FazendaProdutor").val().substr(0,30))),
 		destino: encodeURIComponent( unescape($("#destino" + nomeTabela).val())),
 		motorista: encodeURIComponent( unescape($("#motorista" + nomeTabela).val())),
 		observacao: encodeURIComponent( unescape($("#observacao" + nomeTabela).val()))

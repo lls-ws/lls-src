@@ -7,6 +7,8 @@
 PATH=.:$(dirname $0):$PATH
 . lib/tomcat.lib	|| exit 1
 
+clear
+
 echo "Copy htmlcompressor.jar"
 
 FILE_JAR="htmlcompressor-1.5.3.jar"
@@ -16,3 +18,9 @@ FILE_URL="https://storage.googleapis.com/google-code-archive-downloads/v2/code.g
 sudo wget -P ${DIR_TOMCAT_LIB} ${FILE_URL}
 
 ls -al ${DIR_TOMCAT_LIB}/${FILE_JAR}
+
+sudo bash bin/jquery_conf.sh clear
+
+sudo bash bin/jquery_conf.sh jsp
+
+ls -al ${DIR_TOMCAT}

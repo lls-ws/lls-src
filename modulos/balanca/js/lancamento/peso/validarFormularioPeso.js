@@ -57,12 +57,31 @@ function validarFormularioPeso(dados, formulario) {
 		function(value, element) {
 		
 			var pesoBalanca = {
-				value: $('#texto' + dados.nomeTabela).text(),
-				check: $('#texto' + dados.nomeTabela).hasClass("texto_cor_verde")
+				peso: parseInt($('#textoPeso').text()),
+				check: $('#textoPeso').hasClass("texto_cor_verde")
 			}
 			
-			if (pesoBalanca.value <= 0) return false;
-			if (!pesoBalanca.check) return false;
+			if (pesoBalanca.peso > 0 && pesoBalanca.check) {
+				
+				$('#peso' + dados.nomeTabela)
+					.val(formataNumero(pesoBalanca.peso, 2, false, false, "", " kg"));
+				
+				if (dados.nomeTabela == "Baixapeso") {
+					
+					var liquido = formataNumeroSql($("#liquido" + dados.nomeTabela).val());
+					
+					if (liquido <= 0) return false;
+					
+				}
+				
+				return true;
+				
+			}
+			else {
+				
+				return false;
+				
+			}
 			
 		}, "Pesagem não permitida!"
 	

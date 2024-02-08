@@ -33,10 +33,8 @@ function formataPesoBalanca(value, textoPeso) {
 		
 	}
 	
-	console.log(status);
-	
 	weight = parseInt(weight) || 0;
 	
-	textoPeso.text(weight);
+	textoPeso.text(weight).change();
 	
 }

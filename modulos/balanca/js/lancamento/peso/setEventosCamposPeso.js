@@ -39,7 +39,22 @@ function setEventosCamposPeso(dados, formulario) {
 	if (dados.nomeTabela == "Peso") rule = {checkBalancaPeso: true};
 	else rule = {checkBalancaBaixapeso: true};
 	
-	//formulario.find('#observacao' + dados.nomeTabela).rules('add', rule);
+	if (dados.tipoOperacao == 0 || dados.nomeTabela == "Baixapeso") {
+	
+		formulario.find('#observacao' + dados.nomeTabela).rules('add', rule);
+		
+	}
+	
+	if (dados.tipoOperacao == 0) {
+		
+		formulario.find('#textoPeso').change(function(){
+			
+			$('#peso' + dados.nomeTabela)
+				.val(formataNumero(parseInt($('#textoPeso').text()), 2, false, false, "", " kg"));
+			
+		});
+		
+	}
 	
 	formulario.find('#nomeProcuraCadastro' + dados.nomeTabela + 'FazendaProdutorDivInput span')
 		.on('change', function() {

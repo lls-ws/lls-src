@@ -5,9 +5,11 @@
 
 function eventoSalvarBaixapeso(dados) {
 	
-	var nomeTabela = dados.nomeTabela;
+	var number = animacao("botao" + dados.nomeTabela, "fa-check", true);
 	
 	var peso = eval ('pegaDadosFormulario' + dados.nomeTabela + '(dados)');
+	
+	$("#divDialogAltera" + dados.nomeTabela).dialog( "close" );
 	
 	$.ajax({
 		type: "POST",
@@ -28,16 +30,12 @@ function eventoSalvarBaixapeso(dados) {
 				
 				eval ('limpaDadosFormulario' + dados.nomeTabela + '(dados)');
 				
-				$("#data" + dados.nomeTabela).val(resposta.data);
-				
-				peso.cadastro.data = $("#data" + dados.nomeTabela).datepicker("getDate");
-				
 				dados = menuOpcoesBalanca(dados.posicaoItemMenu, dados.posicaoItem);
 				
 				dados.id = resposta.id;
 				
 				dados["indexStatus"] = resposta.indexStatus;
-				dados["data"] = peso.cadastro.data;
+				dados["data"] = resposta.data;
 				
 				setDadosFormularioRelatorioCore(dados);
 				
@@ -48,17 +46,21 @@ function eventoSalvarBaixapeso(dados) {
 			}
 			else {
 			
+				animacao("botao" + dados.nomeTabela, "fa-check", false, number);
+				
 				mostraDialog(
 					mensagem,
 					cor_texto,
 					"table",
-					tituloPainelCadastro(0, eval('pegaNomeColunas' + nomeTabela + '(3)'))
+					tituloPainelCadastro(0, eval('pegaNomeColunas' + dados.nomeTabela + '(3)'))
 				);
 				
 			}
 					
 		},
 		error: function(jqXHR, exception) {
+			
+			animacao("botao" + dados.nomeTabela, "fa-check", false, number);
 			
 			mostraAjaxErro(
 				exception + ": " + jqXHR.status + " - " + jqXHR.responseText,
