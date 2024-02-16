@@ -20,7 +20,7 @@ function setDadosTabelaCadastroCore(dados) {
 	var titulo = eval('pegaNomeColunas' + dados.nomeTabela + '(3)');
 	
 	var botaoVisualizar = botao(
-		"botaoVisualizar", "", "eye-open", "0", "btn btn-primary btn-xs", "button", urlBotao
+		"botaoVisualizar", "", "fa-eye", "0", "btn btn-primary btn-xs", "button", urlBotao
 	).attr('title', "Mostrar " + titulo + ': ' + arrayDados.titulo);
 	
 	var trTabela = tr(idLinha, "");

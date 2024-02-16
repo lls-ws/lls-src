@@ -5,9 +5,6 @@
 
 function setDadosDialogPeso(dados) {
 	
-	//carregaCssJs("js/jquery-lls/jquery-lls-componente-cafe.js", "js");
-	//carregaCssJs("js/jquery-lls/jquery-lls-componente-formulario-cafe.js", "js");
-	
 	eval ("formataDados" + dados.nomeTabela + "(dados.array)");
 	
 	var textoProdutor = juntaTituloTexto('Produtor', dados.array.produtor);
@@ -115,7 +112,7 @@ function setDadosDialogPeso(dados) {
 		var botaoPrint = botaoHorizontal(
 			idBotaoPrint,
 			"Imprimir",
-			'print', 4, 0,
+			'fa-print', 4, 0,
 			'btn  btn-primary',
 			'button',
 			urlBotaoPrint

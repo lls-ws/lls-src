@@ -16,7 +16,7 @@ function setDadosDialogImprimirCore(dados, nomesColunas, trDados) {
 		var botaoPrint = botaoHorizontal(
 			idBotaoPrint,
 			"Imprimir",
-			'print', 4, 0,
+			'fa-print', 4, 0,
 			'btn  btn-primary',
 			'button',
 			urlBotaoPrint

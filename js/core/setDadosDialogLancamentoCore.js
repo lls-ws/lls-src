@@ -44,7 +44,7 @@ function setDadosDialogLancamentoCore(dados, nomesColunas, trDados) {
 	var botaoLancamento = botaoHorizontal(
 		idBotaoLancamento,
 		dados.nomeBotaoLancamento,
-		'ok', 4, 4,
+		'fa-check', 4, 4,
 		'btn btn-success',
 		'button',
 		urlBotaoLancamento

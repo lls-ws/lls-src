@@ -12,7 +12,7 @@ function setDadosTabelaPeneira(peneira) {
 	var $urlBotao = 'mostraCadastro("' + peneira.id + '" , "Peneira")';
 	
 	var $botaoVisualizar = botao(
-		"botaoVisualizar", "", "eye-open", "0", "btn btn-primary btn-xs", "button", $urlBotao
+		"botaoVisualizar", "", "fa-eye", "0", "btn btn-primary btn-xs", "button", $urlBotao
 	);
 	
 	var $tbody = $("#listaPeneiraForm #tableListaPeneira #tbodyListaPeneira");

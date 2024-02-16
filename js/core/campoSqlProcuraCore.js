@@ -64,7 +64,8 @@ function campoSqlProcuraCore(dados, input, id) {
 		
 	});
 	
-	input.autocomplete({
+	input.devbridgeAutocomplete({
+		autoFocus: true,
 		autoSelectFirst: true,
 		minChars: dados.minChars,
 		preserveInput: true,

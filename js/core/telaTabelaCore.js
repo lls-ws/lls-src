@@ -27,7 +27,7 @@ function telaTabelaCore(dados, tipo, index) {
 	var titulo = eval('pegaNomeColunas' + dadosTabela.nomeTabela + '(3)');
 	
 	var botaoTabela = botao('botaoNovo' + dadosTabela.nomeTabela,
-		'', 'plus', '0',
+		'', 'fa-plus', '0',
 		'btn btn-xs btn-primary',
 		'button',
 		'telaTabelaNovoItemCore(' + JSON.stringify(dadosTabela) + ')'
