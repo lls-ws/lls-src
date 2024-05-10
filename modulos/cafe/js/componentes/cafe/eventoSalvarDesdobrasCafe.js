@@ -5,6 +5,8 @@
 
 function eventoSalvarDesdobrasCafe(dados) {
 	
+	var number = animacao("botao" + dados.nomeTabela, "fa-check", true);
+	
 	var cafe = eval ('pegaDadosFormulario' + dados.nomeTabela + '(dados.nomeTabela)');
 	
 	$.ajax({
@@ -43,6 +45,8 @@ function eventoSalvarDesdobrasCafe(dados) {
 			}
 			else {
 				
+				animacao("botao" + dados.nomeTabela, "fa-check", false, number);
+				
 				mostraDialog(
 					mensagem,
 					"texto_cor_vermelho",
@@ -54,6 +58,8 @@ function eventoSalvarDesdobrasCafe(dados) {
 			
 		},
 		error: function(jqXHR, exception) {
+			
+			animacao("botao" + dados.nomeTabela, "fa-check", false, number);
 			
 			mostraAjaxErro(
 				exception + ': ' + jqXHR.status + ' - ' + jqXHR.responseText,

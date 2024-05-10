@@ -5,6 +5,6 @@
 
 function setDadosFormularioLote(dados, formulario) {
 	
-	setDadosFormularioCafeFormacao(dados, formulario, 1);
+	pegaTabelaLote(dados, formulario, 1);
 	
 }

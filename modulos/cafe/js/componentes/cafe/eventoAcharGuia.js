@@ -1,30 +1,27 @@
 /* =========================================================
- * pegaTabelaDespejo.js
+ * eventoAcharGuia.js
  * http://lls.net.br/
  * ========================================================= */
 
-function pegaTabelaDespejo(dados, formulario, tipo) {
-
-	var ids = {
-		idLote : {id: dados.id},
-		idCadastro: {id: dados.idCadastro}
-	}
+function eventoAcharGuia(dados, formulario) {
 	
 	$.ajax({
 		type: "POST",
-		url: 'acha' + dados.nomeTabela + dados.nomeTabelaCadastro,
+		url: 'getGuia' + dados.nomeTabela,
 		dataType: "json",
 		contentType: "application/json",
 		mimeType: "application/json",
-		data: JSON.stringify(ids),
 		success: function(result) {
+			
+			dados.lote = result.lote;
 			
 			if (result.status == '200') {
 	
-				dados["lotes"] = result;
+				setFormularioCafe(dados, formulario);
 				
-				setDadosFormularioCafeFormacao(dados, formulario, tipo);
-	
+				formulario.find("#data" + dados.nomeTabela)
+					.datepicker('setDate', formataData(result.data));
+				
 			}
 			
 		},

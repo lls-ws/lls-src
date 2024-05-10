@@ -5,8 +5,6 @@
 
 function formularioServicocafe(dados) {
 	
-	var dataAtual = getJson("getData");
-	
 	var campoProdutor = campoSqlProcuraTexto(
 		"Produtor",
 		dados.nomeTabela,
@@ -44,7 +42,7 @@ function formularioServicocafe(dados) {
 	var campoData = campoDataHorizontal(
 		"data" + dados.nomeTabela, "Data",
 		'col-xs-8 col-sm-6 col-lg-8', 'col-xs-4 col-sm-6 col-lg-4',
-		true, "-3", "0", formataData(dataAtual.data),
+		true, "-3", "0", null,
 		'enabled'
 	).removeClass("has-feedback");
 	
@@ -80,6 +78,8 @@ function formularioServicocafe(dados) {
 	var formTela2 = formularioObservacaoCore(dados.nomeTabela, "observacao", 9);
 	
 	var formulario = formularioLancamentoCore(dados, [formTela1, formTela2]);
+	
+	eventoAcharData(dados, formulario);
 	
 	eval ("setEventosCampos" + dados.nomeTabela + "(dados, formulario)");
 	

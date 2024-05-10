@@ -5,6 +5,8 @@
 
 function eventoSalvarServicocafe(dados) {
 	
+	var number = animacao("botao" + dados.nomeTabela, "fa-check", true);
+	
 	var servico = eval ('pegaDadosFormulario' + dados.nomeTabela + '(dados.nomeTabela)');
 	
 	$.ajax({
@@ -37,6 +39,8 @@ function eventoSalvarServicocafe(dados) {
 				
 			}
 			
+			animacao("botao" + dados.nomeTabela, "fa-check", false, number);
+			
 			mostraDialog(
 				mensagem,
 				cor_texto,
@@ -46,6 +50,8 @@ function eventoSalvarServicocafe(dados) {
 			
 		},
 		error: function(jqXHR, exception) {
+			
+			animacao("botao" + dados.nomeTabela, "fa-check", false, number);
 			
 			mostraAjaxErro(
 				exception + ": " + jqXHR.status + " - " + jqXHR.responseText,

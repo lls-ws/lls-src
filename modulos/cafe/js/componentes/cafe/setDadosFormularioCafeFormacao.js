@@ -5,7 +5,7 @@
 
 function setDadosFormularioCafeFormacao(dados, formulario, tipo) {
 	
-	var lote = eval ('pegaTabela'+ dados.nomeTabela + '(dados)');
+	var lote = dados.lotes;
 	
 	lote["tipoOperacao"] = dados.tipoOperacao;
 	lote["nomeTabela"] = dados.nomeTabela;

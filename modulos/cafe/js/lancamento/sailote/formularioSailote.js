@@ -65,11 +65,17 @@ function formularioSailote(dados) {
 		.append(divSacasReal)
 		.append(divPesoReal);
 	
+	var campoCobrar = caixaVerificacaoHorizontal(
+		"cobrar" + dados.nomeTabela,
+		"Cobrar Carga"
+	);
+	
 	var formTela1 = $("<div/>")
 		.addClass("form-horizontal panel-group")
 		.append(divCampos1)
 		.append(divCampos2)
-		.append(divCampos3);
+		.append(divCampos3)
+		.append(campoCobrar);
 	
 	var formTela2 = formularioObservacaoCore(dados.nomeTabela, "observacao", 9);
 	

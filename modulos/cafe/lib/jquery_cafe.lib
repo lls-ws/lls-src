@@ -39,6 +39,8 @@ cafe_componentes_create()
 {
 	
 	file_create "${DIR_MODULE_JS}/componentes/cafe"
+	file_create "${DIR_MODULE_JS}/componentes/lote"
+	file_create "${DIR_MODULE_JS}/componentes/peneira"
 	
 }
 

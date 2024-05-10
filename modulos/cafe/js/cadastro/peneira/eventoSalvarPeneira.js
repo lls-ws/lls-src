@@ -5,6 +5,8 @@
 
 function eventoSalvarPeneira(tipoOperacao, nomeTabela) {
 	
+	var number = animacao("botao" + nomeTabela, "fa-check", true);
+	
 	var peneira = pegaDadosFormularioPeneira(nomeTabela);
 	
 	$.ajax({
@@ -48,6 +50,8 @@ function eventoSalvarPeneira(tipoOperacao, nomeTabela) {
 			}
 			else {
 				
+				animacao("botao" + nomeTabela, "fa-check", false, number);
+				
 				$cor_texto = "texto_cor_vermelho";
 				
 			}
@@ -61,6 +65,8 @@ function eventoSalvarPeneira(tipoOperacao, nomeTabela) {
 			
 		},
 		error: function(jqXHR, exception) {
+			
+			animacao("botao" + nomeTabela, "fa-check", false, number);
 			
 			mostraAjaxErro(
 				exception + ": " + jqXHR.status + " - " + jqXHR.responseText,

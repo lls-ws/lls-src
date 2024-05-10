@@ -5,10 +5,6 @@
 
 function formularioTracafe(dados) {
 	
-	var guia = getJson("getGuia" + dados.nomeTabela);
-	
-	dados.lote = guia.lote;
-	
 	var campoProdutorOrigem = campoSqlProcuraTexto(
 		"Origem",
 		dados.nomeTabela,
@@ -33,7 +29,7 @@ function formularioTracafe(dados) {
 	var campoData = campoDataHorizontal(
 		"data" + dados.nomeTabela, "Data",
 		'col-xs-8 col-sm-6 col-lg-8', 'col-xs-4 col-sm-6 col-lg-4',
-		true, "-3", "0", formataData(guia.data),
+		true, "-3", "0", null,
 		'enabled'
 	).removeClass("has-feedback");
 	
@@ -80,7 +76,7 @@ function formularioTracafe(dados) {
 	
 	var formulario = formularioLancamentoCore(dados, [formTela1, formTela2, formTela3]);
 	
-	setFormularioCafe(dados, formulario);
+	eventoAcharGuia(dados, formulario);
 	
 	return formulario;
 	

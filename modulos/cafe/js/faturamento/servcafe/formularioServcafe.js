@@ -5,12 +5,10 @@
 
 function formularioServcafe(dados) {
 	
-	var dataAtual = getJson("getData");
-	
 	var campoData = campoDataHorizontal(
 		"data" + dados.nomeTabela, "Data",
 		'col-xs-9 col-md-6', 'col-xs-3',
-		true, "0", "0", formataData(dataAtual.data),
+		true, "0", "0", null,
 		'disabled'
 	).removeClass("has-feedback");
 	
@@ -49,6 +47,8 @@ function formularioServcafe(dados) {
 		.append(campoObs);
 	
 	var formulario = formularioCadastroCore(dados, formTela1);
+	
+	eventoAcharData(dados, formulario);
 	
 	eval ("setEventosCampos" + dados.nomeTabela + "(dados, formulario)");
 	

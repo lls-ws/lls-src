@@ -5,6 +5,8 @@
 
 function eventoSalvarFaturacafe(dados) {
 	
+	var number = animacao("botao" + dados.nomeTabela, "fa-check", true);
+	
 	var faturacafe = eval ("pegaDadosFormulario" + dados.nomeTabela + "(dados.nomeTabelaExecuta)");
 	
 	$.ajax({
@@ -35,6 +37,8 @@ function eventoSalvarFaturacafe(dados) {
 			}
 			else {
 				
+				animacao("botao" + dados.nomeTabela, "fa-check", false, number);
+				
 				$cor_texto = "texto_cor_vermelho";
 				
 			}
@@ -48,6 +52,8 @@ function eventoSalvarFaturacafe(dados) {
 			
 		},
 		error: function(jqXHR, exception) {
+			
+			animacao("botao" + dados.nomeTabela, "fa-check", false, number);
 			
 			mostraAjaxErro(
 				exception + ": " + jqXHR.status + " - " + jqXHR.responseText,

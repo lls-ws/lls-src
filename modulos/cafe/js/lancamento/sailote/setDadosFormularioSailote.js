@@ -14,7 +14,7 @@ function setDadosFormularioSailote(dados) {
 	
 	$('#botaoFormGroup').before(campoCobrar);
 	
-	$('#cobrar' + dados.nomeTabela).prop('checked', dados.array.cobrar);
+	$('#cobrar' + dados.nomeTabela).prop('checked', true);
 	
 	$('#sacas' + dados.nomeTabela)
 		.val($('#sacasDespejo' + dados.nomeTabela).val());

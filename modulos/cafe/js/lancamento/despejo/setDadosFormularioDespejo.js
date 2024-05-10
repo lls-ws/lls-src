@@ -5,6 +5,6 @@
 
 function setDadosFormularioDespejo(dados, formulario) {
 	
-	setDadosFormularioCafeFormacao(dados, formulario, 2);
+	pegaTabelaDespejo(dados, formulario, 2);
 	
 }

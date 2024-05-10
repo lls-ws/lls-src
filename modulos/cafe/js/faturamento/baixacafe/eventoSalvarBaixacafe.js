@@ -5,7 +5,7 @@
 
 function eventoSalvarBaixacafe(dados) {
 	
-	var nomeTabela = dados.nomeTabela;
+	var number = animacao("botao" + dados.nomeTabela, "fa-check", true);
 	
 	var baixa = eval ('pegaDadosFormulario' + dados.nomeTabela + '(dados.nomeTabela)');
 	
@@ -43,15 +43,19 @@ function eventoSalvarBaixacafe(dados) {
 				
 			}
 			
+			animacao("botao" + dados.nomeTabela, "fa-check", false, number);
+			
 			mostraDialog(
 				mensagem,
 				cor_texto,
 				"table",
-				tituloPainelCadastro(0, eval('pegaNomeColunas' + nomeTabela + '(3)'))
+				tituloPainelCadastro(0, eval('pegaNomeColunas' + dados.nomeTabela + '(3)'))
 			);
 				
 		},
 		error: function(jqXHR, exception) {
+			
+			animacao("botao" + dados.nomeTabela, "fa-check", false, number);
 			
 			mostraAjaxErro(
 				exception + ": " + jqXHR.status + " - " + jqXHR.responseText,
