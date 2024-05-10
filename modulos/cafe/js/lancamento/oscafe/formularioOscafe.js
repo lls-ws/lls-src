@@ -33,7 +33,7 @@ function formularioOscafe(dados) {
 	var campoSacas = campoNumeroHorizontal(
 		"sacas" + dados.nomeTabela, "Sacas",
 		'col-xs-7 col-sm-6 col-lg-8', 'col-xs-5 col-sm-6 col-lg-4',
-		0, 3, false, false, "", "", "enabled"
+		0, 4, false, false, "", "", "enabled"
 	);
 	
 	var campoPeso = campoNumeroHorizontal(

@@ -28,13 +28,13 @@ function formularioSailote(dados) {
 	var campoSacasDespejo = campoNumeroHorizontal(
 		"sacasDespejo" + dados.nomeTabela, "Sacas",
 		'col-xs-7 col-sm-6 col-lg-8', 'col-xs-5 col-sm-6 col-lg-4',
-		0, 3, false, false, "", "", "disabled"
+		0, 4, false, false, "", "", "disabled"
 	).css("font-weight", "Bold").css("font-size", "15px");
 	
 	var campoPesoDespejo = campoNumeroHorizontal(
 		"pesoDespejo" + dados.nomeTabela, "Peso",
 		'col-xs-9 col-sm-6 col-lg-8', 'col-xs-3 col-sm-6 col-lg-4',
-		2, 7, false, false, "", " kg", "disabled"
+		2, 8, false, false, "", " kg", "disabled"
 	).removeClass("has-feedback").css("font-weight", "Bold").css("font-size", "15px");
 	
 	var divSacasDespejo = $("<div/>").addClass('col-xs-6 col-md-6').append(campoSacasDespejo);

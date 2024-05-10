@@ -8,13 +8,13 @@ function formularioTralote(dados) {
 	var campoSacas = campoNumeroHorizontal(
 		"sacas" + dados.nomeTabela, "Sacas",
 		'col-xs-7 col-sm-6 col-lg-8', 'col-xs-5 col-sm-6 col-lg-4',
-		0, 3, false, false, "", "", "disabled"
+		0, 4, false, false, "", "", "disabled"
 	).removeClass("has-feedback");
 	
 	var campoPeso = campoNumeroHorizontal(
 		"peso" + dados.nomeTabela, "Peso",
 		'col-xs-9 col-sm-6 col-lg-8', 'col-xs-3 col-sm-6 col-lg-4',
-		2, 7, false, false, "", " kg", "disabled"
+		2, 8, false, false, "", " kg", "disabled"
 	).removeClass("has-feedback");
 	
 	var divSacas = $("<div/>").addClass('col-xs-6 col-md-6').append(campoSacas);

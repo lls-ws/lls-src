@@ -29,25 +29,25 @@ function formularioDespejo(dados) {
 	var campoSacasSaldo = campoNumeroHorizontal(
 		"sacasSaldo" + dados.nomeTabela, "Saldo Sacas",
 		'col-xs-9 col-md-6', 'col-xs-3',
-		0, 3, false, false, "", "", "disabled"
+		0, 4, false, false, "", "", "disabled"
 	);
 	
 	var campoPesoSaldo = campoNumeroHorizontal(
 		"pesoSaldo" + dados.nomeTabela, "Saldo Peso",
 		'col-xs-9 col-md-6', 'col-xs-3',
-		2, 7, false, false, "", " kg", "disabled"
+		2, 8, false, false, "", " kg", "disabled"
 	);
 	
 	var campoSacas = campoNumeroHorizontal(
 		"sacas" + dados.nomeTabela, "Sacas",
 		'col-xs-9 col-md-6', 'col-xs-3',
-		0, 3, false, false, "", "", "disabled"
+		0, 4, false, false, "", "", "disabled"
 	);
 	
 	var campoPeso = campoNumeroHorizontal(
 		"peso" + dados.nomeTabela, "Peso",
 		'col-xs-9 col-md-6', 'col-xs-3',
-		2, 7, false, false, "", " kg", "enabled"
+		2, 8, false, false, "", " kg", "enabled"
 	);
 	
 	var formTela = $("<div/>")
