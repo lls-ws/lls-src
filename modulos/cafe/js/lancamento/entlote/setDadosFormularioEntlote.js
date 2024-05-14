@@ -7,14 +7,7 @@ function setDadosFormularioEntlote(dados) {
 	
 	setDadosFormularioCore(dados);
 	
-	var campoCobrar = caixaVerificacaoHorizontal(
-		'cobrar' + dados.nomeTabela,
-		'Cobrar Descarga'
-	);
-	
-	$('#botaoFormGroup').before(campoCobrar);
-	
-	$('#cobrar' + dados.nomeTabela).prop('checked', dados.array.cobrar);
+	setCampoCobrarCafe(dados)
 	
 	$('#desdobras' + dados.nomeTabela).focus();
 	

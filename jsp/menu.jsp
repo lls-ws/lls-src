@@ -9,11 +9,11 @@
 			<%@include file="header.jsp"%>
 			
 			<!--LLS MENU CDN-->
-			<script src="//lls-ws.github.io/jquery-lls/2.1.2/js/jquery-lls-milho.js" type="text/javascript"></script>
-			<script src="//lls-ws.github.io/jquery-lls/2.1.2/js/jquery-lls-cafe.js" type="text/javascript"></script>
-			<script src="//lls-ws.github.io/jquery-lls/2.1.2/js/jquery-lls-balanca.js" type="text/javascript"></script>
-			<script src="//lls-ws.github.io/jquery-lls/2.1.2/js/jquery-lls-menu.js" type="text/javascript"></script>
-			<link rel="stylesheet" href="//lls-ws.github.io/jquery-lls/2.1.2/css/jquery-lls-menu.css"/>
+			<script src="//lls-ws.github.io/jquery-lls/2.1.3/js/jquery-lls-milho.js" type="text/javascript"></script>
+			<script src="//lls-ws.github.io/jquery-lls/2.1.3/js/jquery-lls-cafe.js" type="text/javascript"></script>
+			<script src="//lls-ws.github.io/jquery-lls/2.1.3/js/jquery-lls-balanca.js" type="text/javascript"></script>
+			<script src="//lls-ws.github.io/jquery-lls/2.1.3/js/jquery-lls-menu.js" type="text/javascript"></script>
+			<link rel="stylesheet" href="//lls-ws.github.io/jquery-lls/2.1.3/css/jquery-lls-menu.css"/>
 			
 			
 			<!--LLS MENU Local

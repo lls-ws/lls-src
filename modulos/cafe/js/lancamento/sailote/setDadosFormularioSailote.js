@@ -7,14 +7,7 @@ function setDadosFormularioSailote(dados) {
 	
 	setDadosFormularioCore(dados);
 	
-	var campoCobrar = caixaVerificacaoHorizontal(
-		'cobrar' + dados.nomeTabela,
-		'Cobrar Carga'
-	);
-	
-	$('#botaoFormGroup').before(campoCobrar);
-	
-	$('#cobrar' + dados.nomeTabela).prop('checked', true);
+	setCampoCobrarCafe(dados);
 	
 	$('#sacas' + dados.nomeTabela)
 		.val($('#sacasDespejo' + dados.nomeTabela).val());
