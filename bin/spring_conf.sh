@@ -113,26 +113,26 @@ spring_database()
 }
 
 case "$1" in
-	server)
-		spring_server
-		;;
-	persistence)
-		spring_persistence
-		;;
 	web)
 		spring_web
-		;;
-	context)
-		spring_context
-		;;
-	message)
-		spring_message
 		;;
 	log4j)
 		spring_log4j
 		;;
+	server)
+		spring_server
+		;;
+	message)
+		spring_message
+		;;
+	context)
+		spring_context
+		;;
 	database)
 		spring_database
+		;;
+	persistence)
+		spring_persistence
 		;;
 	all)
 		spring_web
