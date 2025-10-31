@@ -34,16 +34,6 @@ spring_update()
 	
 }
 
-spring_server()
-{	
-	
-	FILE_CONF="server.xml"
-	DIR_TOMCAT_CONF="/usr/share/tomcat/conf"
-	
-	spring_update ${DIR_CORE_XML}/${FILE_CONF} ${DIR_TOMCAT_CONF}
-	
-}
-
 spring_persistence()
 {	
 	
@@ -129,9 +119,6 @@ case "$1" in
 	log4j)
 		spring_log4j
 		;;
-	server)
-		spring_server
-		;;
 	message)
 		spring_message
 		;;
@@ -148,13 +135,12 @@ case "$1" in
 		spring_web
 		spring_app
 		spring_log4j
-		spring_server
 		spring_message
 		spring_context
 		spring_persistence
 		;;
 	*)
-		echo "Use: $0 {all|web|app|log4j|server|message|context|persistence}"
+		echo "Use: $0 {all|web|app|log4j|message|context|persistence}"
 		exit 1
 		;;
 esac
