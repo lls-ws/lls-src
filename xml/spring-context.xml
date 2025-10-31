@@ -17,6 +17,7 @@
                 http://www.springframework.org/schema/mvc
                 http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd">
         
+	<context:property-placeholder location="classpath:application.properties"/>
 	<context:component-scan base-package="br.net.lls" />
 	<context:annotation-config />
 	
@@ -42,12 +43,10 @@
 	</bean>
 	
 	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-		<property name="defaultEncoding" value="ISO8859-1"/>
+		<property name="defaultEncoding" value="UTF-8"/>
 		<property name="basename" value="classpath:ValidationMessages.properties" />
 	</bean>
 
-	<context:property-placeholder location="classpath:database.properties"/>
-	
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="${jdbc.driverClassName}"/>
 		<property name="url" value="${jdbc.url}"/>
@@ -75,17 +74,18 @@
 	
 	<!-- use Gmail for outbound SMTP -->
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-		<property name="defaultEncoding" value="UTF-8"/>
-		<property name="host" value="smtp.gmail.com"/>
-		<property name="port" value="465"/>
+		<property name="defaultEncoding" value="${mail.encoding}"/>
+		<property name="host" value="${mail.host}"/>
+		<property name="port" value="${mail.port}"/>
 		<property name="username" value="${mail.username}"/>
 		<property name="password" value="${mail.password}"/>
 		<property name="javaMailProperties">
 			<value>
 				mail.debug=true
 				mail.smtp.auth=true
-				mail.smtp.socketFactory.class=java.net.SocketFactory
+				mail.smtp.starttls.enable=true
 				mail.smtp.socketFactory.fallback=false
+				mail.smtp.socketFactory.class=java.net.SocketFactory				
 			</value>
 		</property>
 	</bean>

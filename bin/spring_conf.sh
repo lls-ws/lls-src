@@ -85,14 +85,12 @@ spring_log4j()
 	
 	FILE_CONF="log4j.properties"
 	
-	spring_update ${DIR_CORE_PROPERTIES}/${FILE_CONF} ${DIR_TOMCAT_RESOURCES}
+	spring_update ${DIR_CORE_PROPERTIES}/${FILE_CONF} ${DIR_TOMCAT_CLASS}
 	
 }
 
-spring_database()
+spring_password()
 {	
-	
-	FILE_CONF="database.properties"
 	
 	PASSWORD=`sudo git config user.password`
 	
@@ -104,7 +102,7 @@ spring_database()
 	
 	fi
 	
-	spring_update ${DIR_CORE_PROPERTIES}/${FILE_CONF} ${DIR_TOMCAT_RESOURCES}
+	spring_update ${DIR_CORE_PROPERTIES}/${FILE_CONF} ${DIR_TOMCAT_CLASS}
 	
 	sudo sed -i 's/mypassword/'${PASSWORD}'/g' ${FILE_CONF}
 	
@@ -112,9 +110,21 @@ spring_database()
 	
 }
 
+spring_app()
+{	
+	
+	FILE_CONF="application.properties"
+	
+	spring_password
+	
+}
+
 case "$1" in
 	web)
 		spring_web
+		;;
+	app)
+		spring_app
 		;;
 	log4j)
 		spring_log4j
@@ -136,6 +146,7 @@ case "$1" in
 		;;
 	all)
 		spring_web
+		spring_mail
 		spring_log4j
 		spring_server
 		spring_message
@@ -144,7 +155,7 @@ case "$1" in
 		spring_persistence
 		;;
 	*)
-		echo "Use: $0 {all|web|log4j|server|message|context|database|persistence}"
+		echo "Use: $0 {all|web|app|log4j|server|message|context|persistence}"
 		exit 1
 		;;
 esac
