@@ -146,12 +146,11 @@ case "$1" in
 		;;
 	all)
 		spring_web
-		spring_mail
+		spring_app
 		spring_log4j
 		spring_server
 		spring_message
 		spring_context
-		spring_database
 		spring_persistence
 		;;
 	*)
