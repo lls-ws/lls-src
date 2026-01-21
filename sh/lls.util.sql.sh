@@ -7,29 +7,31 @@
 PATH=.:$(dirname $0):$PATH
 . lib/mysql.lib		|| exit 1
 
-show_guia()
+select_guide()
 {
 	
 	GUIA_NUMBER=`${CMD_BASE} -sN -e "SELECT numero FROM Guia WHERE id = '1';"`
 	
-	echo ${GUIA_NUMBER}
-	
 }
 
-set_guia()
+set_guide()
 {
+
+	select_guide
 	
-	GUIA_NUMBER=$(echo `show_guia`)
+	echo "OLD NUMBER: ${GUIA_NUMBER}"
 	
 	let GUIA_NUMBER++
 	
 	${CMD_BASE} -e "UPDATE Guia SET numero = '"${GUIA_NUMBER}"' WHERE id = '1';"
 	
-	show_guia
+	select_guide
+	
+	echo "NEW NUMBER: ${GUIA_NUMBER}"
 	
 }
 
-update_database()
+get_database()
 {
 	
 	sftp -i ${LLS_HOME}/.ssh/id_rsa lls@funchal.lls.net.br:${SQL_DIR}/${ZIP_FILE} ${LLS_HOME}
@@ -166,14 +168,11 @@ if [ ! -L ${LLS_WS} ]; then
 fi
 
 case $1 in
-    guia_show)
-		show_guia
+    guide_set)
+		set_guide
 		;;
-    guia_set)
-		set_guia
-		;;
-    updatedb)
-		update_database
+    get_db)
+		get_database
 		;;
     user)
 		user_add
@@ -182,7 +181,7 @@ case $1 in
 		update_lot_date "$2"
 		;;
     *)
-		echo "Use: $0 [guia_show|guia_set|updatedb|user|lotdate]"
+		echo "Use: $0 [guide_set|get_db|user|lotdate]"
 		exit 1;
 		;;
 esac
