@@ -178,17 +178,6 @@ comando_sql()
 
 }
 
-limpa_tabela()
-{
-	
-	echo "Limpando a tabela: ${TABELA}"
-	
-	${CMD_BASE} -e "SET FOREIGN_KEY_CHECKS=0; truncate ${TABELA}; SET FOREIGN_KEY_CHECKS=1;"
-	
-	echo "Inserindo dados na tabela: ${TABELA}"
-	
-}
-
 defini_nomes
 defini_dirs
 defini_arqs
