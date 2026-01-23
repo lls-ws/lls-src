@@ -56,13 +56,13 @@ function formularioEntcafe(dados) {
 	var campoSacas = campoNumeroHorizontal(
 		"sacas" + dados.nomeTabela, "Sacas Nota",
 		'col-xs-7 col-sm-6 col-lg-8', 'col-xs-5 col-sm-6 col-lg-4',
-		0, 3, false, false, "", "", "enabled"
+		0, 4, false, false, "", "", "enabled"
 	);
 	
 	var campoPeso = campoNumeroHorizontal(
 		"peso" + dados.nomeTabela, "Peso Nota",
 		'col-xs-7 col-sm-6 col-lg-8', 'col-xs-5 col-sm-6 col-lg-4',
-		2, 7, false, false, "", " kg", "disabled"
+		2, 8, false, false, "", " kg", "disabled"
 	);
 	
 	var divColuna1 = $("<div/>")

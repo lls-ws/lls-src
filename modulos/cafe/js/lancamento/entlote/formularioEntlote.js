@@ -14,13 +14,13 @@ function formularioEntlote(dados) {
 	var campoSacas = campoNumeroHorizontal(
 		"sacas" + dados.nomeTabela, "Sacas",
 		'col-xs-8 col-sm-6 col-lg-8', 'col-xs-4 col-sm-6 col-lg-4',
-		0, 3, false, false, "", "", "enabled"
+		0, 4, false, false, "", "", "enabled"
 	);
 	
 	var campoPeso = campoNumeroHorizontal(
 		"peso" + dados.nomeTabela, "Peso",
 		'col-xs-8 col-sm-6 col-lg-8', 'col-xs-4 col-sm-6 col-lg-4',
-		2, 7, false, false, "", " kg", "enabled"
+		2, 8, false, false, "", " kg", "enabled"
 	);
 	
 	var campoDesdobras = campoNumeroHorizontal(

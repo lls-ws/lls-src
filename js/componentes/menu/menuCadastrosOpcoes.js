@@ -3,8 +3,8 @@
  * ========================================================= */
 
 function menuCadastrosOpcoes(nomesItensMenu, opcoesMenu) {
-	opcoesMenu = menuCadastrosBalanca(nomesItensMenu, opcoesMenu);
 	opcoesMenu = menuCadastrosCafe(nomesItensMenu, opcoesMenu);
+	opcoesMenu = menuCadastrosBalanca(nomesItensMenu, opcoesMenu);
 	opcoesMenu = menuCadastrosMilho(nomesItensMenu, opcoesMenu);
 	return opcoesMenu;
 }
@@ -31,28 +31,6 @@ function menuCadastrosMilho(nomesItensMenu, opcoesMenu) {
 	
 }
 
-/* ================ menuCadastrosCafe.js ==================
- * http://lls.net.br/
- * ========================================================= */
- 
-function menuCadastrosCafe(nomesItensMenu, opcoesMenu) {
-	
-	var $item1 = 'novoFormulario("Peneira", "Nome", "' + opcoesMenu.posicaoMenu + '", "click")';
-	
-	opcoesMenu.qtdItensMenu++;
-	
-	nomesItensMenu[opcoesMenu.qtdItensMenu] = {
-		separator: true,
-		titulo: "Café",
-		icone: "filter",
-		texto: "Cadastro de Peneiras de Café",
-		url: $item1
-	}
-	
-	return opcoesMenu;
-	
-}
-
 /* ================ menuCadastrosBalanca.js ==================
  * http://lls.net.br/
  * ========================================================= */
@@ -71,6 +49,29 @@ function menuCadastrosBalanca(nomesItensMenu, opcoesMenu) {
 		url: $item1
 	}
 
+	return opcoesMenu;
+	
+}
+
+
+/* ================ menuCadastrosCafe.js ==================
+ * http://lls.net.br/
+ * ========================================================= */
+ 
+function menuCadastrosCafe(nomesItensMenu, opcoesMenu) {
+	
+	var $item1 = 'novoFormulario("Peneira", "Nome", "' + opcoesMenu.posicaoMenu + '", "click")';
+	
+	opcoesMenu.qtdItensMenu++;
+	
+	nomesItensMenu[opcoesMenu.qtdItensMenu] = {
+		separator: true,
+		titulo: "Café",
+		icone: "filter",
+		texto: "Cadastro de Peneiras de Café",
+		url: $item1
+	}
+	
 	return opcoesMenu;
 	
 }

@@ -43,12 +43,6 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jScrollPane/2.2.2/script/jquery.jscrollpane.min.js" type="text/javascript"></script>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jScrollPane/2.2.2/style/jquery.jscrollpane.min.css"/>
 
-<!--LLS CDN-->
-<script src="//lls-ws.github.io/jquery-lls/2.1.3/js/jquery-lls-login.js" type="text/javascript"></script>
-<link rel="stylesheet" href="//lls-ws.github.io/jquery-lls/2.1.3/css/jquery-lls-login.css"/>
-
-
-<!--LLS Local
+<!--LLS local-->
 <script src="/js/jquery-lls-login.js" type="text/javascript"></script>
 <link rel="stylesheet" href="/css/jquery-lls-login.css"/>
--->

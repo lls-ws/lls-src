@@ -10,6 +10,7 @@ PATH=.:$(dirname $0):$PATH
 . lib/jquery.lib			|| exit 1
 . lib/jquery_login.lib		|| exit 1
 . lib/jquery_menu.lib		|| exit 1
+. lib/jquery_upload.lib		|| exit 1
 
 jquery_create()
 {
@@ -48,21 +49,21 @@ case "$1" in
 	update)
 		jquery_update
 		;;
+	upload)
+		jquery_upload
+		;;
 	min)
 		jquery_min
 		;;
 	clear)
 		jquery_clear
 		;;
-	jsp)
-		jsp_update
-		;;
 	start)
 		module_check
 		jquery_update
 		;;
 	*)
-		echo "Use: bash $0 {create|update|min|start|clear|jsp} [module]"
+		echo "Use: bash $0 {create|update|upload|min|start|clear} [module]"
 		exit 1
 		;;
 esac

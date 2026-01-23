@@ -1,0 +1,26 @@
+#!/bin/bash
+# Script to Upload JSP on Cloud
+#
+# Autor: Leandro Luiz
+# email: lls.homeoffice@gmail.com
+
+jsp_upload()
+{
+	
+	if [ ! -d ${DIR_TOMCAT_JSP} ]; then
+	
+		echo "Directory not found!"
+		exit 1
+	
+	fi
+	
+	echo -e "\nUploading JSP to Clound..."
+
+	scp -i ${KEY_RSA} -r ${DIR_TOMCAT_JSP} ${USER}@${URL_HOST}:~
+	
+	ssh -i ${KEY_RSA} ${USER}@${URL_HOST} "sudo lls_backup jsp"
+	
+}
+
+URL_HOST="funchal.lls.net.br"
+KEY_RSA="/home/${USER}/.ssh/id_rsa"

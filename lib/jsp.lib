@@ -1,0 +1,95 @@
+#!/bin/bash
+# Script to manipulate JSP
+#
+# Autor: Leandro Luiz
+# email: lls.homeoffice@gmail.com
+
+set_cdn()
+{
+
+	URL_LLS="//lls-ws.github.io/jquery-lls/"
+	
+}
+
+set_local()
+{
+
+	URL_LLS="/"
+	
+}
+
+remove_header()
+{
+	
+	echo "Removing LLS HEADER ${TYPE_SET} settings..."
+	sed -i '/<!--LLS '${TYPE_SET}'-->/,+2d' ${FILE_HEADER}
+	
+}
+
+remove_menu()
+{
+	
+	echo "Removing LLS MENU ${TYPE_SET} settings..."
+	sed -i '/<!--LLS MENU '${TYPE_SET}'-->/,+6d' ${FILE_MENU}
+	
+}
+
+set_type()
+{
+	
+	TYPE_SET="$1"
+	
+	TYPE_OPT="$2"
+	
+	set_${TYPE_SET}
+	
+	${TYPE_OPT}_header
+	
+	${TYPE_OPT}_menu
+	
+}
+
+add_header()
+{
+	
+	echo -e "\nAdding LLS HEADER ${TYPE_SET} settings..."
+	
+	echo '<!--LLS '${TYPE_SET}'-->' >> ${FILE_HEADER}
+	
+	echo '<script src="'${URL_LLS}'js/jquery-lls-login.js" type="text/javascript"></script>' >> ${FILE_HEADER}
+	
+	echo '<link rel="stylesheet" href="'${URL_LLS}'css/jquery-lls-login.css"/>' >> ${FILE_HEADER}
+	
+	echo "Showing Update HEADER..."
+	cat ${FILE_HEADER} | tail -3
+	
+}
+
+add_menu()
+{
+	
+	echo -e "\nAdding LLS MENU ${TYPE_SET} settings..."
+	
+	sed -i '/header.jsp/a \			<link rel="stylesheet" href="'${URL_LLS}'css/jquery-lls-menu.css"/>' ${FILE_MENU}
+	
+	for FILE_JS in ${DIR_TOMCAT_JS}/*.js; do
+	
+		if [ "$(basename ${FILE_JS})" != "jquery-lls-login.js" ]; then
+		
+			sed -i '/header.jsp/a \			<script src="'${URL_LLS}'js/'$(basename ${FILE_JS})'" type="text/javascript"></script>' ${FILE_MENU}
+	
+		fi
+	
+	done
+	
+	sed -i '/header.jsp/a \			<!--LLS MENU '${TYPE_SET}'-->' ${FILE_MENU}
+	
+	sed -i '/header.jsp/a\\' ${FILE_MENU}
+	
+	echo "Showing Update MENU..."
+	cat ${FILE_MENU} | grep -A5 "LLS MENU ${TYPE_SET}"
+	
+}
+
+FILE_HEADER="${DIR_CORE_JSP}/header.jsp"
+FILE_MENU="${DIR_CORE_JSP}/menu.jsp"

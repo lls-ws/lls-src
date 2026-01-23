@@ -67,6 +67,8 @@ user_add()
 		
 	show_table
 	
+	ls -al ${SQL_DIR}
+	
 }
 
 clean_table()

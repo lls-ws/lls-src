@@ -19,3 +19,5 @@ DIR_CORE_JS="${DIR_CORE}/js"
 DIR_CORE_MENU="${DIR_CORE_JS}/componentes/menu"
 
 DIR_CORE_PROPERTIES="${DIR_CORE}/properties"
+
+clear
