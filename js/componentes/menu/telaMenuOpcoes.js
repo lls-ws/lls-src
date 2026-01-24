@@ -3,8 +3,8 @@
  * ========================================================= */
 
 function telaMenuOpcoes(nomesItensMenu, opcoesMenu) {
-	opcoesMenu = telaMenuCafe(nomesItensMenu, opcoesMenu);
 	opcoesMenu = telaMenuBalanca(nomesItensMenu, opcoesMenu);
+	opcoesMenu = telaMenuCafe(nomesItensMenu, opcoesMenu);
 	opcoesMenu = telaMenuMilho(nomesItensMenu, opcoesMenu);
 	return opcoesMenu;
 }
@@ -26,24 +26,6 @@ function telaMenuMilho(nomesItensMenu, opcoesMenu) {
 		
 }
 
-/* ================ telaMenuBalanca.js =======================
- * http://lls.net.br/
- * ========================================================= */
-
-function telaMenuBalanca(nomesItensMenu, opcoesMenu) {
-	
-	var menu = {
-		projeto: "Balanca",
-		titulo: "Balança",
-		icone: "scale",
-		posicao: "left"
-	}
-	
-	return criarTelaMenu(nomesItensMenu, opcoesMenu, menu);
-	
-}
-
-
 /* ================ telaMenuCafe.js =======================
  * http://lls.net.br/
  * ========================================================= */
@@ -54,6 +36,23 @@ function telaMenuCafe(nomesItensMenu, opcoesMenu) {
 		projeto: "Cafe",
 		titulo: "Café",
 		icone: "grain",
+		posicao: "left"
+	}
+	
+	return criarTelaMenu(nomesItensMenu, opcoesMenu, menu);
+	
+}
+
+/* ================ telaMenuBalanca.js =======================
+ * http://lls.net.br/
+ * ========================================================= */
+
+function telaMenuBalanca(nomesItensMenu, opcoesMenu) {
+	
+	var menu = {
+		projeto: "Balanca",
+		titulo: "Balança",
+		icone: "scale",
 		posicao: "left"
 	}
 	

@@ -3,8 +3,8 @@
  * ========================================================= */
 
 function menuRelatorioOpcoes(nomesItensMenu, opcoesMenu) {
-	opcoesMenu = menuRelatorioCafe(nomesItensMenu, opcoesMenu);
 	opcoesMenu = menuRelatorioBalanca(nomesItensMenu, opcoesMenu);
+	opcoesMenu = menuRelatorioCafe(nomesItensMenu, opcoesMenu);
 	opcoesMenu = menuRelatorioMilho(nomesItensMenu, opcoesMenu);
 	return opcoesMenu;
 }
@@ -76,31 +76,6 @@ function menuRelatorioMilho(nomesItensMenu, opcoesMenu) {
 	
 }
 
-/* ================ menuRelatorioBalanca.js ==================
- * http://lls.net.br/
- * ========================================================= */
-
-function menuRelatorioBalanca(nomesItensMenu, opcoesMenu) {
-	
-	var menu = {
-		projeto: "Balanca",
-		titulo: "Balança"
-	}
-	
-	var menuItens = [
-		{
-			separator: true,
-			titulo: menu.titulo,
-			icone: "list",
-			texto: "Relação de Pesagens da " + menu.titulo
-		}
-	];
-	
-	return criarMenu(menu, menuItens, opcoesMenu.posicaoMenu, nomesItensMenu, opcoesMenu);
-	
-}
-
-
 /* ================ menuRelatorioCafe.js ==================
  * http://lls.net.br/
  * ========================================================= */
@@ -151,6 +126,30 @@ function menuRelatorioCafe(nomesItensMenu, opcoesMenu) {
 		{
 			icone: "indent-left",
 			texto: "Relação Sintetizada de Cobranças de " + menu.titulo
+		}
+	];
+	
+	return criarMenu(menu, menuItens, opcoesMenu.posicaoMenu, nomesItensMenu, opcoesMenu);
+	
+}
+
+/* ================ menuRelatorioBalanca.js ==================
+ * http://lls.net.br/
+ * ========================================================= */
+
+function menuRelatorioBalanca(nomesItensMenu, opcoesMenu) {
+	
+	var menu = {
+		projeto: "Balanca",
+		titulo: "Balança"
+	}
+	
+	var menuItens = [
+		{
+			separator: true,
+			titulo: menu.titulo,
+			icone: "list",
+			texto: "Relação de Pesagens da " + menu.titulo
 		}
 	];
 	

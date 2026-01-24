@@ -72,15 +72,10 @@ add_menu()
 	
 	sed -i '/header.jsp/a \			<link rel="stylesheet" href="'${URL_LLS}'css/jquery-lls-menu.css"/>' ${FILE_MENU}
 	
-	for FILE_JS in ${DIR_TOMCAT_JS}/*.js; do
-	
-		if [ "$(basename ${FILE_JS})" != "jquery-lls-login.js" ]; then
-		
-			sed -i '/header.jsp/a \			<script src="'${URL_LLS}'js/'$(basename ${FILE_JS})'" type="text/javascript"></script>' ${FILE_MENU}
-	
-		fi
-	
-	done
+	sed -i '/header.jsp/a \			<script src="'${URL_LLS}'js/jquery-lls-balanca.js" type="text/javascript"></script>' ${FILE_MENU}
+	sed -i '/header.jsp/a \			<script src="'${URL_LLS}'js/jquery-lls-cafe.js" type="text/javascript"></script>' ${FILE_MENU}
+	sed -i '/header.jsp/a \			<script src="'${URL_LLS}'js/jquery-lls-milho.js" type="text/javascript"></script>' ${FILE_MENU}
+	sed -i '/header.jsp/a \			<script src="'${URL_LLS}'js/jquery-lls-menu.js" type="text/javascript"></script>' ${FILE_MENU}
 	
 	sed -i '/header.jsp/a \			<!--LLS MENU '${TYPE_SET}'-->' ${FILE_MENU}
 	
