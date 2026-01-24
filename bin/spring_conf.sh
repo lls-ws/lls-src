@@ -125,9 +125,6 @@ case "$1" in
 	context)
 		spring_context
 		;;
-	database)
-		spring_database
-		;;
 	persistence)
 		spring_persistence
 		;;

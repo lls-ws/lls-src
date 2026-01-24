@@ -21,6 +21,3 @@ jsp_upload()
 	ssh -i ${KEY_RSA} ${USER}@${URL_HOST} "sudo lls_backup jsp"
 	
 }
-
-URL_HOST="funchal.lls.net.br"
-KEY_RSA="/home/${USER}/.ssh/id_rsa"

@@ -6,6 +6,8 @@
 
 DIR_TOMCAT="/var/lib/tomcat9/webapps/lls"
 
+DIR_TOMCAT_BIN="/usr/share/tomcat9/bin"
+
 DIR_TOMCAT_WEB="${DIR_TOMCAT}/WEB-INF"
 
 DIR_TOMCAT_CSS="${DIR_TOMCAT}/css"
@@ -21,3 +23,6 @@ DIR_TOMCAT_CLASS="${DIR_TOMCAT_WEB}/classes"
 DIR_TOMCAT_CONF="${DIR_TOMCAT_WEB}/config"
 
 DIR_TOMCAT_RESOURCES="${DIR_TOMCAT_WEB}/resources"
+
+URL_HOST="funchal.lls.net.br"
+KEY_RSA="/home/${USER}/.ssh/id_rsa"
