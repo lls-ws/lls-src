@@ -6,6 +6,8 @@
 # Caminho das bibliotecas
 PATH=.:$(dirname $0):$PATH
 . lib/mysql.lib		|| exit 1
+. lib/tomcat.lib	|| exit 1
+. lib/lls_util_corn.lib	|| exit 1
 
 select_guide()
 {
@@ -182,8 +184,11 @@ case $1 in
 	lotdate)
 		update_lot_date "$2"
 		;;
+    balance)
+		balance_update
+		;;
     *)
-		echo "Use: $0 [guide_set|get_db|user|lotdate]"
+		echo "Use: $0 [guide_set|get_db|user|lotdate|balance]"
 		exit 1;
 		;;
 esac

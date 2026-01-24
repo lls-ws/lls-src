@@ -6,6 +6,8 @@
 PATH=.:$(dirname $0):$PATH
 . lib/mysql.lib		|| exit 1
 
+clear
+
 zerando()
 {
 	
