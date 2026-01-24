@@ -40,21 +40,11 @@ sudo bash bin/update_2024.sh
 ## Maven
 
 ```bash
-sudo bash bin/maven_conf.sh jdk
-
-sudo bash bin/maven_conf.sh install
-
-sudo bash bin/maven_conf.sh create
-
 sudo bash bin/maven_conf.sh compile
 
 sudo bash bin/maven_conf.sh test
 
-sudo bash bin/maven_conf.sh package
-
 sudo bash bin/maven_conf.sh install_jar
-
-sudo bash bin/maven_conf.sh site
 
 sudo bash bin/maven_conf.sh resources
 
@@ -69,8 +59,6 @@ sudo bash bin/maven_conf.sh settings
 sudo bash bin/maven_conf.sh source
 
 ```
-
-# How do I create documentation?
 
 ## License
 
