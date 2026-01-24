@@ -56,58 +56,11 @@
 # Autor: Leandro Luiz
 # email: lls.homeoffice@gmail.com
 
-jdk_install()
-{
-	
-	echo "Install java-openjdk..."
-	sudo apt -y install default-jdk
-	
-	javac -version
-	
-}
+# Path Library
+PATH=.:$(dirname $0):$PATH
+. lib/maven_install.lib		|| exit 1
 
-maven_install()
-{
-	
-	echo "Install Maven..."
-	sudo apt -y install maven
-	
-	mvn -version
-	
-}
-
-maven_create()
-{
-	
-	clear
-	
-	echo "Creating a Project"
-	echo "Maven create app project:"
-	
-	mvn archetype:generate -DgroupId=${GROUP_ID} \
-		-DartifactId=${ARTIFACT_ID} \
-		-DarchetypeArtifactId=maven-archetype-quickstart \
-		-DarchetypeVersion=1.4 -DinteractiveMode=false
-		
-	ls -al ${ARTIFACT_ID}
-	
-}
-
-maven_compile()
-{
-	
-	clear
-	
-	echo "Compile the Project"
-	echo "Maven compile app project:"
-	
-	cd ${ARTIFACT_ID}
-	
-	mvn compile
-	
-	cd ~
-	
-}
+clear
 
 maven_test()
 {
@@ -128,23 +81,19 @@ maven_test()
 	
 }
 
-maven_package()
+maven_compile()
 {
 	
 	clear
 	
-	echo "Build the Project"
-	echo "Maven create JAR:"
+	echo "Compile the Project"
+	echo "Maven compile app project:"
 	
 	cd ${ARTIFACT_ID}
 	
-	set_file_jar
-	
-	mvn package
+	mvn compile
 	
 	cd ~
-	
-	ls -al ${FILE_JAR}
 	
 }
 
@@ -167,44 +116,6 @@ maven_install_jar()
 	
 	ls -al ${FILE_JAR}
 	ls -al ${FILE_REPO}
-	
-}
-
-maven_run()
-{
-	
-	clear
-	
-	echo "Run the Project"
-	
-	cd ${ARTIFACT_ID}
-	
-	echo "Name: ${ARTIFACT_ID}"
-	echo "Group: ${GROUP_ID}"
-	echo -e "Version: ${VERSION}\n"
-	
-	java -cp ${FILE_JAR} ${GROUP_ID}.App
-	
-	cd ~
-	
-}
-
-maven_site()
-{
-	
-	clear
-	
-	cd ${ARTIFACT_ID}
-	
-	echo "Create a Site"
-	
-	set_file_html
-	
-	mvn site
-	
-	google-chrome ${FILE_HTML}
-	
-	cd ~
 	
 }
 
@@ -351,19 +262,6 @@ maven_source()
 	
 }
 
-set_file_jar()
-{
-	
-	VERSION=`cat pom.xml | grep '<version>' | head -1 | cut -f 2 -d '>' | cut -f 1 -d '<'`
-	
-	JAR_NAME="${ARTIFACT_ID}-${VERSION}.jar"
-	
-	FILE_JAR="${ARTIFACT_ID}/target/${JAR_NAME}"
-	
-	echo "${FILE_JAR}"
-	
-}
-
 set_file_repo()
 {
 	
@@ -374,17 +272,6 @@ set_file_repo()
 	FILE_REPO=${DIR_REPO}/`echo ${GROUP_ID} | sed 's#\.#/#g'`/${ARTIFACT_ID}/${VERSION}/${JAR_NAME}
 	
 	echo "${FILE_REPO}"
-	
-}
-
-set_file_html()
-{
-	
-	DIR_SITE="target/site"
-	
-	FILE_HTML="${DIR_SITE}/index.html"
-	
-	echo "${FILE_HTML}"
 	
 }
 
@@ -467,9 +354,6 @@ set_file_source()
 	echo "${FILE_SOURCE}"
 	
 }
-
-GROUP_ID="com.mycompany.app"
-ARTIFACT_ID="my-app"
 
 DIR_MAVEN=".m2"
 
