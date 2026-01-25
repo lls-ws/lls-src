@@ -1,0 +1,175 @@
+package br.net.lls.pacote.dao;
+
+import java.util.List;
+import java.util.Iterator;
+import java.math.BigInteger;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import java.net.URLDecoder;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import java.io.UnsupportedEncodingException;
+import org.springframework.stereotype.Repository;
+
+import br.net.lls.pacote.Exemplo;
+import br.net.lls.componentes.Relatorio;
+import br.net.lls.componentes.Consulta;
+
+@Repository
+public class JpaExemploDao implements ExemploDao {
+	
+	@PersistenceContext
+	EntityManager entityManager;
+	
+	public void adiciona(Exemplo exemplo) {
+		
+		urlDecoder(exemplo);
+		
+		entityManager.persist(exemplo);
+		
+	}
+	
+	public void altera(Exemplo exemplo) {
+		
+		urlDecoder(exemplo);
+		
+		entityManager.merge(exemplo);
+		
+	}
+	
+	public void remove(int id) {
+		
+		Exemplo exemplo = buscaPorId(id);
+		
+		entityManager.remove(exemplo);
+		
+	}
+	
+	public Exemplo buscaPorId(int id) {
+		
+		return entityManager.find(Exemplo.class, id);
+		
+	}
+	
+	public Exemplo urlDecoder(Exemplo exemplo) {
+		 
+		 if (exemplo != null) {
+		 
+			 try {
+			
+				exemplo.setObs(URLDecoder.decode(exemplo.getObs(), "UTF-8"));
+				
+			} catch (java.io.UnsupportedEncodingException e) {}
+		
+		}
+			
+		return exemplo;
+		
+	}
+	
+	public List getListById(int id) {
+		
+		Session session = (Session) entityManager.getDelegate();
+		
+		String consulta = "SELECT exemplo.id, " +
+								"exemplo.data, " +
+								"produtor.nome AS produtor, " +
+								"fazendaProdutor.nome AS fazenda, " +
+								"exemplo.obs " +
+							"FROM Exemplo exemplo " +
+							"INNER JOIN FazendaProdutor fazendaProdutor " +
+							"ON exemplo.fazendaProdutor_id = fazendaProdutor.id " +	
+							"INNER JOIN Produtor produtor " +
+							"ON fazendaProdutor.produtor_id = produtor.id " +
+							"WHERE exemplo.id = :id ";
+		
+		Query query = session.createSQLQuery(consulta);
+		
+		query.setParameter("id", id);
+		
+		return query.list();
+		
+	}
+	
+	public List getList(Relatorio relatorio) {
+		
+		String consulta = "SELECT exemplo.id AS id, " +
+								"exemplo.data AS data ";
+									
+		String tabela = "FROM Exemplo exemplo ";
+		
+		String campoIdFazenda = "";
+		
+		String condicao = "";
+		
+		String ordenacao = "ORDER BY data " +
+			Consulta.getOrdem(relatorio);
+		
+		Session session = (Session) entityManager.getDelegate();
+		
+		return Consulta.getList(relatorio, consulta, tabela, ordenacao, campoIdFazenda, condicao, session);
+		
+	}
+	
+	public List getListTotal(Relatorio relatorio) {
+		
+		String consulta = "SELECT COUNT(exemplo.id) " +
+							"FROM Exemplo exemplo ";
+			
+		String campoIdFazenda = "";
+		
+		String condicao = "";
+		
+		Session session = (Session) entityManager.getDelegate();
+		
+		return Consulta.getListTotais(relatorio, consulta, campoIdFazenda, condicao, session);
+		
+	}
+	
+	public JSONArray getListaJSONArray(Relatorio relatorio) {
+		
+		List list = getList(relatorio);
+		
+		JSONArray jsonArray = new JSONArray();
+		
+		for (Iterator iterator = list.iterator(); iterator.hasNext();) {
+			
+			Object[] object = (Object[]) iterator.next();
+			
+			JSONObject jsonObject = new JSONObject();
+			
+			jsonObject.put("id", object[0]);
+			jsonObject.put("data", object[1]);
+			
+			Consulta.setFazenda(relatorio, object, jsonObject, 2);
+		
+			jsonArray.put(jsonObject);
+			
+		}
+		
+		return jsonArray;
+		
+	}
+	
+	public JSONObject getTotalJSONObject(Relatorio relatorio) {
+		
+		List list = getListTotal(relatorio);
+		
+		JSONObject jsonObject = new JSONObject();
+		
+		for (Iterator iterator = list.iterator(); iterator.hasNext();) {
+			
+			Object[] object = (Object[]) iterator.next();
+			
+			jsonObject.put("paginas", Consulta.getQtdPaginas(relatorio, object[0]));
+			jsonObject.put("total", object[1]);
+			
+		}
+		
+		return jsonObject;
+		
+	}
+	
+}

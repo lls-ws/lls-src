@@ -58,9 +58,50 @@
 
 # Path Library
 PATH=.:$(dirname $0):$PATH
-. lib/maven_install.lib		|| exit 1
+. bin/maven/maven_install.sh	|| exit 1
+. bin/maven/maven_project.sh	|| exit 1
+. bin/maven/maven_settings.sh	|| exit 1
 
 clear
+
+maven_run()
+{
+	
+	echo "Run the Project"
+	
+	set_file_jar
+	
+	echo "Name: ${ARTIFACT_ID}"
+	echo "Group: ${GROUP_ID}"
+	echo -e "Version: ${VERSION}\n"
+	
+	java -cp ${ARTIFACT_ID}/${FILE_JAR} ${GROUP_ID}.App
+	
+}
+
+maven_site()
+{
+	
+	echo "Create a Site"
+	
+	set_file_html
+	
+	(cd ${ARTIFACT_ID}; mvn site)
+	
+	google-chrome ${FILE_HTML}
+	
+}
+
+set_file_html()
+{
+	
+	DIR_SITE="${ARTIFACT_ID}/target/site"
+	
+	FILE_HTML="${DIR_SITE}/index.html"
+	
+	echo "${FILE_HTML}"
+	
+}
 
 maven_test()
 {
@@ -365,16 +406,16 @@ case "$1" in
 		maven_install
 		;;
 	create)
-		maven_create
+		maven_create "$2"
+		;;
+	package)
+		maven_package  "$2"
 		;;
 	compile)
 		maven_compile
 		;;
 	"test")
 		maven_test
-		;;
-	package)
-		maven_package
 		;;
 	install_jar)
 		maven_install_jar
