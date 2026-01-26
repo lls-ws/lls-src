@@ -61,6 +61,7 @@ PATH=.:$(dirname $0):$PATH
 . bin/maven/maven_install.sh	|| exit 1
 . bin/maven/maven_project.sh	|| exit 1
 . bin/maven/maven_settings.sh	|| exit 1
+. bin/maven/maven_package.sh	|| exit 1
 
 clear
 
@@ -157,22 +158,6 @@ maven_install_jar()
 	
 	ls -al ${FILE_JAR}
 	ls -al ${FILE_REPO}
-	
-}
-
-maven_clean()
-{
-	
-	clear
-	
-	cd ${ARTIFACT_ID}
-	
-	echo "Clean the Project"
-	echo "Removing the target directory..."
-	
-	mvn clean
-	
-	cd ~
 	
 }
 
@@ -402,14 +387,20 @@ case "$1" in
 	jdk)
 		jdk_install
 		;;
+	jdk-version)
+		jdk_version
+		;;
 	install)
 		maven_install
 		;;
+	version)
+		maven_version
+		;;
 	create)
-		maven_create "$2"
+		maven_check "$1" "$2" "$3"
 		;;
 	package)
-		maven_package  "$2"
+		maven_check "$1" "$2" "$3"
 		;;
 	compile)
 		maven_compile
@@ -463,7 +454,7 @@ case "$1" in
 		maven_source
 		;;
 	*)
-		echo "Use: `basename $0` {all|jdk|install|create|compile|test|package|install_jar|run|site|clean|resources|properties|filter|deploy|settings|source}"
+		echo "Use: `basename $0` {all|jdk|jdk-version|install|version|create|compile|test|package|install_jar|run|site|clean|resources|properties|filter|deploy|settings|source}"
 		exit 1
 		;;
 esac

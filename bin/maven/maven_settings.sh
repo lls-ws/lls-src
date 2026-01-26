@@ -64,3 +64,22 @@ set_jar()
 	echo "${FILE_JAR}"
 	
 }
+
+maven_check()
+{
+	
+	MAVEN_OPT="$1"
+	
+	check_id "$2"
+	
+	if [ -z "$3" ]; then
+	
+		maven_${MAVEN_OPT}
+		
+	else
+	
+		maven_clean_${MAVEN_OPT}
+	
+	fi
+	
+}

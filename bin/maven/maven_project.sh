@@ -7,8 +7,6 @@
 maven_create()
 {
 	
-	check_id "$1"
-	
 	echo "Creating a Project"
 	echo "Maven create ${ARTIFACT_ID} project:"
 	
@@ -21,16 +19,12 @@ maven_create()
 	
 }
 
-maven_package()
+maven_clean_create()
 {
 	
-	check_id "$1"
+	echo "Clean the Project"
+	echo "Removing the target directory..."
 	
-	set_jar
-	
-	echo "Build the Project"
-	echo "Maven create JAR:"
-	
-	(cd ${ARTIFACT_ID}; mvn package; ls -alh ${FILE_JAR})
+	(cd ${ARTIFACT_ID}; mvn clean)
 	
 }
