@@ -15,16 +15,27 @@ maven_create()
 		-DarchetypeArtifactId=${ARCHE_TYPE} \
 		-DarchetypeVersion=1.4 -DinteractiveMode=false
 		
-	ls -al ${ARTIFACT_ID}/*
+	maven_create_show
 	
 }
 
-maven_clean_create()
+maven_create_clean()
 {
 	
 	echo "Clean the Project"
 	echo "Removing the target directory..."
 	
-	(cd ${ARTIFACT_ID}; mvn clean)
+	(cd ${ARTIFACT_ID}; mvn ${MAVEN_CMD} ${MAVEN_TYPE})
+	
+	maven_create_show
+	
+}
+
+maven_create_show()
+{
+	
+	ls -al ${ARTIFACT_ID}/*
+	
+	maven_log_show
 	
 }

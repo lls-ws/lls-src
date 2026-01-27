@@ -62,6 +62,7 @@ PATH=.:$(dirname $0):$PATH
 . bin/maven/maven_project.sh	|| exit 1
 . bin/maven/maven_settings.sh	|| exit 1
 . bin/maven/maven_package.sh	|| exit 1
+. bin/maven/maven_log.sh		|| exit 1
 
 clear
 
@@ -397,10 +398,10 @@ case "$1" in
 		maven_version
 		;;
 	create)
-		maven_check "$1" "$2" "$3"
+		maven_check "$1" "$2" "$3" "$4"
 		;;
 	package)
-		maven_check "$1" "$2" "$3"
+		maven_check "$1" "$2" "$3" "$4"
 		;;
 	compile)
 		maven_compile

@@ -1,14 +1,13 @@
 #!/bin/bash
-# Script to Set Maven Directories and Files Patch
+# Script to Set Maven Project Functions
 #
 # Autor: Leandro Luiz
 # email: lls.homeoffice@gmail.com
 
-check_id()
+maven_project()
 {
 	
 	ARTIFACT_ID="$1"
-	GROUP_ID="$2"
 
 	PROJECT_NAMES=(
 		"app"
@@ -20,12 +19,6 @@ check_id()
 
 	if [[ " ${PROJECT_NAMES[*]} " =~ " ${ARTIFACT_ID} " ]]; then
 	
-		if [ -z "${GROUP_ID}" ]; then
-		
-			GROUP_ID="br.net.lls"
-		
-		fi
-		
 		if [ "${ARTIFACT_ID}" = "web" ]; then
 		
 			ARCHE_TYPE="maven-archetype-${ARTIFACT_ID}app"
@@ -52,7 +45,7 @@ check_id()
 	
 }
 
-set_jar()
+maven_set_jar()
 {
 	
 	VERSION=`cat ${ARTIFACT_ID}/pom.xml | grep '<version>' | head -1 | cut -f 2 -d '>' | cut -f 1 -d '<'`
@@ -70,16 +63,49 @@ maven_check()
 	
 	MAVEN_OPT="$1"
 	
-	check_id "$2"
+	maven_project "$2"
+	
+	MAVEN_CMD="$3"
+	
+	MAVEN_TYPE="$4"
+	
+	LOG_CMD="--log-file ${LOG_FILE}"
 	
 	if [ -z "$3" ]; then
 	
-		maven_${MAVEN_OPT}
+		MAVEN_CMD="${LOG_CMD}"
 		
+		maven_${MAVEN_OPT}
+	
 	else
 	
-		maven_clean_${MAVEN_OPT}
+		if [ -z "$4" ]; then
 	
+			if [ "$3" = "clean" ]; then
+			
+				MAVEN_CMD="${LOG_CMD}"
+				
+				MAVEN_TYPE="$3"
+				
+				maven_${MAVEN_OPT}_${MAVEN_TYPE}
+				
+			else
+			
+				MAVEN_CMD="${LOG_CMD} ${MAVEN_CMD}"
+				
+				maven_${MAVEN_OPT}
+			
+			fi
+		
+		else
+		
+			maven_${MAVEN_OPT}_${MAVEN_TYPE}
+			
+		fi
+			
 	fi
 	
 }
+
+GROUP_ID="br.net.lls"
+LOG_FILE="/tmp/mvn.log"
