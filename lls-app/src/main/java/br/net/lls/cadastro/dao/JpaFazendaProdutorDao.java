@@ -1,8 +1,8 @@
 package br.net.lls.cadastro.dao;
 
 import br.net.lls.cadastro.FazendaProdutor;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import java.util.List;
 import java.util.ArrayList;
 import org.springframework.stereotype.Repository;

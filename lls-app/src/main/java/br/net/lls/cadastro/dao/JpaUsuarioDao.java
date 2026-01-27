@@ -1,11 +1,11 @@
 package br.net.lls.cadastro.dao;
 
 import br.net.lls.cadastro.Usuario;
-import javax.persistence.Query;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import jakarta.persistence.Query;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
-import javax.persistence.NoResultException;
+import jakarta.persistence.NoResultException;
 import org.hibernate.Session;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Projections;

@@ -1,14 +1,14 @@
 package br.net.lls.cadastro;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Enumerated;
-import javax.persistence.EnumType;
-import javax.persistence.Column;
-import javax.persistence.ManyToOne;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Column;
+import jakarta.persistence.ManyToOne;
 
 import br.net.lls.cadastro.Produtor;
 import br.net.lls.componentes.Estado;

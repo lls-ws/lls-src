@@ -1,8 +1,8 @@
 package br.net.lls.componentes;
 
 import java.util.*;
-import javax.mail.*;
-import javax.mail.internet.*;
+import jakarta.mail.*;
+import jakarta.mail.internet.*;
 
 public class EmailUtil {
 

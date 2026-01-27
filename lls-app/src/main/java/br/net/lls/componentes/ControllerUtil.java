@@ -1,7 +1,7 @@
 package br.net.lls.componentes;
 
-import javax.json.JsonObject;
-import javax.json.Json;
+import jakarta.json.JsonObject;
+import jakarta.json.Json;
 import org.springframework.validation.FieldError;
 
 public class ControllerUtil {

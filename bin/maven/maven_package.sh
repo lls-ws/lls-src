@@ -46,6 +46,4 @@ maven_show_jar()
 	
 	fi
 	
-	maven_log_show
-	
 }

@@ -1,10 +1,10 @@
 package br.net.lls.cadastro.dao;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.Root;
-import javax.persistence.TypedQuery;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.Root;
+import jakarta.persistence.TypedQuery;
 
 import java.math.BigDecimal;
 import java.util.List;

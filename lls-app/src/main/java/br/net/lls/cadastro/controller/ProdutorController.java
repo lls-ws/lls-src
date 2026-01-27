@@ -12,8 +12,8 @@ import org.springframework.validation.SmartValidator;
 
 import java.net.URLDecoder;
 import java.io.IOException;
-import javax.validation.Valid;
-import javax.json.JsonObject;
+import jakarta.validation.Valid;
+import jakarta.json.JsonObject;
 
 import br.net.lls.componentes.Id;
 import br.net.lls.componentes.Consulta;

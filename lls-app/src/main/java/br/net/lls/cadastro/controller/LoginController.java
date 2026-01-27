@@ -9,10 +9,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
-import javax.validation.Valid;
-import javax.servlet.http.HttpSession;
-import javax.json.JsonObject;
-import javax.json.Json;
+import jakarta.validation.Valid;
+import jakarta.servlet.http.HttpSession;
+import jakarta.json.JsonObject;
+import jakarta.json.Json;
 import java.util.Date;
 import java.util.Calendar;
 

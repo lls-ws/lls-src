@@ -1,12 +1,12 @@
 package br.net.lls.componentes;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.Max;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Max;
 
 import org.springframework.format.annotation.DateTimeFormat;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import java.util.Calendar;
 import java.text.SimpleDateFormat;
 

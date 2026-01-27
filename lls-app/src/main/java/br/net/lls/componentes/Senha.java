@@ -1,6 +1,6 @@
 package br.net.lls.componentes;
 
-import javax.validation.constraints.Size;
+import jakarta.validation.constraints.Size;
 
 public class Senha {
 	

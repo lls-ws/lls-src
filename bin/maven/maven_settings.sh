@@ -75,7 +75,7 @@ maven_check()
 	
 		MAVEN_CMD="${LOG_CMD}"
 		
-		maven_${MAVEN_OPT}
+		maven_${MAVEN_OPT} && maven_log_show
 	
 	else
 	
@@ -87,25 +87,30 @@ maven_check()
 				
 				MAVEN_TYPE="$3"
 				
-				maven_${MAVEN_OPT}_${MAVEN_TYPE}
+				maven_${MAVEN_OPT}_${MAVEN_TYPE} && maven_log_show
 				
 			else
 			
 				MAVEN_CMD="${LOG_CMD} ${MAVEN_CMD}"
 				
-				maven_${MAVEN_OPT}
+				maven_${MAVEN_OPT}  && maven_log_show
 			
 			fi
 		
 		else
 		
-			maven_${MAVEN_OPT}_${MAVEN_TYPE}
+			maven_${MAVEN_OPT}_${MAVEN_TYPE} && maven_log_show
 			
 		fi
 			
 	fi
 	
+	maven_log_edit
+	
 }
 
+TXT_EDIT="featherpad"
 GROUP_ID="br.net.lls"
 LOG_FILE="/tmp/mvn.log"
+LOG_ERROR_FILE="/tmp/mvn_error.log"
+LOG_PACKAGE_ERROR_FILE="/tmp/mvn_package_error.log"

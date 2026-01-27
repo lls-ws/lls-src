@@ -36,6 +36,4 @@ maven_create_show()
 	
 	ls -al ${ARTIFACT_ID}/*
 	
-	maven_log_show
-	
 }

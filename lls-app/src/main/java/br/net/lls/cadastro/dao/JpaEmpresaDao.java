@@ -1,8 +1,8 @@
 package br.net.lls.cadastro.dao;
 
 import org.springframework.stereotype.Repository;
-import javax.persistence.PersistenceContext;
-import javax.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.EntityManager;
 
 import br.net.lls.cadastro.Empresa;
 

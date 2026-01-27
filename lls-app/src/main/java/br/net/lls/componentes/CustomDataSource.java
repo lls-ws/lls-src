@@ -1,6 +1,6 @@
 package br.net.lls.componentes;
 
-import org.apache.commons.dbcp.BasicDataSource;
+import org.apache.commons.dbcp2.BasicDataSource;
 
 public class CustomDataSource extends BasicDataSource {
 	

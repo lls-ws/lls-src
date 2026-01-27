@@ -1,9 +1,9 @@
 package br.net.lls.interceptor;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpSession;
 
 public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 	
