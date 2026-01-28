@@ -7,7 +7,7 @@
 maven_create()
 {
 	
-	echo "Creating a Project"
+	echo -e "\nCreating a Project"
 	echo "Maven create ${ARTIFACT_ID} project:"
 	
 	mvn archetype:generate -DgroupId=${GROUP_ID} \
@@ -22,7 +22,7 @@ maven_create()
 maven_create_clean()
 {
 	
-	echo "Clean the Project"
+	echo -e "\nClean the Project"
 	echo "Removing the target directory..."
 	
 	(cd ${ARTIFACT_ID}; mvn ${MAVEN_CMD} ${MAVEN_TYPE})

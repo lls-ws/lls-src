@@ -10,8 +10,8 @@ maven_project()
 	ARTIFACT_ID="$1"
 
 	PROJECT_NAMES=(
-		"app"
 		"web"
+		"core"
 		"cafe"
 		"milho"
 		"balanca"
@@ -81,13 +81,21 @@ maven_check()
 	
 		if [ -z "$4" ]; then
 	
-			if [ "$3" = "clean" ]; then
+			if [[ "$3" == "clean" || "$3" == "install" || "$3" == "clean_install" ]]; then
 			
 				MAVEN_CMD="${LOG_CMD}"
 				
 				MAVEN_TYPE="$3"
 				
-				maven_${MAVEN_OPT}_${MAVEN_TYPE} && maven_log_show
+				if [ "$3" == "clean_install" ]; then
+				
+					maven_${MAVEN_OPT}_${MAVEN_TYPE}
+					
+				else
+				
+					maven_${MAVEN_OPT}_${MAVEN_TYPE} && maven_log_show
+				
+				fi
 				
 			else
 			
@@ -128,8 +136,32 @@ maven_open()
 	
 }
 
+maven_set_repo_jar()
+{
+	
+	FILE_REPO=~/${DIR_REPO}/`echo ${GROUP_ID} | sed 's#\.#/#g'`/${ARTIFACT_ID}/${VERSION}/${JAR_NAME}
+	
+	echo "${FILE_REPO}"
+	
+}
+
+maven_repository_remove()
+{
+	
+	du -hsc ~/${DIR_MAVEN}/*
+	
+	echo "Removing Local Repository..."
+	rm -rf ~/${DIR_REPO}
+	
+	ls -alh ~/${DIR_MAVEN}
+	
+}
+
+DIR_MAVEN=".m2"
+DIR_REPO="${DIR_MAVEN}/repository"
 TXT_EDIT="featherpad"
 GROUP_ID="br.net.lls"
 LOG_FILE="/tmp/mvn.log"
 LOG_ERROR_FILE="/tmp/mvn_error.log"
 LOG_PACKAGE_ERROR_FILE="/tmp/mvn_package_error.log"
+CMD_SKIP="-DskipTests versions:set -DremoveSnapshot"

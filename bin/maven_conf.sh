@@ -66,21 +66,6 @@ PATH=.:$(dirname $0):$PATH
 
 clear
 
-maven_run()
-{
-	
-	echo "Run the Project"
-	
-	set_file_jar
-	
-	echo "Name: ${ARTIFACT_ID}"
-	echo "Group: ${GROUP_ID}"
-	echo -e "Version: ${VERSION}\n"
-	
-	java -cp ${ARTIFACT_ID}/${FILE_JAR} ${GROUP_ID}.App
-	
-}
-
 maven_site()
 {
 	
@@ -137,28 +122,6 @@ maven_compile()
 	mvn compile
 	
 	cd ~
-	
-}
-
-maven_install_jar()
-{
-	
-	clear
-	
-	echo "Install the Project"
-	echo "Maven install JAR in local repository:"
-	
-	cd ${ARTIFACT_ID}
-	
-	set_file_repo
-	
-	#mvn install
-	mvn source:jar install
-	
-	cd ~
-	
-	ls -al ${FILE_JAR}
-	ls -al ${FILE_REPO}
 	
 }
 
@@ -289,19 +252,6 @@ maven_source()
 	
 }
 
-set_file_repo()
-{
-	
-	set_file_jar
-	
-	DIR_REPO="${DIR_MAVEN}/repository"
-	
-	FILE_REPO=${DIR_REPO}/`echo ${GROUP_ID} | sed 's#\.#/#g'`/${ARTIFACT_ID}/${VERSION}/${JAR_NAME}
-	
-	echo "${FILE_REPO}"
-	
-}
-
 set_file_properties()
 {
 	
@@ -382,8 +332,6 @@ set_file_source()
 	
 }
 
-DIR_MAVEN=".m2"
-
 case "$1" in
 	jdk)
 		jdk_install
@@ -396,6 +344,9 @@ case "$1" in
 		;;
 	version)
 		maven_version
+		;;
+	repo_remove)
+		maven_repository_remove
 		;;
 	*)
 		OPTION_NAMES=(
@@ -410,7 +361,7 @@ case "$1" in
 		
 		else
 		
-			echo "Use: `basename $0` {jdk jdk-version install version ${OPTION_NAMES[@]}}"
+			echo "Use: `basename $0` {jdk jdk-version install version repo_remove ${OPTION_NAMES[@]}}"
 			exit 1
 		fi
 		;;

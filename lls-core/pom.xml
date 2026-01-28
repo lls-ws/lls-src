@@ -5,10 +5,15 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>br.net.lls</groupId>
-  <artifactId>lls-app</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <artifactId>lls-core</artifactId>
+  <version>6.0.0</version>
+  <!-- Semantic Versioning: 1.0.0 (MAJOR.MINOR.PATCH)
+	MAJOR (1.x.x) - backward-incompatible changes
+	MINOR (x.0.x) - new functionality added
+	PATCH (x.x.0) - bug fixes
+  -->
 
-  <name>lls-app</name>
+  <name>lls-core</name>
   <url>https://github.com/lls-ws/lls-src</url>
 
   <properties>
