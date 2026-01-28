@@ -1,11 +1,11 @@
 package br.net.lls.interceptor;
 
+import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
-import jakarta.servlet.http.HttpSession;
+import org.springframework.web.servlet.HandlerInterceptor;
 
-public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
+public class AutorizadorInterceptor implements HandlerInterceptor {
 	
 	@Override
 	public boolean preHandle(HttpServletRequest request,

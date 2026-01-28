@@ -16,6 +16,7 @@
     <maven.compiler.source>21</maven.compiler.source>
     <maven.compiler.target>21</maven.compiler.target>
     <spring.version>7.0.3</spring.version>
+    <jasperreports.version>7.0.3</jasperreports.version>
   </properties>
   
   <dependencyManagement>
@@ -68,6 +69,14 @@
     
     <!-- COMPILE -->
     
+    <!-- joda-time | Migration to java.time -->
+    <dependency>
+		<groupId>joda-time</groupId>
+		<artifactId>joda-time</artifactId>
+		<version>2.14.0</version>
+		<scope>compile</scope>
+	</dependency>
+    
     <!-- json -->
     <dependency>
 		<groupId>org.json</groupId>
@@ -80,7 +89,15 @@
 	<dependency>
 		<groupId>net.sf.jasperreports</groupId>
 		<artifactId>jasperreports</artifactId>
-		<version>7.0.3</version>
+		<version>${jasperreports.version}</version>
+		<scope>compile</scope>
+	</dependency>
+	
+	<!-- jasperreports-json -->
+	<dependency>
+		<groupId>net.sf.jasperreports</groupId>
+		<artifactId>jasperreports-json</artifactId>
+		<version>${jasperreports.version}</version>
 		<scope>compile</scope>
 	</dependency>
 	
@@ -135,12 +152,12 @@
 		<scope>compile</scope>
 	</dependency>
 	
-    <!-- hibernate-annotations | Migration to org.hibernate » hibernate-core -->
-    <!-- hibernate-core -->
+    <!-- hibernate-annotations | Migration to org.hibernate.orm » hibernate-core -->
+    <!-- hibernate-core | Migration to org.hibernate.orm » hibernate-core -->
     <dependency>
-		<groupId>org.hibernate.orm</groupId>
+		<groupId>org.hibernate</groupId>
 		<artifactId>hibernate-core</artifactId>
-		<version>7.2.1.Final</version>
+		<version>5.6.15.Final</version>
 		<scope>compile</scope>
 	</dependency>
     

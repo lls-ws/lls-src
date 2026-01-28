@@ -43,6 +43,10 @@ maven_show_jar()
 	if [ -f ${ARTIFACT_ID}/${FILE_JAR} ]; then
 	
 		 ls -alh ${ARTIFACT_ID}/${FILE_JAR}
+		 
+		 echo -e "\nFile JAR created:"
+		 du -hsc ${ARTIFACT_ID}/${FILE_JAR}
+		 echo ""
 	
 	fi
 	

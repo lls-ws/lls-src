@@ -44,11 +44,6 @@ maven_log_error()
 			echo "Openning Maven Error Log..."
 			${TXT_EDIT} ${LOG_ERROR_FILE} &
 	
-		else
-	
-			echo "Openning Maven Log..."
-			${TXT_EDIT} ${LOG_FILE} &
-			
 		fi
 		
 	fi

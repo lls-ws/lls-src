@@ -91,9 +91,17 @@ maven_check()
 				
 			else
 			
-				MAVEN_CMD="${LOG_CMD} ${MAVEN_CMD}"
+				if [ "$1" = "open" ]; then
 				
-				maven_${MAVEN_OPT}  && maven_log_show
+					maven_${MAVEN_OPT}
+				
+				else
+				
+					MAVEN_CMD="${LOG_CMD} ${MAVEN_CMD}"
+					
+					maven_${MAVEN_OPT}  && maven_log_show
+				
+				fi
 			
 			fi
 		
@@ -105,7 +113,18 @@ maven_check()
 			
 	fi
 	
-	maven_log_edit
+	if [ "$1" != "open" ]; then
+	
+		maven_log_edit
+		
+	fi
+	
+}
+
+maven_open()
+{
+	
+	geany $(find ${ARTIFACT_ID}/src/main/java/br/net/lls/ -type f -name "*.${MAVEN_CMD}")
 	
 }
 

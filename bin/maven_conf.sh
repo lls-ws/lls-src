@@ -397,65 +397,21 @@ case "$1" in
 	version)
 		maven_version
 		;;
-	create)
-		maven_check "$1" "$2" "$3" "$4"
-		;;
-	package)
-		maven_check "$1" "$2" "$3" "$4"
-		;;
-	compile)
-		maven_compile
-		;;
-	"test")
-		maven_test
-		;;
-	install_jar)
-		maven_install_jar
-		;;	
-	run)
-		maven_run
-		;;
-	site)
-		maven_site
-		;;
-	clean)
-		maven_clean
-		;;
-	resources)
-		maven_resources
-		;;
-	properties)
-		maven_properties
-		;;
-	filter)
-		maven_filter
-		;;
-	deploy)
-		maven_deploy
-		;;
-	settings)
-		maven_settings
-		;;
-	source)
-		maven_source
-		;;
-	all)
-		maven_create
-		maven_compile
-		maven_clean
-		maven_test
-		maven_package
-		maven_install_jar
-		maven_site
-		maven_resources
-		maven_properties
-		maven_filter
-		maven_deploy
-		maven_settings
-		maven_source
-		;;
 	*)
-		echo "Use: `basename $0` {all|jdk|jdk-version|install|version|create|compile|test|package|install_jar|run|site|clean|resources|properties|filter|deploy|settings|source}"
-		exit 1
+		OPTION_NAMES=(
+			"open"
+			"create"
+			"package"
+		)
+		
+		if [[ " ${OPTION_NAMES[*]} " =~ " ${1} " ]]; then
+		
+			maven_check "$1" "$2" "$3" "$4"
+		
+		else
+		
+			echo "Use: `basename $0` {jdk jdk-version install version ${OPTION_NAMES[@]}}"
+			exit 1
+		fi
 		;;
 esac
