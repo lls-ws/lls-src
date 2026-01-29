@@ -244,6 +244,11 @@
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.14.1</version>
+          <configuration>
+			<compilerArgs>
+				<arg>-Xlint:deprecation</arg>
+			</compilerArgs>
+		  </configuration>
         </plugin>
         
         <!-- maven-surefire-plugin -->
@@ -283,7 +288,30 @@
           <version>3.9.0</version>
         </plugin>
         
+        <!-- build-helper-maven-plugin -->
+        <plugin>
+			<groupId>org.codehaus.mojo</groupId>
+			<artifactId>build-helper-maven-plugin</artifactId>
+			<version>3.5.0</version>
+			<executions>
+				<execution>
+					<id>add-js-source</id>
+					<phase>generate-sources</phase>
+					<goals>
+						<goal>add-source</goal>
+					</goals>
+					<configuration>
+						<sources>
+							<source>src/main/javascript</source>
+						</sources>
+					</configuration>
+				</execution>
+			</executions>
+		</plugin>
+        
       </plugins>
     </pluginManagement>
+  
   </build>
+
 </project>

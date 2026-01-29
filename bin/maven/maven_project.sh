@@ -25,7 +25,11 @@ maven_create_clean()
 	echo -e "\nClean the Project"
 	echo "Removing the target directory..."
 	
-	(cd ${ARTIFACT_ID}; mvn ${MAVEN_CMD} ${MAVEN_TYPE})
+	MAVEN_CMD="${MAVEN_TYPE}"
+	MAVEN_TYPE=""
+	MAVEN_OPT=""
+	
+	maven_run
 	
 	maven_create_show
 	

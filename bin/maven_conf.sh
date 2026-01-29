@@ -61,6 +61,7 @@ PATH=.:$(dirname $0):$PATH
 . bin/maven/maven_install.sh	|| exit 1
 . bin/maven/maven_project.sh	|| exit 1
 . bin/maven/maven_settings.sh	|| exit 1
+. bin/maven/maven_compile.sh	|| exit 1
 . bin/maven/maven_package.sh	|| exit 1
 . bin/maven/maven_log.sh		|| exit 1
 
@@ -104,22 +105,6 @@ maven_test()
 	
 	#echo "Maven compile test sources:"
 	#mvn test-compile
-	
-	cd ~
-	
-}
-
-maven_compile()
-{
-	
-	clear
-	
-	echo "Compile the Project"
-	echo "Maven compile app project:"
-	
-	cd ${ARTIFACT_ID}
-	
-	mvn compile
 	
 	cd ~
 	
@@ -352,6 +337,7 @@ case "$1" in
 		OPTION_NAMES=(
 			"open"
 			"create"
+			"compile"
 			"package"
 		)
 		

@@ -7,7 +7,7 @@
 maven_log_show()
 {
 	
-	tail -F ${LOG_FILE} &
+	tail -F ${LOG_FILE} 2< /dev/null &
 	
 }
 
@@ -16,7 +16,6 @@ maven_log_edit()
 	
 	if [ ! -f ${LOG_FILE} ]; then
 	
-		echo "Log file not found!"
 		exit 1;
 	
 	fi
@@ -56,5 +55,12 @@ maven_log_package_error()
 {
 	
 	cat ${LOG_FILE} | grep "ERROR" | grep "does not exist" | rev | cut -d ']' -f 1 | rev | sed 's/package//' | sed 's/does not exist//' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//'  | sort | uniq  > ${LOG_PACKAGE_ERROR_FILE}
+	
+}
+
+maven_log_remove()
+{
+	
+	rm -f ${LOG_FILE} ${LOG_ERROR_FILE} ${LOG_PACKAGE_ERROR_FILE} 2< /dev/null
 	
 }

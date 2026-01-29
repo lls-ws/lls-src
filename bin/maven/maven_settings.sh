@@ -7,6 +7,8 @@
 maven_project()
 {
 	
+	maven_log_remove
+	
 	ARTIFACT_ID="$1"
 
 	PROJECT_NAMES=(
@@ -69,8 +71,6 @@ maven_check()
 	
 	MAVEN_TYPE="$4"
 	
-	LOG_CMD="--log-file ${LOG_FILE}"
-	
 	if [ -z "$3" ]; then
 	
 		MAVEN_CMD="${LOG_CMD}"
@@ -87,15 +87,7 @@ maven_check()
 				
 				MAVEN_TYPE="$3"
 				
-				if [ "$3" == "clean_install" ]; then
-				
-					maven_${MAVEN_OPT}_${MAVEN_TYPE}
-					
-				else
-				
-					maven_${MAVEN_OPT}_${MAVEN_TYPE} && maven_log_show
-				
-				fi
+				maven_${MAVEN_OPT}_${MAVEN_TYPE} && maven_log_show
 				
 			else
 			
@@ -107,7 +99,15 @@ maven_check()
 				
 					MAVEN_CMD="${LOG_CMD} ${MAVEN_CMD}"
 					
-					maven_${MAVEN_OPT}  && maven_log_show
+					if [ "${MAVEN_OPT}" = "compile" ]; then
+					
+						maven_${MAVEN_OPT}
+						
+					else
+					
+						maven_${MAVEN_OPT}  && maven_log_show
+					
+					fi
 				
 				fi
 			
@@ -157,6 +157,15 @@ maven_repository_remove()
 	
 }
 
+maven_run()
+{
+	
+	echo -e "mvn ${MAVEN_CMD} ${MAVEN_TYPE} ${MAVEN_OPT}\n"
+	
+	(cd ${ARTIFACT_ID}; mvn ${MAVEN_CMD} ${MAVEN_TYPE} ${MAVEN_OPT})
+	
+}
+
 DIR_MAVEN=".m2"
 DIR_REPO="${DIR_MAVEN}/repository"
 TXT_EDIT="featherpad"
@@ -164,4 +173,5 @@ GROUP_ID="br.net.lls"
 LOG_FILE="/tmp/mvn.log"
 LOG_ERROR_FILE="/tmp/mvn_error.log"
 LOG_PACKAGE_ERROR_FILE="/tmp/mvn_package_error.log"
-CMD_SKIP="-DskipTests versions:set -DremoveSnapshot"
+CMD_SKIP="-DskipTests"
+LOG_CMD="--log-file ${LOG_FILE}"
