@@ -9,7 +9,7 @@
 		<!-- provedor/implementacao do JPA -->
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		
-		<!-- entidades mapeadas lls -->
+		<!-- entidades mapeadas core -->
 		<class>br.net.lls.cadastro.Usuario</class>
 		<class>br.net.lls.cadastro.Empresa</class>
 		<class>br.net.lls.cadastro.Preco</class>
@@ -17,7 +17,7 @@
 		<class>br.net.lls.cadastro.FazendaProdutor</class>
 		<class>br.net.lls.cadastro.TelefoneProdutor</class>
 		
-		<!-- entidades mapeadas milho -->
+		<!-- entidades mapeadas milho 
 		<class>br.net.lls.cadastro.Umidade</class>
 		<class>br.net.lls.cadastro.Laudo</class>
 		<class>br.net.lls.milho.Milho</class>
@@ -27,8 +27,9 @@
 		<class>br.net.lls.fatmilho.Fatmilho</class>
 		<class>br.net.lls.fatmilho.Servmilho</class>
 		<class>br.net.lls.fatmilho.Baixamilho</class>
+		-->
 		
-		<!-- entidades mapeadas cafe -->
+		<!-- entidades mapeadas cafe 
 		<class>br.net.lls.cadastro.Peneira</class>
 		<class>br.net.lls.cafe.Guia</class>
 		<class>br.net.lls.cafe.Lote</class>
@@ -43,11 +44,13 @@
 		<class>br.net.lls.fatcafe.Fatcafe</class>
 		<class>br.net.lls.fatcafe.Servcafe</class>
 		<class>br.net.lls.fatcafe.Baixacafe</class>
+		-->
 		
-		<!-- entidades mapeadas balanca -->
+		<!-- entidades mapeadas balanca 
 		<class>br.net.lls.balanca.Ticket</class>
 		<class>br.net.lls.balanca.TipoPeso</class>
 		<class>br.net.lls.balanca.Peso</class>
+		-->
 		
 		<properties>
 		

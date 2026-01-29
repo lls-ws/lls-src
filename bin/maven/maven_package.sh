@@ -1,5 +1,5 @@
 #!/bin/bash
-# Script to Package JAR File on Maven Project
+# Script to Package JAR/WAR File on Maven Project
 #
 # Autor: Leandro Luiz
 # email: lls.homeoffice@gmail.com
@@ -8,7 +8,7 @@ maven_package()
 {
 	
 	echo -e "\nBuild the Project"
-	echo "Create packaged artifact JAR:"
+	echo "Create packaged artifact ${FILE_EXT^^}:"
 	
 	MAVEN_TYPE="${MAVEN_OPT}"
 	MAVEN_OPT=""
@@ -23,7 +23,7 @@ maven_package_clean()
 	echo -e "\nClean the Project"
 	echo "Removing the target directory..."
 	echo "Compiles the source code..."
-	echo "Create packaged artifact JAR:"
+	echo "Create packaged artifact ${FILE_EXT^^}:"
 	
 	MAVEN_CMD="${LOG_CMD} ${CMD_SKIP}"
 	
@@ -35,7 +35,7 @@ maven_package_install()
 {
 	
 	echo -e "\nInstall the Project"
-	echo "Maven install JAR in local repository:"
+	echo "Maven install ${FILE_EXT^^} in local repository:"
 	
 	MAVEN_OPT="${MAVEN_TYPE}"
 	MAVEN_TYPE="${CMD_SKIP}"
@@ -48,7 +48,7 @@ maven_package_clean_install()
 {
 
 	echo -e "\nClean and Install the Project"
-	echo "Removing, Compile, Create and Repository JAR:"
+	echo "Removing, Compile, Create and Repository ${FILE_EXT^^}:"
 	
 	MAVEN_OPT=`echo "${MAVEN_TYPE}"| cut -d '_' -f 2`
 	MAVEN_TYPE=`echo "${MAVEN_TYPE}"| cut -d '_' -f 1`
@@ -80,8 +80,8 @@ maven_show_jar()
 		
 			ls -alh ${FILE_REPO}
 			
-			echo -e "\nFile JAR installed:"
-			du -hsc ${ARTIFACT_ID}/${FILE_JAR} ${FILE_REPO}
+			echo -e "\nFile ${FILE_EXT^^} installed:"
+			du -hsc ${FILE_REPO}
 		
 		fi
 	
@@ -91,7 +91,7 @@ maven_show_jar()
 		
 			 ls -alh ${ARTIFACT_ID}/${FILE_JAR}
 			 
-			 echo -e "\nFile JAR created:"
+			 echo -e "\nFile ${FILE_EXT^^} created:"
 			 du -hsc ${ARTIFACT_ID}/${FILE_JAR}
 		
 		fi

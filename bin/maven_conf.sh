@@ -1,68 +1,17 @@
 #!/bin/sh
 # Script to configure Maven on Ubuntu
 #
-# Standard Directory Layout
-#
-# pom.xml (Project Object Model)
-# src/main/java	Application/Library sources
-# src/main/resources	Application/Library resources
-# src/main/filters	Resource filter files
-# src/main/webapp	Web application sources
-# src/test/java	Test sources
-# src/test/resources	Test resources
-# src/test/filters	Test resource filter files
-# src/it	Integration Tests (primarily for plugins)
-# src/assembly	Assembly descriptors
-# src/site	Site
-# LICENSE.txt	Project's license
-# NOTICE.txt	Notices and attributions required by libraries that the project depends on
-# README.txt	Project's readme
-#
-# SNAPSHOT version
-# version 1.0-SNAPSHOT is released as version 1.0
-# new development version is version 1.1-SNAPSHOT
-#
-# Add Resources to JAR
-#|-- pom.xml
-#`-- src
-#    |-- main
-#    |   |-- java
-#    |   |   `-- com
-#    |   |       `-- mycompany
-#    |   |           `-- app
-#    |   |           	 `-- App.java
-#    |   `-- resources
-#    |       |-- META-INF
-#	 |		 |   |-- MANIFEST.MF
-#    |       |    `-- application.properties
-#	 |		 |    `-- maven
-#	 |		 |       `-- com.mycompany.app
-#	 |		 |           `-- my-app
-#	 |		 |               |-- pom.properties
-#	 |		 |               `-- pom.xml
-#	 |		 `-- com
-#    |			 `-- mycompany
-#    |    			 `-- app
-#    |        			 `-- App.class
-#    `-- test
-#        |`-- java
-#        |    `-- com
-#        |        `-- mycompany
-#        |            `-- app
-#        |            	 `-- AppTest.java
-#		 `-- resources
-#            `-- test.properties
-#
 # Autor: Leandro Luiz
 # email: lls.homeoffice@gmail.com
 
 # Path Library
 PATH=.:$(dirname $0):$PATH
+. bin/maven/maven_settings.sh	|| exit 1
 . bin/maven/maven_install.sh	|| exit 1
 . bin/maven/maven_project.sh	|| exit 1
-. bin/maven/maven_settings.sh	|| exit 1
 . bin/maven/maven_compile.sh	|| exit 1
 . bin/maven/maven_package.sh	|| exit 1
+. bin/maven/maven_verify.sh		|| exit 1
 . bin/maven/maven_log.sh		|| exit 1
 
 clear
@@ -339,6 +288,7 @@ case "$1" in
 			"create"
 			"compile"
 			"package"
+			"verify"
 		)
 		
 		if [[ " ${OPTION_NAMES[*]} " =~ " ${1} " ]]; then

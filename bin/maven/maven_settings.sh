@@ -24,10 +24,12 @@ maven_project()
 		if [ "${ARTIFACT_ID}" = "web" ]; then
 		
 			ARCHE_TYPE="maven-archetype-${ARTIFACT_ID}app"
+			FILE_EXT="war"
 			
 		else
 		
 			ARCHE_TYPE="maven-archetype-quickstart"
+			FILE_EXT="jar"
 		
 		fi
 		
@@ -50,9 +52,17 @@ maven_project()
 maven_set_jar()
 {
 	
-	VERSION=`cat ${ARTIFACT_ID}/pom.xml | grep '<version>' | head -1 | cut -f 2 -d '>' | cut -f 1 -d '<'`
+	if [[ "${FILE_EXT}" == "war" && "${MAVEN_OPT}" != "install" ]]; then
 	
-	JAR_NAME="${ARTIFACT_ID}-${VERSION}.jar"
+		VERSION=""
+		JAR_NAME="${ARTIFACT_ID}.${FILE_EXT}"
+	
+	else
+	
+		VERSION=`cat ${ARTIFACT_ID}/pom.xml | grep '<version>' | head -1 | cut -f 2 -d '>' | cut -f 1 -d '<'`
+		JAR_NAME="${ARTIFACT_ID}-${VERSION}.${FILE_EXT}"
+		
+	fi
 	
 	FILE_JAR="target/${JAR_NAME}"
 	
@@ -81,38 +91,38 @@ maven_check()
 	
 		if [ -z "$4" ]; then
 	
-			if [[ "$3" == "clean" || "$3" == "install" || "$3" == "clean_install" ]]; then
-			
-				MAVEN_CMD="${LOG_CMD}"
+			case "$3" in
+				clean|install|clean_install|show|jetty)
 				
-				MAVEN_TYPE="$3"
-				
-				maven_${MAVEN_OPT}_${MAVEN_TYPE} && maven_log_show
-				
-			else
-			
-				if [ "$1" = "open" ]; then
-				
-					maven_${MAVEN_OPT}
-				
-				else
-				
-					MAVEN_CMD="${LOG_CMD} ${MAVEN_CMD}"
+					MAVEN_CMD="${LOG_CMD}"
 					
-					if [ "${MAVEN_OPT}" = "compile" ]; then
+					MAVEN_TYPE="$3"
+					
+					maven_${MAVEN_OPT}_${MAVEN_TYPE} && maven_log_show
+					;;
+				*)
+					if [ "$1" = "open" ]; then
 					
 						maven_${MAVEN_OPT}
-						
+					
 					else
 					
-						maven_${MAVEN_OPT}  && maven_log_show
+						MAVEN_CMD="${LOG_CMD} ${MAVEN_CMD}"
+						
+						if [ "${MAVEN_OPT}" = "compile" ]; then
+						
+							maven_${MAVEN_OPT}
+							
+						else
+						
+							maven_${MAVEN_OPT}  && maven_log_show
+						
+						fi
 					
 					fi
-				
-				fi
+					;;
+			esac
 			
-			fi
-		
 		else
 		
 			maven_${MAVEN_OPT}_${MAVEN_TYPE} && maven_log_show
