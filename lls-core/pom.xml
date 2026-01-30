@@ -55,12 +55,14 @@
 		<scope>test</scope>
 	</dependency>
     
+    <!-- PROVIDED -->
+    
     <!-- jakarta.persistence-api -->
     <dependency>
 		<groupId>jakarta.persistence</groupId>
 		<artifactId>jakarta.persistence-api</artifactId>
 		<version>3.2.0</version>
-		<scope>compile</scope>
+		<scope>provided</scope>
 	</dependency>
     
     <!-- jakarta.servlet-api -->
@@ -68,7 +70,7 @@
 		<groupId>jakarta.servlet</groupId>
 		<artifactId>jakarta.servlet-api</artifactId>
 		<version>6.1.0</version>
-		<scope>compile</scope>
+		<scope>provided</scope>
 	</dependency>
     
     <!-- COMPILE -->
@@ -89,6 +91,7 @@
 		<scope>compile</scope>
 	</dependency>
 	
+	<!-- JASPERREPORTS -->
 	<!-- jasperreports | 1 Vulnerability -->
 	<dependency>
 		<groupId>net.sf.jasperreports</groupId>

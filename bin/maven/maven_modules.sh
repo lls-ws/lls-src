@@ -58,6 +58,6 @@ maven_modules_jetty()
 	
 	maven_set_jar
 		
-	(cd ${ARTIFACT_ID}; mvn jetty:run && google-chrome http://localhost:8080)
+	(cd ${ARTIFACT_ID}; google-chrome http://localhost:8080 && mvn jetty:run)
 	
 }

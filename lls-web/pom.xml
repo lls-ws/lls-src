@@ -26,29 +26,53 @@
 
   <dependencies>
   
-	  <!-- junit-jupiter-api -->
-	  <dependency>
+	<!-- junit-jupiter-api -->
+	<dependency>
 		<groupId>org.junit.jupiter</groupId>
 		<artifactId>junit-jupiter-api</artifactId>
 		<version>6.0.2</version>
 		<scope>test</scope>
-	  </dependency>
+	</dependency>
 	  
-	  <!-- log4j-web -->
-	  <dependency>
+	<!-- jakarta.servlet-api -->
+	<dependency>
+		<groupId>jakarta.servlet</groupId>
+		<artifactId>jakarta.servlet-api</artifactId>
+		<version>6.1.0</version>
+		<scope>provided</scope>
+	</dependency>
+	  
+	<!-- spring-web -->
+    <dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-web</artifactId>
+		<version>7.0.3</version>
+		<scope>provided</scope>
+	</dependency>
+	
+	<!-- spring-webmvc -->
+    <dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-webmvc</artifactId>
+		<version>7.0.3</version>
+		<scope>provided</scope>
+	</dependency>
+	
+	<!-- log4j-web -->
+	<dependency>
 		<groupId>org.apache.logging.log4j</groupId>
 		<artifactId>log4j-web</artifactId>
 		<version>2.25.3</version>
 		<scope>compile</scope>
-	  </dependency>
+	</dependency>
 	  
-	  <!-- lls-core -->
-	  <dependency>
+	<!-- lls-core -->
+	<dependency>
 		<groupId>br.net.lls</groupId>
 		<artifactId>lls-core</artifactId>
 		<version>6.0.0</version>
 		<scope>compile</scope>
-	  </dependency>
+	</dependency>
   
   </dependencies>
 
