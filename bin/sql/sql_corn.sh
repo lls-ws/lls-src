@@ -1,10 +1,8 @@
 #!/bin/bash
-# Script to Update Cloud Corn Balance by SSH commands
+# Script to Update LLS Corn DataBase
 #
 # Autor: Leandro Luiz
 # email: lls.homeoffice@gmail.com
-
-clear
 
 balance_update()
 {

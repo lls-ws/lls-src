@@ -1,8 +1,10 @@
 #!/bin/bash
-# Script to Set Command for Mysql
+# Script to Set SQL Command
 #
 # Autor: Leandro Luiz
 # email: lls.homeoffice@gmail.com
+
+clear
 
 if [ "$EUID" -ne 0 ]; then
 	
@@ -31,5 +33,10 @@ if [ -z "${PASSWORD}" ]; then
 	exit 1
 	
 fi
+
+LLS_HOME=`su ${USER} -c "realpath ~"`
+LLS_WS="${LLS_HOME}/${USER}-ws"
+SQL_DIR="${LLS_WS}/sql"
+ZIP_FILE="${USER}_backup.zip"
 
 CMD_BASE="mysql -u root --password=${PASSWORD} -D bd_${USER}"
