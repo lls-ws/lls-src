@@ -27,8 +27,8 @@ maven_modules_install()
 maven_modules_clean()
 {
 	
-	echo "Cleanning and Updated LLS Modules on Repository..."
-	mvn clean -U
+	echo "Cleanning LLS Modules Targets..."
+	mvn clean
 		
 	maven_set_repo
 	
