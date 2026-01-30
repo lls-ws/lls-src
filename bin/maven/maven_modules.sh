@@ -32,8 +32,6 @@ maven_modules_clean()
 		
 	maven_set_repo
 	
-	maven_modules_find
-	
 }
 
 maven_modules_clean_install()
