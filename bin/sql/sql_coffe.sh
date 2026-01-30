@@ -54,7 +54,15 @@ update_lot_date()
 	
 	TABLE_NAME="cafe"
 	
-	DATE_NOW=`date +%F`
+	if [ -z "$2" ]; then
+	
+		DATE_NOW=`date +%F`
+		
+	else
+	
+		DATE_NOW="$2"
+	
+	fi
 	
 	if [ "${LOT_TYPE}" = "GT" ]; then
 	

@@ -85,7 +85,7 @@ case $1 in
 		user_add
 		;;
 	lotdate)
-		update_lot_date "$2"
+		update_lot_date "$2" "$3"
 		;;
     balance)
 		balance_update
