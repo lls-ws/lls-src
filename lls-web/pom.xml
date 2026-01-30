@@ -9,12 +9,12 @@
   <version>2.0.0</version>
   <packaging>war</packaging>
 
-  <name>lls-web Maven Webapp</name>
+  <name>lls-web</name>
   <url>https://lls.net.br</url>
   
   <parent>
     <groupId>br.net.lls</groupId>
-    <artifactId>lls</artifactId>
+    <artifactId>lls-ws</artifactId>
     <version>1.0.0</version>
   </parent>
 

@@ -7,18 +7,14 @@
   <groupId>br.net.lls</groupId>
   <artifactId>lls-core</artifactId>
   <version>6.0.0</version>
-  <!-- Semantic Versioning: 1.0.0 (MAJOR.MINOR.PATCH)
-	MAJOR (1.x.x) - backward-incompatible changes
-	MINOR (x.0.x) - new functionality added
-	PATCH (x.x.0) - bug fixes
-  -->
+  <packaging>jar</packaging>
 
   <name>lls-core</name>
   <url>https://lls.net.br</url>
 
   <parent>
     <groupId>br.net.lls</groupId>
-    <artifactId>lls</artifactId>
+    <artifactId>lls-ws</artifactId>
     <version>1.0.0</version>
   </parent>
   

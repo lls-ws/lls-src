@@ -11,7 +11,7 @@ PATH=.:$(dirname $0):$PATH
 . bin/maven/maven_project.sh	|| exit 1
 . bin/maven/maven_compile.sh	|| exit 1
 . bin/maven/maven_package.sh	|| exit 1
-. bin/maven/maven_verify.sh		|| exit 1
+. bin/maven/maven_modules.sh	|| exit 1
 . bin/maven/maven_log.sh		|| exit 1
 
 clear
@@ -288,7 +288,7 @@ case "$1" in
 			"create"
 			"compile"
 			"package"
-			"verify"
+			"modules"
 		)
 		
 		if [[ " ${OPTION_NAMES[*]} " =~ " ${1} " ]]; then

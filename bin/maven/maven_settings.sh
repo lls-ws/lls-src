@@ -146,10 +146,19 @@ maven_open()
 	
 }
 
+maven_set_repo()
+{
+	
+	DIR_REPO_LLS=~/${DIR_REPO}/`echo ${GROUP_ID} | sed 's#\.#/#g'`
+	
+}
+
 maven_set_repo_jar()
 {
 	
-	FILE_REPO=~/${DIR_REPO}/`echo ${GROUP_ID} | sed 's#\.#/#g'`/${ARTIFACT_ID}/${VERSION}/${JAR_NAME}
+	maven_set_repo
+	
+	FILE_REPO=${DIR_REPO_LLS}/${ARTIFACT_ID}/${VERSION}/${JAR_NAME}
 	
 	echo "${FILE_REPO}"
 	

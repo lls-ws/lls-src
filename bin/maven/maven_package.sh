@@ -101,3 +101,14 @@ maven_show_jar()
 	echo ""
 	
 }
+
+maven_package_show()
+{
+	
+	maven_set_jar
+	
+	jar tvf ${ARTIFACT_ID}/${FILE_JAR}
+	
+	echo "jar tvf ${ARTIFACT_ID}/${FILE_JAR}"
+	
+}
