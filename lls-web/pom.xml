@@ -10,8 +10,10 @@
   <packaging>war</packaging>
 
   <name>lls-web</name>
+  <description>LLS WEB Project</description>
   <url>https://lls.net.br</url>
   
+  <!-- lls-ws -->
   <parent>
     <groupId>br.net.lls</groupId>
     <artifactId>lls-ws</artifactId>
@@ -22,10 +24,70 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>21</maven.compiler.source>
     <maven.compiler.target>21</maven.compiler.target>
+    <spring.version>4.0.2</spring.version>
+    <jetty.version>12.1.5</jetty.version>
+    <java.version>21</java.version>
   </properties>
+
+  <dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-dependencies</artifactId>
+            <version>${spring.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+  </dependencyManagement>
 
   <dependencies>
   
+    <!-- SPRING BOOT -->
+    <!-- spring-boot-starter-jdbc -->
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-jdbc</artifactId>
+	</dependency>
+	<!-- spring-boot-starter-webmvc -->
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-webmvc</artifactId>
+	</dependency>
+	<!-- spring-boot-starter-web -->
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-web</artifactId>
+		<exclusions>
+			<exclusion>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-tomcat</artifactId>
+			</exclusion>
+		</exclusions>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.apache.tomcat</groupId>
+		<artifactId>tomcat-util</artifactId>
+		<version>11.0.15</version>
+		<scope>provided</scope>
+	</dependency>
+	
+	<!-- jetty-ee10-apache-jsp -->
+	<dependency>
+		<groupId>org.eclipse.jetty.ee10</groupId>
+		<artifactId>jetty-ee10-apache-jsp</artifactId>
+		<version>${jetty.version}</version>
+		<classifier>nolog</classifier>
+	</dependency>
+	
+	<!-- mysql-connector-j -->
+	<dependency>
+		<groupId>com.mysql</groupId>
+		<artifactId>mysql-connector-j</artifactId>
+		<scope>runtime</scope>
+	</dependency>
+	
 	<!-- junit-jupiter-api -->
 	<dependency>
 		<groupId>org.junit.jupiter</groupId>
@@ -42,30 +104,15 @@
 		<scope>provided</scope>
 	</dependency>
 	  
-	<!-- spring-web -->
-    <dependency>
-		<groupId>org.springframework</groupId>
-		<artifactId>spring-web</artifactId>
-		<version>7.0.3</version>
-		<scope>provided</scope>
-	</dependency>
-	
-	<!-- spring-webmvc -->
-    <dependency>
-		<groupId>org.springframework</groupId>
-		<artifactId>spring-webmvc</artifactId>
-		<version>7.0.3</version>
-		<scope>provided</scope>
-	</dependency>
-	
-	<!-- log4j-web -->
+	<!-- log4j-web 
 	<dependency>
 		<groupId>org.apache.logging.log4j</groupId>
 		<artifactId>log4j-web</artifactId>
 		<version>2.25.3</version>
 		<scope>compile</scope>
 	</dependency>
-	  
+	-->
+	
 	<!-- lls-core -->
 	<dependency>
 		<groupId>br.net.lls</groupId>
@@ -78,44 +125,65 @@
 
   <build>
     <finalName>lls-web</finalName>
-    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+    <pluginManagement>
       <plugins>
+        <!-- maven-clean-plugin -->
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
           <version>3.5.0</version>
         </plugin>
-        <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
+        <!-- maven-resources-plugin -->
         <plugin>
           <artifactId>maven-resources-plugin</artifactId>
           <version>3.4.0</version>
         </plugin>
+        <!-- maven-compiler-plugin -->
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.14.1</version>
         </plugin>
+        <!-- maven-surefire-plugin -->
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>3.5.4</version>
         </plugin>
+        <!-- maven-war-plugin -->
         <plugin>
           <artifactId>maven-war-plugin</artifactId>
           <version>3.5.1</version>
         </plugin>
+        <!-- maven-install-plugin -->
         <plugin>
           <artifactId>maven-install-plugin</artifactId>
           <version>3.1.4</version>
         </plugin>
+        <!-- maven-deploy-plugin -->
         <plugin>
           <artifactId>maven-deploy-plugin</artifactId>
           <version>3.1.4</version>
         </plugin>
         
-        <!-- jetty-ee11-maven-plugin -->
+        <!-- spring-boot-maven-plugin -->
+        <plugin>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-maven-plugin</artifactId>
+			<version>${spring.version}</version>
+		</plugin>
+        
+        <!-- jetty-ee10-maven-plugin -->
+        <plugin>
+			<groupId>org.eclipse.jetty.ee10</groupId>
+			<artifactId>jetty-ee10-maven-plugin</artifactId>
+			<version>${jetty.version}</version>
+		</plugin>
+        
+        <!-- jetty-ee11-maven-plugin 
         <plugin>
 			<groupId>org.eclipse.jetty.ee11</groupId>
 			<artifactId>jetty-ee11-maven-plugin</artifactId>
-			<version>12.1.5</version>
+			<version>${jetty.version}</version>
 		</plugin>
+		-->
 
       </plugins>
     </pluginManagement>

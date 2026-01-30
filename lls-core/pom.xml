@@ -22,7 +22,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>21</maven.compiler.source>
     <maven.compiler.target>21</maven.compiler.target>
-    <spring.version>7.0.3</spring.version>
+    <spring.version>4.0.2</spring.version>
     <jasperreports.version>7.0.3</jasperreports.version>
   </properties>
   
@@ -30,7 +30,7 @@
     
     <dependencies>
         
-        <!-- spring-framework-bom -->
+        <!-- spring-framework-bom 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-framework-bom</artifactId>
@@ -38,6 +38,15 @@
             <scope>import</scope>
             <type>pom</type>
         </dependency>
+        -->
+        
+        <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-dependencies</artifactId>
+			<version>${spring.version}</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
         
     </dependencies>
     
@@ -186,40 +195,59 @@
 	</dependency>
 	
     <!-- SPRING -->
-    <!-- spring-beans -->
+    <!-- spring-beans 
     <dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-beans</artifactId>
 	</dependency>
-    
-    <!-- spring-context -->
+	-->
+    <!-- spring-context 
     <dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-context</artifactId>
 	</dependency>
-    
+	-->
     <!-- spring-tx -->
     <dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-tx</artifactId>
 	</dependency>
-    
-    <!-- spring-webmvc -->
+	
+    <!-- spring-webmvc 
     <dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-webmvc</artifactId>
 	</dependency>
-    
-    <!-- spring-web -->
+	-->
+    <!-- spring-web 
     <dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-web</artifactId>
 	</dependency>
-    
-    <!-- spring-core -->
+	-->
+    <!-- spring-core 
     <dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-core</artifactId>
+	</dependency>
+    -->
+    
+    <!-- SPRING BOOT -->
+	<!-- spring-boot-starter-webmvc -->
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-webmvc</artifactId>
+	</dependency>
+	<!-- spring-boot-starter-web -->
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-web</artifactId>
+		<exclusions>
+			<exclusion>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-tomcat</artifactId>
+			</exclusion>
+		</exclusions>
 	</dependency>
     
   </dependencies>
