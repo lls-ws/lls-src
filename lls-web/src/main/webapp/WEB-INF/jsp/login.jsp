@@ -1,6 +1,4 @@
-<%@ taglib uri="http://htmlcompressor.googlecode.com/taglib/compressor" prefix="compress" %>
-
-<compress:html removeIntertagSpaces="true">
+<%@ taglib uri="jakarta.tags.core" prefix="c" %>
 
 	<!doctype html>
 		
@@ -26,4 +24,3 @@
 		
 	</html>
 
-</compress:html>
