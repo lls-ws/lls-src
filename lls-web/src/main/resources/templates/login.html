@@ -1,13 +1,45 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<th:block th:replace="~{fragments/head :: head}"></th:block>
+	<th:block th:replace="~{fragments/core/title :: title}"></th:block>
+	<th:block th:replace="~{fragments/core/bootstrap :: bootstrap}"></th:block>
+	<th:block th:replace="~{fragments/core/jqueryLLS :: jqueryLLS}"></th:block>
 </head>
 <body>
 
-    <p th:text="|Olá, ${name}!|" />
-    
-    <div th:replace="~{fragments/footer :: footer}"></div>
+    <div id="alertMessage"></div>
+			
+	<main class="form-signin text-center">
+	  
+	  <form id="loginForm">
+		
+		<img id="loginImage">
+		
+		<h1 id="loginTitle"></h1>
+		
+		<div th:replace="~{fragments/component/inputEmail :: inputEmail}"></div>
+		
+		<div class="mb-2"></div>
+		
+		<div th:replace="~{fragments/component/inputPassword :: inputPassword}"></div>
+		
+		<div class="mb-3"></div>
+		
+		<button id="loginButton">
+			<i id="imageButton"></i>
+		</button>
+		
+		<div class="mb-4"></div>
+		
+		<div id="passwordForgot">
+			<a></a>
+		</div>
+		
+		<p id="yearText"></p>
+		
+	  </form>
+	  
+	</main>
     
 </body>
 </html>
