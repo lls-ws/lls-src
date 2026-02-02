@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<th:block th:replace="~{fragments/head :: head}"></th:block>
+</head>
+<body>
+
+    <p th:text="|Olá, ${name}!|" />
+    
+    <div th:replace="~{fragments/footer :: footer}"></div>
+    
+</body>
+</html>
