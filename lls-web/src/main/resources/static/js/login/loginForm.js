@@ -5,14 +5,12 @@
  * email: lls.homeoffice@gmail.com
  * ========================================================= */
 
-function loginForm(){
+function loginForm({
+	id = id,
+	iconButton = 'fa-right-to-bracket'
+} = {}) {
     
-    var data = {
-		'idButton': 'login',
-		'icon': 'fa-right-to-bracket'
-	}
-    
-    $("#loginImage")
+    $("#image" + id)
 		.attr({
 			alt: '',
 			width: '90',
@@ -26,53 +24,32 @@ function loginForm(){
 			$(this).removeClass("fa-flip");
 		});
     
-    $("#loginTitle")
+    $("#title" + id)
 		.addClass("h3 mb-3 fw-normal")
 		.text($("#projectTitle").text())
 		.hover(function(){
-			$(this).addClass("fa-shake");
+			$(this).addClass("fa-bounce");
 		}, function() {
-			$(this).removeClass("fa-shake");
+			$(this).removeClass("fa-bounce");
 		});
     
-    $("#inputEmail")
-		.attr('maxlength', '50')
-		.prop('required', true)
-		.hover(function(){
-			$(this).addClass("fa-fade");
-		}, function() {
-			$(this).removeClass("fa-fade");
-		});
-    
-    $("#inputPassword")
-		.attr({
-			maxlength: '10',
-			minlength: '6'
-		})
-		.prop('required', true)
-		.hover(function(){
-			$(this).addClass("fa-fade");
-		}, function() {
-			$(this).removeClass("fa-fade");
-		});
-	
-	$("#loginButton")
+	$("#button" + id)
 		.attr('type', 'submit')
 		.addClass("w-100 btn btn-lg btn-primary login_btn")
 		.hover(function(){
-			$("#imageButton").addClass("fa-beat-fade");
+			$("#imageButton" + id).addClass("fa-beat-fade");
 		}, function() {
-			$("#imageButton").removeClass("fa-beat-fade");
+			$("#imageButton" + id).removeClass("fa-beat-fade");
 		});
 	
-	$("#imageButton")
-		.addClass("fa-solid fa-lg " + data.icon)
-		.before('Login ');
+	$("#imageButton" + id)
+		.addClass("fa-solid fa-lg " + iconButton)
+		.before(id + ' ');
 		
-	$("#passwordForgot")
+	$("#passwordForgot" + id)
 		.addClass("d-flex justify-content-center");
 	
-	$("#passwordForgot a")
+	$("#passwordForgot" + id+ " a")
 		.append("Esqueci minha senha")
 		.attr('href', 'passwordForgot')
 		.hover(function(){
@@ -81,18 +58,9 @@ function loginForm(){
 			$(this).removeClass("fa-beat-fade");
 		});
     
-    $("#yearText")
-		.addClass("mt-5 mb-3 text-muted")
-		.append("&copy; 2019–2026")
-		.hover(function(){
-			$(this).addClass("fa-bounce");
-		}, function() {
-			$(this).removeClass("fa-bounce");
-		});
-		
-	$("#alertMessage")
-		.addClass("alert-fixed");
-	
-	loginEvent(data);
+	loginEvent({
+		id: id,
+		iconButton: iconButton
+	});
 	
 }

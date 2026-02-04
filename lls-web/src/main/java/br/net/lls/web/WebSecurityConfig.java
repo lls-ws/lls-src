@@ -26,7 +26,7 @@ class WebSecurityConfig {
 				.anyRequest().authenticated()
 			)
 			.formLogin((form) -> form
-				.loginPage("/login2")
+				.loginPage("/login")
 				.permitAll()
 			)
 			.logout(LogoutConfigurer::permitAll);

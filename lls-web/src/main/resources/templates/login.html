@@ -1,45 +1,56 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
 	<th:block th:replace="~{fragments/core/title :: title}"></th:block>
 	<th:block th:replace="~{fragments/core/bootstrap :: bootstrap}"></th:block>
 	<th:block th:replace="~{fragments/core/jqueryLLS :: jqueryLLS}"></th:block>
 </head>
+
 <body>
 
-    <div id="alertMessage"></div>
+    <div th:replace="~{fragments/component/alertMessage :: alertMessage}"></div>
 			
-	<main class="form-signin text-center">
-	  
-	  <form id="loginForm">
+	<main th:with="id='Login'" class="form-signin text-center">
 		
-		<img id="loginImage">
+		<form th:id="form + ${id}">
 		
-		<h1 id="loginTitle"></h1>
+			<img th:id="image + ${id}">
 		
-		<div th:replace="~{fragments/component/inputEmail :: inputEmail}"></div>
+			<h1 th:id="title + ${id}"></h1>
 		
-		<div class="mb-2"></div>
+			<div th:insert="~{fragments/component/inputEmail :: inputEmail}"
+				 th:with="id=${id},required=true"></div>
 		
-		<div th:replace="~{fragments/component/inputPassword :: inputPassword}"></div>
-		
-		<div class="mb-3"></div>
-		
-		<button id="loginButton">
-			<i id="imageButton"></i>
-		</button>
-		
-		<div class="mb-4"></div>
-		
-		<div id="passwordForgot">
-			<a></a>
-		</div>
-		
-		<p id="yearText"></p>
-		
-	  </form>
+			<div th:insert="~{fragments/component/inputPassword :: inputPassword}"
+				 th:with="id=${id},required=true"></div>
+			
+			<button th:id="button + ${id}">
+				<i th:id="imageButton + ${id}"></i>
+			</button>
+			
+			<div class="mb-3"></div>
+			
+			<div th:id="passwordForgot + ${id}">
+				<a></a>
+			</div>
+			
+		</form>
+	
+		<script th:inline="javascript">
+
+			$(document).ready(function(){
+
+				loginForm({
+					id: [[${id}]]
+				});
+				
+			});
+
+		</script>
 	  
 	</main>
     
 </body>
+
 </html>

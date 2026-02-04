@@ -1,0 +1,28 @@
+<div th:fragment="input">
+
+	<div class="input-group mb-3">
+	  
+		<div class="form-floating">
+		  
+			<input th:type="${type}"
+				   th:id="'input' + ${id ?: 'Text'}"
+			       th:maxlength="${maxlength ?: 50}"
+			       th:minlength="${minlength ?: null}"
+			       th:placeholder="${placeholder ?: 'Text'}"
+			       th:class="${inputClass ?: 'form-control'}"
+			       th:attr="required=${required} ? 'required' : null">
+		  
+			<label th:for="'input' + ${id ?: 'Text'}" 
+			       th:text="${label ?: 'Text'}">
+			</label>
+		  
+		</div>
+	  
+		<span th:id="'span' + ${id ?: 'Text'}"
+			  th:class="${spanClass ?: 'input-group-text'}">
+			<i th:class="${iconClass ?: 'fas fa-pencil'}"></i>
+		</span>
+	  
+	</div>
+	
+</div>

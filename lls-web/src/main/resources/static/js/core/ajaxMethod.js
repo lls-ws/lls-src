@@ -5,18 +5,29 @@
  * email: lls.homeoffice@gmail.com
  * ========================================================= */
 
-function ajaxMethod(data) {
+function ajaxMethod({
+	id = id,
+	url = url,
+	email = email,
+	senha = senha,
+	iconButton = iconButton
+} = {}) {
 	
-	alertMessage(data, true);
+	alertMessage({
+		id: id,
+		mensagem: mensagem,
+		iconButton: iconButton,
+		isAnimateIcon = true
+	});
 	
 	$.ajaxSettings.mimeType="*/*; charset=iso-8859-1";
 	
 	$.ajax({
 		type: "GET",
-		url: data.url,
+		url: url,
 		contentType: "application/x-www-form-urlencoded;charset=iso-8859-1",
 		dataType: "json",
-		data : data,
+		data : {email: email, senha: senha},
 		async: false,
 		timeout: 2000,
 		beforeSend : function(xhr) {
