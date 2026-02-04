@@ -6,28 +6,28 @@
  * ========================================================= */
 
 function ajaxMethod({
-	id = id,
-	url = url,
-	email = email,
-	senha = senha,
-	iconButton = iconButton
+	url = '',
+	data = '',
+	iconButton = '',
+	imageButtonID = ''
 } = {}) {
 	
-	alertMessage({
-		id: id,
-		mensagem: mensagem,
-		iconButton: iconButton,
-		isAnimateIcon = true
-	});
+	var status = 0;
+	
+	const { animation, iconAnimation } = alertMessage({
+											isAnimate: true,
+											iconButton: iconButton,
+											imageButtonID: imageButtonID
+										});
 	
 	$.ajaxSettings.mimeType="*/*; charset=iso-8859-1";
 	
 	$.ajax({
-		type: "GET",
+		type: "POST",
 		url: url,
 		contentType: "application/x-www-form-urlencoded;charset=iso-8859-1",
 		dataType: "json",
-		data : {email: email, senha: senha},
+		data : data,
 		async: false,
 		timeout: 2000,
 		beforeSend : function(xhr) {
@@ -35,12 +35,18 @@ function ajaxMethod({
 		},
 		success: function(result) {
 			
-			data["status"] = result.status;
-			data["mensagem"] = decodeURIComponent(unescape(result.mensagem));
+			status = result.status;
 			
-			if (data.status != "200") {
+			if (status != "200") {
 				
-				alertMessage(data, false);
+				alertMessage({
+					isAnimate = false,
+					animation: animation,
+					iconButton: iconButton,
+					iconAnimation: iconAnimation,
+					imageButtonID: imageButtonID,
+					mensagem: decodeURIComponent(unescape(result.mensagem))
+				});
 				
 			}
 			
@@ -55,5 +61,7 @@ function ajaxMethod({
 		}
  
 	});
+	
+	return status;
 	
 }

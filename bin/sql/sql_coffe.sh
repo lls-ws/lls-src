@@ -40,8 +40,6 @@ check_lot()
 	
 	fi
 	
-	echo "Searching ID for LOT: ${LOT_NUM}"
-	
 }
 
 update_lot_date()
@@ -104,11 +102,75 @@ update_lot_date()
 search_lot()
 {
 	
-	LOT_NUM="$1"
+	check_lot "$1"
 	
 	TABLE_NAME="Lote"
 	
-	echo "Searching for Lot ID..."
-	${CMD_BASE} -sN -e "SELECT id, sacas, peso, saldoSacas, saldoPeso FROM ${TABLE_NAME} WHERE lote = '"${LOT_NUM}"';"
+	echo "Searching for Lot: ${LOT_NUM}"
+	${CMD_BASE} -e "SELECT id, sacas, peso FROM ${TABLE_NAME} WHERE lote = '"${LOT_NUM}"';"
 	
+}
+
+show_screens()
+{
+	
+	TABLE_NAME="Peneira"
+	
+	echo "Showing all Screens:"
+	${CMD_BASE} -e "SELECT * FROM ${TABLE_NAME};"
+	
+}
+
+check_screen()
+{
+
+	SCREEN_NAME="$1"
+	
+	if [ -z "${SCREEN_NAME}" ]; then
+	
+		echo "Screen not found!"
+		echo "Run: $0 lotscreen [LOT] [SCREEN]"
+		exit 1
+	
+	fi
+	
+}
+
+update_lot_screen()
+{
+	
+	check_lot "$1"
+	
+	check_screen "$2"
+	
+	TABLE_NAME="Lote"
+	TABLE_SCREEN="Peneira"
+	
+	LOT_ID=`${CMD_BASE} -sN -e "SELECT id FROM ${TABLE_NAME} WHERE lote = '"${LOT_NUM}"';"`
+	
+	SCREEN_ID=`${CMD_BASE} -sN -e "SELECT id FROM ${TABLE_SCREEN} WHERE nome = '"${SCREEN_NAME}"';"`
+	
+	echo "TABLE: ${TABLE_NAME}"
+	echo "LOT: ${LOT_NUM}"
+	echo "ID: ${LOT_ID}"
+	echo "SCREEN: ${SCREEN_NAME}"
+	echo "SCREEN_ID: ${SCREEN_ID}"
+	
+	check_screen "${SCREEN_ID}"
+	
+	show_lot_screen "Old"
+	
+	echo -e "\nUpdating Screen ${SCREEN_NAME} for ${LOT_NUM} on ${TABLE_NAME}"
+	${CMD_BASE} -e "UPDATE ${TABLE_NAME} SET peneira_id = '"${SCREEN_ID}"' WHERE id = '"${LOT_ID}"';"
+	
+	show_lot_screen "New"
+	
+}
+
+show_lot_screen()
+{
+
+	echo -e "\nShowing ${1} Screen:"
+	${CMD_BASE} -sN -e "SELECT id, lote, peneira_id FROM ${TABLE_NAME} WHERE id = '"${LOT_ID}"';"
+
 }

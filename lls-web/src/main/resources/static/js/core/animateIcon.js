@@ -6,37 +6,44 @@
  * ========================================================= */
 
 function animateIcon({
-	id = id,
-	iconButton = iconButton,
-	isAnimateIcon = isAnimateIcon
+	animation = '' ,
+	iconButton = '',
+	iconAnimation = '',
+	imageButtonID = '',
+	isAnimate = false
 } = {}) {
 	
-	var animation = ['fa-spin', 'fa-spin-pulse'];
+	var animationArray = ['fa-spin', 'fa-spin-pulse'];
 	
-	var icon = ['fa-spinner', 'fa-circle-notch', 'fa-gear', 'fa-rotate', 'fa-fan'];
+	var iconArray = ['fa-spinner', 'fa-circle-notch', 'fa-gear', 'fa-rotate', 'fa-fan'];
 	
-	if (isAnimateIcon) {
+	if (isAnimate) {
 		
 		var animationNumber = 0 + Math.floor(Math.random() * 2);
 		
 		var iconNumber = 0 + Math.floor(Math.random() * 5);
 		
-		data["animation"] = animation[animationNumber];
-		data["iconAnimation"] = icon[iconNumber];
+		animation = animationArray[animationNumber];
+		iconAnimation = iconArray[iconNumber];
 		
-		$("#imageButton" + id)
+		$("#" + imageButtonID)
 			.removeClass(iconButton)
-			.addClass(data.iconAnimation)
-			.addClass(data.animation);
+			.addClass(iconAnimation)
+			.addClass(animation);
 			
 	}
 	else {
 
-		$("#imageButton" + id)
-			.removeClass(data.iconAnimation)
-			.removeClass(data.animation)
+		$("#" + imageButtonID)
+			.removeClass(iconAnimation)
+			.removeClass(animation)
 			.addClass(iconButton);
 			
 	}
+	
+	return {
+		animation: animation,
+		iconAnimation: iconAnimation
+	};
 	
 }

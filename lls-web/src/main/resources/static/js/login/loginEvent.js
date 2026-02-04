@@ -16,17 +16,23 @@ function loginEvent({
 		
 		event.preventDefault();
 		
-		ajaxMethod({
-			id: id,
-			url: 'efetuaLogin',
-			iconButton: iconButton,
+		var imageButtonID = "imagemButton" + id;
+		
+		var data = {
 			email: $('#inputEmail' + id).val(),
-			senha: $('#inputPassword' + id).val()
-		});
+			password: $('#inputPassword' + id).val()
+		}
+		
+		const status = ajaxMethod({
+							id: id,
+							url: 'efetuaLogin',
+							data: data,
+							iconButton: iconButton
+						});
 		
 		$("#inputPassword" + id).val('');
 		
-		if (data.status == "200") {
+		if (status == "200") {
 			
 			window.location.href = 'index';
 			

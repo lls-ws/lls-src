@@ -6,18 +6,15 @@
  * ========================================================= */
 
 function alertMessage({
-	id = id,
-	mensagem = mensagem,
-	iconButton = iconButton,
-	isAnimateIcon = isAnimateIcon
+	mensagem = '',
+	animation = '',
+	iconButton = '',
+	iconAnimation = '',
+	imageButtonID = '',
+	isAnimate = false
 } = {}) {
 	
-	if (isAnimateIcon) {
-		
-		animateIcon(data);
-		
-	}
-	else {
+	if (!isAnimate) {
 		
 		$("#alertMessageText").append(mensagem);
 		
@@ -25,12 +22,23 @@ function alertMessage({
 			
 			$(this).alert('close');
 			
-			animateIcon(data);
-			
-			$('#button' + id).prop('disabled', false);
+			$('#button' + id).prop('disabled', isAnimate);
 			
 		});
 		
 	}
+	
+	const { animation, iconAnimation } = animateIcon({
+												animation: animation,
+												isAnimate: isAnimate,
+												iconButton: iconButton,
+												iconAnimation: iconAnimation,
+												imageButtonID: imageButtonID
+											});
+	
+	return {
+		animation: animation,
+		iconAnimation: iconAnimation
+	};
 	
 }

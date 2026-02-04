@@ -87,14 +87,20 @@ case $1 in
 	lotdate)
 		update_lot_date "$2" "$3"
 		;;
+	lotscreen)
+		update_lot_screen "$2" "$3"
+		;;
     balance)
 		balance_update
 		;;
     lot)
 		search_lot "$2"
 		;;
+	screens)
+		show_screens
+		;;
 	*)
-		echo "Use: $0 [guide_set|get_db|user|lotdate|balance|lot]"
+		echo "Use: $0 [guide_set|get_db|user|lotdate|lotscreen|balance|lot|screens]"
 		exit 1;
 		;;
 esac
