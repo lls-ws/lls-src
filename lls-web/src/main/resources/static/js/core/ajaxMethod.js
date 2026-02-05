@@ -6,19 +6,20 @@
  * ========================================================= */
 
 function ajaxMethod({
+	id = '',
 	url = '',
 	data = '',
-	iconButton = '',
-	imageButtonID = ''
+	iconButton = ''
 } = {}) {
 	
-	var status = 0;
+	var status = '';
+	var message = '';
 	
-	const { animation, iconAnimation } = alertMessage({
-											isAnimate: true,
-											iconButton: iconButton,
-											imageButtonID: imageButtonID
-										});
+	let alertAnimation = alertMessage({
+							id: id,
+							isAnimate: true,
+							iconButton: iconButton
+						});
 	
 	$.ajaxSettings.mimeType="*/*; charset=iso-8859-1";
 	
@@ -27,8 +28,7 @@ function ajaxMethod({
 		url: url,
 		contentType: "application/x-www-form-urlencoded;charset=iso-8859-1",
 		dataType: "json",
-		data : data,
-		async: false,
+		data : JSON.stringify(data),
 		timeout: 2000,
 		beforeSend : function(xhr) {
 			xhr.setRequestHeader('Accept', "text/html; charset=iso-8859-1");
@@ -37,29 +37,27 @@ function ajaxMethod({
 			
 			status = result.status;
 			
-			if (status != "200") {
-				
-				alertMessage({
-					isAnimate = false,
-					animation: animation,
-					iconButton: iconButton,
-					iconAnimation: iconAnimation,
-					imageButtonID: imageButtonID,
-					mensagem: decodeURIComponent(unescape(result.mensagem))
-				});
-				
-			}
+			message = decodeURIComponent(unescape(result.message));
 			
 		},
 		error: function(jqXHR, textStatus, errorThrown) {
 			
-			data["status"] = textStatus;
-			data["mensagem"] = jqXHR + textStatus + errorThrown;
+			status = textStatus;
 			
-			alertMessage(data, false);
+			message = decodeURIComponent(unescape(jqXHR + errorThrown));
 			
 		}
  
+	});
+	
+	alertMessage({
+		id: id,
+		status: status,
+		message: message,
+		isAnimate: false,
+		iconButton: iconButton,
+		animation: alertAnimation.animation,
+		iconAnimation: alertAnimation.iconAnimation
 	});
 	
 	return status;

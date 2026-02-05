@@ -1,8 +1,11 @@
 <th:block th:fragment="title">
-	<meta name="author" content="Leandro Luiz">
+	<meta name="author" th:content="${@environment.getProperty('app.author')}">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-	<meta name="description" content="Controle de Armazém">
+	<meta name="description" th:content="#{'app.description'}">
 
-	<title id="projectTitle" >LLS Tecnologia</title>
+	<title th:text="#{'app.title'}"></title>
+	
+	<link th:href="${@environment.getProperty('app.logo')}"
+		  rel="icon" sizes="any">
 </th:block>

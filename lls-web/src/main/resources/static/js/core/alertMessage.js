@@ -6,21 +6,32 @@
  * ========================================================= */
 
 function alertMessage({
-	mensagem = '',
+	id = '',
+	status = '',
+	message = '',
 	animation = '',
 	iconButton = '',
 	iconAnimation = '',
-	imageButtonID = '',
 	isAnimate = false
 } = {}) {
 	
 	if (!isAnimate) {
 		
-		$("#alertMessageText").append(mensagem);
+		const alertType = 'alert-danger';
+		
+		if (status == '200') alertType = 'alert-success';
+		
+		$("#alertMessageText").append(message);
+		
+		//$("#alertMessage").remove(".alert").append(alertDiv);
+		$("#alertMessage")
+			.remove(".alert")
+			.addClass(alertType)
+			.show();
 		
 		$(".alert").delay(2000).slideUp(200, function() {
 			
-			$(this).alert('close');
+			//$(this).alert('close');
 			
 			$('#button' + id).prop('disabled', isAnimate);
 			
@@ -28,17 +39,17 @@ function alertMessage({
 		
 	}
 	
-	const { animation, iconAnimation } = animateIcon({
-												animation: animation,
-												isAnimate: isAnimate,
-												iconButton: iconButton,
-												iconAnimation: iconAnimation,
-												imageButtonID: imageButtonID
-											});
+	let alertAnimation = animateIcon({
+							id: id,
+							animation: animation,
+							isAnimate: isAnimate,
+							iconButton: iconButton,
+							iconAnimation: iconAnimation
+						});
 	
 	return {
-		animation: animation,
-		iconAnimation: iconAnimation
+		animation: alertAnimation.animation,
+		iconAnimation: alertAnimation.iconAnimation
 	};
 	
 }

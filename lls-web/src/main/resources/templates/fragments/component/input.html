@@ -2,18 +2,18 @@
 
 	<div class="input-group mb-3">
 	  
-		<div class="form-floating">
+		<div class="form-floating" th:with="default=#{'input.text'}">
 		  
 			<input th:type="${type}"
 				   th:id="'input' + ${id ?: 'Text'}"
 			       th:maxlength="${maxlength ?: 50}"
 			       th:minlength="${minlength ?: null}"
-			       th:placeholder="${placeholder ?: 'Text'}"
+			       th:placeholder="${placeholder ?: default}"
 			       th:class="${inputClass ?: 'form-control'}"
 			       th:attr="required=${required} ? 'required' : null">
 		  
 			<label th:for="'input' + ${id ?: 'Text'}" 
-			       th:text="${label ?: 'Text'}">
+			       th:text="${label ?: default}">
 			</label>
 		  
 		</div>

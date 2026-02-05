@@ -6,18 +6,11 @@
  * ========================================================= */
 
 function loginForm({
-	id = id,
+	id = '',
 	iconButton = 'fa-right-to-bracket'
 } = {}) {
     
     $("#image" + id)
-		.attr({
-			alt: '',
-			width: '90',
-			height: '90',
-			className: 'mb-4',
-			src: '//lls-ws.github.io/imagens/logo.png'
-		})
 		.hover(function(){
 			$(this).addClass("fa-flip");
 		}, function() {
@@ -25,8 +18,6 @@ function loginForm({
 		});
     
     $("#title" + id)
-		.addClass("h3 mb-3 fw-normal")
-		.text($("#projectTitle").text())
 		.hover(function(){
 			$(this).addClass("fa-bounce");
 		}, function() {
@@ -46,17 +37,14 @@ function loginForm({
 		.addClass("fa-solid fa-lg " + iconButton)
 		.before(id + ' ');
 		
-	$("#passwordForgot" + id)
-		.addClass("d-flex justify-content-center");
-	
-	$("#passwordForgot" + id+ " a")
-		.append("Esqueci minha senha")
-		.attr('href', 'passwordForgot')
+	$("#passwordForgot" + id + " a")
 		.hover(function(){
 			$(this).addClass("fa-beat-fade");
 		}, function() {
 			$(this).removeClass("fa-beat-fade");
 		});
+    
+    $(".alert").removeClass("show");
     
 	loginEvent({
 		id: id,

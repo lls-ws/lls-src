@@ -6,27 +6,27 @@
  * ========================================================= */
 
 function animateIcon({
-	animation = '' ,
+	id = '',
+	animation = '',
 	iconButton = '',
 	iconAnimation = '',
-	imageButtonID = '',
 	isAnimate = false
 } = {}) {
 	
-	var animationArray = ['fa-spin', 'fa-spin-pulse'];
+	const animationArray = ['fa-spin', 'fa-spin-pulse'];
 	
-	var iconArray = ['fa-spinner', 'fa-circle-notch', 'fa-gear', 'fa-rotate', 'fa-fan'];
+	const iconArray = ['fa-spinner', 'fa-circle-notch', 'fa-gear', 'fa-rotate', 'fa-fan'];
 	
 	if (isAnimate) {
 		
-		var animationNumber = 0 + Math.floor(Math.random() * 2);
+		const animationNumber = 0 + Math.floor(Math.random() * 2);
 		
-		var iconNumber = 0 + Math.floor(Math.random() * 5);
+		const iconNumber = 0 + Math.floor(Math.random() * 5);
 		
 		animation = animationArray[animationNumber];
 		iconAnimation = iconArray[iconNumber];
 		
-		$("#" + imageButtonID)
+		$("#imageButton" + id)
 			.removeClass(iconButton)
 			.addClass(iconAnimation)
 			.addClass(animation);
@@ -34,7 +34,7 @@ function animateIcon({
 	}
 	else {
 
-		$("#" + imageButtonID)
+		$("#imageButton" + id)
 			.removeClass(iconAnimation)
 			.removeClass(animation)
 			.addClass(iconButton);

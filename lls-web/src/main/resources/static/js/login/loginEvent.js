@@ -6,8 +6,8 @@
  * ========================================================= */
 
 function loginEvent({
-	id = id,
-	iconButton = iconButton
+	id = '',
+	iconButton = ''
 } = {}) {
 
 	$('#form' + id).submit(function(event) {
@@ -16,17 +16,15 @@ function loginEvent({
 		
 		event.preventDefault();
 		
-		var imageButtonID = "imagemButton" + id;
-		
-		var data = {
+		const data = {
 			email: $('#inputEmail' + id).val(),
 			password: $('#inputPassword' + id).val()
 		}
 		
 		const status = ajaxMethod({
 							id: id,
-							url: 'efetuaLogin',
 							data: data,
+							url: 'efetuaLogin',
 							iconButton: iconButton
 						});
 		
@@ -39,5 +37,5 @@ function loginEvent({
 		}
 		
 	});
-
+	
 }

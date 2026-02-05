@@ -7,21 +7,21 @@
 	<th:block th:replace="~{fragments/core/jqueryLLS :: jqueryLLS}"></th:block>
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
 
     <div th:replace="~{fragments/component/alertMessage :: alertMessage}"></div>
+	
+	<main th:with="id='Login'" class="form-signin text-center flex-shrink-0">
+		
+		<form th:id="form + ${id}" class="container">
+		
+			<div th:replace="~{fragments/login/imageLogin :: imageLogin(${id})}"></div>
 			
-	<main th:with="id='Login'" class="form-signin text-center">
-		
-		<form th:id="form + ${id}">
-		
-			<img th:id="image + ${id}">
-		
-			<h1 th:id="title + ${id}"></h1>
-		
+			<div th:replace="~{fragments/login/titleLogin :: titleLogin(${id})}"></div>
+			
 			<div th:insert="~{fragments/component/inputEmail :: inputEmail}"
 				 th:with="id=${id},required=true"></div>
-		
+			
 			<div th:insert="~{fragments/component/inputPassword :: inputPassword}"
 				 th:with="id=${id},required=true"></div>
 			
@@ -31,9 +31,7 @@
 			
 			<div class="mb-3"></div>
 			
-			<div th:id="passwordForgot + ${id}">
-				<a></a>
-			</div>
+			<div th:replace="~{fragments/login/passwordForgot :: passwordForgot(${id})}"></div>
 			
 		</form>
 	
@@ -50,6 +48,17 @@
 		</script>
 	  
 	</main>
+    
+    <!-- Links to change the locale -->
+	<footer class="mt-auto py-3 bg-dark">
+		<div class="container">
+			<span class="text-muted">
+				<a href="?lang=en">English</a>
+				<a href="?lang=pt_BR">Brasil</a>
+				<p th:text="${currentLocale}">Default Locale</p>
+			</span>
+		</div>
+	</footer>
     
 </body>
 

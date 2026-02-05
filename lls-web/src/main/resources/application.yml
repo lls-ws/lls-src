@@ -1,0 +1,24 @@
+app:
+  name: "LLS Tecnologia"
+  author: "Leandro Luiz"
+  logo: "//lls-ws.github.io/imagens/logo.png"
+
+url:
+  login:
+    checkLogin: "checkLogin"
+    passwordForgot: "passwordForgot"
+
+spring:
+  messages:
+    basename: i18n/messages
+    encoding: UTF-8
+    fallback-to-system-locale: false
+
+  # Configuration for web applications to set how the locale is resolved
+  web:
+    # Determines the default locale if none is specified by the user's request
+    locale: pt_BR
+    # Specifies the mechanism for resolving locales (e.g., fixed, cookie, session, accept-header)
+    locale-resolver: accept-header 
+  mvc:
+    locale: pt_BR
