@@ -11,11 +11,11 @@ body {
 }
 
 body {
+  width: 100%;
   display: flex;
   align-items: center;
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #f5f5f5;
 }
 
 .alert-fixed {
@@ -28,11 +28,15 @@ body {
 }
 
 .form-signin {
-  background-color: LightGray;
   width: 100%;
   max-width: 330px;
   padding: 15px;
   margin: auto;
+  border-radius: 10%;
+}
+
+.logo {
+  border-radius: 5%;
 }
 
 .form-signin .form-floating:focus-within {
@@ -40,13 +44,10 @@ body {
 }
 
 .login_btn:hover{
-  color: black;
-  background-color: green;
   transform: scale(1.1);
-  box-shadow:  20px 15px rgba(0,0,0,0.15);
 }
 
-.togglePassword:hover{
-  background-color: #0D6EFD;
+.toggle_password:hover{
   cursor: pointer;
+  transform: scale(1);
 }

@@ -7,11 +7,11 @@
 	<th:block th:replace="~{fragments/core/jqueryLLS :: jqueryLLS}"></th:block>
 </head>
 
-<body class="d-flex flex-column min-vh-100">
+<body>
 
-    <div th:replace="~{fragments/component/alertMessage :: alertMessage}"></div>
+    <div th:replace="~{fragments/core/alertMessage :: alertMessage}"></div>
 	
-	<main th:with="id='Login'" class="form-signin text-center flex-shrink-0">
+	<main th:with="id='Login'" class="form-signin text-center">
 		
 		<form th:id="form + ${id}" class="container">
 		
@@ -38,7 +38,9 @@
 		<script th:inline="javascript">
 
 			$(document).ready(function(){
-
+				
+				applyTheme(getPreferredTheme());
+				
 				loginForm({
 					id: [[${id}]]
 				});
@@ -49,16 +51,7 @@
 	  
 	</main>
     
-    <!-- Links to change the locale -->
-	<footer class="mt-auto py-3 bg-dark">
-		<div class="container">
-			<span class="text-muted">
-				<a href="?lang=en">English</a>
-				<a href="?lang=pt_BR">Brasil</a>
-				<p th:text="${currentLocale}">Default Locale</p>
-			</span>
-		</div>
-	</footer>
+    <div th:replace="~{fragments/core/footer :: footer}"></div>
     
 </body>
 

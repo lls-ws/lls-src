@@ -1,0 +1,15 @@
+<div th:fragment="locale" class="dropdown">
+  <button class="btn btn-sm btn-outline-secondary dropdown-toggle"
+		  type="button" id="langDropdown" data-bs-toggle="dropdown"
+		  aria-expanded="false">
+	<i class="fa-solid fa-language text-primary"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
+	<li><a th:href="'?lang=' + #{'locale.string'}"
+		   class="dropdown-item d-flex align-items-center">
+			<span th:class="'flag fi fi-' + #{'locale.flag'}"></span>
+			<span th:text="#{'locale.language'}" class="text-center mx-2 "></span> 
+		</a>
+	</li>
+  </ul>
+</div>

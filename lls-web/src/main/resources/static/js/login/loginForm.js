@@ -24,19 +24,24 @@ function loginForm({
 			$(this).removeClass("fa-bounce");
 		});
     
+    // Criar HTML para separar funções e Retirar daqui
 	$("#button" + id)
 		.attr('type', 'submit')
 		.addClass("w-100 btn btn-lg btn-primary login_btn")
 		.hover(function(){
+			$(this).addClass("btn-success");
 			$("#imageButton" + id).addClass("fa-beat-fade");
+			
 		}, function() {
 			$("#imageButton" + id).removeClass("fa-beat-fade");
+			$(this).removeClass("btn-success");
 		});
 	
+	// Criar HTML para separar funções e Retirar daqui
 	$("#imageButton" + id)
 		.addClass("fa-solid fa-lg " + iconButton)
 		.before(id + ' ');
-		
+	
 	$("#passwordForgot" + id + " a")
 		.hover(function(){
 			$(this).addClass("fa-beat-fade");

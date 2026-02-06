@@ -1,6 +1,15 @@
 app:
   name: "LLS Tecnologia"
   author: "Leandro Luiz"
+  version:
+    # Current
+    jquery: "3.7.1"
+    # Old 5.3.2
+    bootstrap: "5.3.8"
+    # Old 6.4.2
+    fontawesome: "7.0.1"
+    # Current
+    flagicons: "7.5.0"
   logo: "//lls-ws.github.io/imagens/logo.png"
 
 url:
@@ -19,6 +28,7 @@ spring:
     # Determines the default locale if none is specified by the user's request
     locale: pt_BR
     # Specifies the mechanism for resolving locales (e.g., fixed, cookie, session, accept-header)
-    locale-resolver: accept-header 
+    locale-resolver: accept-header
   mvc:
     locale: pt_BR
+    locale-resolver: fixed

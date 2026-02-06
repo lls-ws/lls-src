@@ -2,7 +2,7 @@
 	 th:insert="~{fragments/component/input :: input}"
 	 th:with="type='email',
 			  required=${required},
-			  icon='fas fa-envelope',
+			  iconClass='fas fa-envelope',
 			  id=${id != null ? #strings.capitalize(type) + id :
 				#strings.capitalize(type)},
 			  label=${label != null ? #strings.capitalize(type) + ' ' + label :

@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Locale;
+import java.time.Year;
 
 @Controller
 public class WebController {
@@ -18,7 +19,9 @@ public class WebController {
 	
 	@GetMapping("/login")
 	public String greeting(Model model, Locale locale) {
-		model.addAttribute("currentLocale", locale);
+		int currentYear = Year.now().getValue();
+        model.addAttribute("currentYear", currentYear);
+        model.addAttribute("currentLocale", locale);
 		return "login";
 	}
 
