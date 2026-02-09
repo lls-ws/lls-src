@@ -1,0 +1,11 @@
+<button th:fragment="button"
+		th:id="'button' + ${id ?: ''}"
+		th:type="${type ?: 'button'}"
+		th:class="${buttonClass ?: 'btn btn-primary'}">
+		
+	<span th:text="${text ?: ''}"></span>
+		
+	<i th:id="imageButton + ${id ?: ''}"
+	   th:class="${iconClass ?: 'fas fa-check'}"></i>
+	   
+</button>

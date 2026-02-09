@@ -1,0 +1,8 @@
+<div th:fragment="buttonLogin"
+	 th:insert="~{fragments/component/button :: button}"
+	 th:with="type='submit',
+			  id=${#strings.capitalize(id)},
+			  text=${id} + ' ',
+			  buttonClass='w-100 btn btn-lg btn-primary login_btn',
+			  iconClass='fa-solid fa-lg ' + ${iconButton}">
+</div>

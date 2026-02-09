@@ -11,7 +11,8 @@
 
     <div th:replace="~{fragments/core/alertMessage :: alertMessage}"></div>
 	
-	<main th:with="id='Login'" class="form-signin text-center">
+	<main th:with="id='Login', url=${@environment.getProperty('url.login.checkLogin')}"
+		  class="form-signin text-center">
 		
 		<form th:id="form + ${id}" class="container">
 		
@@ -25,9 +26,8 @@
 			<div th:insert="~{fragments/component/inputPassword :: inputPassword}"
 				 th:with="id=${id},required=true"></div>
 			
-			<button th:id="button + ${id}">
-				<i th:id="imageButton + ${id}"></i>
-			</button>
+			<div th:insert="~{fragments/login/buttonLogin :: buttonLogin}"
+				 th:with="id=${id},iconButton='fa-right-to-bracket'"></div>
 			
 			<div class="mb-3"></div>
 			
@@ -42,7 +42,9 @@
 				applyTheme(getPreferredTheme());
 				
 				loginForm({
-					id: [[${id}]]
+					id: [[${id}]],
+					url: [[${url}]],
+					iconButton: [[${iconButton}]]
 				});
 				
 			});

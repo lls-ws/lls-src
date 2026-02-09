@@ -7,6 +7,7 @@
 
 function loginEvent({
 	id = '',
+	url= '',
 	iconButton = ''
 } = {}) {
 
@@ -24,15 +25,15 @@ function loginEvent({
 		const status = ajaxMethod({
 							id: id,
 							data: data,
-							url: 'efetuaLogin',
+							url: url,
 							iconButton: iconButton
 						});
 		
-		$("#inputPassword" + id).val('');
-		
 		if (status == "200") {
 			
-			window.location.href = 'index';
+			$("#inputPassword" + id).val('');
+			
+			//window.location.href = 'greeting';
 			
 		}
 		

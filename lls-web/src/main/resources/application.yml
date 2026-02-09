@@ -16,6 +16,7 @@ url:
   login:
     checkLogin: "checkLogin"
     passwordForgot: "passwordForgot"
+  home: "home"
 
 spring:
   messages:
