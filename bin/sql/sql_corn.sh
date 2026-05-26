@@ -91,7 +91,7 @@ update_laudo_destiny()
 	
 	if [ -z "$3" ]; then
 	
-		TABLE_NAME="Entmilho"
+		TABLE_NAME="Saimilho"
 		
 	else
 	
