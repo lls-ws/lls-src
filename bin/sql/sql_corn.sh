@@ -81,7 +81,7 @@ update_laudo_destiny()
 	
 	if [ -z "$2" ]; then
 	
-		DESTINY="Transferência"
+		DESTINY="Transferencia"
 		
 	else
 	
