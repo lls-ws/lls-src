@@ -73,3 +73,45 @@ update_laudo_date()
 	${CMD_BASE} -sN -e "SELECT id, laudo, data FROM ${TABLE_NAME} WHERE id = '"${LAUDO_ID}"';"
 	
 }
+
+update_laudo_destiny()
+{
+	
+	check_laudo "$1"
+	
+	if [ -z "$2" ]; then
+	
+		DESTINY="Transferência"
+		
+	else
+	
+		DESTINY="$2"
+	
+	fi
+	
+	if [ -z "$3" ]; then
+	
+		TABLE_NAME="Entmilho"
+		
+	else
+	
+		TABLE_NAME="$3"
+	
+	fi
+	
+	LAUDO_ID=`${CMD_BASE} -sN -e "SELECT id FROM ${TABLE_NAME} WHERE laudo = '"${LAUDO_NUM}"';"`
+	
+	echo "TABLE: ${TABLE_NAME}"
+	echo "LAUDO: ${LAUDO_NUM}"
+	echo "ID: ${LAUDO_ID}"
+	
+	echo -e "\nShowing old destiny:"
+	${CMD_BASE} -sN -e "SELECT id, laudo, destino FROM ${TABLE_NAME} WHERE id = '"${LAUDO_ID}"';"
+	
+	echo -e "\nUpdating Destiny for ${LOT_NUM} on ${TABLE_NAME}"
+	${CMD_BASE} -e "UPDATE ${TABLE_NAME} SET destino = '"${DESTINY}"' WHERE id = '"${LAUDO_ID}"';"
+	
+	echo -e "\nShowing new destiny:"
+	${CMD_BASE} -sN -e "SELECT id, laudo, destino FROM ${TABLE_NAME} WHERE id = '"${LAUDO_ID}"';"
+	
+}

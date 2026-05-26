@@ -68,6 +68,15 @@ show_table()
 	
 }
 
+describe_table()
+{
+	
+	TABLE_DB="$1"
+	
+	${CMD_BASE} -e "DESCRIBE ${TABLE_DB}"
+	
+}
+
 if [ ! -L ${LLS_WS} ]; then
 	
 	su ${USER} -c "ln -sfv ${DIR_TOMCAT} ${LLS_WS}; ls -al ${LLS_WS}"
@@ -96,14 +105,20 @@ case $1 in
 	laudodate)
 		update_laudo_date "$2" "$3"
 		;;
-    lot)
+    laudodestiny)
+		update_laudo_destiny "$2" "$3" "$4"
+		;;
+	lot)
 		search_lot "$2"
+		;;
+	describe)
+		describe_table "$2"
 		;;
 	screens)
 		show_screens
 		;;
 	*)
-		echo "Use: $0 [guide_set|get_db|user|lotdate|lotscreen|balance|lot|screens|laudodate]"
+		echo "Use: $0 [guide_set|get_db|user|lotdate|lotscreen|balance|lot|screens|laudodate|laudodestiny|describe]"
 		exit 1;
 		;;
 esac
