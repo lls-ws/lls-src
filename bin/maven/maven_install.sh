@@ -17,6 +17,8 @@ jdk_install()
 jdk_version()
 {
 	
+	source /etc/environment
+	
 	echo "Showing Java JDK Version:"
 	javac -version
 	
