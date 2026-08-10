@@ -76,7 +76,7 @@ update_lot_date()
 		
 	else
 	
-		TABLE_NAME="OS"${TABLE_NAME}
+		TABLE_NAME="Os"${TABLE_NAME}
 	
 	fi
 	
