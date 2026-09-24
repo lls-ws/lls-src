@@ -1,14 +1,15 @@
 <th:block th:fragment="bootstrap">
+                    
 	<!--Bootstrap CDN-->
-	<link th:href="'//cdn.jsdelivr.net/npm/bootstrap@' + ${@environment.getProperty('app.version.bootstrap')} + '/dist/css/bootstrap.min.css'" rel="stylesheet"/>
-	<script th:src="'//cdn.jsdelivr.net/npm/bootstrap@' + ${@environment.getProperty('app.version.bootstrap')} + '/dist/js/bootstrap.bundle.min.js'"></script>
+	<link th:href="'//cdn.jsdelivr.net/npm/bootstrap@' + ${bootstrapVersion} + '/dist/css/bootstrap.min.css'" rel="stylesheet"/>
+	<script th:src="'//cdn.jsdelivr.net/npm/bootstrap@' + ${bootstrapVersion} + '/dist/js/bootstrap.bundle.min.js'"></script>
 
 	<!--Fontawesome CDN-->
-	<link th:href="'//cdnjs.cloudflare.com/ajax/libs/font-awesome/' + ${@environment.getProperty('app.version.fontawesome')} + '/css/all.min.css'" rel="stylesheet"/>
+	<link th:href="'//cdnjs.cloudflare.com/ajax/libs/font-awesome/' + ${fontawesomeVersion} + '/css/all.min.css'" rel="stylesheet"/>
 
 	<!--Flag Icons CDN-->
-	<link th:href="'//cdnjs.cloudflare.com/ajax/libs/flag-icons/' + ${@environment.getProperty('app.version.flagicons')} + '/css/flag-icons.min.css'" rel="stylesheet"/>
+	<link th:href="'//cdnjs.cloudflare.com/ajax/libs/flag-icons/' + ${flagiconsVersion} + '/css/flag-icons.min.css'" rel="stylesheet"/>
 	
 	<!--jQuery CDN-->
-	<script th:src="'//code.jquery.com/jquery-' + ${@environment.getProperty('app.version.jquery')} + '.min.js'" type="text/javascript"></script>
+	<script th:src="'//code.jquery.com/jquery-' + ${jqueryVersion} + '.min.js'" type="text/javascript"></script>
 </th:block>

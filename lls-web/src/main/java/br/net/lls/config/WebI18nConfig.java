@@ -1,4 +1,4 @@
-package br.net.lls.web;
+package br.net.lls.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

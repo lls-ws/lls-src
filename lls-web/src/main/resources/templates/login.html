@@ -11,10 +11,10 @@
 
     <div th:replace="~{fragments/core/alertMessage :: alertMessage}"></div>
 	
-	<main th:with="id='Login', url=${@environment.getProperty('url.login.checkLogin')}"
-		  class="form-signin text-center">
+	<main th:with="id=Login" class="form-signin text-center">
 		
-		<form th:id="form + ${id}" class="container">
+		<form th:id="form + ${id}" class="container"
+			  th:action="@{/login}" method="post">
 		
 			<div th:replace="~{fragments/login/imageLogin :: imageLogin(${id})}"></div>
 			

@@ -5,6 +5,7 @@
 		<div class="form-floating" th:with="default=#{'input.text'}">
 		  
 			<input th:type="${type}"
+				   th:name="${type}"
 				   th:id="'input' + ${id ?: 'Text'}"
 			       th:maxlength="${maxlength ?: 50}"
 			       th:minlength="${minlength ?: null}"

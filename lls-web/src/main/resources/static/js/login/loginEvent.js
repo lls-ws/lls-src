@@ -7,11 +7,21 @@
 
 function loginEvent({
 	id = '',
-	url= '',
+	url = '',
 	iconButton = ''
 } = {}) {
 
+	console.log("loginEvent");
+	
 	$('#form' + id).submit(function(event) {
+		
+		console.log('#form' + id);
+		
+		//let alertAnimation = alertMessage({
+		//						id: id,
+		//						isAnimate: true,
+		//						iconButton: iconButton
+		//					});
 		
 		$("#button" + id).prop('disabled', true);
 		
@@ -22,10 +32,12 @@ function loginEvent({
 			password: $('#inputPassword' + id).val()
 		}
 		
+		console.log(data);
+		
 		const status = ajaxMethod({
 							id: id,
-							data: data,
 							url: url,
+							data: data,
 							iconButton: iconButton
 						});
 		
@@ -33,7 +45,7 @@ function loginEvent({
 			
 			$("#inputPassword" + id).val('');
 			
-			//window.location.href = 'greeting';
+			window.location.href = 'greeting';
 			
 		}
 		

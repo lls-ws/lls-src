@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" 
+      xmlns:sec="http://thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Painel do Sistema</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f6f9; }
+        .navbar { background-color: #1e293b; color: white; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; }
+        .navbar .user-name { font-weight: 600; color: #38bdf8; }
+        .container { max-width: 800px; margin: 40px auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        
+        /* Estilos dos botões */
+        .btn { padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 14px; text-decoration: none; display: inline-block; margin-right: 10px; }
+        .btn-primary { background-color: #3b82f6; color: white; }
+        .btn-danger { background-color: #ef4444; color: white; }
+        .btn-warning { background-color: #f59e0b; color: white; }
+        
+        .admin-section { background-color: #fef3c7; border: 1px solid #f59e0b; padding: 20px; border-radius: 6px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+<!-- BARRA DE NAVEGAÇÃO -->
+<nav class="navbar">
+    <div style="font-size: 20px; font-weight: bold;">Meu Sistema</div>
+    <div>
+        <span>Bem-vindo, <span class="navbar-user" sec:authentication="principal.name">Usuário</span>!</span>
+    </div>
+</nav>
+
+<!-- CONTEÚDO PRINCIPAL -->
+<div class="container">
+    <h2>Painel de Controle</h2>
+    <p>Seu identificador de acesso é: <strong sec:authentication="name">usuario@email.com</strong></p>
+    
+    <div style="margin-top: 30px;">
+        <!-- BOTÃO PÚBLICO: Qualquer usuário autenticado consegue ver -->
+        <a href="/perfil" class="btn btn-primary">Meus Dados</a>
+
+        <!-- BOTÃO RESTRITO (MÉTODO 1): Escondendo um botão individual de exclusão -->
+        <button sec:authorize="hasRole('ADMIN')" class="btn btn-danger">Excluir Registro</button>
+    </div>
+
+    <!-- BLOCO RESTRITO (MÉTODO 2): Escondendo uma seção inteira com múltiplos botões -->
+    <div class="admin-section" sec:authorize="hasRole('ADMIN')">
+        <h3 style="margin-top: 0; color: #92400e;">Painel de Administração</h3>
+        <p>As ferramentas abaixo são exclusivas para gerenciamento de infraestrutura e usuários.</p>
+        
+        <a href="/admin/usuarios" class="btn btn-warning">Gerenciar Usuários</a>
+        <a href="/admin/configuracoes" class="btn btn-warning">Configurações do Sistema</a>
+    </div>
+
+    <hr style="margin: 30px 0; border: 0; border-top: 1px solid #e2e8f0;"/>
+
+    <!-- Formulário de Logout -->
+    <form th:action="@{/logout}" method="post">
+        <button type="submit" class="btn btn-danger" style="background-color: #64748b;">Encerrar Sessão</button>
+    </form>
+</div>
+
+</body>
+</html>

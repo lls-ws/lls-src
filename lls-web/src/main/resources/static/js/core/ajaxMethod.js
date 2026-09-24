@@ -12,6 +12,8 @@ function ajaxMethod({
 	iconButton = ''
 } = {}) {
 	
+	console.log("ajaxMethod");
+	
 	var status = '';
 	var message = '';
 	

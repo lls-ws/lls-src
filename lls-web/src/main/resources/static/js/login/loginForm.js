@@ -7,9 +7,11 @@
 
 function loginForm({
 	id = '',
-	url= '',
+	url = '',
 	iconButton = ''
 } = {}) {
+    
+    console.log("loginForm");
     
     $("#image" + id)
 		.hover(function(){
@@ -42,11 +44,12 @@ function loginForm({
 			$(this).removeClass("fa-beat-fade");
 		});
     
-    $(".alert").removeClass("show");
+    //$(".alert").removeClass("show");
     
-	loginEvent({
-		id: id,
-		iconButton: iconButton
-	});
+	//loginEvent({
+	//	id: id,
+	//	url: url,
+	//	iconButton: iconButton
+	//});
 	
 }

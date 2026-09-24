@@ -30,6 +30,13 @@ spring_clean()
 	
 }
 
+spring_remove()
+{
+	
+	maven_repository_remove
+	
+}
+
 case "$1" in
 	run)
 		spring_run
@@ -37,7 +44,9 @@ case "$1" in
 	clean)
 		spring_clean
 		;;
-	
+	remove)
+		spring_remove
+		;;
 	*)
 		echo "Use: $0 {run|clean}"
 		exit 1

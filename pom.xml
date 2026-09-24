@@ -15,7 +15,9 @@
   <packaging>pom</packaging>
 
   <modules>
+    <!--
     <module>lls-core</module>
+    -->
     <module>lls-web</module>
   </modules>
   

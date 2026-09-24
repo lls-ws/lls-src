@@ -2,19 +2,19 @@ app:
   name: "LLS Tecnologia"
   author: "Leandro Luiz"
   version:
-    # Current
-    jquery: "3.7.1"
+    # Old 3.7.1
+    jquery: "4.0.0"
     # Old 5.3.2
     bootstrap: "5.3.8"
-    # Old 6.4.2
-    fontawesome: "7.0.1"
+    # Old 7.0.1
+    fontawesome: "7.3.1"
     # Current
     flagicons: "7.5.0"
   logo: "//lls-ws.github.io/imagens/logo.png"
 
 url:
   login:
-    checkLogin: "checkLogin"
+    checkLogin: "efetuaLogin"
     passwordForgot: "passwordForgot"
   home: "home"
 
@@ -33,3 +33,41 @@ spring:
   mvc:
     locale: pt_BR
     locale-resolver: fixed
+  
+  # Configuração do Banco de Dados MariaDB
+  datasource:
+    url: jdbc:mariadb://localhost:3306/db_lls?createDatabaseIfNotExist=true&serverTimezone=UTC&useSSL=false
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: admin
+    # Procura a variável DB_PASSWORD. Se não existir, usa '123456' como fallback.
+    password: "${DB_PASSWORD:123456}"
+
+  # CONFIGURAÇÃO DO POOL (HIKARICP)
+    hikari:
+      # Número máximo de conexões que o pool manterá abertas
+      maximum-pool-size: 10
+      # Número mínimo de conexões ociosas que o Hikari manterá ativas
+      minimum-idle: 5
+      # Tempo máximo (em milissegundos) que a aplicação espera por uma conexão antes de dar timeout
+      connection-timeout: 30000
+      # Tempo máximo que uma conexão pode ficar ociosa no pool antes de ser fechada (10 minutos)
+      idle-timeout: 600000
+      # Tempo máximo de vida de uma conexão no pool (30 minutos)
+      max-lifetime: 1800000
+      # Nome do pool (ajuda a identificar nos logs)
+      pool-name: HikariPoolMariaDB
+  
+  jpa:
+    # Desativa o padrão e elimina o aviso do log
+    open-in-view: false
+    hibernate:
+      # Analisa as entidades Java e CRIA as tabelas automaticamente no MySQL
+      # Use "update" para desenvolvimento ou "none"/"validate" para produção
+      ddl-auto: update
+    properties:
+      hibernate:
+        show-sql: true
+        format_sql: true
+        # Se mesmo com o driver correto um aviso de metadados persistir na inicialização,
+        # você pode descomentar a linha abaixo para desativar a validação secundária:
+        # temp.use_jdbc_metadata_defaults: false

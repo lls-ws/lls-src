@@ -170,7 +170,7 @@ maven_repository_remove()
 	du -hsc ~/${DIR_MAVEN}/*
 	
 	echo "Removing Local Repository..."
-	rm -rf ~/${DIR_REPO}
+	rm -rf ~/${DIR_MAVEN}
 	
 	ls -alh ~/${DIR_MAVEN}
 	
