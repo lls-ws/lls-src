@@ -7,7 +7,6 @@
 
 function loginForm({
 	id = '',
-	url = '',
 	iconButton = ''
 } = {}) {
     
@@ -41,5 +40,10 @@ function loginForm({
 		}, function() {
 			$(this).removeClass("fa-beat-fade");
 		});
+	
+	loginEvent({
+		id: id,
+		iconButton: iconButton
+	});
 	
 }

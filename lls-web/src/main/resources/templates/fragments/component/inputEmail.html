@@ -1,6 +1,8 @@
 <div th:fragment="inputEmail"
 	 th:insert="~{fragments/component/input :: input}"
 	 th:with="type='email',
+			  name='email',
+			  autocomplete='email',
 			  required=${required},
 			  iconClass='fas fa-envelope',
 			  id=${id != null ? #strings.capitalize(type) + id :

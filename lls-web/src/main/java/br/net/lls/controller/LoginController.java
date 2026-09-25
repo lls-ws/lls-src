@@ -1,5 +1,8 @@
 package br.net.lls.controller;
 
+import jakarta.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,27 +15,36 @@ import java.util.Locale;
 import java.time.Year;
 
 @Controller
-public class WebController {
+public class LoginController {
 
+	// Injeta o MessageSource para gerenciar as mensagens traduzidas
+    @Autowired
+    private MessageSource messageSource;
+	
 	@GetMapping("/login")
-	public String loginPage(Model model, Locale locale) {
+	public String login(
+			@RequestParam(value = "error", required = false) String error, // Captura o ?error da URL
+			HttpSession session, 
+			Model model, 
+			Locale locale) {
 		
 		int currentYear = Year.now().getValue();
 		
         model.addAttribute("currentYear", currentYear);
         model.addAttribute("currentLocale", locale);
+        
+        // Se o parâmetro error estiver presente na URL, adiciona a mensagem
+		if (error != null) {
+			// "login.error.invalid" é a chave que criaremos nos arquivos .properties
+            String translatedMessage = messageSource.getMessage("login.error.invalid", null, locale);
+            model.addAttribute("alertMessage", translatedMessage);
+		}
 		
 		if (isAuthenticated()) {
             return "redirect:/home";
         }
         return "login"; // Retorna o template login.html se não estiver logado
 		
-	}
-	
-	@GetMapping("/home")
-	public String homePage(@RequestParam(name="name", required=false, defaultValue="LLS") String name, Model model) {
-		model.addAttribute("name", name);
-		return "home";
 	}
 	
 	@GetMapping("/")

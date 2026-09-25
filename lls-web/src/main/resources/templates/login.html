@@ -9,7 +9,7 @@
 
 <body>
 
-    <div th:replace="~{fragments/core/alertMessage :: alertMessage}"></div>
+	<div th:replace="~{fragments/core/alertMessage :: alertMessage}"></div>
 	
 	<main th:with="id=Login" class="form-signin text-center">
 		
@@ -24,7 +24,7 @@
 				 th:with="id=${id},required=true"></div>
 			
 			<div th:insert="~{fragments/component/inputPassword :: inputPassword}"
-				 th:with="id=${id},required=true"></div>
+				 th:with="id=${id},required=true,name=password,autocomplete=current-password"></div>
 			
 			<div th:insert="~{fragments/login/buttonLogin :: buttonLogin}"
 				 th:with="id=${id},iconButton='fa-right-to-bracket'"></div>
@@ -43,7 +43,6 @@
 				
 				loginForm({
 					id: [[${id}]],
-					url: [[${url}]],
 					iconButton: [[${iconButton}]]
 				});
 				

@@ -1,20 +1,17 @@
-<div th:fragment="alertMessage" id="alertMessage" class="alert-fixed">
+<div th:fragment="alertMessage" class="alert-fixed">
 
-	<div role="alert" class="auto-close alert alert-danger alert-dismissible fade">
+	<div id="alertMessage" role="alert" style="display: none;"
+	     class="auto-close alert alert-danger alert-dismissible fade show">
 		
-		<div id="alertMessageText" class="text-center text-break fs-6 position-relative">
+		<div class="text-center text-break fs-6 d-flex align-items-center justify-content-center gap-2">
 		
-			<div class="position-absolute top-0 start-0">
+			<i class="fa-solid fa-ban fa-beat-fade fa-xl"></i>
+			<span th:text="${alertMessage}" id="alertMessageText"></span>
 
-				<span class="fa-solid fa-ban fa-beat-fade fa-xl"></span>
-
-			</div>
-		
 		</div>
 		
 		<button type="button" class="btn-close btn-lg"
-				data-bs-dismiss="alert" aria-label="Close">
-		</button>
+				data-bs-dismiss="alert" aria-label="Close"></button>
 		
 	</div>
 

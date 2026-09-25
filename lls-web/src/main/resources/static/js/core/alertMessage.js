@@ -17,23 +17,28 @@ function alertMessage({
 	
 	if (!isAnimate) {
 		
-		const alertType = 'alert-danger';
-		
+		let alertType = 'alert-danger';
 		if (status == '200') alertType = 'alert-success';
 		
-		$("#alertMessageText").append(message);
-		
-		//$("#alertMessage").remove(".alert").append(alertDiv);
 		$("#alertMessage")
-			.remove(".alert")
+			.removeClass("alert-danger alert-success")
 			.addClass(alertType)
-			.show();
+			.addClass('show') 
+			.fadeIn(200); // Usar fadeIn combina melhor com a classe 'fade' do Bootstrap
 		
-		$(".alert").delay(2000).slideUp(200, function() {
+		$(".alert").delay(3000).slideUp(200, function() {
 			
-			//$(this).alert('close');
+			$(this).removeClass('show');
+			$('#button' + id).prop('disabled', false);
 			
-			$('#button' + id).prop('disabled', isAnimate);
+			// Força o ícone a resetar para o original
+			animateIcon({
+				id: id,
+				isAnimate: false,
+				iconButton: iconButton,
+				animation: animation,
+				iconAnimation: iconAnimation
+			});
 			
 		});
 		
