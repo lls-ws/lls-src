@@ -11,8 +11,6 @@ function loginForm({
 	iconButton = ''
 } = {}) {
     
-    console.log("loginForm");
-    
     $("#image" + id)
 		.hover(function(){
 			$(this).addClass("fa-flip");
@@ -43,13 +41,5 @@ function loginForm({
 		}, function() {
 			$(this).removeClass("fa-beat-fade");
 		});
-    
-    //$(".alert").removeClass("show");
-    
-	//loginEvent({
-	//	id: id,
-	//	url: url,
-	//	iconButton: iconButton
-	//});
 	
 }
