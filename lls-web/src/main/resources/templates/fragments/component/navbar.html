@@ -1,0 +1,11 @@
+<div th:fragment="navbar">
+	
+	<nav class="navbar">
+		<div style="font-size: 20px; font-weight: bold;"
+			 th:text="#{'app.description'}">Meu Sistema</div>
+		<div>
+			<span>Bem-vindo, <span class="navbar-user" sec:authentication="principal.name">Usuário</span>!</span>
+		</div>
+	</nav>
+
+</div>
